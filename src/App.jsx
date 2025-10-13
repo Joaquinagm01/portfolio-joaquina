@@ -11,8 +11,8 @@ function App() {
     <>
       <CVInfo />
       <div className="mt-8 text-center">
-        <a
-          href={process.env.PUBLIC_URL + '/CVJoaquinaGomezManna.pdf'}
+          <a
+            href="/portfolio-joaquina/CVJoaquinaGomezManna.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-lg text-pink-600 underline hover:text-pink-800"
