@@ -6,6 +6,6 @@ export default defineConfig({
   base: '/portfolio-joaquina/',
   plugins: [react()],
   build: {
-    outDir: 'docs',
+    outDir: 'dist',
   },
 })
