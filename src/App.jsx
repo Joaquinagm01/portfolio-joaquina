@@ -7,7 +7,7 @@ function App() {
       <CVInfo />
       <div className="mt-8 text-center">
           <a
-            href="/CVJoaquinaGomezManna.pdf"
+            href="/portfolio-joaquina/CVJoaquinaGomezManna.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-lg text-pink-600 underline hover:text-pink-800"

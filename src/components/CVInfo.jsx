@@ -4,7 +4,7 @@ export default function CVInfo() {
   return (
     <section className="max-w-3xl mx-auto p-6 bg-white/90 rounded-xl shadow-lg text-gray-900 mt-8">
       <div className="flex flex-col items-center mb-8">
-  <img src="/profile.jpg" alt="Foto de Joaquina Gómez Manna" className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-pink-400 shadow" />
+  <img src="/portfolio-joaquina/profile.jpg" alt="Foto de Joaquina Gómez Manna" className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-pink-400 shadow" />
         <h2 className="text-3xl font-bold text-center">🧾 Currículum Vitae — Joaquina Gómez Manna</h2>
       </div>
       <div className="mb-8">
