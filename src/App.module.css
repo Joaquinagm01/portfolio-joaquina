@@ -186,6 +186,18 @@ html {
   width: 100%;
 }
 
+/* Estado activo del navbar */
+.navLinks li a.active {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 15px rgba(0, 255, 255, 1);
+}
+
+.navLinks li a.active::after {
+  width: 100%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
 /* ===== HERO SECTION MEJORADO ===== */
 .hero {
   min-height: 100vh;
@@ -1032,6 +1044,88 @@ html {
   transform: scale(1.1);
 }
 
+/* Project Actions */
+.projectActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btnGithub,
+.btnDemo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btnGithub {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+}
+
+.btnGithub::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-cyan);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.btnGithub:hover::before {
+  left: 0;
+}
+
+.btnGithub:hover {
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+.btnDemo {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+
+.btnDemo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-pink);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.btnDemo:hover::before {
+  left: 0;
+}
+
+.btnDemo:hover {
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+  transform: translateY(-3px);
+}
+
 /* ===== SKILLS MEJORADO ===== */
 .skillsGrid {
   display: grid;
@@ -1605,6 +1699,111 @@ html {
 
 .techItem:hover span {
   color: var(--text);
+}
+
+/* ===== RESPONSIVE MÓVILES PEQUEÑOS ===== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 6rem 1.5rem 2rem !important;
+    min-height: auto !important;
+  }
+  
+  .heroContent {
+    grid-template-columns: 1fr !important;
+    padding: 0 1rem !important;
+    gap: 2rem !important;
+  }
+  
+  .heroText {
+    gap: 1.5rem !important;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .heroGreeting {
+    font-size: 1rem !important;
+  }
+  
+  .heroDescription {
+    font-size: 1rem !important;
+  }
+  
+  .section {
+    padding: 2.5rem 1.5rem !important;
+  }
+  
+  .navContainer {
+    padding: 1rem 1.5rem !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .navLinks {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .navLinks li {
+    width: 100% !important;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .sectionLabel {
+    font-size: 0.75rem !important;
+    padding: 0.5rem 1.5rem !important;
+    letter-spacing: 2px !important;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem !important;
+  }
+  
+  .card {
+    padding: 1.5rem !important;
+  }
+  
+  .cardTitle {
+    font-size: 1.3rem !important;
+  }
+  
+  .techCard {
+    padding: 1.25rem !important;
+  }
+  
+  .techCardTitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .contentContainer {
+    padding: 0 1rem !important;
+  }
+  
+  .logo {
+    font-size: 1.5rem !important;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    padding: 0.875rem 2rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .heroImageContainer {
+    max-width: 250px !important;
+    margin: 0 auto !important;
+  }
 }
 
 @media (max-width: 768px) {
