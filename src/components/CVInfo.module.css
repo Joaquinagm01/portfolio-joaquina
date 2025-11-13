@@ -1,0 +1,142 @@
+.cvSection {
+  max-width: 768px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profileImage {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid #f472b6;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mainTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2.25rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paragraph {
+  font-size: 1.125rem;
+  text-align: center;
+  line-height: 1.75rem;
+}
+
+.contactList {
+  list-style: none;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.contactList li {
+  margin-bottom: 0.25rem;
+}
+
+.list {
+  list-style: none;
+  font-size: 1.125rem;
+}
+
+.list li {
+  margin-bottom: 1rem;
+}
+
+.experienceSection {
+  margin-bottom: 1.5rem;
+}
+
+.bulletList {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.bulletList li {
+  margin-bottom: 0.25rem;
+}
+
+.techNote {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.contactNote {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gridItem h4 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.gray {
+  color: #4b5563;
+}
+
+.downloadLink {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #db2777;
+  text-decoration: underline;
+}
+
+.downloadLink:hover {
+  color: #9d174d;
+}

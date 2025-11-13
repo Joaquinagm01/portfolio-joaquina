@@ -1,17 +1,18 @@
 import './index.css'
 import CVInfo from './components/CVInfo';
+import styles from './components/CVInfo.module.css';
 
 function App() {
 
   return (
     <>
       <CVInfo />
-      <div className="mt-8 text-center">
-          <a
-            href="/CVJoaquinaGomezManna.pdf"
+      <div style={{marginTop: '2rem', textAlign: 'center'}}>
+        <a
+          href="/CVJoaquinaGomezManna.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-lg text-pink-600 underline hover:text-pink-800"
+          className={styles.downloadLink}
         >
           Descargar mi CV (PDF)
         </a>
