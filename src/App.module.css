@@ -641,7 +641,7 @@ html {
 /* ===== GRID MEJORADO ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -1145,7 +1145,7 @@ html {
 /* ===== CONTACT MEJORADO ===== */
 .contactGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
   max-width: 100%;
   margin: 0 auto;
@@ -1293,6 +1293,12 @@ html {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1400px) {
+  .techStackGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1200px) {
   .heroContent {
     grid-template-columns: 1fr;
@@ -1314,6 +1320,18 @@ html {
 
   .hero {
     padding: 8rem 4rem 4rem;
+  }
+
+  .techStackGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1400,7 +1418,8 @@ html {
 
   .grid,
   .skillsGrid,
-  .contactGrid {
+  .contactGrid,
+  .techStackGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -1421,7 +1440,7 @@ html {
 /* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
 .techStackGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   max-width: 100%;
   margin: 0 auto;
