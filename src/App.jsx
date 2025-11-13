@@ -1,8 +1,9 @@
 import './index.css'
 import styles from './App.module.css'
+import { useState, useEffect } from 'react'
 import { 
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
-  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine
+  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt
 } from 'react-icons/fa'
 import { 
   SiMysql, SiPostgresql, SiMongodb, SiTerraform, 
@@ -14,6 +15,27 @@ import { VscCode } from 'react-icons/vsc'
 import { TbDatabase } from 'react-icons/tb'
 
 function App() {
+  const [activeSection, setActiveSection] = useState('inicio');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
+    );
+
+    document.querySelectorAll('section[id]').forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -25,11 +47,11 @@ function App() {
         <div className={styles.navContainer}>
           <div className={styles.logo}>JGM.DEV</div>
           <ul className={styles.navLinks}>
-            <li><a onClick={() => scrollToSection('inicio')}>Inicio</a></li>
-            <li><a onClick={() => scrollToSection('sobre-mi')}>Sobre Mí</a></li>
-            <li><a onClick={() => scrollToSection('experiencia')}>Experiencia</a></li>
-            <li><a onClick={() => scrollToSection('habilidades')}>Habilidades</a></li>
-            <li><a onClick={() => scrollToSection('contacto')}>Contacto</a></li>
+            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>Inicio</a></li>
+            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>Sobre Mí</a></li>
+            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>Experiencia</a></li>
+            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>Habilidades</a></li>
+            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>Contacto</a></li>
           </ul>
         </div>
       </nav>
@@ -42,8 +64,9 @@ function App() {
             <h1 className={styles.heroTitle}>Joaquina Gómez Manna</h1>
             <p className={styles.heroSubtitle}>Estudiante de Ingeniería en Sistemas · Full Stack Developer</p>
             <p className={styles.heroDescription}>
-              Cursando tercer año en la UTN Rosario. Apasionada por el desarrollo de software y las tecnologías de la información. 
-              Busco aportar valor en un entorno dinámico y desafiante mientras sigo creciendo profesionalmente.
+              Cursando 3er año en UTN Rosario. Especializada en desarrollo Full Stack 
+              con enfoque en Cloud (AWS) y DevOps. Apasionada por crear soluciones 
+              escalables y eficientes.
             </p>
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>Contáctame</a>
@@ -197,6 +220,14 @@ function App() {
                   <span className={styles.projectBadge}>Docker</span>
                   <span className={styles.projectBadge}>FluentValidation</span>
                 </div>
+                <div className={styles.projectActions}>
+                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                    <FaGithub /> Ver Código
+                  </a>
+                  <a href="#contacto" className={styles.btnDemo}>
+                    🚀 Contactar
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -217,6 +248,14 @@ function App() {
                   <span className={styles.projectBadge}>MySQL</span>
                   <span className={styles.projectBadge}>JWT</span>
                 </div>
+                <div className={styles.projectActions}>
+                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                    <FaGithub /> Ver Código
+                  </a>
+                  <a href="#contacto" className={styles.btnDemo}>
+                    🚀 Contactar
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -235,6 +274,14 @@ function App() {
                   <span className={styles.projectBadge}>Prisma</span>
                   <span className={styles.projectBadge}>MySQL</span>
                 </div>
+                <div className={styles.projectActions}>
+                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                    <FaGithub /> Ver Código
+                  </a>
+                  <a href="#contacto" className={styles.btnDemo}>
+                    🚀 Contactar
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -250,6 +297,14 @@ function App() {
                   <span className={styles.projectBadge}>Python</span>
                   <span className={styles.projectBadge}>Pascal</span>
                   <span className={styles.projectBadge}>Algoritmos</span>
+                </div>
+                <div className={styles.projectActions}>
+                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                    <FaGithub /> Ver Código
+                  </a>
+                  <a href="#contacto" className={styles.btnDemo}>
+                    🚀 Contactar
+                  </a>
                 </div>
               </div>
             </div>
@@ -504,12 +559,46 @@ function App() {
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <p className={styles.footerText}>
-            © 2025 Joaquina Gómez Manna. Todos los derechos reservados.
-          </p>
-          <p className={styles.footerText}>
-            Ingeniera en Sistemas · Full Stack Developer
-          </p>
+          <div className={styles.footerSection}>
+            <h3 className={styles.footerTitle}>JGM.DEV</h3>
+            <p className={styles.footerDescription}>
+              Ingeniera en Sistemas especializada en desarrollo Full Stack con enfoque en Cloud y DevOps.
+            </p>
+          </div>
+          
+          <div className={styles.footerSection}>
+            <h4 className={styles.footerSubtitle}>Navegación</h4>
+            <ul className={styles.footerLinks}>
+              <li><a onClick={() => scrollToSection('inicio')}>Inicio</a></li>
+              <li><a onClick={() => scrollToSection('sobre-mi')}>Sobre Mí</a></li>
+              <li><a onClick={() => scrollToSection('experiencia')}>Experiencia</a></li>
+              <li><a onClick={() => scrollToSection('habilidades')}>Habilidades</a></li>
+              <li><a onClick={() => scrollToSection('contacto')}>Contacto</a></li>
+            </ul>
+          </div>
+          
+          <div className={styles.footerSection}>
+            <h4 className={styles.footerSubtitle}>Redes Sociales</h4>
+            <div className={styles.footerSocial}>
+              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-51b94821b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <FaGithub />
+              </a>
+              <a href="mailto:gomezmannajoaquina@gmail.com" aria-label="Email">
+                <FaEnvelope />
+              </a>
+              <a href="tel:+543412291597" aria-label="Teléfono">
+                <FaPhone />
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div className={styles.footerBottom}>
+          <p>© 2025 Joaquina Gómez Manna. Todos los derechos reservados.</p>
+          <p>Desarrollado con React + Vite | Deployed on Vercel</p>
         </div>
       </footer>
     </div>

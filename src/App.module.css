@@ -81,12 +81,14 @@ html {
 }
 
 .navContainer {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 6rem;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .logo {
@@ -203,7 +205,7 @@ html {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8rem 6rem 4rem;
+  padding: 8rem 3rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -244,10 +246,10 @@ html {
 }
 
 .heroContent {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 6rem;
+  padding: 0;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 5rem;
@@ -527,8 +529,11 @@ html {
 
 /* ===== SECTIONS MEJORADAS ===== */
 .section {
-  padding: 4rem 6rem;
+  padding: 4rem 3rem;
   position: relative;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .section::before {
@@ -560,7 +565,9 @@ html {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 2rem;
   animation: fadeInUp 1s ease-out;
+  box-sizing: border-box;
 }
 
 @keyframes fadeInUp {
@@ -645,16 +652,19 @@ html {
 }
 
 .contentContainer {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 6rem;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ===== GRID MEJORADO ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  max-width: 100%;
 }
 
 /* ===== CARDS MEJORADAS ===== */
@@ -1239,9 +1249,9 @@ html {
 /* ===== CONTACT MEJORADO ===== */
 .contactGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -1336,8 +1346,7 @@ html {
 .footer {
   background: rgba(0, 0, 0, 0.95);
   border-top: 3px solid var(--neon-cyan);
-  padding: 4rem 3rem;
-  text-align: center;
+  padding: 4rem 0 2rem;
   position: relative;
   box-shadow: 0 -10px 40px rgba(0, 255, 255, 0.3);
 }
@@ -1369,7 +1378,100 @@ html {
 .footerContent {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 6rem;
+  padding: 0 6rem 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.footerSection {
+  text-align: left;
+}
+
+.footerTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.footerDescription {
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.footerSubtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--neon-purple);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLinks li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.footerLinks li a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+.footerSocial {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footerSocial a {
+  color: var(--text-secondary);
+  font-size: 1.75rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--text-secondary);
+  border-radius: 50%;
+}
+
+.footerSocial a:hover {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: translateY(-5px) rotate(10deg);
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  padding: 2rem 6rem 1rem;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0.5rem 0;
 }
 
 .footerText {
@@ -1534,9 +1636,9 @@ html {
 /* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
 .techStackGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
