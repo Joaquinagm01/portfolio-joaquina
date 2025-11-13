@@ -15,11 +15,18 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'start'
+      });
+    }
   };
 
   return (
-    <div className="app">
+    <>
       {/* NAVBAR */}
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
@@ -34,8 +41,10 @@ function App() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section id="inicio" className={styles.hero}>
+      {/* CONTENEDOR HORIZONTAL */}
+      <div className={styles.app}>
+        {/* HERO SECTION */}
+        <section id="inicio" className={`${styles.hero} ${styles.section}`}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <p className={styles.heroGreeting}>👋 Hola, mi nombre es</p>
@@ -502,17 +511,21 @@ function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <p className={styles.footerText}>
-            © 2025 Joaquina Gómez Manna. Todos los derechos reservados.
-          </p>
-          <p className={styles.footerText}>
-            Ingeniera en Sistemas · Full Stack Developer
-          </p>
-        </div>
-      </footer>
-    </div>
+      <section className={styles.section} style={{minWidth: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <footer className={styles.footer}>
+          <div className={styles.footerContent}>
+            <p className={styles.footerText}>
+              © 2025 Joaquina Gómez Manna. Todos los derechos reservados.
+            </p>
+            <p className={styles.footerText}>
+              Ingeniera en Sistemas · Full Stack Developer
+            </p>
+          </div>
+        </footer>
+      </section>
+      
+      </div> {/* Cierre del contenedor horizontal */}
+    </>
   )
 }
 
