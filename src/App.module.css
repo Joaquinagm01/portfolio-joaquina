@@ -515,7 +515,7 @@ html {
 
 /* ===== SECTIONS MEJORADAS ===== */
 .section {
-  padding: 7rem 6rem;
+  padding: 4rem 6rem;
   position: relative;
 }
 
@@ -544,7 +544,7 @@ html {
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -641,8 +641,8 @@ html {
 /* ===== GRID MEJORADO ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 /* ===== CARDS MEJORADAS ===== */
@@ -1035,8 +1035,8 @@ html {
 /* ===== SKILLS MEJORADO ===== */
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .skillCard {
@@ -1145,9 +1145,9 @@ html {
 /* ===== CONTACT MEJORADO ===== */
 .contactGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -1309,7 +1309,7 @@ html {
   }
 
   .section {
-    padding: 7rem 4rem;
+    padding: 4rem 4rem;
   }
 
   .hero {
@@ -1366,7 +1366,7 @@ html {
   }
 
   .section {
-    padding: 7rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .hero {
@@ -1421,8 +1421,8 @@ html {
 /* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
 .techStackGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -1431,7 +1431,7 @@ html {
   background: rgba(15, 23, 42, 0.7);
   border: 2px solid;
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 1.75rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
@@ -1532,10 +1532,10 @@ html {
 }
 
 .techCardTitle {
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--neon-cyan);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-family: 'Orbitron', sans-serif;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
@@ -1543,7 +1543,7 @@ html {
 .techItems {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .techItem {
