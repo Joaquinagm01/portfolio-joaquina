@@ -25,42 +25,47 @@ function App() {
       {/* HERO SECTION */}
       <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
-          <img src="/profile.jpg" alt="Joaquina Gómez Manna" className={styles.heroImage} />
-          <h1 className={styles.heroTitle}>JOAQUINA GÓMEZ MANNA</h1>
-          <p className={styles.heroSubtitle}>Ingeniera en Sistemas</p>
-          <p className={styles.heroDescription}>
-            Especializada en desarrollo Full Stack y soporte informático, 
-            con experiencia en tecnologías modernas y resolución de problemas técnicos complejos.
-          </p>
-          <div className={styles.heroButtons}>
-            <a href="#contacto" className={styles.btnPrimary}>Contáctame</a>
-            <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
-              Descargar CV
-            </a>
+          <div className={styles.heroText}>
+            <p className={styles.heroGreeting}>👋 Hola, mi nombre es</p>
+            <h1 className={styles.heroTitle}>Joaquina Gómez Manna</h1>
+            <p className={styles.heroSubtitle}>Ingeniera en Sistemas</p>
+            <p className={styles.heroDescription}>
+              Especializada en desarrollo Full Stack y soporte informático, 
+              con experiencia en tecnologías modernas y resolución de problemas técnicos complejos.
+            </p>
+            <div className={styles.heroButtons}>
+              <a href="#contacto" className={styles.btnPrimary}>Contáctame</a>
+              <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+                Descargar CV
+              </a>
+            </div>
+          </div>
+          <div className={styles.heroImageContainer}>
+            <img src="/profile.jpg" alt="Joaquina Gómez Manna" className={styles.heroImage} />
           </div>
         </div>
       </section>
 
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className={styles.section}>
-        <div className={styles.contentContainer}>
-          <h2 className={styles.sectionTitle}>Sobre Mí</h2>
-          <div className={styles.card}>
-            <p className={styles.cardContent}>
-              En 2020 inicié la carrera de Ingeniería de Sistemas, y a lo largo de mi formación he adquirido 
-              sólidos conocimientos en el área. Con mi experiencia académica y profesional, busco una oportunidad 
-              laboral donde pueda aplicar mis habilidades, contribuir al desarrollo de la empresa y continuar 
-              ampliando mis conocimientos en un entorno desafiante y enriquecedor.
-            </p>
-          </div>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Sobre Mí</span>
+          <h2 className={styles.sectionTitle}>Conoce mi trayectoria</h2>
+          <p className={styles.sectionDescription}>
+            En 2020 inicié la carrera de Ingeniería de Sistemas, y a lo largo de mi formación he adquirido 
+            sólidos conocimientos en el área. Busco oportunidades donde pueda aplicar mis habilidades y contribuir 
+            al desarrollo de proyectos innovadores.
+          </p>
+        </div>
 
+        <div className={styles.contentContainer}>
           <div className={styles.grid}>
             <div className={styles.card}>
               <h3 className={styles.cardTitle}>🎓 Educación</h3>
               <div className={styles.cardContent}>
-                <p><strong>Universidad Tecnológica de Rosario</strong></p>
-                <p style={{color: '#a5b4fc', marginBottom: '1rem'}}>2020 - Actualidad</p>
-                <p>Carrera de Ingeniería en Sistemas. Actualmente cursando el tercer año.</p>
+                <p><strong style={{color: '#fff'}}>Universidad Tecnológica de Rosario</strong></p>
+                <p style={{color: '#8a2be2', margin: '0.5rem 0'}}>2020 - Actualidad</p>
+                <p>Carrera de Ingeniería en Sistemas. Actualmente cursando el tercer año con enfoque en desarrollo web y gestión de sistemas.</p>
               </div>
             </div>
 
@@ -69,7 +74,7 @@ function App() {
               <div className={styles.cardContent}>
                 <p>
                   Desarrollar soluciones tecnológicas innovadoras que impacten positivamente en los usuarios 
-                  y contribuyan al crecimiento de proyectos desafiantes.
+                  y contribuyan al crecimiento de proyectos desafiantes en entornos colaborativos.
                 </p>
               </div>
             </div>
@@ -79,40 +84,57 @@ function App() {
 
       {/* EXPERIENCIA */}
       <section id="experiencia" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Experiencia</span>
+          <h2 className={styles.sectionTitle}>Trayectoria Profesional</h2>
+          <p className={styles.sectionDescription}>
+            Mi recorrido profesional en soporte técnico y desarrollo de soluciones tecnológicas.
+          </p>
+        </div>
+
         <div className={styles.contentContainer}>
-          <h2 className={styles.sectionTitle}>Experiencia Profesional</h2>
-          
-          <div className={styles.timeline}>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineContent}>
-                <h3 className={styles.cardTitle}>Soporte Informático</h3>
-                <p style={{color: '#ff00ff', marginBottom: '0.5rem'}}>Asociación de Cooperativas Argentinas</p>
-                <p style={{color: '#a5b4fc', marginBottom: '1rem'}}>Marzo 2025 - Actualidad</p>
-                <ul style={{listStyle: 'none', padding: 0}}>
-                  <li style={{marginBottom: '0.5rem'}}>▹ Soporte técnico de primer nivel y resolución de incidencias (Help Desk)</li>
-                  <li style={{marginBottom: '0.5rem'}}>▹ Gestión de infraestructura y administración de entornos Microsoft</li>
-                  <li style={{marginBottom: '0.5rem'}}>▹ Automatización de procesos con Jira y datos externos</li>
-                  <li>▹ Colaboración en proyectos de mejora continua</li>
-                </ul>
-                <p style={{marginTop: '1rem', color: '#00ffff', fontSize: '0.9rem'}}>
-                  Tech: Microsoft Windows, Office 365, Cortex, Active Directory, Citrix, Jira
-                </p>
+          <div className={styles.timelineContainer}>
+            <div className={styles.experienceCard}>
+              <div className={styles.experienceHeader}>
+                <div>
+                  <h3 className={styles.experienceTitle}>Soporte Informático</h3>
+                  <p className={styles.experienceCompany}>Asociación de Cooperativas Argentinas</p>
+                </div>
+                <span className={styles.experienceDate}>Mar 2025 - Actualidad</span>
               </div>
-              <div className={styles.timelineDot}></div>
+              <p className={styles.experienceDescription}>Rol: Soporte Informático de Nivel 1</p>
+              <ul className={styles.experienceList}>
+                <li>Soporte técnico de primer nivel y resolución de incidencias en mesa de ayuda (Help Desk)</li>
+                <li>Gestión de infraestructura y administración de entornos Microsoft</li>
+                <li>Automatización de procesos con Jira y datos externos, mejorando la eficiencia operativa</li>
+                <li>Colaboración con el área de Tecnología de la Información en proyectos de mejora continua</li>
+              </ul>
+              <div className={styles.techStack}>
+                <span className={styles.techBadge}>Microsoft Windows</span>
+                <span className={styles.techBadge}>Office 365</span>
+                <span className={styles.techBadge}>Cortex</span>
+                <span className={styles.techBadge}>Active Directory</span>
+                <span className={styles.techBadge}>Citrix</span>
+                <span className={styles.techBadge}>Jira</span>
+              </div>
             </div>
 
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineContent}>
-                <h3 className={styles.cardTitle}>Soporte Informático - Pasantía</h3>
-                <p style={{color: '#ff00ff', marginBottom: '0.5rem'}}>Tribunal de Faltas</p>
-                <p style={{color: '#a5b4fc', marginBottom: '1rem'}}>Marzo 2024 - Febrero 2025</p>
-                <ul style={{listStyle: 'none', padding: 0}}>
-                  <li style={{marginBottom: '0.5rem'}}>▹ Mantenimiento y actualización de sistemas</li>
-                  <li style={{marginBottom: '0.5rem'}}>▹ Asesoramiento y capacitación a usuarios</li>
-                  <li>▹ Testing de implementaciones y relevamientos de datos</li>
-                </ul>
+            <div className={styles.experienceCard}>
+              <div className={styles.experienceHeader}>
+                <div>
+                  <h3 className={styles.experienceTitle}>Soporte Informático - Pasantía</h3>
+                  <p className={styles.experienceCompany}>Tribunal de Faltas</p>
+                </div>
+                <span className={styles.experienceDate}>Mar 2024 - Feb 2025</span>
               </div>
-              <div className={styles.timelineDot}></div>
+              <p className={styles.experienceDescription}>
+                Mantenimiento y actualización de sistemas (software y hardware), implementación de nuevas tecnologías y optimización de procesos.
+              </p>
+              <ul className={styles.experienceList}>
+                <li>Brindé asesoramiento y capacitación a usuarios</li>
+                <li>Realicé testing de nuevas implementaciones y relevamientos de datos</li>
+                <li>Elaboré manuales e instructivos, contribuyendo a mejorar la eficiencia operativa</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -120,91 +142,153 @@ function App() {
 
       {/* PROYECTOS */}
       <section className={styles.section}>
-        <div className={styles.contentContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Proyectos</span>
           <h2 className={styles.sectionTitle}>Proyectos Destacados</h2>
-          
+          <p className={styles.sectionDescription}>
+            Una selección de proyectos que reflejan mi experiencia en desarrollo full-stack y sistemas.
+          </p>
+        </div>
+
+        <div className={styles.contentContainer}>
           <div className={styles.grid}>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>📚 Página de Libros (2025)</h3>
-              <p className={styles.cardContent}>
-                Sistema web full stack de gestión y reseñas de libros con registro de usuarios, 
-                calificaciones y listas personalizadas.
-                <br/><br/>
-                <strong style={{color: '#00ffff'}}>Stack:</strong> React, Node.js, Express, TypeScript, MySQL, MikroORM, JWT
-              </p>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>📚 Página de Libros</h3>
+                <p className={styles.projectDescription}>
+                  Sistema web full stack de gestión y reseñas de libros con registro de usuarios, 
+                  calificaciones, favoritos y listas personalizadas. Incluye autenticación JWT y moderación de reseñas.
+                </p>
+                <div className={styles.projectTech}>
+                  <span className={styles.projectBadge}>React</span>
+                  <span className={styles.projectBadge}>Node.js</span>
+                  <span className={styles.projectBadge}>TypeScript</span>
+                  <span className={styles.projectBadge}>MySQL</span>
+                  <span className={styles.projectBadge}>MikroORM</span>
+                  <span className={styles.projectBadge}>JWT</span>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>📦 Gestión de Stock (2025)</h3>
-              <p className={styles.cardContent}>
-                Prototipo Full Stack con CRUD de productos, administración de categorías e inventario en tiempo real.
-                <br/><br/>
-                <strong style={{color: '#00ffff'}}>Stack:</strong> React, TailwindCSS, Node.js, Express, TypeScript, Prisma, MySQL
-              </p>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>📦 Gestión de Stock</h3>
+                <p className={styles.projectDescription}>
+                  Prototipo Full Stack con CRUD completo de productos, administración de categorías 
+                  e inventario en tiempo real. Incluye dashboard con métricas y reportes.
+                </p>
+                <div className={styles.projectTech}>
+                  <span className={styles.projectBadge}>React</span>
+                  <span className={styles.projectBadge}>TailwindCSS</span>
+                  <span className={styles.projectBadge}>Express</span>
+                  <span className={styles.projectBadge}>Prisma</span>
+                  <span className={styles.projectBadge}>MySQL</span>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>🏥 Sistema de Hospital (2020)</h3>
-              <p className={styles.cardContent}>
-                Programa para registrar y buscar pacientes, enfermedades y síntomas. 
-                Proyecto académico de Algoritmos y Estructura de Datos.
-                <br/><br/>
-                <strong style={{color: '#00ffff'}}>Stack:</strong> Python, Pascal
-              </p>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>🏥 Sistema de Hospital</h3>
+                <p className={styles.projectDescription}>
+                  Programa para registrar y buscar pacientes, enfermedades y síntomas. 
+                  Proyecto académico desarrollado en la materia Algoritmos y Estructura de Datos.
+                </p>
+                <div className={styles.projectTech}>
+                  <span className={styles.projectBadge}>Python</span>
+                  <span className={styles.projectBadge}>Pascal</span>
+                  <span className={styles.projectBadge}>Algoritmos</span>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>✈️ Boletos de Vuelo (2023)</h3>
-              <p className={styles.cardContent}>
-                Sistema desarrollado en Smalltalk con menú de opciones y gestión completa de boletos.
-                <br/><br/>
-                <strong style={{color: '#00ffff'}}>Stack:</strong> Smalltalk
-              </p>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>✈️ Boletos de Vuelo</h3>
+                <p className={styles.projectDescription}>
+                  Sistema desarrollado en Smalltalk con menú de opciones interactivo 
+                  y gestión completa de boletos de vuelo con validaciones.
+                </p>
+                <div className={styles.projectTech}>
+                  <span className={styles.projectBadge}>Smalltalk</span>
+                  <span className={styles.projectBadge}>POO</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* HABILIDADES */}
-      <section id="habilidades" className={styles.section}>
+      <section className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Habilidades</span>
+          <h2 className={styles.sectionTitle}>Tecnologías y Herramientas</h2>
+          <p className={styles.sectionDescription}>
+            Stack tecnológico en el que tengo experiencia profesional y académica.
+          </p>
+        </div>
+
         <div className={styles.contentContainer}>
-          <h2 className={styles.sectionTitle}>Habilidades Técnicas</h2>
-          
           <div className={styles.skillsGrid}>
             <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>⚛️</div>
-              <h3 className={styles.skillName}>React</h3>
-              <p className={styles.skillLevel}>80%</p>
+              <div className={styles.skillIcon}>💻</div>
+              <h3 className={styles.skillTitle}>Frontend</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>React</span>
+                <span className={styles.skillTag}>TypeScript</span>
+                <span className={styles.skillTag}>JavaScript</span>
+                <span className={styles.skillTag}>HTML/CSS</span>
+                <span className={styles.skillTag}>TailwindCSS</span>
+              </div>
             </div>
 
             <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>📘</div>
-              <h3 className={styles.skillName}>TypeScript</h3>
-              <p className={styles.skillLevel}>80%</p>
+              <div className={styles.skillIcon}>⚙️</div>
+              <h3 className={styles.skillTitle}>Backend</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Node.js</span>
+                <span className={styles.skillTag}>Express</span>
+                <span className={styles.skillTag}>Java Spring</span>
+                <span className={styles.skillTag}>C#</span>
+                <span className={styles.skillTag}>.NET</span>
+                <span className={styles.skillTag}>REST APIs</span>
+              </div>
             </div>
 
             <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>🟢</div>
-              <h3 className={styles.skillName}>Node.js</h3>
-              <p className={styles.skillLevel}>80%</p>
+              <div className={styles.skillIcon}>�️</div>
+              <h3 className={styles.skillTitle}>Bases de Datos</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>MySQL</span>
+                <span className={styles.skillTag}>SQL Server</span>
+                <span className={styles.skillTag}>Prisma</span>
+                <span className={styles.skillTag}>MikroORM</span>
+              </div>
             </div>
 
             <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>🐍</div>
-              <h3 className={styles.skillName}>Python</h3>
-              <p className={styles.skillLevel}>80%</p>
-            </div>
-
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>🗄️</div>
-              <h3 className={styles.skillName}>MySQL</h3>
-              <p className={styles.skillLevel}>70%</p>
+              <div className={styles.skillIcon}>�️</div>
+              <h3 className={styles.skillTitle}>Herramientas</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Git</span>
+                <span className={styles.skillTag}>GitHub</span>
+                <span className={styles.skillTag}>VS Code</span>
+                <span className={styles.skillTag}>Postman</span>
+                <span className={styles.skillTag}>Figma</span>
+              </div>
             </div>
 
             <div className={styles.skillCard}>
               <div className={styles.skillIcon}>🔧</div>
-              <h3 className={styles.skillName}>Git/GitHub</h3>
-              <p className={styles.skillLevel}>80%</p>
+              <h3 className={styles.skillTitle}>Otros</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Python</span>
+                <span className={styles.skillTag}>Arduino</span>
+                <span className={styles.skillTag}>VBA</span>
+                <span className={styles.skillTag}>Smalltalk</span>
+                <span className={styles.skillTag}>Inglés Técnico</span>
+              </div>
             </div>
           </div>
         </div>
@@ -212,21 +296,49 @@ function App() {
 
       {/* CONTACTO */}
       <section id="contacto" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>Contacto</span>
+          <h2 className={styles.sectionTitle}>Conectemos</h2>
+          <p className={styles.sectionDescription}>
+            Estoy disponible para nuevas oportunidades, colaboraciones y proyectos interesantes.
+          </p>
+        </div>
+
         <div className={styles.contentContainer}>
-          <h2 className={styles.sectionTitle}>Contacto</h2>
-          
-          <div className={styles.contactInfo}>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>📞</span>
-              <span>(+54) 341 229 1597</span>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>✉️</span>
-              <span>gomezmannajoaquina@gmail.com</span>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>📍</span>
-              <span>Rosario, Argentina</span>
+          <div className={styles.contactGrid}>
+            <a href="tel:+543412291597" className={styles.contactCard}>
+              <div className={styles.contactIcon}>📞</div>
+              <h3 className={styles.contactTitle}>Teléfono</h3>
+              <p className={styles.contactDetail}>(+54) 341 229 1597</p>
+              <span className={styles.contactAction}>Llamar →</span>
+            </a>
+
+            <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
+              <div className={styles.contactIcon}>✉️</div>
+              <h3 className={styles.contactTitle}>Email</h3>
+              <p className={styles.contactDetail}>gomezmannajoaquina@gmail.com</p>
+              <span className={styles.contactAction}>Enviar mensaje →</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/joaquina-gomez-manna-51b94821b/" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              <div className={styles.contactIcon}>💼</div>
+              <h3 className={styles.contactTitle}>LinkedIn</h3>
+              <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
+              <span className={styles.contactAction}>Ver perfil →</span>
+            </a>
+
+            <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              <div className={styles.contactIcon}>💻</div>
+              <h3 className={styles.contactTitle}>GitHub</h3>
+              <p className={styles.contactDetail}>@Joaquinagm01</p>
+              <span className={styles.contactAction}>Ver repositorios →</span>
+            </a>
+
+            <div className={styles.contactCard} style={{cursor: 'default'}}>
+              <div className={styles.contactIcon}>📍</div>
+              <h3 className={styles.contactTitle}>Ubicación</h3>
+              <p className={styles.contactDetail}>Rosario, Argentina</p>
+              <span className={styles.contactAction} style={{opacity: 0.5}}>Santa Fe, ARG</span>
             </div>
           </div>
         </div>
@@ -234,12 +346,14 @@ function App() {
 
       {/* FOOTER */}
       <footer className={styles.footer}>
-        <p className={styles.footerText}>
-          © 2025 <span>Joaquina Gómez Manna</span> - Todos los derechos reservados
-        </p>
-        <p className={styles.footerText} style={{marginTop: '0.5rem', fontSize: '0.9rem'}}>
-          Diseñado con <span>💙</span> y tecnología futurista
-        </p>
+        <div className={styles.footerContent}>
+          <p className={styles.footerText}>
+            © 2025 Joaquina Gómez Manna. Todos los derechos reservados.
+          </p>
+          <p className={styles.footerText}>
+            Ingeniera en Sistemas · Full Stack Developer
+          </p>
+        </div>
       </footer>
     </div>
   )
