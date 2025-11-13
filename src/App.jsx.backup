@@ -275,7 +275,7 @@ function App() {
               <div className={styles.skillTags}>
                 <span className={styles.skillTag}>Node.js</span>
                 <span className={styles.skillTag}>Express</span>
-                <span className={styles.skillTag}>.NET 9</span>
+                <span className={styles.skillTag}>Java Spring</span>
                 <span className={styles.skillTag}>C#</span>
                 <span className={styles.skillTag}>.NET</span>
                 <span className={styles.skillTag}>REST APIs</span>
@@ -287,7 +287,7 @@ function App() {
               <h3 className={styles.skillTitle}>Bases de Datos</h3>
               <div className={styles.skillTags}>
                 <span className={styles.skillTag}>MySQL</span>
-                <span className={styles.skillTag}>Angular 20</span>
+                <span className={styles.skillTag}>SQL Server</span>
                 <span className={styles.skillTag}>Prisma</span>
                 <span className={styles.skillTag}>MikroORM</span>
               </div>
@@ -301,32 +301,19 @@ function App() {
                 <span className={styles.skillTag}>GitHub</span>
                 <span className={styles.skillTag}>VS Code</span>
                 <span className={styles.skillTag}>Postman</span>
-                <span className={styles.skillTag}>Docker</span>
+                <span className={styles.skillTag}>Figma</span>
               </div>
             </div>
 
             <div className={styles.skillCard}>
               <div className={styles.skillIcon}>🔧</div>
               <h3 className={styles.skillTitle}>Otros</h3>
-
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>💼</div>
-              <h3 className={styles.skillTitle}>Administración IT</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>Windows</span>
-                <span className={styles.skillTag}>Linux</span>
-                <span className={styles.skillTag}>Ubuntu</span>
-                <span className={styles.skillTag}>Office 365</span>
-                <span className={styles.skillTag}>Active Directory</span>
-                <span className={styles.skillTag}>Citrix</span>
-              </div>
-            </div>
               <div className={styles.skillTags}>
                 <span className={styles.skillTag}>Python</span>
-                <span className={styles.skillTag}>Smalltalk</span>
                 <span className={styles.skillTag}>Arduino</span>
-                <span className={styles.skillTag}>Pascal</span>
-                <span className={styles.skillTag}>C</span>
+                <span className={styles.skillTag}>VBA</span>
+                <span className={styles.skillTag}>Smalltalk</span>
+                <span className={styles.skillTag}>Inglés Técnico</span>
               </div>
             </div>
           </div>
