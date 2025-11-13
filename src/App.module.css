@@ -13,55 +13,6 @@
   --text-muted: #6b9ab8;
 }
 
-/* ===== CONTENEDOR HORIZONTAL PRINCIPAL ===== */
-.app {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100vh;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Ocultar scrollbar pero mantener funcionalidad */
-.app::-webkit-scrollbar {
-  height: 8px;
-}
-
-.app::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
-}
-
-.app::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-  border-radius: 4px;
-  box-shadow: 0 0 10px var(--neon-cyan);
-}
-
-.app::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan);
-  box-shadow: 0 0 20px var(--neon-cyan);
-}
-
-/* ===== VARIABLES FUTURISTAS ===== */
-:root {
-  --neon-cyan: #00ffff;
-  --neon-purple: #8a2be2;
-  --neon-pink: #ff00ff;
-  --neon-green: #00ff7f;
-  --neon-orange: #ff6b35;
-  --dark-bg: #000000;
-  --card-bg: rgba(0, 20, 40, 0.7);
-  --card-border: rgba(0, 255, 255, 0.3);
-  --text: #00ffff;
-  --text-secondary: #a0e7ff;
-  --text-muted: #6b9ab8;
-}
-
 /* ===== SCROLL SUAVE Y PERSONALIZADO ===== */
 html {
   scroll-behavior: smooth;
@@ -564,20 +515,6 @@ html {
 
 /* ===== SECTIONS MEJORADAS ===== */
 .section {
-  /* Estilos para scroll horizontal */
-  min-width: 100vw;
-  height: 100vh;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  
-  /* Estilos originales */
   padding: 4rem 6rem;
   position: relative;
 }
