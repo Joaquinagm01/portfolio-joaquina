@@ -1,5 +1,17 @@
 import './index.css'
 import styles from './App.module.css'
+import { 
+  FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
+  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine
+} from 'react-icons/fa'
+import { 
+  SiMysql, SiPostgresql, SiMongodb, SiTerraform, 
+  SiJavascript, SiTypescript, SiNextdotjs,
+  SiTailwindcss, SiPostman, SiOdoo, SiCloudflare
+} from 'react-icons/si'
+import { DiDatabase } from 'react-icons/di'
+import { VscCode } from 'react-icons/vsc'
+import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const scrollToSection = (id) => {
@@ -246,87 +258,193 @@ function App() {
       </section>
 
       {/* HABILIDADES */}
-      <section className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
+
+      {/* HABILIDADES */}
+      <section id="habilidades" className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionLabel}>Habilidades</span>
           <h2 className={styles.sectionTitle}>Stack Tecnológico</h2>
           <p className={styles.sectionDescription}>
-            Lenguajes, frameworks y herramientas que domino en desarrollo y administración de sistemas.
+            Tecnologías y herramientas que domino para construir soluciones robustas y escalables.
           </p>
         </div>
 
         <div className={styles.contentContainer}>
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>💻</div>
-              <h3 className={styles.skillTitle}>Frontend</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>React</span>
-                <span className={styles.skillTag}>TypeScript</span>
-                <span className={styles.skillTag}>JavaScript</span>
-                <span className={styles.skillTag}>HTML/CSS</span>
-                <span className={styles.skillTag}>TailwindCSS</span>
+          <div className={styles.techStackGrid}>
+            {/* Cloud y AWS */}
+            <div className={styles.techCard} data-category="cloud">
+              <h3 className={styles.techCardTitle}>Cloud y AWS</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaAws className={styles.techItemIcon} style={{color: '#FF9900'}} />
+                  <span>AWS</span>
+                </div>
+                <div className={styles.techItem}>
+                  <DiDatabase className={styles.techItemIcon} style={{color: '#FF9900'}} />
+                  <span>EC2</span>
+                </div>
+                <div className={styles.techItem}>
+                  <DiDatabase className={styles.techItemIcon} style={{color: '#00D1B2'}} />
+                  <span>S3</span>
+                </div>
+                <div className={styles.techItem}>
+                  <DiDatabase className={styles.techItemIcon} style={{color: '#FFD814'}} />
+                  <span>Lambda</span>
+                </div>
+                <div className={styles.techItem}>
+                  <TbDatabase className={styles.techItemIcon} style={{color: '#527FFF'}} />
+                  <span>RDS</span>
+                </div>
               </div>
             </div>
 
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>⚙️</div>
-              <h3 className={styles.skillTitle}>Backend</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>Node.js</span>
-                <span className={styles.skillTag}>Express</span>
-                <span className={styles.skillTag}>.NET 9</span>
-                <span className={styles.skillTag}>C#</span>
-                <span className={styles.skillTag}>.NET</span>
-                <span className={styles.skillTag}>REST APIs</span>
+            {/* DevOps y IaC */}
+            <div className={styles.techCard} data-category="devops">
+              <h3 className={styles.techCardTitle}>DevOps y IaC</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaDocker className={styles.techItemIcon} style={{color: '#2496ED'}} />
+                  <span>Docker</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiTerraform className={styles.techItemIcon} style={{color: '#7B42BC'}} />
+                  <span>Terraform</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaGithub className={styles.techItemIcon} style={{color: '#6e5494'}} />
+                  <span>GitHub Actions</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaDocker className={styles.techItemIcon} style={{color: '#FF6C37'}} />
+                  <span>ECS Fargate</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaLinux className={styles.techItemIcon} style={{color: '#FCC624'}} />
+                  <span>Linux</span>
+                </div>
               </div>
             </div>
 
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>�️</div>
-              <h3 className={styles.skillTitle}>Bases de Datos</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>MySQL</span>
-                <span className={styles.skillTag}>Angular 20</span>
-                <span className={styles.skillTag}>Prisma</span>
-                <span className={styles.skillTag}>MikroORM</span>
+            {/* Desarrollo */}
+            <div className={styles.techCard} data-category="desarrollo">
+              <h3 className={styles.techCardTitle}>Desarrollo</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
+                  <span>JavaScript</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiTypescript className={styles.techItemIcon} style={{color: '#3178C6'}} />
+                  <span>TypeScript</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiNextdotjs className={styles.techItemIcon} style={{color: '#FFFFFF'}} />
+                  <span>Next.js</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
+                  <span>Python</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaJava className={styles.techItemIcon} style={{color: '#E76F00'}} />
+                  <span>Java</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
+                  <span>React.js</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaNodeJs className={styles.techItemIcon} style={{color: '#68A063'}} />
+                  <span>Node.js</span>
+                </div>
               </div>
             </div>
 
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>�️</div>
-              <h3 className={styles.skillTitle}>Herramientas</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>Git</span>
-                <span className={styles.skillTag}>GitHub</span>
-                <span className={styles.skillTag}>VS Code</span>
-                <span className={styles.skillTag}>Postman</span>
-                <span className={styles.skillTag}>Docker</span>
+            {/* Bases de Datos */}
+            <div className={styles.techCard} data-category="databases">
+              <h3 className={styles.techCardTitle}>Bases de Datos</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <SiMysql className={styles.techItemIcon} style={{color: '#4479A1'}} />
+                  <span>MySQL</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiPostgresql className={styles.techItemIcon} style={{color: '#4169E1'}} />
+                  <span>PostgreSQL</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiMongodb className={styles.techItemIcon} style={{color: '#47A248'}} />
+                  <span>DynamoDB</span>
+                </div>
+                <div className={styles.techItem}>
+                  <TbDatabase className={styles.techItemIcon} style={{color: '#CC2927'}} />
+                  <span>SQL Server</span>
+                </div>
               </div>
             </div>
 
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>🔧</div>
-              <h3 className={styles.skillTitle}>Otros</h3>
-
-            <div className={styles.skillCard}>
-              <div className={styles.skillIcon}>💼</div>
-              <h3 className={styles.skillTitle}>Administración IT</h3>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>Windows</span>
-                <span className={styles.skillTag}>Linux</span>
-                <span className={styles.skillTag}>Ubuntu</span>
-                <span className={styles.skillTag}>Office 365</span>
-                <span className={styles.skillTag}>Active Directory</span>
-                <span className={styles.skillTag}>Citrix</span>
+            {/* Herramientas */}
+            <div className={styles.techCard} data-category="herramientas">
+              <h3 className={styles.techCardTitle}>Herramientas</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaGitAlt className={styles.techItemIcon} style={{color: '#F05032'}} />
+                  <span>Git</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaGithub className={styles.techItemIcon} style={{color: '#FFFFFF'}} />
+                  <span>GitHub</span>
+                </div>
+                <div className={styles.techItem}>
+                  <VscCode className={styles.techItemIcon} style={{color: '#007ACC'}} />
+                  <span>VS Code</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiPostman className={styles.techItemIcon} style={{color: '#FF6C37'}} />
+                  <span>Postman</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiOdoo className={styles.techItemIcon} style={{color: '#A24689'}} />
+                  <span>Odoo</span>
+                </div>
               </div>
             </div>
-              <div className={styles.skillTags}>
-                <span className={styles.skillTag}>Python</span>
-                <span className={styles.skillTag}>Smalltalk</span>
-                <span className={styles.skillTag}>Arduino</span>
-                <span className={styles.skillTag}>Pascal</span>
-                <span className={styles.skillTag}>C</span>
+
+            {/* Monitoring */}
+            <div className={styles.techCard} data-category="monitoring">
+              <h3 className={styles.techCardTitle}>Monitoring</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <SiCloudflare className={styles.techItemIcon} style={{color: '#F38020'}} />
+                  <span>CloudWatch</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaChartLine className={styles.techItemIcon} style={{color: '#F2C811'}} />
+                  <span>Power BI</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaJira className={styles.techItemIcon} style={{color: '#0052CC'}} />
+                  <span>Jira</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Diseño */}
+            <div className={styles.techCard} data-category="diseno">
+              <h3 className={styles.techCardTitle}>Diseño</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaFigma className={styles.techItemIcon} style={{color: '#F24E1E'}} />
+                  <span>Figma</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaFigma className={styles.techItemIcon} style={{color: '#FF7C00'}} />
+                  <span>Illustrator</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiTailwindcss className={styles.techItemIcon} style={{color: '#06B6D4'}} />
+                  <span>Tailwind CSS</span>
+                </div>
               </div>
             </div>
           </div>

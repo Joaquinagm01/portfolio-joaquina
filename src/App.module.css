@@ -1388,3 +1388,183 @@ html {
                  0 0 60px rgba(0, 255, 255, 0.3);
   }
 }
+
+/* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
+.techStackGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.techCard {
+  background: rgba(15, 23, 42, 0.7);
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.techCard[data-category="cloud"] {
+  border-color: rgba(83, 109, 254, 0.5);
+}
+
+.techCard[data-category="devops"] {
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.techCard[data-category="desarrollo"] {
+  border-color: rgba(6, 182, 212, 0.5);
+}
+
+.techCard[data-category="databases"] {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.techCard[data-category="herramientas"] {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.techCard[data-category="monitoring"] {
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.techCard[data-category="diseno"] {
+  border-color: rgba(236, 72, 153, 0.5);
+}
+
+.techCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, currentColor, transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.techCard:hover::before {
+  opacity: 0.15;
+}
+
+.techCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px currentColor;
+}
+
+.techCard[data-category="cloud"]:hover {
+  border-color: rgb(83, 109, 254);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(83, 109, 254, 0.6);
+}
+
+.techCard[data-category="devops"]:hover {
+  border-color: rgb(168, 85, 247);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+.techCard[data-category="desarrollo"]:hover {
+  border-color: rgb(6, 182, 212);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(6, 182, 212, 0.6);
+}
+
+.techCard[data-category="databases"]:hover {
+  border-color: rgb(34, 197, 94);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(34, 197, 94, 0.6);
+}
+
+.techCard[data-category="herramientas"]:hover {
+  border-color: rgb(239, 68, 68);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(239, 68, 68, 0.6);
+}
+
+.techCard[data-category="monitoring"]:hover {
+  border-color: rgb(251, 191, 36);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(251, 191, 36, 0.6);
+}
+
+.techCard[data-category="diseno"]:hover {
+  border-color: rgb(236, 72, 153);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(236, 72, 153, 0.6);
+}
+
+.techCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  margin-bottom: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.techItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.techItem:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.techItemIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: all 0.3s;
+}
+
+.techItem:hover .techItemIcon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 12px currentColor);
+}
+
+.techItem span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: 'Rajdhani', sans-serif;
+  transition: color 0.3s;
+}
+
+.techItem:hover span {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .techStackGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .techItems {
+    grid-template-columns: 1fr;
+  }
+}
