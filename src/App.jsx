@@ -1,4 +1,7 @@
 import './index.css'
+import './index.css'
+import './i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 import styles from './App.module.css'
 import { useState, useEffect } from 'react'
 import { 
@@ -16,6 +19,7 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const [activeSection, setActiveSection] = useState('inicio');
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,22 +40,75 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  // Selector de idioma visual
+  const LanguageSelector = () => (
+    <div style={{
+      position: 'fixed',
+      top: 18,
+      right: 24,
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      background: 'rgba(10,20,40,0.85)',
+      borderRadius: '12px',
+      boxShadow: '0 0 16px var(--neon-cyan)',
+      padding: '0.5rem 1.2rem',
+      fontSize: '1.1rem',
+      fontFamily: 'Orbitron, Rajdhani, sans-serif',
+      color: 'var(--neon-cyan)'
+    }}>
+      <span style={{marginRight: '1rem', fontWeight: 'bold', letterSpacing: '1px'}}>
+        Idioma / Language:
+      </span>
+      <button
+        onClick={() => i18n.changeLanguage('es')}
+        style={{
+          background: i18n.language === 'es' ? 'var(--neon-cyan)' : 'transparent',
+          color: i18n.language === 'es' ? '#222' : 'var(--neon-cyan)',
+          border: '2px solid var(--neon-cyan)',
+          borderRadius: '8px 0 0 8px',
+          padding: '0.5rem 1rem',
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+          marginRight: '-2px',
+        }}
+      >ES</button>
+      <button
+        onClick={() => i18n.changeLanguage('en')}
+        style={{
+          background: i18n.language === 'en' ? 'var(--neon-purple)' : 'transparent',
+          color: i18n.language === 'en' ? '#fff' : 'var(--neon-purple)',
+          border: '2px solid var(--neon-purple)',
+          borderRadius: '0 8px 8px 0',
+          padding: '0.5rem 1rem',
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+        }}
+      >EN</button>
+    </div>
+  );
+
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="app">
+      <LanguageSelector />
       {/* NAVBAR */}
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
           <div className={styles.logo}>JGM.DEV</div>
           <ul className={styles.navLinks}>
-            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>Inicio</a></li>
-            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>Sobre Mí</a></li>
-            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>Experiencia</a></li>
-            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>Habilidades</a></li>
-            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>Contacto</a></li>
+            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{i18n.language === 'es' ? 'Inicio' : 'Home'}</a></li>
+            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{i18n.language === 'es' ? 'Sobre Mí' : 'About Me'}</a></li>
+            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{i18n.language === 'es' ? 'Experiencia' : 'Experience'}</a></li>
+            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{i18n.language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
+            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{i18n.language === 'es' ? 'Contacto' : 'Contact'}</a></li>
           </ul>
         </div>
       </nav>
@@ -60,18 +117,13 @@ function App() {
       <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
-            <p className={styles.heroGreeting}>👋 Hey, soy Joaquina</p>
-            <h1 className={styles.heroTitle}>Transformo ideas en código escalable</h1>
-            <p className={styles.heroSubtitle}>Full Stack Developer · Cloud & DevOps Engineer</p>
-            <p className={styles.heroDescription}>
-              Ingeniera en Sistemas con experiencia real en producción. Especializada en arquitecturas 
-              cloud (AWS), desarrollo full stack y automatización DevOps. Apasionada por crear 
-              soluciones que impactan.
-            </p>
+            <p className={styles.heroGreeting}>{t('hero.greeting')}</p>
+            <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
+            <p className={styles.heroSubtitle}>{t('hero.subtitle')}</p>
             <div className={styles.heroButtons}>
-              <a href="#contacto" className={styles.btnPrimary}>Hablemos de tu proyecto</a>
+              <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
               <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
-                Ver mi CV
+                {i18n.language === 'es' ? 'Ver mi CV' : 'View my CV'}
               </a>
             </div>
           </div>
@@ -585,7 +637,7 @@ function App() {
               <span className={styles.contactAction}>Enviar mensaje →</span>
             </a>
 
-            <a href="https://www.linkedin.com/in/joaquina-gomez-manna-51b94821b/" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+            <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💼</div>
               <h3 className={styles.contactTitle}>LinkedIn</h3>
               <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
@@ -633,7 +685,7 @@ function App() {
           <div className={styles.footerSection}>
             <h4 className={styles.footerSubtitle}>Redes Sociales</h4>
             <div className={styles.footerSocial}>
-              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-51b94821b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
               <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

@@ -1,0 +1,25 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import es from './es.json';
+import en from './en.json';
+
+const savedLang = localStorage.getItem('lang') || 'es';
+
+
+ i18n.use(initReactI18next).init({
+   resources: {
+     es: { translation: es },
+     en: { translation: en }
+   },
+   lng: savedLang,
+   fallbackLng: 'es',
+   interpolation: { escapeValue: false }
+ });
+
+// Persistir idioma en localStorage
+export function changeLanguage(lang) {
+  i18n.changeLanguage(lang);
+  localStorage.setItem('lang', lang);
+}
+
+export default i18n;
