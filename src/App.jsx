@@ -60,23 +60,45 @@ function App() {
       <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
-            <p className={styles.heroGreeting}>👋 Hola, mi nombre es</p>
-            <h1 className={styles.heroTitle}>Joaquina Gómez Manna</h1>
-            <p className={styles.heroSubtitle}>Estudiante de Ingeniería en Sistemas · Full Stack Developer</p>
+            <p className={styles.heroGreeting}>👋 Hey, soy Joaquina</p>
+            <h1 className={styles.heroTitle}>Transformo ideas en código escalable</h1>
+            <p className={styles.heroSubtitle}>Full Stack Developer · Cloud & DevOps Engineer</p>
             <p className={styles.heroDescription}>
-              Cursando 3er año en UTN Rosario. Especializada en desarrollo Full Stack 
-              con enfoque en Cloud (AWS) y DevOps. Apasionada por crear soluciones 
-              escalables y eficientes.
+              Ingeniera en Sistemas con experiencia real en producción. Especializada en arquitecturas 
+              cloud (AWS), desarrollo full stack y automatización DevOps. Apasionada por crear 
+              soluciones que impactan.
             </p>
             <div className={styles.heroButtons}>
-              <a href="#contacto" className={styles.btnPrimary}>Contáctame</a>
+              <a href="#contacto" className={styles.btnPrimary}>Hablemos de tu proyecto</a>
               <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
-                Descargar CV
+                Ver mi CV
               </a>
             </div>
           </div>
           <div className={styles.heroImageContainer}>
-            <img src="/profile.jpg" alt="Joaquina Gómez Manna" className={styles.heroImage} />
+            <img src="/profile.jpg" alt="Joaquina Gómez Manna - Full Stack Developer" className={styles.heroImage} loading="eager" />
+          </div>
+        </div>
+      </section>
+
+      {/* ESTADÍSTICAS */}
+      <section className={styles.statsSection}>
+        <div className={styles.statsContainer}>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>2+</div>
+            <div className={styles.statLabel}>Años de Experiencia</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>10+</div>
+            <div className={styles.statLabel}>Proyectos Completados</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>15+</div>
+            <div className={styles.statLabel}>Tecnologías Dominadas</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>100%</div>
+            <div className={styles.statLabel}>Comprometida</div>
           </div>
         </div>
       </section>

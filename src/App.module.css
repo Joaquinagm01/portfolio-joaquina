@@ -245,6 +245,90 @@ html {
   66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
+/* ===== STATS SECTION ===== */
+.statsSection {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1342 100%);
+  padding: 4rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--neon-cyan) 20%, 
+    var(--neon-purple) 50%, 
+    var(--neon-cyan) 80%, 
+    transparent 100%);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.statsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.statCard {
+  background: rgba(0, 20, 40, 0.5);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.statCard:hover::before {
+  transform: scaleX(1);
+}
+
+.statCard:hover {
+  transform: translateY(-10px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+  background: rgba(0, 20, 40, 0.8);
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .heroContent {
   max-width: 1400px;
   margin: 0 auto;
@@ -1614,6 +1698,15 @@ html {
     padding: 8rem 2rem 4rem;
   }
 
+  .statsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 3rem;
+  }
+
   .sectionTitle {
     font-size: 2.5rem;
   }
@@ -1904,6 +1997,27 @@ html {
   
   .section {
     padding: 2.5rem 1.5rem !important;
+  }
+
+  .statsSection {
+    padding: 3rem 1.5rem !important;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .statCard {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .statNumber {
+    font-size: 2.5rem !important;
+  }
+
+  .statLabel {
+    font-size: 0.9rem !important;
   }
   
   .navContainer {
