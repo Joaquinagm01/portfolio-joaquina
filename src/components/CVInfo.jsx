@@ -11,7 +11,9 @@ export default function CVInfo() {
       
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}><span role="img" aria-label="Perfil">👩‍💻</span> Perfil</h3>
-        <p className={styles.paragraph}>En 2020 inicié la carrera de Ingeniería de Sistemas, y a lo largo de mi formación he adquirido sólidos conocimientos en el área. Con mi experiencia académica y profesional, busco una oportunidad laboral donde pueda aplicar mis habilidades, contribuir al desarrollo de la empresa y continuar ampliando mis conocimientos en un entorno desafiante y enriquecedor.</p>
+        <p className={styles.paragraph}>
+          Actualmente cursando el cuarto año de Ingeniería en Sistemas en UTN Rosario. Mi formación académica y experiencia profesional me han permitido adquirir sólidos conocimientos técnicos y habilidades para el trabajo en equipo, la resolución de problemas y la adaptación a nuevos desafíos. Busco una oportunidad laboral donde pueda aplicar y seguir desarrollando mis capacidades, contribuyendo al crecimiento de la empresa.
+        </p>
       </div>
       
       <div className={styles.section}>
@@ -31,8 +33,8 @@ export default function CVInfo() {
             <span>Bachiller con orientación en Economía.</span>
           </li>
           <li>
-            <span className={styles.bold}>Universidad Tecnológica de Rosario</span> <span className={styles.gray}>(2020 – Actualidad)</span><br/>
-            <span>Carrera de Ingeniería en Sistemas. Actualmente cursando el tercer año.</span>
+            <span className={styles.bold}>UTN Rosario</span> <span className={styles.gray}>(2020 – Actualidad)</span><br/>
+            <span>Carrera de Ingeniería en Sistemas. Actualmente cursando el cuarto año.</span>
           </li>
         </ul>
       </div>
@@ -108,14 +110,6 @@ export default function CVInfo() {
             <li>Microsoft 365, Office, Excel, Windows, Linux, iOS, AutoCAD, Axure</li>
           </ul>
         </div>
-      </div>
-      
-      <div className={styles.section}>
-        <h3 className={styles.sectionTitle}><span role="img" aria-label="Idiomas">🌍</span> Idiomas</h3>
-        <ul className={styles.contactList}>
-          <li><span className={styles.medium}>Español:</span> Nativo</li>
-          <li><span className={styles.medium}>Inglés:</span> 100%</li>
-        </ul>
       </div>
     </section>
   );

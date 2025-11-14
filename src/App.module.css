@@ -200,7 +200,7 @@ html {
   box-shadow: 0 0 20px var(--neon-cyan);
 }
 
-/* ===== HERO SECTION MEJORADO ===== */
+/* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -611,7 +611,7 @@ html {
   box-shadow: 0 0 60px rgba(0, 255, 255, 1);
 }
 
-/* ===== SECTIONS MEJORADAS ===== */
+/* ===== SECTIONS ===== */
 .section {
   padding: 4rem 3rem;
   position: relative;
@@ -1593,7 +1593,7 @@ html {
   transform: translateX(5px);
 }
 
-/* ===== FOOTER MEJORADO ===== */
+/* ===== FOOTER ===== */
 .footer {
   background: rgba(0, 0, 0, 0.95);
   border-top: 2px solid var(--neon-cyan);

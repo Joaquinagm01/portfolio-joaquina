@@ -98,7 +98,6 @@ function App() {
 
   return (
     <div className="app">
-      <LanguageSelector />
       {/* NAVBAR */}
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
@@ -110,6 +109,7 @@ function App() {
             <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{i18n.language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
             <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{i18n.language === 'es' ? 'Contacto' : 'Contact'}</a></li>
           </ul>
+          <LanguageSelector />
         </div>
       </nav>
 
@@ -137,15 +137,15 @@ function App() {
       <section className={styles.statsSection}>
         <div className={styles.statsContainer}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>2+</div>
+            <div className={styles.statNumber}>+2</div>
             <div className={styles.statLabel}>Años de Experiencia</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>10+</div>
+            <div className={styles.statNumber}>+5</div>
             <div className={styles.statLabel}>Proyectos Completados</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>15+</div>
+            <div className={styles.statNumber}>+10</div>
             <div className={styles.statLabel}>Tecnologías Dominadas</div>
           </div>
           <div className={styles.statCard}>
@@ -161,8 +161,7 @@ function App() {
           <span className={styles.sectionLabel}>Sobre Mí</span>
           <h2 className={styles.sectionTitle}>Perfil Profesional</h2>
           <p className={styles.sectionDescription}>
-            Ingeniera en Sistemas apasionada por la tecnología, con experiencia real en entornos de producción. 
-            Enfocada en crear soluciones escalables utilizando las mejores prácticas de desarrollo y arquitectura cloud.
+            Busco oportunidades laborales para aplicar mis conocimientos en tecnología y aportar compromiso en proyectos desafiantes.
           </p>
         </div>
 
@@ -181,18 +180,15 @@ function App() {
                     <span className={styles.educationYear}>2020 - Actualidad</span>
                   </div>
                   <p className={styles.educationDegree}>Ingeniería en Sistemas</p>
-                  <p className={styles.educationStatus}>Cursando 3er año · Promedio destacado</p>
+                  <p className={styles.educationStatus}>Cursando 4to año</p>
                 </div>
-                
                 <div className={styles.educationDivider}></div>
-                
                 <div className={styles.educationItem}>
                   <div className={styles.educationHeader}>
                     <h4 className={styles.educationInstitution}>Escuela Superior de Comercio "Libertador General San Martín"</h4>
                     <span className={styles.educationYear}>2015 - 2019</span>
                   </div>
                   <p className={styles.educationDegree}>Bachiller en Economía</p>
-                  <p className={styles.educationStatus}>Egresada con honores</p>
                 </div>
               </div>
             </div>
@@ -213,16 +209,14 @@ function App() {
                     <div className={styles.progressFill} style={{width: '100%', background: 'var(--neon-cyan)'}}></div>
                   </div>
                 </div>
-                
                 <div className={styles.languageItem}>
                   <div className={styles.languageHeader}>
                     <h4 className={styles.languageName}>Inglés</h4>
-                    <span className={styles.languageLevel}>Intermedio</span>
+                    <span className={styles.languageLevel}>Avanzado (título Cambridge)</span>
                   </div>
                   <div className={styles.progressBar}>
-                    <div className={styles.progressFill} style={{width: '70%', background: 'var(--neon-purple)'}}></div>
+                    <div className={styles.progressFill} style={{width: '90%', background: 'var(--neon-purple)'}}></div>
                   </div>
-                  <p className={styles.languageNote}>Certificación en progreso</p>
                 </div>
               </div>
             </div>
