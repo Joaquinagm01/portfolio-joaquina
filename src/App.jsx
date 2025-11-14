@@ -76,7 +76,7 @@ function App() {
             </div>
           </div>
           <div className={styles.heroImageContainer}>
-            <img src="/profile.JPG" alt="Joaquina Gómez Manna - Full Stack Developer" className={styles.heroImage} loading="eager" />
+            <img src="/profile.jpg" alt="Joaquina Gómez Manna - Full Stack Developer" className={styles.heroImage} loading="eager" />
           </div>
         </div>
       </section>
