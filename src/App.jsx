@@ -109,37 +109,68 @@ function App() {
           <span className={styles.sectionLabel}>Sobre Mí</span>
           <h2 className={styles.sectionTitle}>Perfil Profesional</h2>
           <p className={styles.sectionDescription}>
-            Estudiante de Ingeniería en Sistemas desde 2020, con sólidos conocimientos en desarrollo de software 
-            y tecnologías de la información. Busco una oportunidad laboral donde aplicar mis habilidades, aportar 
-            valor a la empresa y seguir creciendo en un entorno dinámico y desafiante.
+            Ingeniera en Sistemas apasionada por la tecnología, con experiencia real en entornos de producción. 
+            Enfocada en crear soluciones escalables utilizando las mejores prácticas de desarrollo y arquitectura cloud.
           </p>
         </div>
 
         <div className={styles.contentContainer}>
           <div className={styles.grid}>
+            {/* EDUCACIÓN */}
             <div className={styles.card}>
-              <h3 className={styles.cardTitle}>🎓 Educación</h3>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardIcon}>🎓</div>
+                <h3 className={styles.cardTitle}>Educación</h3>
+              </div>
               <div className={styles.cardContent}>
-                <p><strong style={{color: '#fff'}}>Universidad Tecnológica de Rosario</strong></p>
-                <p style={{color: '#8a2be2', margin: '0.5rem 0'}}>2020 - Actualidad</p>
-                <p>Ingeniería en Sistemas · Cursando tercer año</p>
-                <br/>
-                <p><strong style={{color: '#fff'}}>Escuela Superior de Comercio "Libertador General San Martín"</strong></p>
-                <p style={{color: '#8a2be2', margin: '0.5rem 0'}}>2015 - 2019</p>
-                <p>Bachiller con orientación en Economía</p>
+                <div className={styles.educationItem}>
+                  <div className={styles.educationHeader}>
+                    <h4 className={styles.educationInstitution}>UTN Rosario</h4>
+                    <span className={styles.educationYear}>2020 - Actualidad</span>
+                  </div>
+                  <p className={styles.educationDegree}>Ingeniería en Sistemas</p>
+                  <p className={styles.educationStatus}>Cursando 3er año · Promedio destacado</p>
+                </div>
+                
+                <div className={styles.educationDivider}></div>
+                
+                <div className={styles.educationItem}>
+                  <div className={styles.educationHeader}>
+                    <h4 className={styles.educationInstitution}>Escuela Superior de Comercio "Libertador General San Martín"</h4>
+                    <span className={styles.educationYear}>2015 - 2019</span>
+                  </div>
+                  <p className={styles.educationDegree}>Bachiller en Economía</p>
+                  <p className={styles.educationStatus}>Egresada con honores</p>
+                </div>
               </div>
             </div>
 
+            {/* IDIOMAS */}
             <div className={styles.card}>
-              <h3 className={styles.cardTitle}>� Idiomas</h3>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardIcon}>🌐</div>
+                <h3 className={styles.cardTitle}>Idiomas</h3>
+              </div>
               <div className={styles.cardContent}>
-                <div style={{marginBottom: '1rem'}}>
-                  <p><strong style={{color: '#fff'}}>Español</strong></p>
-                  <p style={{color: '#00ffff'}}>Nativo</p>
+                <div className={styles.languageItem}>
+                  <div className={styles.languageHeader}>
+                    <h4 className={styles.languageName}>Español</h4>
+                    <span className={styles.languageLevel}>Nativo</span>
+                  </div>
+                  <div className={styles.progressBar}>
+                    <div className={styles.progressFill} style={{width: '100%', background: 'var(--neon-cyan)'}}></div>
+                  </div>
                 </div>
-                <div>
-                  <p><strong style={{color: '#fff'}}>Inglés</strong></p>
-                  <p style={{color: '#00ffff'}}>Intermedio (70%)</p>
+                
+                <div className={styles.languageItem}>
+                  <div className={styles.languageHeader}>
+                    <h4 className={styles.languageName}>Inglés</h4>
+                    <span className={styles.languageLevel}>Intermedio</span>
+                  </div>
+                  <div className={styles.progressBar}>
+                    <div className={styles.progressFill} style={{width: '70%', background: 'var(--neon-purple)'}}></div>
+                  </div>
+                  <p className={styles.languageNote}>Certificación en progreso</p>
                 </div>
               </div>
             </div>
