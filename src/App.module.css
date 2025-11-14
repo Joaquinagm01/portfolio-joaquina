@@ -1504,7 +1504,7 @@ html {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1400px) {
   .techStackGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1541,6 +1541,15 @@ html {
 
   .contactGrid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .techStackGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .techItems {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   }
 }
 
@@ -1636,6 +1645,32 @@ html {
   .techStackGrid {
     grid-template-columns: 1fr;
   }
+
+  .techCard {
+    padding: 1.25rem !important;
+  }
+
+  .techCardTitle {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .techItems {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+    gap: 0.625rem !important;
+  }
+
+  .techItem {
+    padding: 0.75rem 0.375rem !important;
+  }
+
+  .techItemIcon {
+    font-size: 1.75rem !important;
+  }
+
+  .techItem span {
+    font-size: 0.75rem !important;
+  }
 }
 
 /* ===== ANIMACIONES ADICIONALES ===== */
@@ -1654,20 +1689,23 @@ html {
 /* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
 .techStackGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .techCard {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(15, 23, 42, 0.8);
   border: 2px solid;
-  border-radius: 16px;
-  padding: 1.75rem;
+  border-radius: 12px;
+  padding: 1.5rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .techCard[data-category="cloud"] {
@@ -1765,56 +1803,65 @@ html {
 }
 
 .techCardTitle {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--neon-cyan);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-family: 'Orbitron', sans-serif;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  padding-bottom: 0.75rem;
 }
 
 .techItems {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  flex: 1;
 }
 
 .techItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.875rem;
-  padding: 0.875rem 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 0.5rem;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
 }
 
 .techItem:hover {
   background: rgba(0, 0, 0, 0.5);
-  transform: translateX(5px);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .techItemIcon {
-  font-size: 2rem;
+  font-size: 2.25rem;
   flex-shrink: 0;
   filter: drop-shadow(0 0 8px currentColor);
   transition: all 0.3s;
 }
 
 .techItem:hover .techItemIcon {
-  transform: scale(1.15) rotate(5deg);
-  filter: drop-shadow(0 0 12px currentColor);
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 15px currentColor);
 }
 
 .techItem span {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-secondary);
   font-family: 'Rajdhani', sans-serif;
   transition: color 0.3s;
+  line-height: 1.2;
 }
 
 .techItem:hover span {
