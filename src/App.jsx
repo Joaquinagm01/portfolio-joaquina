@@ -46,7 +46,7 @@ function App() {
       position: 'fixed',
       top: 18,
       right: 24,
-      zIndex: 1000,
+      zIndex: 2000,
       display: 'flex',
       alignItems: 'center',
       background: 'rgba(10,20,40,0.85)',
