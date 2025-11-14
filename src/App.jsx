@@ -40,54 +40,19 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Selector de idioma visual
+  // Selector de idioma visual integrado en el header
   const LanguageSelector = () => (
-    <div style={{
-      position: 'fixed',
-      top: 18,
-      right: 24,
-      zIndex: 2000,
-      display: 'flex',
-      alignItems: 'center',
-      background: 'rgba(10,20,40,0.85)',
-      borderRadius: '12px',
-      boxShadow: '0 0 16px var(--neon-cyan)',
-      padding: '0.5rem 1.2rem',
-      fontSize: '1.1rem',
-      fontFamily: 'Orbitron, Rajdhani, sans-serif',
-      color: 'var(--neon-cyan)'
-    }}>
-      <span style={{marginRight: '1rem', fontWeight: 'bold', letterSpacing: '1px'}}>
-        Idioma / Language:
+    <div className={styles.languageSelector}>
+      <span style={{marginRight: '0.5rem', fontWeight: 'bold', letterSpacing: '1px', fontSize: '1rem'}}>
+        Idioma:
       </span>
       <button
         onClick={() => i18n.changeLanguage('es')}
-        style={{
-          background: i18n.language === 'es' ? 'var(--neon-cyan)' : 'transparent',
-          color: i18n.language === 'es' ? '#222' : 'var(--neon-cyan)',
-          border: '2px solid var(--neon-cyan)',
-          borderRadius: '8px 0 0 8px',
-          padding: '0.5rem 1rem',
-          fontWeight: 'bold',
-          fontSize: '1.1rem',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-          marginRight: '-2px',
-        }}
+        className={i18n.language === 'es' ? styles.langActive : styles.langButton}
       >ES</button>
       <button
         onClick={() => i18n.changeLanguage('en')}
-        style={{
-          background: i18n.language === 'en' ? 'var(--neon-purple)' : 'transparent',
-          color: i18n.language === 'en' ? '#fff' : 'var(--neon-purple)',
-          border: '2px solid var(--neon-purple)',
-          borderRadius: '0 8px 8px 0',
-          padding: '0.5rem 1rem',
-          fontWeight: 'bold',
-          fontSize: '1.1rem',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-        }}
+        className={i18n.language === 'en' ? styles.langActive : styles.langButton}
       >EN</button>
     </div>
   );
@@ -109,9 +74,7 @@ function App() {
             <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{i18n.language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
             <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{i18n.language === 'es' ? 'Contacto' : 'Contact'}</a></li>
           </ul>
-          <div style={{display: 'flex', alignItems: 'center', height: '100%'}}>
-            <LanguageSelector />
-          </div>
+          <LanguageSelector />
         </div>
       </nav>
 
