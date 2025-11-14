@@ -109,7 +109,9 @@ function App() {
             <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{i18n.language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
             <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{i18n.language === 'es' ? 'Contacto' : 'Contact'}</a></li>
           </ul>
-          <LanguageSelector />
+          <div style={{display: 'flex', alignItems: 'center', height: '100%'}}>
+            <LanguageSelector />
+          </div>
         </div>
       </nav>
 
