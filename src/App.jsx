@@ -191,32 +191,36 @@ function App() {
         </div>
 
         <div className={styles.contentContainer}>
-          <div className={styles.grid}>
-            <div className={styles.projectCard}>
-              <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>🏨 AlojARG</h3>
-                <p className={styles.projectDescription}>
-                  Sistema de reservas de alojamientos estilo Booking.com con Clean Architecture. 
-                  Búsqueda avanzada con filtros, favoritos, comparador de propiedades y dashboard administrativo. 
-                  Frontend responsive con Material Design 3.
-                </p>
-                <div className={styles.projectTech}>
-                  <span className={styles.projectBadge}>.NET 9</span>
-                  <span className={styles.projectBadge}>Angular 20</span>
-                  <span className={styles.projectBadge}>TypeScript</span>
-                  <span className={styles.projectBadge}>MySQL</span>
-                  <span className={styles.projectBadge}>JWT</span>
-                  <span className={styles.projectBadge}>Docker</span>
-                  <span className={styles.projectBadge}>FluentValidation</span>
+          <div className={styles.timelineContainer}>
+            <div className={styles.experienceCard}>
+              <div className={styles.experienceHeader}>
+                <div>
+                  <h3 className={styles.experienceTitle}>🏨 AlojARG</h3>
+                  <p className={styles.experienceCompany}>Sistema de Reservas</p>
                 </div>
-                <div className={styles.projectActions}>
-                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
-                    <FaGithub /> Ver Código
-                  </a>
-                  <a href="#contacto" className={styles.btnDemo}>
-                    🚀 Contactar
-                  </a>
-                </div>
+                <span className={styles.experienceDate}>2025</span>
+              </div>
+              <p className={styles.experienceDescription}>
+                Sistema de reservas de alojamientos estilo Booking.com con Clean Architecture.
+                Búsqueda avanzada con filtros, favoritos, comparador de propiedades y dashboard administrativo.
+                Frontend responsive con Material Design 3.
+              </p>
+              <div className={styles.techStack}>
+                <span className={styles.techBadge}>.NET 9</span>
+                <span className={styles.techBadge}>Angular 20</span>
+                <span className={styles.techBadge}>TypeScript</span>
+                <span className={styles.techBadge}>MySQL</span>
+                <span className={styles.techBadge}>JWT</span>
+                <span className={styles.techBadge}>Docker</span>
+                <span className={styles.techBadge}>FluentValidation</span>
+              </div>
+              <div className={styles.projectActions}>
+                <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                  <FaGithub /> Ver Código
+                </a>
+                <a href="#contacto" className={styles.btnDemo}>
+                  🚀 Contactar
+                </a>
               </div>
             </div>
 
