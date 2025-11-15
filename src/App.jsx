@@ -6,12 +6,12 @@ import Navbar from './components/Navbar';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
-  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt
+  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
   SiJavascript, SiTypescript, SiNextdotjs,
-  SiTailwindcss, SiPostman, SiOdoo, SiCloudflare
+  SiTailwindcss, SiPostman, SiOdoo, SiCloudflare, SiAngular, SiDotnet, SiPrisma, SiExpress, SiAutocad, Si365Datascience
 } from 'react-icons/si'
 import { DiDatabase } from 'react-icons/di'
 import { VscCode } from 'react-icons/vsc'
@@ -226,14 +226,14 @@ function App() {
                 <span className={styles.experienceDate}>2025</span>
               </div>
               <p className={styles.experienceDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
-              <div className={styles.techStack}>
-                <span className={styles.techBadge}>React</span>
-                <span className={styles.techBadge}>Node.js</span>
-                <span className={styles.techBadge}>Express</span>
-                <span className={styles.techBadge}>TypeScript</span>
-                <span className={styles.techBadge}>MikroORM</span>
-                <span className={styles.techBadge}>MySQL</span>
-                <span className={styles.techBadge}>JWT</span>
+              <div className={styles.projectTech}>
+                <span className={styles.projectBadge}>React</span>
+                <span className={styles.projectBadge}>Node.js</span>
+                <span className={styles.projectBadge}>Express</span>
+                <span className={styles.projectBadge}>TypeScript</span>
+                <span className={styles.projectBadge}>MikroORM</span>
+                <span className={styles.projectBadge}>MySQL</span>
+                <span className={styles.projectBadge}>JWT</span>
               </div>
               <div className={styles.projectActions}>
                 <a href="https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
@@ -286,10 +286,14 @@ function App() {
 
         <div className={styles.contentContainer}>
           <div className={styles.techStackGrid}>
-            {/* Frontend */}
-            <div className={styles.techCard} data-category="frontend">
-              <h3 className={styles.techCardTitle}>Frontend</h3>
+            {/* Lenguajes de Programación */}
+            <div className={styles.techCard} data-category="languages">
+              <h3 className={styles.techCardTitle}>{t('skills.languages')}</h3>
               <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
+                  <span>Python</span>
+                </div>
                 <div className={styles.techItem}>
                   <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
                   <span>JavaScript</span>
@@ -299,24 +303,28 @@ function App() {
                   <span>TypeScript</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
-                  <span>React</span>
+                  <VscCode className={styles.techItemIcon} style={{color: '#A8B9CC'}} />
+                  <span>C</span>
                 </div>
                 <div className={styles.techItem}>
-                  <SiTailwindcss className={styles.techItemIcon} style={{color: '#06B6D4'}} />
-                  <span>Tailwind CSS</span>
+                  <VscCode className={styles.techItemIcon} style={{color: '#A8B9CC'}} />
+                  <span>Pascal</span>
                 </div>
                 <div className={styles.techItem}>
-                  <SiNextdotjs className={styles.techItemIcon} style={{color: '#000000'}} />
-                  <span>Next.js</span>
+                  <VscCode className={styles.techItemIcon} style={{color: '#A8B9CC'}} />
+                  <span>Smalltalk</span>
                 </div>
               </div>
             </div>
 
-            {/* Backend */}
-            <div className={styles.techCard} data-category="backend">
-              <h3 className={styles.techCardTitle}>Backend</h3>
+            {/* Frameworks y Librerías */}
+            <div className={styles.techCard} data-category="frameworks">
+              <h3 className={styles.techCardTitle}>{t('skills.frameworks')}</h3>
               <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
+                  <span>React</span>
+                </div>
                 <div className={styles.techItem}>
                   <FaNodeJs className={styles.techItemIcon} style={{color: '#68A063'}} />
                   <span>Node.js</span>
@@ -326,9 +334,40 @@ function App() {
                   <span>Express</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
-                  <span>Python</span>
+                  <SiDotnet className={styles.techItemIcon} style={{color: '#512BD4'}} />
+                  <span>.NET 9</span>
                 </div>
+                <div className={styles.techItem}>
+                  <SiAngular className={styles.techItemIcon} style={{color: '#DD0031'}} />
+                  <span>Angular 20</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiPrisma className={styles.techItemIcon} style={{color: '#2D3748'}} />
+                  <span>Prisma</span>
+                </div>
+                <div className={styles.techItem}>
+                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>M</span>
+                  <span>MikroORM</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiTailwindcss className={styles.techItemIcon} style={{color: '#06B6D4'}} />
+                  <span>TailwindCSS</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiNextdotjs className={styles.techItemIcon} style={{color: '#FFFFFF'}} />
+                  <span>Next.js</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiExpress className={styles.techItemIcon} style={{color: '#000000'}} />
+                  <span>Express</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bases de Datos */}
+            <div className={styles.techCard} data-category="databases">
+              <h3 className={styles.techCardTitle}>{t('skills.databases')}</h3>
+              <div className={styles.techItems}>
                 <div className={styles.techItem}>
                   <SiMysql className={styles.techItemIcon} style={{color: '#4479A1'}} />
                   <span>MySQL</span>
@@ -346,11 +385,15 @@ function App() {
 
             {/* DevOps & Herramientas */}
             <div className={styles.techCard} data-category="devops">
-              <h3 className={styles.techCardTitle}>DevOps & Herramientas</h3>
+              <h3 className={styles.techCardTitle}>{t('skills.devops')}</h3>
               <div className={styles.techItems}>
                 <div className={styles.techItem}>
                   <FaDocker className={styles.techItemIcon} style={{color: '#2496ED'}} />
                   <span>Docker</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaGitAlt className={styles.techItemIcon} style={{color: '#F05032'}} />
+                  <span>Git/GitHub</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaAws className={styles.techItemIcon} style={{color: '#FF9900'}} />
@@ -361,24 +404,84 @@ function App() {
                   <span>Terraform</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaGitAlt className={styles.techItemIcon} style={{color: '#F05032'}} />
-                  <span>Git</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaGithub className={styles.techItemIcon} style={{color: '#6e5494'}} />
-                  <span>GitHub</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaLinux className={styles.techItemIcon} style={{color: '#FCC624'}} />
-                  <span>Linux</span>
-                </div>
-                <div className={styles.techItem}>
                   <FaJira className={styles.techItemIcon} style={{color: '#0052CC'}} />
                   <span>Jira</span>
                 </div>
                 <div className={styles.techItem}>
                   <SiPostman className={styles.techItemIcon} style={{color: '#FF6C37'}} />
                   <span>Postman</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Sistemas Operativos */}
+            <div className={styles.techCard} data-category="os">
+              <h3 className={styles.techCardTitle}>{t('skills.os')}</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaWindows className={styles.techItemIcon} style={{color: '#0078D4'}} />
+                  <span>Windows</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaLinux className={styles.techItemIcon} style={{color: '#FCC624'}} />
+                  <span>Linux</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaUbuntu className={styles.techItemIcon} style={{color: '#E95420'}} />
+                  <span>Ubuntu</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaApple className={styles.techItemIcon} style={{color: '#000000'}} />
+                  <span>iOS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Herramientas de Oficina */}
+            <div className={styles.techCard} data-category="office">
+              <h3 className={styles.techCardTitle}>{t('skills.office')}</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <Si365Datascience className={styles.techItemIcon} style={{color: '#D83B01'}} />
+                  <span>Microsoft 365</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaFileExcel className={styles.techItemIcon} style={{color: '#217346'}} />
+                  <span>Excel</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Diseño y Modelado */}
+            <div className={styles.techCard} data-category="design">
+              <h3 className={styles.techCardTitle}>{t('skills.design')}</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <SiAutocad className={styles.techItemIcon} style={{color: '#A4202E'}} />
+                  <span>Autocad</span>
+                </div>
+                <div className={styles.techItem}>
+                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>A</span>
+                  <span>Axure</span>
+                </div>
+                <div className={styles.techItem}>
+                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>A</span>
+                  <span>AnyLogic</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Arquitectura de Sistemas */}
+            <div className={styles.techCard} data-category="architecture">
+              <h3 className={styles.techCardTitle}>{t('skills.architecture')}</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>MD</span>
+                  <span>MD, DER, Diseño de sistema</span>
+                </div>
+                <div className={styles.techItem}>
+                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>APIs</span>
+                  <span>APIs</span>
                 </div>
               </div>
             </div>
