@@ -494,44 +494,56 @@ function App() {
         <div className={styles.sectionHeader}>
           <h1 className={styles.sectionTitle}>{t('contact.title')}</h1>
           <p className={styles.sectionDescription}>{t('contact.description')}</p>
+          <p className={styles.sectionDescription} style={{marginTop: '1rem', fontSize: '1.1rem', fontWeight: '500'}}>{t('contact.cta')}</p>
         </div>
 
         <div className={styles.contentContainer}>
           <div className={styles.contactGrid}>
             <a href="tel:+543412291597" className={styles.contactCard}>
               <div className={styles.contactIcon}>📞</div>
-              <h3 className={styles.contactTitle}>Teléfono</h3>
+              <h3 className={styles.contactTitle}>{t('contact.phone')}</h3>
               <p className={styles.contactDetail}>(+54) 341 229 1597</p>
-              <span className={styles.contactAction}>Llamar →</span>
+              <span className={styles.contactAction}>{t('contact.call')} →</span>
             </a>
 
             <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
               <div className={styles.contactIcon}>✉️</div>
-              <h3 className={styles.contactTitle}>Email</h3>
-            <p className={styles.contactDetail}>gomezmannajoaquina@gmail.com</p>
-              <span className={styles.contactAction}>Enviar mensaje →</span>
+              <h3 className={styles.contactTitle}>{t('contact.email')}</h3>
+              <p className={styles.contactDetail} style={{wordBreak: 'break-all'}}>
+                <a href="mailto:gomezmannajoaquina@gmail.com" style={{color: 'inherit', textDecoration: 'underline'}}>
+                  gomezmannajoaquina@gmail.com
+                </a>
+              </p>
+              <span className={styles.contactAction}>{t('contact.send')} →</span>
             </a>
 
             <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💼</div>
               <h3 className={styles.contactTitle}>LinkedIn</h3>
               <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
-              <span className={styles.contactAction}>Ver perfil →</span>
+              <span className={styles.contactAction}>{t('contact.view')} →</span>
             </a>
 
             <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💻</div>
               <h3 className={styles.contactTitle}>GitHub</h3>
               <p className={styles.contactDetail}>@Joaquinagm01</p>
-              <span className={styles.contactAction}>Ver repositorios →</span>
+              <span className={styles.contactAction}>{t('contact.repos')} →</span>
             </a>
 
             <div className={styles.contactCard} style={{cursor: 'default'}}>
               <div className={styles.contactIcon}>📍</div>
-              <h3 className={styles.contactTitle}>Ubicación</h3>
+              <h3 className={styles.contactTitle}>{t('contact.location')}</h3>
               <p className={styles.contactDetail}>Rosario, Argentina</p>
               <span className={styles.contactAction} style={{opacity: 0.5}}>Santa Fe, ARG</span>
             </div>
+
+            <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              <div className={styles.contactIcon}>📄</div>
+              <h3 className={styles.contactTitle}>{t('contact.cv')}</h3>
+              <p className={styles.contactDetail}>PDF - Español</p>
+              <span className={styles.contactAction}>{t('contact.download')} →</span>
+            </a>
           </div>
         </div>
       </section>
