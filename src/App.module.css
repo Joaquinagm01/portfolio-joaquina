@@ -247,13 +247,9 @@ html {
     radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
-  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+
 
 /* ===== STATS SECTION ===== */
 .statsSection {
@@ -401,10 +397,7 @@ html {
   animation: blink 1.5s infinite;
 }
 
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
+
 
 .heroTitle {
   font-size: 4.5rem;
@@ -414,18 +407,13 @@ html {
   letter-spacing: -1px;
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  animation: glow 3s ease-in-out infinite;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
                0 0 40px rgba(0, 255, 255, 0.4),
                0 0 60px rgba(0, 255, 255, 0.2);
   position: relative;
 }
 
-.heroTitle::after {
-  content: '_';
-  animation: blink 1s infinite;
-  color: var(--neon-purple);
-}
+
 
 .heroSubtitle {
   font-size: 2rem;
@@ -436,14 +424,10 @@ html {
   background-clip: text;
   letter-spacing: 1px;
   font-family: 'Orbitron', sans-serif;
-  animation: shimmer 4s linear infinite;
   background-size: 300% auto;
 }
 
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 300% center; }
-}
+
 
 .heroDescription {
   font-size: 1.25rem;
@@ -1951,17 +1935,7 @@ html {
 }
 
 /* ===== ANIMACIONES ADICIONALES ===== */
-@keyframes glow {
-  0%, 100% { 
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
-                 0 0 20px rgba(0, 255, 255, 0.3);
-  }
-  50% { 
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
-                 0 0 40px rgba(0, 255, 255, 0.5),
-                 0 0 60px rgba(0, 255, 255, 0.3);
-  }
-}
+
 
 /* ===== TECH STACK GRID (NUEVO DISEÑO) ===== */
 .techStackGrid {
@@ -2349,15 +2323,53 @@ html {
   padding-top: 5rem; /* Asegura que el contenido no sea tapado por el navbar */
 }
 
-/* ===== FONDO FUTURISTA ===== */
+/* ===== FONDO FUTURISTA ANIMADO ===== */
 body {
-  background-color: #1a0033; /* Color de fallback si la imagen falla */
-  background-image: url('http://googleusercontent.com/image_generation_content/2'); /* <-- ¡LA IMAGEN! */
-  background-size: cover; /* Cubre todo el fondo */
-  background-position: center; /* Centra la imagen */
-  background-attachment: fixed; /* Fija la imagen al scroll */
-  min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
+  background-color: #0a0e27; /* Color de fallback más oscuro */
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 0, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0e27 0%, #1a1342 50%, #0a0e27 100%);
+  background-size: 400% 400%, 400% 400%, 400% 400%, 200% 200%;
+  background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  background-attachment: fixed;
+  min-height: 100vh;
   margin: 0;
-  font-family: 'Roboto Mono', monospace; /* Una fuente que va con el estilo */
-  color: #e0f7fa; /* Un color de texto que combine */
+  font-family: 'Roboto Mono', monospace;
+  color: #e0f7fa;
+
+  position: relative;
+  overflow-x: hidden;
 }
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(0, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(138, 43, 226, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 0, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(0, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 160px 30px, rgba(138, 43, 226, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: starTwinkle 6s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+
+
+
+@keyframes starTwinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.6; }
+}
+
+

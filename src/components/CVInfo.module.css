@@ -96,7 +96,6 @@
   position: relative;
   z-index: 1;
   transition: all 0.4s ease;
-  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {

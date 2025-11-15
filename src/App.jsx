@@ -494,7 +494,7 @@ function App() {
         <div className={styles.sectionHeader}>
           <h1 className={styles.sectionTitle}>{t('contact.title')}</h1>
           <p className={styles.sectionDescription}>{t('contact.description')}</p>
-          <p className={styles.sectionDescription} style={{marginTop: '1rem', fontSize: '1.1rem', fontWeight: '500'}}>{t('contact.cta')}</p>
+          <p className={styles.sectionDescription} style={{marginTop: '1rem', fontSize: '1.1rem', fontWeight: '500'}}></p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -509,10 +509,8 @@ function App() {
             <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>{t('contact.email')}</h3>
-              <p className={styles.contactDetail} style={{wordBreak: 'break-all'}}>
-                <a href="mailto:gomezmannajoaquina@gmail.com" style={{color: 'inherit', textDecoration: 'underline'}}>
-                  gomezmannajoaquina@gmail.com
-                </a>
+              <p className={styles.contactDetail} style={{wordBreak: 'break-all', textDecoration: 'underline'}}>
+                gomezmannajoaquina@gmail.com
               </p>
               <span className={styles.contactAction}>{t('contact.send')} →</span>
             </a>
