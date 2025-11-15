@@ -211,30 +211,34 @@ function App() {
                 <span className={styles.techBadge}>FluentValidation</span>
               </div>
               <div className={styles.projectActions}>
-                <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                <a href="https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                   <FaGithub /> Ver Código
                 </a>
               </div>
             </div>
 
-            <div className={styles.projectCard}>
-              <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>{t('projects.libros.title')}</h3>
-                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
-                <div className={styles.projectTech}>
-                  <span className={styles.projectBadge}>React</span>
-                  <span className={styles.projectBadge}>Node.js</span>
-                  <span className={styles.projectBadge}>Express</span>
-                  <span className={styles.projectBadge}>TypeScript</span>
-                  <span className={styles.projectBadge}>MikroORM</span>
-                  <span className={styles.projectBadge}>MySQL</span>
-                  <span className={styles.projectBadge}>JWT</span>
+            <div className={styles.experienceCard}>
+              <div className={styles.experienceHeader}>
+                <div>
+                  <h3 className={styles.experienceTitle}>{t('projects.libros.title')}</h3>
+                  <p className={styles.experienceCompany}>{t('projects.libros.subtitle')}</p>
                 </div>
-                <div className={styles.projectActions}>
-                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
-                    <FaGithub /> Ver Código
-                  </a>
-                </div>
+                <span className={styles.experienceDate}>2025</span>
+              </div>
+              <p className={styles.experienceDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
+              <div className={styles.techStack}>
+                <span className={styles.techBadge}>React</span>
+                <span className={styles.techBadge}>Node.js</span>
+                <span className={styles.techBadge}>Express</span>
+                <span className={styles.techBadge}>TypeScript</span>
+                <span className={styles.techBadge}>MikroORM</span>
+                <span className={styles.techBadge}>MySQL</span>
+                <span className={styles.techBadge}>JWT</span>
+              </div>
+              <div className={styles.projectActions}>
+                <a href="https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                  <FaGithub /> Ver Código
+                </a>
               </div>
             </div>
 
@@ -251,7 +255,7 @@ function App() {
                   <span className={styles.projectBadge}>MySQL</span>
                 </div>
                 <div className={styles.projectActions}>
-                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                  <a href="https://github.com/ImNahue/POC-PRISMA-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                     <FaGithub /> Ver Código
                   </a>
                 </div>
