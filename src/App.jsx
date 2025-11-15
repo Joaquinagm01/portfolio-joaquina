@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
+import AnimatedStat from '../AnimatedStat.jsx';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
@@ -22,7 +23,7 @@ function App() {
   const { t } = useTranslation();
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved || 'light'; // Default to light mode
+    return saved || 'dark'; // Default to dark mode
   });
 
   useEffect(() => {
@@ -62,19 +63,27 @@ function App() {
       <section className={styles.statsSection}>
         <div className={styles.statsContainer}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>+2</div>
+            <div className={styles.statNumber}>
+              <AnimatedStat end={2} prefix="+" />
+            </div>
             <div className={styles.statLabel}>{t('stats.experience')}</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>+5</div>
+            <div className={styles.statNumber}>
+              <AnimatedStat end={5} prefix="+" />
+            </div>
             <div className={styles.statLabel}>{t('stats.projects')}</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>+10</div>
+            <div className={styles.statNumber}>
+              <AnimatedStat end={10} prefix="+" />
+            </div>
             <div className={styles.statLabel}>{t('stats.tech')}</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>100%</div>
+            <div className={styles.statNumber}>
+              <AnimatedStat end={100} suffix="%" />
+            </div>
             <div className={styles.statLabel}>{t('stats.commitment')}</div>
           </div>
         </div>

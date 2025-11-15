@@ -10,20 +10,50 @@ const Navbar = ({ toggleTheme, theme }) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let currentActive = '';
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            currentActive = entry.target.id;
           }
         });
+
+        // Only update if we found an intersecting section
+        if (currentActive) {
+          setActiveSection(currentActive);
+        }
       },
-      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
+      {
+        threshold: 0.1,
+        rootMargin: '-80px 0px -50% 0px' // Trigger when section is near top
+      }
     );
 
-    document.querySelectorAll('section[id]').forEach((section) => {
+    // Observe all sections
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => {
       observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    // Handle scroll to update active section when scrolling manually
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToSection = (id) => {
