@@ -548,6 +548,8 @@ function App() {
         </div>
       </section>
 
+      </main>
+
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
@@ -580,7 +582,6 @@ function App() {
           <p>Desarrollado con React + Vite</p>
         </div>
       </footer>
-      </main>
 
       {/* ¡AÑADIDO AQUÍ! */}
       <LanguageSelector />
