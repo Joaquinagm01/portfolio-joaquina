@@ -470,8 +470,7 @@ function App() {
       {/* CONTACTO */}
       <section id="contacto" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('contact.label')}</span>
-          <h2 className={styles.sectionTitle}>{t('contact.title')}</h2>
+          <h1 className={styles.sectionTitle}>{t('contact.title')}</h1>
           <p className={styles.sectionDescription}>{t('contact.description')}</p>
         </div>
 
