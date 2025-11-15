@@ -2,8 +2,7 @@ import './index.css'
 import './i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 import styles from './App.module.css'
-import { useState, useEffect } from 'react'
-import LanguageSelector from './components/LanguageSelector';
+import Navbar from './components/Navbar';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt
@@ -18,55 +17,15 @@ import { VscCode } from 'react-icons/vsc'
 import { TbDatabase } from 'react-icons/tb'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('inicio');
   const { t } = useTranslation();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
-    );
-
-    document.querySelectorAll('section[id]').forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-
-
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="app">
-      {/* NAVBAR */}
-      <nav className={styles.navbar}>
-        <div className={styles.navContainer}>
-          <div className={styles.logo}>JGM.DEV</div>
-          <ul className={styles.navLinks}>
-            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
-            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
-            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
-            <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
-            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
-            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
-            <li><a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.navDownload}>{t('navbar.download_cv')}</a></li>
-          </ul>
-          <LanguageSelector />
-        </div>
-      </nav>
+      <Navbar />
 
-      {/* HERO SECTION */}
-      <section id="inicio" className={styles.hero}>
+      <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
+        {/* HERO SECTION */}
+        <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <p className={styles.heroGreeting}>{t('hero.greeting')}</p>
@@ -546,6 +505,7 @@ function App() {
           <p>Desarrollado con React + Vite</p>
         </div>
       </footer>
+      </main>
     </div>
   )
 }

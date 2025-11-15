@@ -1,0 +1,242 @@
+/* ===== VARIABLES FUTURISTAS ===== */
+:root {
+  --neon-cyan: #00ffff;
+  --neon-purple: #8a2be2;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff7f;
+  --neon-orange: #ff6b35;
+  --dark-bg: #000000;
+  --card-bg: rgba(0, 20, 40, 0.7);
+  --card-border: rgba(0, 255, 255, 0.3);
+  --text: #00ffff;
+  --text-secondary: #a0e7ff;
+  --text-muted: #6b9ab8;
+}
+
+/* ===== NAVBAR FUTURISTA MEJORADO ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 20, 40, 0.95) 100%);
+  backdrop-filter: blur(25px);
+  border-bottom: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4),
+              0 5px 50px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--neon-cyan) 10%, 
+    var(--neon-purple) 50%, 
+    var(--neon-cyan) 90%, 
+    transparent 100%);
+  animation: navGlow 3s linear infinite;
+}
+
+@keyframes navGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.navbarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+               0 0 20px rgba(0, 255, 255, 0.5);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo::before {
+  content: '<';
+  color: var(--neon-purple);
+}
+
+.logo::after {
+  content: '/>';
+  color: var(--neon-purple);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 1),
+               0 0 40px rgba(0, 255, 255, 0.7);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  position: relative;
+  flex-grow: 0;
+}
+
+.navLinks li {
+  position: relative;
+}
+
+.navLinks li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.375rem 0.75rem;
+  display: block;
+}
+
+.navLinks li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.navLinks li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.navLinks li a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.navLinks li a:hover::before {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.navLinks li a:hover::after {
+  width: 100%;
+}
+
+/* Estado activo del navbar */
+.navLinks li a.active {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 15px rgba(0, 255, 255, 1);
+}
+
+.navLinks li a.active::after {
+  width: 100%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* ===== SELECTOR DE IDIOMA ===== */
+.languageSelector {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 20, 40, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.25rem 0.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.langButton {
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.langButton:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.langActive {
+  background: var(--neon-cyan);
+  color: #222;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+/* ===== NAV LEFT ===== */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ===== NAV RIGHT ===== */
+.nav-right ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+/* ===== MAIN MENU ===== */
+.mainMenu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}

@@ -6,7 +6,7 @@ const LanguageSelector = () => {
 
   return (
     <div className={styles.languageSelector}>
-      <span style={{marginRight: '0.5rem', fontWeight: 'bold', letterSpacing: '1px', fontSize: '1rem'}}>
+      <span style={{marginRight: '0.5rem', fontWeight: 'bold', letterSpacing: '1px', fontSize: '0.9rem', color: 'var(--neon-cyan)', textShadow: '0 0 5px rgba(0, 255, 255, 0.5)'}}>
         Idioma:
       </span>
       <button

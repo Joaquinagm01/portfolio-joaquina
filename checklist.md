@@ -1,34 +1,29 @@
+Actúa como un desarrollador Front-End experto en React y CSS (específicamente Flexbox y CSS Modules o el sistema de estilos que detectes).
 
+Estoy trabajando en mi portafolio hecho con React + Vite y tengo problemas críticos de layout.
 
----
+**1. Contexto del Proyecto:**
+* Stack: React + Vite.
+* Estructura: Tengo un componente `Navbar.jsx` que importa sus propios estilos. Este componente se renderiza en `App.jsx` o en un componente `Layout.jsx`.
 
-## Sugerencias de Mejora
+**2. Problema Principal (Navbar):**
+Mi componente `Navbar.jsx` está visualmente roto.
+* Los elementos (`logo`, `links del menú`, `botón de idioma`) están amontonados.
+* El botón o componente para cambiar de idioma (que dice 'Idioma: ES') está **cortado, oculto o no es visible**.
 
-### `index.html`
-- **Idioma dinámico:** El atributo `lang` de la etiqueta `<html>` está fijo en `es`. Debería actualizarse dinámicamente según el idioma seleccionado para mejorar la accesibilidad y el SEO.
+**3. Problema Secundario (Layout General):**
+El contenido de todas las secciones (como el "Bienvenido a mi Portafolio") está demasiado pegado a los bordes de la pantalla.
 
-### `App.jsx`
-- **Componentización:** El componente es demasiado grande. Se recomienda dividirlo en componentes más pequeños y manejables (por ejemplo, `Hero`, `About`, `Experience`, `Skills`, `Contact`, `Footer`) para mejorar la legibilidad y el mantenimiento.
-- **Import duplicado:** Se importa `index.css` dos veces.
-- **Componente `LanguageSelector`:** Extraer el selector de idioma a su propio archivo de componente.
-- **Valores hardcodeados:** La sección de estadísticas tiene valores fijos. Sería mejor moverlos a un archivo de configuración o a los archivos de internacionalización (`en.json`, `es.json`).
-- **Sección de contacto:**
-    - El enlace del teléfono debería usar el protocolo `tel:` (ej: `href="tel:+543412291597"`).
-    - La ubicación no debería ser un enlace.
-- **Estilos en línea:** Mover los estilos en línea a sus respectivos archivos CSS para mantener el código más limpio.
+**Tu Tarea:**
+Por favor, refactoriza mi código para solucionar esto.
 
-### `CVInfo.jsx`
-- **Componente no utilizado:** Este componente no parece estar siendo utilizado en la aplicación principal. Si no se usa, podría eliminarse.
-- **Porcentajes de habilidades:** Los porcentajes son subjetivos. Sería más claro usar niveles descriptivos como "Avanzado", "Intermedio" o "Básico".
+1.  **En `Navbar.jsx` y su archivo CSS (`Navbar.module.css` o similar):**
+    * Modifica el contenedor principal del navbar para que use `display: flex`, `justify-content: space-between`, y `align-items: center`.
+    * Asegúrate de que el **botón de idioma** sea visible y esté correctamente posicionado a la derecha.
+    * Aplica un `gap` o `margin` entre los enlaces del menú (`ul > li`) para que tengan espacio y se vean limpios.
 
-### General
-- **Estructura del proyecto:** Crear una carpeta `sections` dentro de `src/components` para organizar los componentes de cada sección de la página.
-- **Navegación:** Añadir un enlace a la sección de "Proyectos" en la barra de navegación.
-- **`README.md`:** El proyecto no tiene un `README.md` con instrucciones claras sobre cómo instalar y ejecutar el proyecto.
-- **Archivos innecesarios:** El archivo `update_app.py` no parece tener relación con un proyecto de React.
-- **Convenciones:** El archivo `TODO.MD` está en mayúsculas, la convención es usar minúsculas (`todo.md`).
-- **Configuración de herramientas:**
-    - `eslint.config.js` está vacío. Debería configurarse para asegurar un estilo de código consistente.
-    - Aunque `postcss.config.js` y `tailwind.config.js` están presentes, no se está importando ningún archivo `tailwind.css`.
-    - `App.css` está vacío.
-    - `vite.config.js` podría mejorarse para incluir alias de rutas y optimizar la configuración.
+2.  **En `App.jsx` o `Layout.jsx` (mi layout principal):**
+    * Envuelve el contenido principal de la página (o el `<Outlet />` de React Router, si lo uso) en un `div` o `main` que actúe como un "container" o "wrapper".
+    * Aplica un estilo a este "wrapper" (ej. `className="container"`) para que tenga un `padding` horizontal global (ejemplo: `padding: 0 5%;` o `padding: 0 2rem`) y un `max-width` para centrar el contenido en pantallas grandes.
+
+Provéeme los fragmentos de código actualizados para los archivos `.jsx` y `.css` relevantes.
