@@ -1,6 +1,6 @@
 {
   "hero.greeting": "👋 Hey, soy Joaquina",
-  "hero.title": "Impulso equipos y proyectos con tecnología",
+  "hero.title": "Busco oportunidades laborales para aplicar mis conocimientos en tecnología y aportar compromiso en proyectos desafiantes.",
   "hero.subtitle": "Full Stack Developer · Cloud & DevOps Engineer",
   "hero.cta": "¿Te gustaría sumarme a tu equipo?",
   "stats.experience": "2+ Años de Experiencia",
@@ -24,5 +24,22 @@
   "languages.spanish_level": "Nativo",
   "languages.english": "Inglés",
   "languages.english_level": "Intermedio",
-  "languages.english_note": "Certificación en progreso"
+  "languages.english_note": "Certificación en progreso",
+  "experience.label": "Experiencia",
+  "experience.title": "Experiencia Laboral",
+  "experience.description": "Mi recorrido profesional en soporte técnico y desarrollo de soluciones tecnológicas.",
+  "projects.label": "Proyectos",
+  "projects.title": "Proyectos",
+  "projects.description": "Desarrollo full-stack con arquitecturas modernas, APIs REST y bases de datos relacionales.",
+  "skills.label": "Habilidades",
+  "skills.title": "Stack Tecnológico",
+  "skills.description": "Tecnologías y herramientas que domino para construir soluciones robustas y escalables.",
+  "contact.label": "Contacto",
+  "contact.title": "Conectemos",
+  "contact.description": "Estoy disponible para nuevas oportunidades, colaboraciones y proyectos interesantes.",
+  "footer.description": "Ingeniera en Sistemas especializada en desarrollo Full Stack.",
+  "footer.navigation": "Navegación",
+  "footer.social": "Redes Sociales",
+  "footer.rights": "Todos los derechos reservados.",
+  "footer.tech": "Desarrollado con React + Vite"
 }

@@ -83,7 +83,7 @@ html {
 .navContainer {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.625rem 3rem;
+  padding: 0.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -93,7 +93,7 @@ html {
 
 .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 900;
   color: var(--neon-cyan);
   letter-spacing: 3px;
@@ -200,9 +200,32 @@ html {
   box-shadow: 0 0 20px var(--neon-cyan);
 }
 
+/* ===== NAV DOWNLOAD BUTTON ===== */
+.navDownload {
+  background: var(--neon-cyan) !important;
+  color: #000 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s ease !important;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5) !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-left: 1rem !important;
+}
+
+.navDownload:hover {
+  background: var(--neon-purple) !important;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.7) !important;
+  transform: translateY(-2px) !important;
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   padding: 8rem 3rem 4rem;
@@ -544,8 +567,8 @@ html {
   inset: -30px;
   background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
   border-radius: 20px;
-  opacity: 0.3;
-  filter: blur(40px);
+  opacity: 0.2;
+  filter: blur(30px);
   animation: pulse 4s ease-in-out infinite;
 }
 
@@ -754,7 +777,7 @@ html {
 /* ===== CARDS MEJORADAS ===== */
 .card {
   background: var(--card-bg);
-  border: 2px solid var(--card-border);
+  border: 3px solid var(--card-border);
   padding: 2.5rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
@@ -789,7 +812,8 @@ html {
   transform: translateY(-10px) scale(1.02);
   border-color: var(--neon-cyan);
   box-shadow: 0 0 40px rgba(0, 255, 255, 0.5),
-              0 15px 60px rgba(0, 0, 0, 0.6);
+              0 15px 60px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(0, 255, 255, 0.3);
 }
 
 .card::after {
@@ -1631,7 +1655,7 @@ html {
   margin: 0 auto;
   padding: 0 3rem 2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 3rem;
   align-items: start;
 }
@@ -1756,7 +1780,7 @@ html {
     gap: 4rem;
     padding: 0 4rem;
   }
-  
+
   .contentContainer,
   .navContainer,
   .footerContent {
@@ -1792,6 +1816,11 @@ html {
 
   .techItems {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .navDownload {
+    margin-left: 0 !important;
+    margin-top: 0.5rem !important;
   }
 }
 
@@ -1944,6 +1973,11 @@ html {
   gap: 1.5rem;
   max-width: 1300px;
   margin: 0 auto;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.8) 0%, rgba(26, 31, 58, 0.8) 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .techCard {

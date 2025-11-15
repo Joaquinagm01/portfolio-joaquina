@@ -68,11 +68,12 @@ function App() {
         <div className={styles.navContainer}>
           <div className={styles.logo}>JGM.DEV</div>
           <ul className={styles.navLinks}>
-            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{i18n.language === 'es' ? 'Inicio' : 'Home'}</a></li>
-            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{i18n.language === 'es' ? 'Sobre Mí' : 'About Me'}</a></li>
-            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{i18n.language === 'es' ? 'Experiencia' : 'Experience'}</a></li>
-            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{i18n.language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
-            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{i18n.language === 'es' ? 'Contacto' : 'Contact'}</a></li>
+            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
+            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
+            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
+            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
+            <li><a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.navDownload}>{t('navbar.download_cv') || 'Descargar CV'}</a></li>
           </ul>
           <LanguageSelector />
         </div>
@@ -123,11 +124,9 @@ function App() {
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>Sobre Mí</span>
-          <h2 className={styles.sectionTitle}>Perfil Profesional</h2>
-          <p className={styles.sectionDescription}>
-            Busco oportunidades laborales para aplicar mis conocimientos en tecnología y aportar compromiso en proyectos desafiantes.
-          </p>
+          <span className={styles.sectionLabel}>{t('about.label')}</span>
+          <h2 className={styles.sectionTitle}>{t('about.title')}</h2>
+          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('about.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -136,24 +135,24 @@ function App() {
             <div className={styles.card}>
               <div className={styles.cardHeader}>
                 <div className={styles.cardIcon}>🎓</div>
-                <h3 className={styles.cardTitle}>Educación</h3>
+                <h3 className={styles.cardTitle}>{t('education.title')}</h3>
               </div>
               <div className={styles.cardContent}>
                 <div className={styles.educationItem}>
                   <div className={styles.educationHeader}>
-                    <h4 className={styles.educationInstitution}>UTN Rosario</h4>
-                    <span className={styles.educationYear}>2020 - Actualidad</span>
+                    <h4 className={styles.educationInstitution}>{t('education.utn')}</h4>
+                    <span className={styles.educationYear}>{t('education.utn_year')}</span>
                   </div>
-                  <p className={styles.educationDegree}>Ingeniería en Sistemas</p>
-                  <p className={styles.educationStatus}>Cursando 4to año</p>
+                  <p className={styles.educationDegree}>{t('education.utn_degree')}</p>
+                  <p className={styles.educationStatus}>{t('education.utn_status')}</p>
                 </div>
                 <div className={styles.educationDivider}></div>
                 <div className={styles.educationItem}>
                   <div className={styles.educationHeader}>
-                    <h4 className={styles.educationInstitution}>Escuela Superior de Comercio "Libertador General San Martín"</h4>
-                    <span className={styles.educationYear}>2015 - 2019</span>
+                    <h4 className={styles.educationInstitution}>{t('education.escuela')}</h4>
+                    <span className={styles.educationYear}>{t('education.escuela_year')}</span>
                   </div>
-                  <p className={styles.educationDegree}>Bachiller en Economía</p>
+                  <p className={styles.educationDegree}>{t('education.escuela_degree')}</p>
                 </div>
               </div>
             </div>
@@ -162,13 +161,13 @@ function App() {
             <div className={styles.card}>
               <div className={styles.cardHeader}>
                 <div className={styles.cardIcon}>🌐</div>
-                <h3 className={styles.cardTitle}>Idiomas</h3>
+                <h3 className={styles.cardTitle}>{t('languages.title')}</h3>
               </div>
               <div className={styles.cardContent}>
                 <div className={styles.languageItem}>
                   <div className={styles.languageHeader}>
-                    <h4 className={styles.languageName}>Español</h4>
-                    <span className={styles.languageLevel}>Nativo</span>
+                    <h4 className={styles.languageName}>{t('languages.spanish')}</h4>
+                    <span className={styles.languageLevel}>{t('languages.spanish_level')}</span>
                   </div>
                   <div className={styles.progressBar}>
                     <div className={styles.progressFill} style={{width: '100%', background: 'var(--neon-cyan)'}}></div>
@@ -176,8 +175,8 @@ function App() {
                 </div>
                 <div className={styles.languageItem}>
                   <div className={styles.languageHeader}>
-                    <h4 className={styles.languageName}>Inglés</h4>
-                    <span className={styles.languageLevel}>Avanzado (título Cambridge)</span>
+                    <h4 className={styles.languageName}>{t('languages.english')}</h4>
+                    <span className={styles.languageLevel}>{t('languages.english_level')}</span>
                   </div>
                   <div className={styles.progressBar}>
                     <div className={styles.progressFill} style={{width: '90%', background: 'var(--neon-purple)'}}></div>
@@ -192,11 +191,9 @@ function App() {
       {/* EXPERIENCIA */}
       <section id="experiencia" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>Experiencia</span>
-          <h2 className={styles.sectionTitle}>Trayectoria Profesional</h2>
-          <p className={styles.sectionDescription}>
-            Mi recorrido profesional en soporte técnico y desarrollo de soluciones tecnológicas.
-          </p>
+          <span className={styles.sectionLabel}>{t('experience.label') || 'Experiencia'}</span>
+          <h2 className={styles.sectionTitle}>{t('experience.title') || 'Trayectoria Profesional'}</h2>
+          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('experience.description') || 'Mi recorrido profesional en soporte técnico y desarrollo de soluciones tecnológicas.'}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -258,11 +255,9 @@ function App() {
       {/* PROYECTOS */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>Proyectos</span>
-          <h2 className={styles.sectionTitle}>Proyectos Destacados</h2>
-          <p className={styles.sectionDescription}>
-            Desarrollo full-stack con arquitecturas modernas, APIs REST y bases de datos relacionales.
-          </p>
+          <span className={styles.sectionLabel}>{t('projects.label') || 'Proyectos'}</span>
+          <h2 className={styles.sectionTitle}>{t('projects.title') || 'Proyectos Destacados'}</h2>
+          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('projects.description') || 'Desarrollo full-stack con arquitecturas modernas, APIs REST y bases de datos relacionales.'}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -377,50 +372,35 @@ function App() {
       </section>
 
       {/* HABILIDADES */}
-
-      {/* HABILIDADES */}
       <section id="habilidades" className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>Habilidades</span>
-          <h2 className={styles.sectionTitle}>Stack Tecnológico</h2>
-          <p className={styles.sectionDescription}>
-            Tecnologías y herramientas que domino para construir soluciones robustas y escalables.
-          </p>
+          <span className={styles.sectionLabel}>{t('skills.label') || 'Habilidades'}</span>
+          <h2 className={styles.sectionTitle}>{t('skills.title') || 'Stack Tecnológico'}</h2>
+          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('skills.description') || 'Tecnologías y herramientas que domino para construir soluciones robustas y escalables.'}</p>
         </div>
 
         <div className={styles.contentContainer}>
           <div className={styles.techStackGrid}>
-            {/* Cloud y AWS */}
-            <div className={styles.techCard} data-category="cloud">
-              <h3 className={styles.techCardTitle}>Cloud y AWS</h3>
+            {/* Core / Principales */}
+            <div className={styles.techCard} data-category="core">
+              <h3 className={styles.techCardTitle}>Core / Principales</h3>
               <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
+                  <span>JS</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
+                  <span>React</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaNodeJs className={styles.techItemIcon} style={{color: '#68A063'}} />
+                  <span>Node</span>
+                </div>
                 <div className={styles.techItem}>
                   <FaAws className={styles.techItemIcon} style={{color: '#FF9900'}} />
                   <span>AWS</span>
                 </div>
-                <div className={styles.techItem}>
-                  <DiDatabase className={styles.techItemIcon} style={{color: '#FF9900'}} />
-                  <span>EC2</span>
-                </div>
-                <div className={styles.techItem}>
-                  <DiDatabase className={styles.techItemIcon} style={{color: '#00D1B2'}} />
-                  <span>S3</span>
-                </div>
-                <div className={styles.techItem}>
-                  <DiDatabase className={styles.techItemIcon} style={{color: '#FFD814'}} />
-                  <span>Lambda</span>
-                </div>
-                <div className={styles.techItem}>
-                  <TbDatabase className={styles.techItemIcon} style={{color: '#527FFF'}} />
-                  <span>RDS</span>
-                </div>
-              </div>
-            </div>
-
-            {/* DevOps y IaC */}
-            <div className={styles.techCard} data-category="devops">
-              <h3 className={styles.techCardTitle}>DevOps y IaC</h3>
-              <div className={styles.techItems}>
                 <div className={styles.techItem}>
                   <FaDocker className={styles.techItemIcon} style={{color: '#2496ED'}} />
                   <span>Docker</span>
@@ -429,13 +409,24 @@ function App() {
                   <SiTerraform className={styles.techItemIcon} style={{color: '#7B42BC'}} />
                   <span>Terraform</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Intermedios */}
+            <div className={styles.techCard} data-category="intermedios">
+              <h3 className={styles.techCardTitle}>Intermedios</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
+                  <span>Python</span>
+                </div>
                 <div className={styles.techItem}>
                   <FaGithub className={styles.techItemIcon} style={{color: '#6e5494'}} />
                   <span>GitHub Actions</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaDocker className={styles.techItemIcon} style={{color: '#FF6C37'}} />
-                  <span>ECS Fargate</span>
+                  <TbDatabase className={styles.techItemIcon} style={{color: '#CC2927'}} />
+                  <span>SQL Server</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaLinux className={styles.techItemIcon} style={{color: '#FCC624'}} />
@@ -444,125 +435,17 @@ function App() {
               </div>
             </div>
 
-            {/* Desarrollo */}
-            <div className={styles.techCard} data-category="desarrollo">
-              <h3 className={styles.techCardTitle}>Desarrollo</h3>
+            {/* Aprendiendo / Mejorando */}
+            <div className={styles.techCard} data-category="aprendiendo">
+              <h3 className={styles.techCardTitle}>Aprendiendo / Mejorando</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem}>
-                  <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
-                  <span>JavaScript</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiTypescript className={styles.techItemIcon} style={{color: '#3178C6'}} />
-                  <span>TypeScript</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiNextdotjs className={styles.techItemIcon} style={{color: '#FFFFFF'}} />
-                  <span>Next.js</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
-                  <span>Python</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaJava className={styles.techItemIcon} style={{color: '#E76F00'}} />
-                  <span>Java</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
-                  <span>React.js</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaNodeJs className={styles.techItemIcon} style={{color: '#68A063'}} />
-                  <span>Node.js</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Bases de Datos */}
-            <div className={styles.techCard} data-category="databases">
-              <h3 className={styles.techCardTitle}>Bases de Datos</h3>
-              <div className={styles.techItems}>
-                <div className={styles.techItem}>
-                  <SiMysql className={styles.techItemIcon} style={{color: '#4479A1'}} />
-                  <span>MySQL</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiPostgresql className={styles.techItemIcon} style={{color: '#4169E1'}} />
-                  <span>PostgreSQL</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiMongodb className={styles.techItemIcon} style={{color: '#47A248'}} />
-                  <span>DynamoDB</span>
-                </div>
-                <div className={styles.techItem}>
-                  <TbDatabase className={styles.techItemIcon} style={{color: '#CC2927'}} />
-                  <span>SQL Server</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Herramientas */}
-            <div className={styles.techCard} data-category="herramientas">
-              <h3 className={styles.techCardTitle}>Herramientas</h3>
-              <div className={styles.techItems}>
-                <div className={styles.techItem}>
-                  <FaGitAlt className={styles.techItemIcon} style={{color: '#F05032'}} />
-                  <span>Git</span>
-                </div>
-                <div className={styles.techItem}>
-                  <FaGithub className={styles.techItemIcon} style={{color: '#FFFFFF'}} />
-                  <span>GitHub</span>
-                </div>
-                <div className={styles.techItem}>
-                  <VscCode className={styles.techItemIcon} style={{color: '#007ACC'}} />
-                  <span>VS Code</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiPostman className={styles.techItemIcon} style={{color: '#FF6C37'}} />
-                  <span>Postman</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiOdoo className={styles.techItemIcon} style={{color: '#A24689'}} />
-                  <span>Odoo</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Monitoring */}
-            <div className={styles.techCard} data-category="monitoring">
-              <h3 className={styles.techCardTitle}>Monitoring</h3>
-              <div className={styles.techItems}>
-                <div className={styles.techItem}>
-                  <SiCloudflare className={styles.techItemIcon} style={{color: '#F38020'}} />
-                  <span>CloudWatch</span>
-                </div>
                 <div className={styles.techItem}>
                   <FaChartLine className={styles.techItemIcon} style={{color: '#F2C811'}} />
                   <span>Power BI</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaJira className={styles.techItemIcon} style={{color: '#0052CC'}} />
-                  <span>Jira</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Diseño */}
-            <div className={styles.techCard} data-category="diseno">
-              <h3 className={styles.techCardTitle}>Diseño</h3>
-              <div className={styles.techItems}>
-                <div className={styles.techItem}>
-                  <FaFigma className={styles.techItemIcon} style={{color: '#F24E1E'}} />
-                  <span>Figma</span>
-                </div>
-                <div className={styles.techItem}>
                   <FaFigma className={styles.techItemIcon} style={{color: '#FF7C00'}} />
                   <span>Illustrator</span>
-                </div>
-                <div className={styles.techItem}>
-                  <SiTailwindcss className={styles.techItemIcon} style={{color: '#06B6D4'}} />
-                  <span>Tailwind CSS</span>
                 </div>
               </div>
             </div>
@@ -573,11 +456,9 @@ function App() {
       {/* CONTACTO */}
       <section id="contacto" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>Contacto</span>
-          <h2 className={styles.sectionTitle}>Conectemos</h2>
-          <p className={styles.sectionDescription}>
-            Estoy disponible para nuevas oportunidades, colaboraciones y proyectos interesantes.
-          </p>
+          <span className={styles.sectionLabel}>{t('contact.label') || 'Contacto'}</span>
+          <h2 className={styles.sectionTitle}>{t('contact.title') || 'Conectemos'}</h2>
+          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('contact.description') || 'Estoy disponible para nuevas oportunidades, colaboraciones y proyectos interesantes.'}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -592,28 +473,28 @@ function App() {
             <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>Email</h3>
-              <p className={styles.contactDetail}>gomezmannajoaquina@gmail.com</p>
+              <p className={styles.contactDetail} style={{color: '#ffffff'}}>gomezmannajoaquina@gmail.com</p>
               <span className={styles.contactAction}>Enviar mensaje →</span>
             </a>
 
             <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💼</div>
               <h3 className={styles.contactTitle}>LinkedIn</h3>
-              <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
+              <p className={styles.contactDetail} style={{color: '#ffffff'}}>Joaquina Gomez Manna</p>
               <span className={styles.contactAction}>Ver perfil →</span>
             </a>
 
             <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💻</div>
               <h3 className={styles.contactTitle}>GitHub</h3>
-              <p className={styles.contactDetail}>@Joaquinagm01</p>
+              <p className={styles.contactDetail} style={{color: '#ffffff'}}>@Joaquinagm01</p>
               <span className={styles.contactAction}>Ver repositorios →</span>
             </a>
 
             <div className={styles.contactCard} style={{cursor: 'default'}}>
               <div className={styles.contactIcon}>📍</div>
               <h3 className={styles.contactTitle}>Ubicación</h3>
-              <p className={styles.contactDetail}>Rosario, Argentina</p>
+              <p className={styles.contactDetail} style={{color: '#ffffff'}}>Rosario, Argentina</p>
               <span className={styles.contactAction} style={{opacity: 0.5}}>Santa Fe, ARG</span>
             </div>
           </div>
@@ -625,24 +506,11 @@ function App() {
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
             <h3 className={styles.footerTitle}>JGM.DEV</h3>
-            <p className={styles.footerDescription}>
-              Ingeniera en Sistemas especializada en desarrollo Full Stack con enfoque en Cloud y DevOps.
-            </p>
+            <p className={styles.footerDescription}>{t('footer.description') || 'Ingeniera en Sistemas especializada en desarrollo Full Stack con enfoque en Cloud y DevOps.'}</p>
           </div>
-          
+
           <div className={styles.footerSection}>
-            <h4 className={styles.footerSubtitle}>Navegación</h4>
-            <ul className={styles.footerLinks}>
-              <li><a onClick={() => scrollToSection('inicio')}>Inicio</a></li>
-              <li><a onClick={() => scrollToSection('sobre-mi')}>Sobre Mí</a></li>
-              <li><a onClick={() => scrollToSection('experiencia')}>Experiencia</a></li>
-              <li><a onClick={() => scrollToSection('habilidades')}>Habilidades</a></li>
-              <li><a onClick={() => scrollToSection('contacto')}>Contacto</a></li>
-            </ul>
-          </div>
-          
-          <div className={styles.footerSection}>
-            <h4 className={styles.footerSubtitle}>Redes Sociales</h4>
+            <h4 className={styles.footerSubtitle}>{t('footer.social') || 'Redes Sociales'}</h4>
             <div className={styles.footerSocial}>
               <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
@@ -659,10 +527,10 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         <div className={styles.footerBottom}>
-          <p>© 2025 Joaquina Gómez Manna. Todos los derechos reservados.</p>
-          <p>Desarrollado con React + Vite | Deployed on Vercel</p>
+          <p>© 2025 Joaquina Gómez Manna. {t('footer.rights') || 'Todos los derechos reservados.'}</p>
+          <p>{t('footer.tech') || 'Desarrollado con React + Vite'}</p>
         </div>
       </footer>
     </div>
