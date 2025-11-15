@@ -104,23 +104,15 @@ function App() {
                 <h3 className={styles.cardTitle}>{t('languages.title')}</h3>
               </div>
               <div className={styles.cardContent}>
-                <div className={styles.languageItem}>
-                  <div className={styles.languageEntry}>
-                    <span className={styles.languageName}>{t('languages.spanish')}</span>
-                    <span className={styles.languageLevel}>{t('languages.spanish_level')}</span>
-                  </div>
-                  <div className={styles.progressBar}>
-                    <div className={styles.progressFill} style={{width: '100%', background: 'var(--neon-cyan)'}}></div>
-                  </div>
+                <div className={styles.educationItem}>
+                  <h4 className={styles.educationInstitution}>{t('languages.spanish')}</h4>
+                  <p className={styles.educationDegree}>{t('languages.spanish_level')}</p>
                 </div>
-                <div className={styles.languageItem}>
-                  <div className={styles.languageEntry}>
-                    <span className={styles.languageName}>{t('languages.english')}</span>
-                    <span className={styles.languageLevel}>{t('languages.english_level')}</span>
-                  </div>
-                  <div className={styles.progressBar}>
-                    <div className={styles.progressFill} style={{width: '90%', background: 'var(--neon-purple)'}}></div>
-                  </div>
+                <div className={styles.educationDivider}></div>
+                <div className={styles.educationItem}>
+                  <h4 className={styles.educationInstitution}>{t('languages.english')}</h4>
+                  <p className={styles.educationYear}>{t('languages.english_year')}</p>
+                  <p className={styles.educationDegree}>{t('languages.english_level')}</p>
                 </div>
               </div>
             </div>
@@ -140,51 +132,51 @@ function App() {
             <div className={styles.experienceCard}>
               <div className={styles.experienceHeader}>
                 <div>
-                  <h3 className={styles.experienceTitle}>Soporte Informático</h3>
-                  <p className={styles.experienceCompany}>Asociación de Cooperativas Argentinas</p>
+                  <h3 className={styles.experienceTitle}>{t('experience.job1.title')}</h3>
+                  <p className={styles.experienceCompany}>{t('experience.job1.company')}</p>
                 </div>
-                <span className={styles.experienceDate}>Mar 2025 - Actualidad</span>
+                <span className={styles.experienceDate}>{t('experience.job1.period')}</span>
               </div>
-              <p className={styles.experienceDescription}>Rol: Soporte Informático de Nivel 1</p>
+              <p className={styles.experienceDescription}>{t('experience.job1.role')}</p>
               <ul className={styles.experienceList}>
-                <li>Soporte técnico de primer nivel y resolución de incidencias en mesa de ayuda (Help Desk)</li>
-                <li>Gestión de infraestructura y administración de entornos Microsoft</li>
-                <li>Automatización de procesos con Jira y datos externos, mejorando la eficiencia operativa</li>
-                <li>Colaboración con el área de Tecnología de la Información en proyectos de mejora continua</li>
+                <li>{t('experience.job1.desc1')}</li>
+                <li>{t('experience.job1.desc2')}</li>
+                <li>{t('experience.job1.desc3')}</li>
+                <li>{t('experience.job1.desc4')}</li>
               </ul>
               <div className={styles.techStack}>
-                <span className={styles.techBadge}>Microsoft Windows</span>
-                <span className={styles.techBadge}>Office 365</span>
-                <span className={styles.techBadge}>Cortex</span>
-                <span className={styles.techBadge}>Active Directory</span>
-                <span className={styles.techBadge}>Citrix</span>
-                <span className={styles.techBadge}>Jira</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech1')}</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech2')}</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech3')}</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech4')}</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech5')}</span>
+                <span className={styles.techBadge}>{t('experience.job1.tech6')}</span>
               </div>
             </div>
 
             <div className={styles.experienceCard}>
               <div className={styles.experienceHeader}>
                 <div>
-                  <h3 className={styles.experienceTitle}>Soporte Informático</h3>
-                  <p className={styles.experienceCompany}>Tribunal de Faltas</p>
+                  <h3 className={styles.experienceTitle}>{t('experience.job2.title')}</h3>
+                  <p className={styles.experienceCompany}>{t('experience.job2.company')}</p>
                 </div>
-                <span className={styles.experienceDate}>Mar 2024 - Feb 2025</span>
+                <span className={styles.experienceDate}>{t('experience.job2.period')}</span>
               </div>
               <p className={styles.experienceDescription}>
-                Mantenimiento y actualización de sistemas hardware y software, implementación de nuevas tecnologías.
+                {t('experience.job2.desc1')}
               </p>
               <ul className={styles.experienceList}>
-                <li>Testing de nuevas implementaciones y relevamiento de datos</li>
-                <li>Asesoramiento y capacitación a usuarios finales</li>
-                <li>Elaboración de manuales e instructivos técnicos</li>
-                <li>Optimización de procesos y mejora continua del área de IT</li>
+                <li>{t('experience.job2.desc2')}</li>
+                <li>{t('experience.job2.desc3')}</li>
+                <li>{t('experience.job2.desc4')}</li>
+                <li>{t('experience.job2.desc5')}</li>
               </ul>
               <div className={styles.techStack}>
-                <span className={styles.techBadge}>Windows</span>
-                <span className={styles.techBadge}>Linux</span>
-                <span className={styles.techBadge}>Hardware</span>
-                <span className={styles.techBadge}>Software</span>
-                <span className={styles.techBadge}>Documentación</span>
+                <span className={styles.techBadge}>{t('experience.job2.tech1')}</span>
+                <span className={styles.techBadge}>{t('experience.job2.tech2')}</span>
+                <span className={styles.techBadge}>{t('experience.job2.tech3')}</span>
+                <span className={styles.techBadge}>{t('experience.job2.tech4')}</span>
+                <span className={styles.techBadge}>{t('experience.job2.tech5')}</span>
               </div>
             </div>
           </div>
