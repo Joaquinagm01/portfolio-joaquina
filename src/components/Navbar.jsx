@@ -5,7 +5,7 @@ import appStyles from '../App.module.css';
 
 const Navbar = ({ toggleTheme, theme }) => {
   const [activeSection, setActiveSection] = useState('inicio');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -59,11 +59,7 @@ const Navbar = ({ toggleTheme, theme }) => {
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMenuOpen(false); // Close side menu after navigation
   };
 
   return (
@@ -74,36 +70,44 @@ const Navbar = ({ toggleTheme, theme }) => {
         <div className={styles.logo}>JGM.DEV</div>
 
         {/* PARTE 2: DERECHA */}
-        <nav className={styles.mainMenu}>
-          {/* Hamburger Menu Button - Mobile Only */}
-          <button
-            className={styles.hamburgerMenu}
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
-          </button>
+        <nav className={styles.navMenu}>
+          {/* Menú para Escritorio */}
+          <div className={styles.desktopMenu}>
+            <ul className={styles.navLinks}>
+              <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
+              <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
+              <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+              <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
+              <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
+              <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
+            </ul>
+          </div>
 
-          <ul className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
-            <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
-            <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
-            <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
-            <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
-            <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
-            <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
-          </ul>
-          <button
-            onClick={toggleTheme}
-            className={styles.themeToggle}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
+          {/* Menú Lateral para Móvil */}
+          <div className={`${styles.sideMenu} ${isMenuOpen ? styles.menuOpen : ''}`}>
+            <button onClick={() => setIsMenuOpen(false)} className={styles.closeButton}>✕</button>
+            <ul className={styles.sideMenuLinks}>
+              <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
+              <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
+              <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+              <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
+              <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
+              <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
+            </ul>
+          </div>
+
+          {/* Controles de la derecha (siempre visibles) */}
+          <div className={styles.navControls}>
+            <button className={styles.hamburgerMenu} onClick={() => setIsMenuOpen(true)} aria-label="Toggle mobile menu" aria-expanded={isMenuOpen}>
+              <span className={styles.hamburgerLine}></span>
+              <span className={styles.hamburgerLine}></span>
+              <span className={styles.hamburgerLine}></span>
+            </button>
+            <button onClick={toggleTheme} className={styles.themeToggle} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
+          </div>
         </nav>
-
       </div>
     </header>
   );
