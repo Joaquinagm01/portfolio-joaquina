@@ -69,7 +69,6 @@ function App() {
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('about.label')}</span>
           <h2 className={styles.sectionTitle}>{t('about.title')}</h2>
           <p className={styles.sectionDescription}>{t('about.description')}</p>
         </div>
@@ -136,7 +135,6 @@ function App() {
       {/* EXPERIENCIA */}
       <section id="experiencia" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('experience.label')}</span>
           <h2 className={styles.sectionTitle}>{t('experience.title')}</h2>
           <p className={styles.sectionDescription}>{t('experience.description')}</p>
         </div>
@@ -200,7 +198,6 @@ function App() {
       {/* PROYECTOS */}
       <section id="proyectos" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('projects.label')}</span>
           <h2 className={styles.sectionTitle}>{t('projects.title')}</h2>
           <p className={styles.sectionDescription}>{t('projects.description')}</p>
         </div>
@@ -319,7 +316,6 @@ function App() {
       {/* HABILIDADES */}
       <section id="habilidades" className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('skills.label')}</span>
           <h2 className={styles.sectionTitle}>{t('skills.title')}</h2>
           <p className={styles.sectionDescription}>{t('skills.description')}</p>
         </div>

@@ -1,13 +1,13 @@
 /* LanguageSwitcher.module.css */
 .floatingSwitcher {
-  position: fixed; /* <-- ¡LA MAGIA! */
-  bottom: 2rem;    /* 32px desde abajo */
-  right: 2rem;     /* 32px desde la derecha */
-  z-index: 1000;   /* Asegura que esté por encima de todo */
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000; /* <-- ¡INCREMENTADO! Asegura que esté al frente */
 
-  /* Estilos para que se vea bien (ajusta a tu gusto) */
+  /* Mantén o ajusta los estilos visuales */
   background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #00FFFF; /* Tu color cian */
+  border: 1px solid #00FFFF;
   padding: 0.5rem;
   border-radius: 8px;
 }
