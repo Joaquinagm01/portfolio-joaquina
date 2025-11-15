@@ -195,16 +195,12 @@ function App() {
             <div className={styles.experienceCard}>
               <div className={styles.experienceHeader}>
                 <div>
-                  <h3 className={styles.experienceTitle}>🏨 AlojARG</h3>
-                  <p className={styles.experienceCompany}>Sistema de Reservas</p>
+                  <h3 className={styles.experienceTitle}>{t('projects.alojarg.title')}</h3>
+                  <p className={styles.experienceCompany}>{t('projects.alojarg.subtitle')}</p>
                 </div>
                 <span className={styles.experienceDate}>2025</span>
               </div>
-              <p className={styles.experienceDescription}>
-                Sistema de reservas de alojamientos estilo Booking.com con Clean Architecture.
-                Búsqueda avanzada con filtros, favoritos, comparador de propiedades y dashboard administrativo.
-                Frontend responsive con Material Design 3.
-              </p>
+              <p className={styles.experienceDescription} dangerouslySetInnerHTML={{ __html: t('projects.alojarg.description') }}></p>
               <div className={styles.techStack}>
                 <span className={styles.techBadge}>.NET 9</span>
                 <span className={styles.techBadge}>Angular 20</span>
@@ -218,20 +214,13 @@ function App() {
                 <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                   <FaGithub /> Ver Código
                 </a>
-                <a href="#contacto" className={styles.btnDemo}>
-                  🚀 Contactar
-                </a>
               </div>
             </div>
 
             <div className={styles.projectCard}>
               <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>� Página de Libros</h3>
-                <p className={styles.projectDescription}>
-                  Sistema web full stack de gestión y reseñas de libros. CRUDs múltiples (usuarios, libros, autores, 
-                  categorías, editoriales, sagas). API de moderación de malas palabras, autenticación JWT y 
-                  recomendaciones personalizadas.
-                </p>
+                <h3 className={styles.projectTitle}>{t('projects.libros.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
                 <div className={styles.projectTech}>
                   <span className={styles.projectBadge}>React</span>
                   <span className={styles.projectBadge}>Node.js</span>
@@ -245,20 +234,14 @@ function App() {
                   <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                     <FaGithub /> Ver Código
                   </a>
-                  <a href="#contacto" className={styles.btnDemo}>
-                    🚀 Contactar
-                  </a>
                 </div>
               </div>
             </div>
 
             <div className={styles.projectCard}>
               <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>📦 Gestión de Stock</h3>
-                <p className={styles.projectDescription}>
-                  Prototipo Full Stack con CRUD de productos, categorías y control de inventario en tiempo real. 
-                  Diseño y normalización de base de datos, backend modular con arquitectura limpia y buenas prácticas.
-                </p>
+                <h3 className={styles.projectTitle}>{t('projects.stock.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.stock.description') }}></p>
                 <div className={styles.projectTech}>
                   <span className={styles.projectBadge}>React</span>
                   <span className={styles.projectBadge}>TailwindCSS</span>
@@ -271,33 +254,18 @@ function App() {
                   <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                     <FaGithub /> Ver Código
                   </a>
-                  <a href="#contacto" className={styles.btnDemo}>
-                    🚀 Contactar
-                  </a>
                 </div>
               </div>
             </div>
 
             <div className={styles.projectCard}>
               <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>🏥 Sistema de Hospital</h3>
-                <p className={styles.projectDescription}>
-                  Programa para registrar y buscar pacientes, enfermedades y síntomas. Proyecto académico 
-                  desarrollado en Algoritmos y Estructura de Datos. Aplicación funcional orientada a la gestión 
-                  de información clínica.
-                </p>
+                <h3 className={styles.projectTitle}>{t('projects.hospital.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.hospital.description') }}></p>
                 <div className={styles.projectTech}>
                   <span className={styles.projectBadge}>Python</span>
                   <span className={styles.projectBadge}>Pascal</span>
                   <span className={styles.projectBadge}>Algoritmos</span>
-                </div>
-                <div className={styles.projectActions}>
-                  <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
-                    <FaGithub /> Ver Código
-                  </a>
-                  <a href="#contacto" className={styles.btnDemo}>
-                    🚀 Contactar
-                  </a>
                 </div>
               </div>
             </div>
