@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.css';
 import appStyles from '../App.module.css';
 
-const Navbar = ({ toggleDarkMode, isDarkMode }) => {
+const Navbar = ({ toggleTheme, theme }) => {
   const [activeSection, setActiveSection] = useState('inicio');
   const { t } = useTranslation();
 
@@ -48,11 +48,11 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
             <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
           </ul>
           <button
-            onClick={toggleDarkMode}
+            onClick={toggleTheme}
             className={styles.themeToggle}
-            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {isDarkMode ? '☀️' : '🌙'}
+            {theme === 'dark' ? '☀️' : '🌙'}
           </button>
         </nav>
 

@@ -116,7 +116,7 @@
   font-weight: 900;
   text-align: center;
   line-height: 1.2;
-  color: #00ffff;
+  color: var(--text);
   text-shadow: 
     0 0 10px rgba(0, 255, 255, 0.8),
     0 0 20px rgba(0, 255, 255, 0.6),
@@ -169,7 +169,7 @@
   top: 0;
   width: 4px;
   height: 0;
-  background: linear-gradient(to bottom, #00ffff, #ff00ff);
+  background: linear-gradient(to bottom, var(--neon-cyan), #ff00ff);
   transition: height 0.5s ease;
 }
 
@@ -185,7 +185,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #00ffff;
+  color: var(--text);
   position: relative;
   padding-bottom: 1rem;
   text-transform: uppercase;
@@ -200,7 +200,7 @@
   left: 0;
   width: 100px;
   height: 3px;
-  background: linear-gradient(90deg, #00ffff, #ff00ff, transparent);
+  background: linear-gradient(90deg, var(--neon-cyan), #ff00ff, transparent);
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
   animation: expand 2s ease-in-out infinite alternate;
 }
@@ -231,7 +231,7 @@
   background: rgba(0, 255, 255, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(0, 255, 255, 0.3);
-  border-left: 4px solid #00ffff;
+  border-left: 4px solid var(--neon-cyan);
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
 }
@@ -289,7 +289,7 @@
   box-shadow: 
     0 10px 30px rgba(0, 255, 255, 0.3),
     0 0 20px rgba(255, 0, 255, 0.2);
-  border-color: #00ffff;
+  border-color: var(--neon-cyan);
 }
 
 /* ===== EXPERIENCIA ===== */
@@ -313,7 +313,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff7f, #00ffff);
+  background: linear-gradient(45deg, var(--neon-cyan), #ff00ff, #00ff7f, var(--neon-cyan));
   border-radius: 16px;
   opacity: 0;
   z-index: -1;
@@ -356,7 +356,7 @@
   content: '▹';
   position: absolute;
   left: 0;
-  color: #00ffff;
+  color: var(--text);
   font-weight: bold;
   font-size: 1.5rem;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -373,7 +373,7 @@
   font-weight: 500;
   border: 1px solid rgba(0, 255, 255, 0.3);
   font-family: 'Courier New', monospace;
-  color: #00ffff;
+  color: var(--text);
   text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
@@ -443,7 +443,7 @@
   font-weight: 700;
   margin-bottom: 1.25rem;
   font-size: 1.25rem;
-  color: #00ffff;
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -457,7 +457,7 @@
 /* ===== ESTILOS DE TEXTO ===== */
 .bold {
   font-weight: 700;
-  color: #00ffff;
+  color: var(--text);
   text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
@@ -482,7 +482,7 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: #000;
-  background: linear-gradient(135deg, #00ffff 0%, #00ff7f 100%);
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, #00ff7f 100%);
   text-decoration: none;
   border-radius: 50px;
   box-shadow: 
@@ -494,7 +494,7 @@
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 2px solid #00ffff;
+  border: 2px solid var(--neon-cyan);
 }
 
 .downloadLink::before {
@@ -525,7 +525,7 @@
     0 0 50px rgba(0, 255, 255, 1),
     0 20px 60px rgba(0, 255, 255, 0.6),
     inset 0 0 30px rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #00ff7f 0%, #00ffff 100%);
+  background: linear-gradient(135deg, #00ff7f 0%, var(--neon-cyan) 100%);
 }
 
 /* ===== RESPONSIVE ===== */

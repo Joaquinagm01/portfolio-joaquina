@@ -7,7 +7,7 @@
 
   /* Mantén o ajusta los estilos visuales */
   background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #00FFFF;
+  border: 1px solid var(--neon-cyan);
   padding: 1rem; /* <-- AUMENTADO de 0.5rem para hacer la tarjeta más grande */
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -47,25 +47,25 @@
 /* ===== LIGHT MODE LANGUAGE SELECTOR ===== */
 [data-theme="light"] .floatingSwitcher {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 102, 204, 0.3);
-  box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+  border: 1px solid rgba(0, 61, 130, 0.5);
+  box-shadow: 0 0 10px rgba(0, 61, 130, 0.2);
 }
 
 [data-theme="light"] .langButton {
-  background: rgba(0, 102, 204, 0.1);
-  color: var(--neon-cyan);
-  border: 1px solid var(--neon-cyan);
-  text-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+  background: rgba(0, 61, 130, 0.1);
+  color: rgba(0, 61, 130, 1);
+  border: 1px solid rgba(0, 61, 130, 0.9);
+  text-shadow: 0 0 5px rgba(0, 61, 130, 0.5);
 }
 
 [data-theme="light"] .langButton:hover {
-  background: rgba(0, 102, 204, 0.2);
-  box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+  background: rgba(0, 61, 130, 0.2);
+  box-shadow: 0 0 10px rgba(0, 61, 130, 0.4);
 }
 
 [data-theme="light"] .langActive {
-  background: var(--neon-cyan);
+  background: rgba(0, 61, 130, 0.9);
   color: #fff;
-  border: 1px solid var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 102, 204, 0.7);
+  border: 1px solid rgba(0, 61, 130, 0.9);
+  box-shadow: 0 0 15px rgba(0, 61, 130, 0.6);
 }

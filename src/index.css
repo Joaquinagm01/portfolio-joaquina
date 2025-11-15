@@ -19,7 +19,7 @@ body {
   padding: 0;
   position: relative;
   overflow-x: hidden;
-  color: #00ffff;
+  color: var(--text);
 }
 
 /* Grid futurista animado */

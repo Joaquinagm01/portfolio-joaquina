@@ -20,23 +20,23 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const { t } = useTranslation();
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved ? JSON.parse(saved) : true; // Default to dark mode
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved || 'light'; // Default to light mode
   });
 
   useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   return (
     <>
-      <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>
@@ -292,7 +292,7 @@ function App() {
       </section>
 
       {/* HABILIDADES */}
-      <section id="habilidades" className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
+      <section id="habilidades" className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>{t('skills.title')}</h2>
           <p className={styles.sectionDescription}>{t('skills.description')}</p>
@@ -564,34 +564,47 @@ function App() {
 
       {/* FOOTER */}
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <div className={styles.footerSection}>
-            <h3 className={styles.footerTitle}>JGM.DEV</h3>
-            <p className={styles.footerDescription}>{t('footer.description')}</p>
-          </div>
+        <div className={styles.contentContainer}>
+          <div className={styles.footerGrid}>
+            {/* Columna 1: Descripción */}
+            <div className={styles.footerColumn}>
+              <h3 className={styles.footerTitle}>JGM.DEV</h3>
+              <p className={styles.footerDescription}>{t('footer.description')}</p>
+            </div>
 
-          <div className={styles.footerSection}>
-            <h4 className={styles.footerSubtitle}>{t('footer.social')}</h4>
-            <div className={styles.footerSocial}>
-              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <FaLinkedin />
-              </a>
-              <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <FaGithub />
-              </a>
-              <a href="mailto:gomezmannajoaquina@gmail.com" aria-label="Email">
-                <FaEnvelope />
-              </a>
-              <a href="tel:+543412291597" aria-label="Teléfono">
-                <FaPhone />
-              </a>
+            {/* Columna 2: Navegación */}
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerSubtitle}>{t('footer.navigation')}</h4>
+              <ul className={styles.footerLinks}>
+                <li><a href="#inicio">{t('navbar.home')}</a></li>
+                <li><a href="#sobre-mi">{t('navbar.about')}</a></li>
+                <li><a href="#experiencia">{t('navbar.experience')}</a></li>
+                <li><a href="#proyectos">{t('navbar.projects')}</a></li>
+                <li><a href="#habilidades">{t('navbar.skills')}</a></li>
+                <li><a href="#contacto">{t('navbar.contact')}</a></li>
+              </ul>
+            </div>
+
+            {/* Columna 3: Redes Sociales */}
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerSubtitle}>{t('footer.social')}</h4>
+              <div className={styles.footerSocial}>
+                <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+                <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+                <a href="mailto:gomezmannajoaquina@gmail.com" aria-label="Email"><FaEnvelope /></a>
+                <a href="tel:+543412291597" aria-label="Teléfono"><FaPhone /></a>
+              </div>
             </div>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
-          <p>© 2025 Joaquina Gómez Manna. {t('footer.rights')}</p>
-          <p>Desarrollado con React + Vite</p>
+          <div className={styles.contentContainer}>
+            <p>
+              © 2025 Joaquina Gómez Manna. {t('footer.rights')}
+            </p>
+            <p>{t('footer.tech')}</p>
+          </div>
         </div>
       </footer>
 
