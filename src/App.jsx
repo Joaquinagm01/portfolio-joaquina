@@ -6,6 +6,7 @@ import styles from './App.module.css'
 import Navbar from './components/Navbar';
 import AnimatedStat from '../AnimatedStat.jsx';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
+import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel
@@ -214,7 +215,7 @@ function App() {
         </div>
 
         <div className={styles.contentContainer}>
-          <div className={styles.timelineContainer}>
+          <SwipeCarousel>
             <div className={styles.experienceCard}>
               <div className={styles.experienceHeader}>
                 <div>
@@ -296,7 +297,7 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </SwipeCarousel>
         </div>
       </section>
 

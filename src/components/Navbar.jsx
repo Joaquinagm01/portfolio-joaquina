@@ -5,6 +5,7 @@ import appStyles from '../App.module.css';
 
 const Navbar = ({ toggleTheme, theme }) => {
   const [activeSection, setActiveSection] = useState('inicio');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -58,6 +59,11 @@ const Navbar = ({ toggleTheme, theme }) => {
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -69,7 +75,19 @@ const Navbar = ({ toggleTheme, theme }) => {
 
         {/* PARTE 2: DERECHA */}
         <nav className={styles.mainMenu}>
-          <ul className={styles.navLinks}>
+          {/* Hamburger Menu Button - Mobile Only */}
+          <button
+            className={styles.hamburgerMenu}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className={styles.hamburgerLine}></span>
+            <span className={styles.hamburgerLine}></span>
+            <span className={styles.hamburgerLine}></span>
+          </button>
+
+          <ul className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
             <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
             <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
             <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
