@@ -465,7 +465,7 @@ function App() {
                   <span>Axure</span>
                 </div>
                 <div className={styles.techItem}>
-                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>A</span>
+                  <FaChartLine className={styles.techItemIcon} style={{color: '#FF6B35'}} />
                   <span>AnyLogic</span>
                 </div>
               </div>
@@ -476,11 +476,11 @@ function App() {
               <h3 className={styles.techCardTitle}>{t('skills.architecture')}</h3>
               <div className={styles.techItems}>
                 <div className={styles.techItem}>
-                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>MD</span>
+                  <FaFigma className={styles.techItemIcon} style={{color: '#F24E1E'}} />
                   <span>MD, DER, Diseño de sistema</span>
                 </div>
                 <div className={styles.techItem}>
-                  <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>APIs</span>
+                  <FaNodeJs className={styles.techItemIcon} style={{color: '#339933'}} />
                   <span>APIs</span>
                 </div>
               </div>
