@@ -1,108 +1,34 @@
-✅ PROMPT PARA VS CODE — MEJORAS COMPLETAS DEL PORTAFOLIO
 
-Quiero que realices los siguientes cambios en mi proyecto React + Vite + Tailwind. Seguí esta checklist punto por punto, aplicando cada ajuste en los componentes correspondientes (principalmente el Hero, Navbar, Skills, Proyectos, Experiencia y Footer). No cambies el estilo visual general del sitio, solo mejoralo.
 
-🔷 CHECKLIST DE CAMBIOS A REALIZAR
-1) Ajustes en el Header / Hero
+---
 
- Reducir la altura del Hero a 70–80vh, evitando espacios vacíos arriba y abajo.
+## Sugerencias de Mejora
 
- Reorganizar la foto, el texto y el botón para que el contenido quede más centrado y compacto.
+### `index.html`
+- **Idioma dinámico:** El atributo `lang` de la etiqueta `<html>` está fijo en `es`. Debería actualizarse dinámicamente según el idioma seleccionado para mejorar la accesibilidad y el SEO.
 
- Suavizar el glow neon del contenedor de la foto para que no compita visualmente con el texto.
+### `App.jsx`
+- **Componentización:** El componente es demasiado grande. Se recomienda dividirlo en componentes más pequeños y manejables (por ejemplo, `Hero`, `About`, `Experience`, `Skills`, `Contact`, `Footer`) para mejorar la legibilidad y el mantenimiento.
+- **Import duplicado:** Se importa `index.css` dos veces.
+- **Componente `LanguageSelector`:** Extraer el selector de idioma a su propio archivo de componente.
+- **Valores hardcodeados:** La sección de estadísticas tiene valores fijos. Sería mejor moverlos a un archivo de configuración o a los archivos de internacionalización (`en.json`, `es.json`).
+- **Sección de contacto:**
+    - El enlace del teléfono debería usar el protocolo `tel:` (ej: `href="tel:+543412291597"`).
+    - La ubicación no debería ser un enlace.
+- **Estilos en línea:** Mover los estilos en línea a sus respectivos archivos CSS para mantener el código más limpio.
 
- Asegurar que el Hero quede totalmente visible en pantallas grandes sin exceso de scroll.
+### `CVInfo.jsx`
+- **Componente no utilizado:** Este componente no parece estar siendo utilizado en la aplicación principal. Si no se usa, podría eliminarse.
+- **Porcentajes de habilidades:** Los porcentajes son subjetivos. Sería más claro usar niveles descriptivos como "Avanzado", "Intermedio" o "Básico".
 
-2) Tipografías
-
- Mantener la tipografía pixel/gamer solo para títulos.
-
- Cambiar la tipografía de párrafos y textos largos a una más legible (Inter, Space Grotesk o Roboto Mono).
-
- Aumentar ligeramente el line-height para mejorar la lectura.
-
-3) Corrección de textos que aparecen en inglés
-
-Reemplazar los placeholders por títulos reales:
-
- experience.title → Experiencia Laboral
-
- experience.label → Detalles / Rol
-
- projects.title → Proyectos
-
- project.description → mantener como “Descripción” o equivalente
-
-4) Mejora de las Cards (Proyectos y Experiencia)
-
- Aumentar el contraste entre fondo y borde.
-
- Agregar un hover con:
-
-leve incremento de escala (scale 1.02)
-
-aumento sutil del brillo del borde
-
- Mantener el estilo neon pero hacerlo más legible y con mejor separación entre secciones.
-
-5) Reorganización de Skills
-
-Reacomodar las skills en 3 categorías para mayor claridad:
-
- Core / Principales: JS, React, Node, AWS, Docker, Terraform
-
- Intermedios: Python, GitHub Actions, SQL Server, Linux
-
- Aprendiendo / Mejorando: Power BI, Illustrator, otros
-
-Cada sección debe tener su subtítulo y diseño uniforme.
-
-6) Navbar
-
- Agregar un botón extra en el navbar llamado "Descargar CV", visible sin scroll.
-
- Mantener el estilo del resto de los botones (neon, hover suave).
-
-7) Botones de Contacto
-
- Aumentar el contraste del texto en los botones (Gmail, GitHub, LinkedIn).
-
- Ajustar el hover para que sea más claro y legible.
-
-8) Fondo y Gradientes
-
- Evitar zonas completamente negras; suavizar el fondo agregando un ligero gradiente o textura sutil tipo “nebula”.
-
- Mantener el estilo oscuro, pero con variaciones suaves para que no se pierdan los elementos.
-
-9) Footer
-
- Simplificar el footer: remover navegación duplicada.
-
- Dejar únicamente:
-
-redes sociales
-
-copy
-
-texto breve: “Desarrollado con React + Vite”
-
-🔷 ACLRACIONES PARA LA IA
-
-No modificar el branding ni los colores principales.
-
-No eliminar animaciones existentes, solo mejorarlas si es necesario.
-
-Mantener el estilo cyberpunk/tech con tonos violeta/azul neon.
-
-No alterar la estructura de routing ni la lógica del cambio de idioma.
-
-Solo hacer cambios visuales, de contenido y jerarquía.
-
-🔷 OUTPUT ESPERADO
-
-Código modificado directamente en los componentes afectados.
-
-Cambios realizados sin afectar otras partes del sitio.
-
-Todo funcionando sin romper el layout responsive.
+### General
+- **Estructura del proyecto:** Crear una carpeta `sections` dentro de `src/components` para organizar los componentes de cada sección de la página.
+- **Navegación:** Añadir un enlace a la sección de "Proyectos" en la barra de navegación.
+- **`README.md`:** El proyecto no tiene un `README.md` con instrucciones claras sobre cómo instalar y ejecutar el proyecto.
+- **Archivos innecesarios:** El archivo `update_app.py` no parece tener relación con un proyecto de React.
+- **Convenciones:** El archivo `TODO.MD` está en mayúsculas, la convención es usar minúsculas (`todo.md`).
+- **Configuración de herramientas:**
+    - `eslint.config.js` está vacío. Debería configurarse para asegurar un estilo de código consistente.
+    - Aunque `postcss.config.js` y `tailwind.config.js` están presentes, no se está importando ningún archivo `tailwind.css`.
+    - `App.css` está vacío.
+    - `vite.config.js` podría mejorarse para incluir alias de rutas y optimizar la configuración.

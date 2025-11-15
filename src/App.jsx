@@ -1,15 +1,15 @@
 import './index.css'
-import './index.css'
 import './i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 import styles from './App.module.css'
 import { useState, useEffect } from 'react'
-import { 
+import LanguageSelector from './components/LanguageSelector';
+import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt
 } from 'react-icons/fa'
-import { 
-  SiMysql, SiPostgresql, SiMongodb, SiTerraform, 
+import {
+  SiMysql, SiPostgresql, SiMongodb, SiTerraform,
   SiJavascript, SiTypescript, SiNextdotjs,
   SiTailwindcss, SiPostman, SiOdoo, SiCloudflare
 } from 'react-icons/si'
@@ -19,7 +19,7 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const [activeSection, setActiveSection] = useState('inicio');
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,22 +40,7 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Selector de idioma visual integrado en el header
-  const LanguageSelector = () => (
-    <div className={styles.languageSelector}>
-      <span style={{marginRight: '0.5rem', fontWeight: 'bold', letterSpacing: '1px', fontSize: '1rem'}}>
-        Idioma:
-      </span>
-      <button
-        onClick={() => i18n.changeLanguage('es')}
-        className={i18n.language === 'es' ? styles.langActive : styles.langButton}
-      >ES</button>
-      <button
-        onClick={() => i18n.changeLanguage('en')}
-        className={i18n.language === 'en' ? styles.langActive : styles.langButton}
-      >EN</button>
-    </div>
-  );
+
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -71,9 +56,10 @@ function App() {
             <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
             <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
             <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+            <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
             <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
             <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
-            <li><a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.navDownload}>{t('navbar.download_cv') || 'Descargar CV'}</a></li>
+            <li><a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.navDownload}>{t('navbar.download_cv')}</a></li>
           </ul>
           <LanguageSelector />
         </div>
@@ -89,7 +75,7 @@ function App() {
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
               <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
-                {i18n.language === 'es' ? 'Ver mi CV' : 'View my CV'}
+                {t('navbar.download_cv')}
               </a>
             </div>
           </div>
@@ -104,19 +90,19 @@ function App() {
         <div className={styles.statsContainer}>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>+2</div>
-            <div className={styles.statLabel}>Años de Experiencia</div>
+            <div className={styles.statLabel}>{t('stats.experience')}</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>+5</div>
-            <div className={styles.statLabel}>Proyectos Completados</div>
+            <div className={styles.statLabel}>{t('stats.projects')}</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>+10</div>
-            <div className={styles.statLabel}>Tecnologías Dominadas</div>
+            <div className={styles.statLabel}>{t('stats.tech')}</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>100%</div>
-            <div className={styles.statLabel}>Comprometida</div>
+            <div className={styles.statLabel}>{t('stats.commitment')}</div>
           </div>
         </div>
       </section>
@@ -126,7 +112,7 @@ function App() {
         <div className={styles.sectionHeader}>
           <span className={styles.sectionLabel}>{t('about.label')}</span>
           <h2 className={styles.sectionTitle}>{t('about.title')}</h2>
-          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('about.description')}</p>
+          <p className={styles.sectionDescription}>{t('about.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -191,9 +177,9 @@ function App() {
       {/* EXPERIENCIA */}
       <section id="experiencia" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('experience.label') || 'Experiencia'}</span>
-          <h2 className={styles.sectionTitle}>{t('experience.title') || 'Trayectoria Profesional'}</h2>
-          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('experience.description') || 'Mi recorrido profesional en soporte técnico y desarrollo de soluciones tecnológicas.'}</p>
+          <span className={styles.sectionLabel}>{t('experience.label')}</span>
+          <h2 className={styles.sectionTitle}>{t('experience.title')}</h2>
+          <p className={styles.sectionDescription}>{t('experience.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -253,11 +239,11 @@ function App() {
       </section>
 
       {/* PROYECTOS */}
-      <section className={styles.section}>
+      <section id="proyectos" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('projects.label') || 'Proyectos'}</span>
-          <h2 className={styles.sectionTitle}>{t('projects.title') || 'Proyectos Destacados'}</h2>
-          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('projects.description') || 'Desarrollo full-stack con arquitecturas modernas, APIs REST y bases de datos relacionales.'}</p>
+          <span className={styles.sectionLabel}>{t('projects.label')}</span>
+          <h2 className={styles.sectionTitle}>{t('projects.title')}</h2>
+          <p className={styles.sectionDescription}>{t('projects.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -374,78 +360,106 @@ function App() {
       {/* HABILIDADES */}
       <section id="habilidades" className={styles.section} style={{background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)'}}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('skills.label') || 'Habilidades'}</span>
-          <h2 className={styles.sectionTitle}>{t('skills.title') || 'Stack Tecnológico'}</h2>
-          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('skills.description') || 'Tecnologías y herramientas que domino para construir soluciones robustas y escalables.'}</p>
+          <span className={styles.sectionLabel}>{t('skills.label')}</span>
+          <h2 className={styles.sectionTitle}>{t('skills.title')}</h2>
+          <p className={styles.sectionDescription}>{t('skills.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
           <div className={styles.techStackGrid}>
-            {/* Core / Principales */}
-            <div className={styles.techCard} data-category="core">
-              <h3 className={styles.techCardTitle}>Core / Principales</h3>
+            {/* Frontend */}
+            <div className={styles.techCard} data-category="frontend">
+              <h3 className={styles.techCardTitle}>Frontend</h3>
               <div className={styles.techItems}>
                 <div className={styles.techItem}>
                   <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
-                  <span>JS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiTypescript className={styles.techItemIcon} style={{color: '#3178C6'}} />
+                  <span>TypeScript</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaReact className={styles.techItemIcon} style={{color: '#61DAFB'}} />
                   <span>React</span>
                 </div>
                 <div className={styles.techItem}>
+                  <SiTailwindcss className={styles.techItemIcon} style={{color: '#06B6D4'}} />
+                  <span>Tailwind CSS</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiNextdotjs className={styles.techItemIcon} style={{color: '#000000'}} />
+                  <span>Next.js</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Backend */}
+            <div className={styles.techCard} data-category="backend">
+              <h3 className={styles.techCardTitle}>Backend</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
                   <FaNodeJs className={styles.techItemIcon} style={{color: '#68A063'}} />
-                  <span>Node</span>
+                  <span>Node.js</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiJavascript className={styles.techItemIcon} style={{color: '#F7DF1E'}} />
+                  <span>Express</span>
+                </div>
+                <div className={styles.techItem}>
+                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
+                  <span>Python</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiMysql className={styles.techItemIcon} style={{color: '#4479A1'}} />
+                  <span>MySQL</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiPostgresql className={styles.techItemIcon} style={{color: '#336791'}} />
+                  <span>PostgreSQL</span>
+                </div>
+                <div className={styles.techItem}>
+                  <SiMongodb className={styles.techItemIcon} style={{color: '#47A248'}} />
+                  <span>MongoDB</span>
+                </div>
+              </div>
+            </div>
+
+            {/* DevOps & Herramientas */}
+            <div className={styles.techCard} data-category="devops">
+              <h3 className={styles.techCardTitle}>DevOps & Herramientas</h3>
+              <div className={styles.techItems}>
+                <div className={styles.techItem}>
+                  <FaDocker className={styles.techItemIcon} style={{color: '#2496ED'}} />
+                  <span>Docker</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaAws className={styles.techItemIcon} style={{color: '#FF9900'}} />
                   <span>AWS</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaDocker className={styles.techItemIcon} style={{color: '#2496ED'}} />
-                  <span>Docker</span>
-                </div>
-                <div className={styles.techItem}>
                   <SiTerraform className={styles.techItemIcon} style={{color: '#7B42BC'}} />
                   <span>Terraform</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Intermedios */}
-            <div className={styles.techCard} data-category="intermedios">
-              <h3 className={styles.techCardTitle}>Intermedios</h3>
-              <div className={styles.techItems}>
                 <div className={styles.techItem}>
-                  <FaPython className={styles.techItemIcon} style={{color: '#3776AB'}} />
-                  <span>Python</span>
+                  <FaGitAlt className={styles.techItemIcon} style={{color: '#F05032'}} />
+                  <span>Git</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaGithub className={styles.techItemIcon} style={{color: '#6e5494'}} />
-                  <span>GitHub Actions</span>
-                </div>
-                <div className={styles.techItem}>
-                  <TbDatabase className={styles.techItemIcon} style={{color: '#CC2927'}} />
-                  <span>SQL Server</span>
+                  <span>GitHub</span>
                 </div>
                 <div className={styles.techItem}>
                   <FaLinux className={styles.techItemIcon} style={{color: '#FCC624'}} />
                   <span>Linux</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Aprendiendo / Mejorando */}
-            <div className={styles.techCard} data-category="aprendiendo">
-              <h3 className={styles.techCardTitle}>Aprendiendo / Mejorando</h3>
-              <div className={styles.techItems}>
                 <div className={styles.techItem}>
-                  <FaChartLine className={styles.techItemIcon} style={{color: '#F2C811'}} />
-                  <span>Power BI</span>
+                  <FaJira className={styles.techItemIcon} style={{color: '#0052CC'}} />
+                  <span>Jira</span>
                 </div>
                 <div className={styles.techItem}>
-                  <FaFigma className={styles.techItemIcon} style={{color: '#FF7C00'}} />
-                  <span>Illustrator</span>
+                  <SiPostman className={styles.techItemIcon} style={{color: '#FF6C37'}} />
+                  <span>Postman</span>
                 </div>
               </div>
             </div>
@@ -456,9 +470,9 @@ function App() {
       {/* CONTACTO */}
       <section id="contacto" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>{t('contact.label') || 'Contacto'}</span>
-          <h2 className={styles.sectionTitle}>{t('contact.title') || 'Conectemos'}</h2>
-          <p className={styles.sectionDescription} style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.8'}}>{t('contact.description') || 'Estoy disponible para nuevas oportunidades, colaboraciones y proyectos interesantes.'}</p>
+          <span className={styles.sectionLabel}>{t('contact.label')}</span>
+          <h2 className={styles.sectionTitle}>{t('contact.title')}</h2>
+          <p className={styles.sectionDescription}>{t('contact.description')}</p>
         </div>
 
         <div className={styles.contentContainer}>
@@ -473,28 +487,28 @@ function App() {
             <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>Email</h3>
-              <p className={styles.contactDetail} style={{color: '#ffffff'}}>gomezmannajoaquina@gmail.com</p>
+            <p className={styles.contactDetail}>gomezmannajoaquina@gmail.com</p>
               <span className={styles.contactAction}>Enviar mensaje →</span>
             </a>
 
             <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💼</div>
               <h3 className={styles.contactTitle}>LinkedIn</h3>
-              <p className={styles.contactDetail} style={{color: '#ffffff'}}>Joaquina Gomez Manna</p>
+              <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
               <span className={styles.contactAction}>Ver perfil →</span>
             </a>
 
             <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
               <div className={styles.contactIcon}>💻</div>
               <h3 className={styles.contactTitle}>GitHub</h3>
-              <p className={styles.contactDetail} style={{color: '#ffffff'}}>@Joaquinagm01</p>
+              <p className={styles.contactDetail}>@Joaquinagm01</p>
               <span className={styles.contactAction}>Ver repositorios →</span>
             </a>
 
             <div className={styles.contactCard} style={{cursor: 'default'}}>
               <div className={styles.contactIcon}>📍</div>
               <h3 className={styles.contactTitle}>Ubicación</h3>
-              <p className={styles.contactDetail} style={{color: '#ffffff'}}>Rosario, Argentina</p>
+              <p className={styles.contactDetail}>Rosario, Argentina</p>
               <span className={styles.contactAction} style={{opacity: 0.5}}>Santa Fe, ARG</span>
             </div>
           </div>
@@ -506,13 +520,13 @@ function App() {
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
             <h3 className={styles.footerTitle}>JGM.DEV</h3>
-            <p className={styles.footerDescription}>{t('footer.description') || 'Ingeniera en Sistemas especializada en desarrollo Full Stack con enfoque en Cloud y DevOps.'}</p>
+            <p className={styles.footerDescription}>{t('footer.description')}</p>
           </div>
 
           <div className={styles.footerSection}>
-            <h4 className={styles.footerSubtitle}>{t('footer.social') || 'Redes Sociales'}</h4>
+            <h4 className={styles.footerSubtitle}>{t('footer.social')}</h4>
             <div className={styles.footerSocial}>
-              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
               <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -529,8 +543,8 @@ function App() {
         </div>
 
         <div className={styles.footerBottom}>
-          <p>© 2025 Joaquina Gómez Manna. {t('footer.rights') || 'Todos los derechos reservados.'}</p>
-          <p>{t('footer.tech') || 'Desarrollado con React + Vite'}</p>
+          <p>© 2025 Joaquina Gómez Manna. {t('footer.rights')}</p>
+          <p>Desarrollado con React + Vite</p>
         </div>
       </footer>
     </div>
