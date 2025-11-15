@@ -74,7 +74,7 @@ function App() {
         </div>
 
         <div className={styles.contentContainer}>
-          <div className={styles.grid}>
+          <div className={styles.cardsContainer}>
             {/* EDUCACIÓN */}
             <div className={styles.card}>
               <div className={styles.cardHeader}>
@@ -82,22 +82,18 @@ function App() {
                 <h3 className={styles.cardTitle}>{t('education.title')}</h3>
               </div>
               <div className={styles.cardContent}>
-                <div className={styles.educationItem}>
-                  <div className={styles.educationHeader}>
-                    <h4 className={styles.educationInstitution}>{t('education.utn')}</h4>
-                    <span className={styles.educationYear}>{t('education.utn_year')}</span>
-                  </div>
-                  <p className={styles.educationDegree}>{t('education.utn_degree')}</p>
-                  <p className={styles.educationStatus}>{t('education.utn_status')}</p>
-                </div>
-                <div className={styles.educationDivider}></div>
-                <div className={styles.educationItem}>
-                  <div className={styles.educationHeader}>
-                    <h4 className={styles.educationInstitution}>{t('education.escuela')}</h4>
-                    <span className={styles.educationYear}>{t('education.escuela_year')}</span>
-                  </div>
-                  <p className={styles.educationDegree}>{t('education.escuela_degree')}</p>
-                </div>
+              <div className={styles.educationItem}>
+                <h4 className={styles.educationInstitution}>{t('education.utn')}</h4>
+                <p className={styles.educationYear}>{t('education.utn_year')}</p>
+                <p className={styles.educationDegree}>{t('education.utn_degree')}</p>
+                <p className={styles.educationStatus}>{t('education.utn_status')}</p>
+              </div>
+              <div className={styles.educationDivider}></div>
+              <div className={styles.educationItem}>
+                <h4 className={styles.educationInstitution}>{t('education.escuela')}</h4>
+                <p className={styles.educationYear}>{t('education.escuela_year')}</p>
+                <p className={styles.educationDegree}>{t('education.escuela_degree')}</p>
+              </div>
               </div>
             </div>
 
@@ -109,8 +105,8 @@ function App() {
               </div>
               <div className={styles.cardContent}>
                 <div className={styles.languageItem}>
-                  <div className={styles.languageHeader}>
-                    <h4 className={styles.languageName}>{t('languages.spanish')}</h4>
+                  <div className={styles.languageEntry}>
+                    <span className={styles.languageName}>{t('languages.spanish')}</span>
                     <span className={styles.languageLevel}>{t('languages.spanish_level')}</span>
                   </div>
                   <div className={styles.progressBar}>
@@ -118,8 +114,8 @@ function App() {
                   </div>
                 </div>
                 <div className={styles.languageItem}>
-                  <div className={styles.languageHeader}>
-                    <h4 className={styles.languageName}>{t('languages.english')}</h4>
+                  <div className={styles.languageEntry}>
+                    <span className={styles.languageName}>{t('languages.english')}</span>
                     <span className={styles.languageLevel}>{t('languages.english_level')}</span>
                   </div>
                   <div className={styles.progressBar}>

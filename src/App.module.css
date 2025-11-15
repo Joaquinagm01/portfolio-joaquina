@@ -761,6 +761,14 @@ html {
   max-width: 100%;
 }
 
+/* ===== CARDS CONTAINER ===== */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
 /* ===== CARDS MEJORADAS ===== */
 .card {
   background: var(--card-bg);
@@ -770,6 +778,7 @@ html {
   position: relative;
   overflow: hidden;
   clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+  height: 100%;
 }
 
 .card::before {
@@ -881,15 +890,6 @@ html {
   margin-bottom: 0;
 }
 
-.educationHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
 .educationInstitution {
   font-size: 1.1rem;
   font-weight: 600;
@@ -900,16 +900,18 @@ html {
 }
 
 .educationYear {
+  font-style: italic;
   color: var(--neon-purple);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 1px;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
 .educationDegree {
   color: var(--neon-cyan);
   font-size: 1rem;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
   font-weight: 500;
 }
 
@@ -918,7 +920,7 @@ html {
   font-size: 0.9rem;
   font-style: italic;
   opacity: 0.8;
-  margin: 0;
+  margin: 0.25rem 0;
 }
 
 .educationDivider {
@@ -937,10 +939,11 @@ html {
   margin-bottom: 0;
 }
 
-.languageHeader {
+.languageEntry {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  width: 100%;
   margin-bottom: 0.75rem;
 }
 
@@ -958,6 +961,8 @@ html {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
+  text-align: right;
 }
 
 .progressBar {
