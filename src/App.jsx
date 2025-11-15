@@ -3,6 +3,7 @@ import './i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
+import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt
@@ -20,9 +21,8 @@ function App() {
   const { t } = useTranslation();
 
   return (
-    <div className="app">
+    <>
       <Navbar />
-
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>
@@ -484,7 +484,7 @@ function App() {
           <div className={styles.footerSection}>
             <h4 className={styles.footerSubtitle}>{t('footer.social')}</h4>
             <div className={styles.footerSocial}>
-              <a href="www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
               <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -506,7 +506,10 @@ function App() {
         </div>
       </footer>
       </main>
-    </div>
+
+      {/* ¡AÑADIDO AQUÍ! */}
+      <LanguageSelector />
+    </>
   )
 }
 

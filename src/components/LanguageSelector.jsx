@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import styles from '../App.module.css';
+import styles from './LanguageSelector.module.css';
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
 
   return (
-    <div className={styles.languageSelector}>
+    <div className={styles.floatingSwitcher}>
       <span style={{marginRight: '0.5rem', fontWeight: 'bold', letterSpacing: '1px', fontSize: '0.9rem', color: 'var(--neon-cyan)', textShadow: '0 0 5px rgba(0, 255, 255, 0.5)'}}>
         Idioma:
       </span>

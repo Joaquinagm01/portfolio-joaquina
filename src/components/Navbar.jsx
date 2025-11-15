@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from './LanguageSelector';
 import styles from './Navbar.module.css';
 import appStyles from '../App.module.css';
 
@@ -32,13 +31,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <header className={styles.navbarBackground}>
       <div className={`${appStyles.pageWrapper} ${styles.navbarContent}`}>
-        
+
         {/* PARTE 1: IZQUIERDA */}
         <div className={styles.logo}>JGM.DEV</div>
 
-        {/* PARTE 2: CENTRO */}
+        {/* PARTE 2: DERECHA */}
         <nav className={styles.mainMenu}>
           <ul className={styles.navLinks}>
             <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
@@ -50,13 +49,8 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* PARTE 3: DERECHA */}
-        <div className={styles.languageSwitcher}>
-          <LanguageSelector />
-        </div>
-
       </div>
-    </nav>
+    </header>
   );
 };
 

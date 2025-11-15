@@ -1,0 +1,44 @@
+/* LanguageSwitcher.module.css */
+.floatingSwitcher {
+  position: fixed; /* <-- ¡LA MAGIA! */
+  bottom: 2rem;    /* 32px desde abajo */
+  right: 2rem;     /* 32px desde la derecha */
+  z-index: 1000;   /* Asegura que esté por encima de todo */
+
+  /* Estilos para que se vea bien (ajusta a tu gusto) */
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00FFFF; /* Tu color cian */
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.langButton {
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.langButton:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.langActive {
+  background: var(--neon-cyan);
+  color: #222;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
