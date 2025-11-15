@@ -200,6 +200,12 @@
 }
 
 /* ===== MAIN MENU ===== */
+.mainMenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .mainMenu ul {
   display: flex;
   align-items: center;
@@ -213,4 +219,44 @@
   /* --- ¡ARREGLO CLAVE! --- */
   /* Forza a "SOBRE MÍ" a estar en una línea */
   white-space: nowrap;
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.themeToggle {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.themeToggle:hover {
+  background: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  transform: scale(1.1);
+}
+
+/* ===== LIGHT MODE THEME TOGGLE ===== */
+[data-theme="light"] .themeToggle {
+  background: rgba(0, 102, 204, 0.1);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
+}
+
+[data-theme="light"] .themeToggle:hover {
+  background: var(--neon-cyan);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.7);
 }

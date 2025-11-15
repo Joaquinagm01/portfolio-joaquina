@@ -1,6 +1,7 @@
 import './index.css'
 import './i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
@@ -19,10 +20,23 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const { t } = useTranslation();
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : true; // Default to dark mode
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <>
-      <Navbar />
+      <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>
