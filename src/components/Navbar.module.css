@@ -256,13 +256,13 @@
 .sideMenu {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0; /* Cambiado de left a right */
   width: 70%; /* Ocupa el 70% del ancho */
   max-width: 300px;
   height: 100vh;
   background: var(--card-bg); /* Reusa tu fondo de tarjeta */
   z-index: 2000;
-  transform: translateX(-100%); /* Oculto por defecto */
+  transform: translateX(100%); /* Oculto por defecto a la derecha */
   transition: transform 0.3s ease-in-out;
   
   /* Estilos para los enlaces de adentro */
@@ -270,8 +270,8 @@
   flex-direction: column;
   padding: 3rem 2rem;
   gap: 1.5rem;
-  border-right: 2px solid var(--neon-cyan);
-  box-shadow: 5px 0 30px rgba(0, 255, 255, 0.3);
+  border-left: 2px solid var(--neon-cyan); /* Cambiado de border-right a border-left */
+  box-shadow: -5px 0 30px rgba(0, 255, 255, 0.3); /* Sombra en el lado correcto */
 }
 
 .menuOpen {
@@ -298,7 +298,7 @@
   /* Estilo para el botón 'X' de cerrar */
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  left: 1rem; /* Cambiado de right a left */
   font-size: 2rem;
   cursor: pointer;
   color: var(--neon-cyan);

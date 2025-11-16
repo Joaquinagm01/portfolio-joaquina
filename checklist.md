@@ -44,3 +44,57 @@ Aquí tienes una lista de sugerencias para mejorar la interactividad, el diseño
 - [ ] **Gestos Táctiles:** Considerar añadir gestos, como la posibilidad de deslizar (`swipe`) las tarjetas de proyectos o experiencia para navegar entre ellas en un carrusel.
 
 ---
+
+### ✅ Mejoras Post-Testeo Móvil (Nuevas Sugerencias)
+
+- [x] **Desactivar Efectos `hover` en Táctil:** Aunque el layout es correcto, muchos efectos de `hover` (como el crecimiento de las tarjetas) no se traducen bien a una experiencia táctil. Deberíamos desactivarlos en dispositivos sin puntero y reemplazarlos por una respuesta visual al *tocar* (ej. un sutil `transform: scale(0.98)` en el estado `:active`).
+- [x] **Optimizar el Rendimiento de Animaciones:** Las animaciones de fondo (estrellas, gradientes) y las sombras complejas pueden consumir mucha batería y afectar el rendimiento en móviles de gama media. Considerar reducir su complejidad o desactivarlas en pantallas pequeñas usando `@media (prefers-reduced-motion)` y `@media (max-width)`.
+- [x] **Aumentar el Tamaño de los "Touch Targets":** Algunos elementos interactivos, como los íconos de redes sociales en el footer o las insignias de tecnologías, son pequeños y difíciles de presionar con el dedo. Debemos asegurar que todos los elementos clicables tengan un tamaño mínimo de 44x44 píxeles para cumplir con las guías de accesibilidad.
+- [x] **Scroll-Snap para el Carrusel de Proyectos:** Para mejorar la experiencia de deslizar en la sección de proyectos, podemos implementar `scroll-snap` en CSS. Esto hará que el carrusel se "enganche" magnéticamente a cada tarjeta de proyecto a medida que el usuario desliza, sintiéndose mucho más natural y pulido.
+- [x] **Mejorar Contraste en Modo Claro:** Se ha mejorado el contraste en el modo claro añadiendo una sombra de texto (`text-shadow`) sutil a los elementos con colores neón, mejorando significativamente su legibilidad.
+
+---
+
+
+---
+
+### ✅ Checklist para Coherencia Visual Escritorio-Móvil (Enfoque Adaptativo)
+
+Esta es la guía profesional para lograr que la versión móvil mantenga la **misma identidad visual y calidad** que la de escritorio, pero optimizada para una pantalla vertical con solo scroll hacia abajo.
+
+- [x] **Consistencia de Marca y Estilo:**
+    - **Fuentes:** Se ha asegurado que las tipografías clave (`Orbitron`, `Rajdhani`) se usen consistentemente en ambas versiones.
+    - **Paleta de Colores:** Se ha refactorizado el uso de colores para usar variables CSS, garantizando la consistencia en los esquemas de modo claro/oscuro.
+
+- [x] **Adaptación de Layouts a Columna Única:**
+    - **Grids y Flexbox:** Se han convertido todos los diseños de múltiples columnas (ej. "Sobre Mí", "Habilidades", "Footer") en una sola columna vertical en móviles para eliminar el scroll horizontal.
+
+- [x] **Jerarquía Visual con Tipografía Responsiva:**
+    - **Títulos y Textos:** Se ha reducido el tamaño de los títulos y textos en móviles para mantener una jerarquía visual clara y mejorar la legibilidad.
+
+- [x] **Componentes a Ancho Completo (Full-Width):**
+    - **Tarjetas y Botones:** Se ha asegurado que las tarjetas y botones principales ocupen el ancho completo en la vista móvil para mejorar la legibilidad y la interacción.
+
+- [x] **Reestructuración de la Sección "Hero":**
+    - **Imagen y Texto:** Se ha reestructurado la sección para que la imagen y el texto se apilen verticalmente en móviles, priorizando el texto.
+
+---
+
+### ✅ Checklist de Refinamiento Visual para Móviles (Post-Testeo 2)
+
+El layout general es funcional, pero podemos mejorar la estética para que la versión móvil se sienta tan "premium" como la de escritorio.
+
+- [x] **Restaurar la Identidad Visual de las Tarjetas:** Se ha reintroducido una versión simplificada del `clip-path` para que las tarjetas mantengan su carácter único en móviles.
+
+- [x] **Rediseñar las Tarjetas de "Experiencia Profesional":** Se ha mejorado el layout móvil para alinear el título y la fecha en la misma línea usando `space-between`, mejorando la jerarquía visual.
+
+- [x] **Mejorar la Jerarquía y el Diseño del Footer:**
+    - **Problema:** El footer en móviles se sentía desorganizado y el texto era pequeño.
+    - **Solución:** Se ha reorganizado el orden de las columnas para dar prioridad a la marca y se ha aumentado el tamaño de la fuente para mejorar la legibilidad.
+
+- [ ] **Optimizar el Carrusel de Proyectos:**
+    - **Problema:** El carrusel actual es funcional pero básico.
+    - **Solución:** Implementar un carrusel más avanzado con indicadores de puntos (`dots`) para mostrar en qué proyecto se encuentra el usuario y flechas de navegación en pantallas más grandes (tablets). Esto mejora enormemente la usabilidad.
+
+---
+---

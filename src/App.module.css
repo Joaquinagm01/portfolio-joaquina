@@ -300,7 +300,7 @@ html {
 
 [data-theme="light"] .statNumber {
   color: var(--text);
-  text-shadow: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .statLabel {
@@ -419,6 +419,7 @@ html {
   -webkit-text-fill-color: var(--text);
   color: var(--text);
   background-clip: unset;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -860,8 +861,7 @@ html {
 
 [data-theme="light"] .cardTitle {
   color: var(--text);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-  text-shadow: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover .cardTitle {
@@ -1111,6 +1111,10 @@ html {
   gap: 1.5rem;
 }
 
+.experienceHeader > div {
+  flex-grow: 1; /* Permite que el contenedor del título crezca y empuje la fecha */
+}
+
 .experienceTitle {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1136,7 +1140,6 @@ html {
 .experienceDate {
   font-size: 0.9375rem;
   color: var(--text-secondary);
-  white-space: nowrap;
   padding: 0.5rem 1.25rem;
   background: rgba(0, 255, 255, 0.1);
   border: 1px solid var(--neon-cyan);
@@ -1144,6 +1147,8 @@ html {
   font-weight: 600;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
   transition: all 0.3s;
+  text-align: right; /* Alinea el texto a la derecha si se divide */
+  flex-shrink: 0; /* Evita que la fecha se encoja */
 }
 
 .experienceCard:hover .experienceDate {
@@ -1155,6 +1160,9 @@ html {
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 1.25rem;
+  overflow-wrap: break-word; /* Evita desbordamiento de texto */
+  hyphens: auto; /* Permite división de palabras con guion */
+  word-wrap: break-word; /* Permite que las palabras largas se dividan si es necesario */
   font-size: 1.0625rem;
 }
 
@@ -1170,6 +1178,8 @@ html {
   margin-bottom: 1rem;
   position: relative;
   line-height: 1.8;
+  overflow-wrap: break-word; /* Evita desbordamiento de texto */
+  hyphens: auto; /* Permite división de palabras con guion */
   font-size: 1.0625rem;
   transition: all 0.3s;
 }
@@ -1202,7 +1212,7 @@ html {
 }
 
 .techBadge {
-  padding: 0.625rem 1.25rem;
+  padding: 0.8rem 1.25rem; /* Increased vertical padding */
   background: rgba(0, 255, 255, 0.1);
   color: var(--neon-cyan);
   border: 1px solid var(--neon-cyan);
@@ -1298,6 +1308,7 @@ html {
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 2rem;
+  word-wrap: break-word; /* Permite que las palabras largas se dividan si es necesario */
   font-size: 1.0625rem;
 }
 
@@ -1308,7 +1319,7 @@ html {
 }
 
 .projectBadge {
-  padding: 0.5rem 1.125rem;
+  padding: 0.7rem 1.125rem; /* Increased vertical padding */
   background: rgba(138, 43, 226, 0.1);
   color: var(--neon-purple);
   border: 1px solid var(--neon-purple);
@@ -1509,7 +1520,7 @@ html {
 }
 
 .skillTag {
-  padding: 0.5rem 0.875rem;
+  padding: 0.7rem 0.875rem; /* Increased vertical padding */
   background: rgba(0, 255, 127, 0.1);
   color: var(--neon-green);
   border: 1px solid var(--neon-green);
@@ -1737,12 +1748,23 @@ html {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  /* Ensure icons are centered in their touch area */
+  align-items: center;
+  justify-content: center;
+  /* If it's a column in mobile */
+  text-align: center;
 }
 
 .footerSocial a {
   color: var(--text-secondary);
   font-size: 1.75rem;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Increase touch area */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .footerSocial a:hover {
@@ -1789,7 +1811,8 @@ html {
 
 @media (max-width: 1200px) {
   .heroContent {
-    grid-template-columns: 1fr;
+    /* Stack text and image vertically on smaller screens */
+    grid-template-columns: 1fr; 
     gap: 4rem;
     padding: 0 4rem;
   }
@@ -1873,6 +1896,11 @@ html {
     width: 100%;
   }
 
+  /* Ensure "Sobre Mí" cards stack vertically */
+  .cardsContainer {
+    flex-direction: column;
+  }
+
   .navLinks {
     gap: 1.5rem;
     font-size: 0.8125rem;
@@ -1928,21 +1956,60 @@ html {
     font-size: 1.3rem;
   }
 
+  /* Simplificar tarjetas en móvil para un look más limpio */
+  .card {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    width: 100%; /* Asegura que las tarjetas ocupen el ancho completo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más simple */
+  }
+  .experienceCard {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Rectángulo simple para la línea de tiempo */
+  }
+  .projectCard {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .skillCard {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  }
+  .contactCard {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+
   .timelineContainer {
-    padding-left: 2rem;
+    padding-left: 0; /* Elimina el padding izquierdo */
+    gap: 2rem; /* Reduce el espacio entre tarjetas */
+  }
+
+  .timelineContainer::before {
+    display: none; /* Oculta la línea de tiempo vertical */
   }
 
   .experienceCard {
     margin-left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   }
 
   .experienceCard::before {
-    left: -2rem;
+    display: none; /* Oculta el punto de la línea de tiempo */
+  }
+
+  .experienceCard:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    opacity: 0.5;
   }
 
   .experienceHeader {
-    flex-direction: column;
-    align-items: flex-start;
+    /* Keep title and date on the same line for a cleaner look */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Reduce gap to allow more space for title */
   }
 
   .experienceDate {
@@ -1959,11 +2026,29 @@ html {
   .footerGrid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem; /* Adjust gap for mobile */
+  }
+
+  .footerColumn {
+    align-items: center; /* Center column content */
+  }
+
+  /* Reorder footer columns for better mobile hierarchy */
+  .footerColumn:nth-child(1) { order: 1; } /* JGM.DEV description */
+  .footerColumn:nth-child(3) { order: 2; } /* Social Media */
+  .footerColumn:nth-child(2) { order: 3; } /* Navigation Links */
+
+  .footerSocial {
+    justify-content: center; /* Ensure social icons are centered */
   }
 
   .footerBottom .contentContainer {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .footerBottom p {
+    font-size: 0.9rem; /* Increase font size for readability */
   }
 
   .techCard {
@@ -2150,7 +2235,7 @@ html {
 .techCardTitle {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #0066cc;
+  color: var(--neon-cyan);
   margin-bottom: 1.25rem;
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
@@ -2216,13 +2301,13 @@ html {
 .techItemIcon {
   font-size: 2.25rem;
   flex-shrink: 0;
-  color: #1a1a1a;
+  color: var(--text);
   transition: all 0.3s;
 }
 
 .techItem:hover .techItemIcon {
   transform: scale(1.2) rotate(-5deg);
-  color: #0066cc;
+  color: var(--neon-cyan);
 }
 
 /* Dark mode icon overrides */
@@ -2245,7 +2330,79 @@ html {
 }
 
 .techItem:hover span {
-  color: #0066cc;
+  color: var(--neon-cyan);
+}
+
+/* ===== TECH ITEM ICON COLORS ===== */
+.techItem[data-category="python"] .techItemIcon { color: #3776AB; }
+.techItem[data-category="javascript"] .techItemIcon { color: #F7DF1E; }
+.techItem[data-category="typescript"] .techItemIcon { color: #3178C6; }
+.techItem[data-category="c"] .techItemIcon,
+.techItem[data-category="pascal"] .techItemIcon,
+.techItem[data-category="smalltalk"] .techItemIcon { color: #A8B9CC; }
+.techItem[data-category="react"] .techItemIcon { color: #61DAFB; }
+.techItem[data-category="nodejs"] .techItemIcon { color: #68A063; }
+.techItem[data-category="express"] .techItemIcon { color: #000000; }
+.techItem[data-category="dotnet"] .techItemIcon { color: #512BD4; }
+.techItem[data-category="angular"] .techItemIcon { color: #DD0031; }
+.techItem[data-category="prisma"] .techItemIcon { color: #2D3748; }
+.techItem[data-category="mikroorm"] .techItemIcon { color: #FFFFFF; }
+.techItem[data-category="tailwind"] .techItemIcon { color: #06B6D4; }
+.techItem[data-category="nextjs"] .techItemIcon { color: #FFFFFF; }
+.techItem[data-category="mysql"] .techItemIcon { color: #4479A1; }
+.techItem[data-category="postgresql"] .techItemIcon { color: #336791; }
+.techItem[data-category="mongodb"] .techItemIcon { color: #47A248; }
+.techItem[data-category="docker"] .techItemIcon { color: #2496ED; }
+.techItem[data-category="git"] .techItemIcon { color: #F05032; }
+.techItem[data-category="aws"] .techItemIcon { color: #FF9900; }
+.techItem[data-category="terraform"] .techItemIcon { color: #7B42BC; }
+.techItem[data-category="jira"] .techItemIcon { color: #0052CC; }
+.techItem[data-category="postman"] .techItemIcon { color: #FF6C37; }
+.techItem[data-category="windows"] .techItemIcon { color: #0078D4; }
+.tech_item[data-category="linux"] .techItemIcon { color: #FCC624; }
+.techItem[data-category="ubuntu"] .techItemIcon { color: #E95420; }
+.techItem[data-category="ios"] .techItemIcon { color: #000000; }
+.techItem[data-category="office365"] .techItemIcon { color: #D83B01; }
+.techItem[data-category="excel"] .techItemIcon { color: #217346; }
+.techItem[data-category="autocad"] .techItemIcon { color: #A4202E; }
+.techItem[data-category="axure"] .techItemIcon { color: #FFFFFF; }
+.techItem[data-category="anylogic"] .techItemIcon { color: #FF6B35; }
+.techItem[data-category="design-patterns"] .techItemIcon { color: #F24E1E; }
+.techItem[data-category="apis"] .techItemIcon { color: #339933; }
+
+/* Light mode overrides for dark icons */
+[data-theme="light"] .techItem[data-category="express"] .techItemIcon,
+[data-theme="light"] .techItem[data-category="ios"] .techItemIcon,
+[data-theme="light"] .techItem[data-category="prisma"] .techItemIcon {
+  color: #2D3748;
+}
+
+[data-theme="light"] .techItem[data-category="nextjs"] .techItemIcon,
+[data-theme="light"] .techItem[data-category="mikroorm"] .techItemIcon,
+[data-theme="light"] .techItem[data-category="axure"] .techItemIcon {
+  color: #2D3748;
+  background-color: #ddd;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+/* Dark mode overrides for light icons */
+[data-theme="dark"] .techItem[data-category="express"] .techItemIcon,
+[data-theme="dark"] .techItem[data-category="ios"] .techItemIcon,
+[data-theme="dark"] .techItem[data-category="prisma"] .techItemIcon {
+  color: #FFFFFF;
+  background-color: #333;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+[data-theme="dark"] .techItem[data-category="nextjs"] .techItemIcon,
+[data-theme="dark"] .techItem[data-category="mikroorm"] .techItemIcon,
+[data-theme="dark"] .techItem[data-category="axure"] .techItemIcon {
+  color: #000000; /* El ícono es negro */
+  background-color: #FFFFFF; /* Le damos un fondo blanco para que resalte */
+  border-radius: 50%; /* Hacemos el fondo circular */
+  padding: 2px; /* Un poco de espacio interno */
 }
 
 /* ===== RESPONSIVE MÓVILES PEQUEÑOS ===== */
@@ -2401,8 +2558,8 @@ html {
   background: rgba(0, 255, 255, 0.1);
   color: var(--neon-cyan);
   border: 1px solid var(--neon-cyan);
-  border-radius: 6px;
-  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem; /* Increased padding */
   margin-left: 0.2rem;
   font-weight: bold;
   font-size: 0.8rem;
@@ -2420,8 +2577,8 @@ html {
   background: var(--neon-cyan);
   color: #222;
   border: 1px solid var(--neon-cyan);
-  border-radius: 6px;
-  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem; /* Increased padding */
   margin-left: 0.2rem;
   font-weight: bold;
   font-size: 0.8rem;
@@ -2474,31 +2631,6 @@ body {
   color: #2c3e50;
 }
 
-/* ===== TOUCH INTERACTIONS ===== */
-@media (hover: none) and (pointer: coarse) {
-  /* Remove hover effects on touch devices */
-  .btnPrimary:hover,
-  .btnSecondary:hover,
-  .contactCard:hover,
-  .techItem:hover,
-  .projectCard:hover,
-  .card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  /* Add active states for touch */
-  .btnPrimary:active,
-  .btnSecondary:active,
-  .contactCard:active,
-  .techItem:active,
-  .projectCard:active,
-  .card:active {
-    transform: scale(0.98);
-    transition: transform 0.1s ease;
-  }
-}
-
 /* ===== TOUCH TARGET SIZES ===== */
 /* Ensure all interactive elements meet minimum 44px touch target */
 .btnPrimary,
@@ -2513,46 +2645,46 @@ body {
 
 /* ===== RESPONSIVE TYPOGRAPHY ===== */
 @media (max-width: 768px) {
-  .sectionTitle {
-    font-size: 2rem; /* Reduced from larger sizes */
-  }
-
   .heroTitle {
-    font-size: 2.5rem; /* Reduced for mobile */
+    font-size: 3rem; /* Reduced for mobile */
   }
 
   .heroSubtitle {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem; /* Reduced from larger sizes */
   }
 
   .cardTitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .contactTitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
-
   .heroTitle {
-    font-size: 2rem;
+    font-size: 2.5rem !important;
   }
 
   .heroSubtitle {
-    font-size: 1rem;
+    font-size: 1.1rem !important;
+  }
+
+  .sectionTitle {
+    font-size: 2rem !important;
   }
 
   .cardTitle {
-    font-size: 1.1rem;
+    font-size: 1.3rem !important;
   }
 
   .contactTitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -2621,4 +2753,69 @@ body::before {
 @keyframes starTwinkle {
   0% { opacity: 0.2; }
   100% { opacity: 0.6; }
+}
+
+/* ===== OPTIMIZACIONES PARA DISPOSITIVOS TÁCTILES ===== */
+@media (hover: none) and (pointer: coarse) {
+  /*
+    Desactivamos los efectos :hover que dependen de un cursor
+    y los reemplazamos por una respuesta visual en :active (al tocar).
+  */
+
+  .statCard:hover,
+  .card:hover,
+  .experienceCard:hover,
+  .projectCard:hover,
+  .skillCard:hover,
+  .contactCard:hover,
+  .techBadge:hover,
+  .projectBadge:hover,
+  .skillTag:hover,
+  .btnPrimary:hover,
+  .btnSecondary:hover,
+  .btnGithub:hover,
+  .btnDemo:hover,
+  .techItem:hover {
+    transform: none; /* Resetea cualquier transformación en hover */
+  }
+
+  /* Añadimos un feedback visual al tocar */
+  .statCard:active,
+  .card:active,
+  .experienceCard:active,
+  .projectCard:active,
+  .skillCard:active,
+  .contactCard:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
+  }
+}
+
+/* ===== OPTIMIZACIONES DE RENDIMIENTO Y ACCESIBILIDAD ===== */
+
+/* 1. Desactivar animaciones para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 2. Simplificar animaciones en dispositivos móviles para mejorar el rendimiento */
+@media (max-width: 768px) {
+  /* Desactivar animación de estrellas en el fondo */
+  body::before {
+    animation: none;
+  }
+
+  /* Desactivar animaciones complejas en la imagen del héroe */
+  .heroImage,
+  .heroImageContainer::before,
+  .heroImageContainer::after {
+    animation: none;
+  }
 }
