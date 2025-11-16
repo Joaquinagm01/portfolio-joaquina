@@ -15,7 +15,7 @@ const Navbar = ({ toggleTheme, theme }) => {
     for (const sectionId of sections) {
       const section = document.getElementById(sectionId);
       if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-        setActiveLink(sectionId);
+        setActiveSection(sectionId);
         break;
       }
     }
