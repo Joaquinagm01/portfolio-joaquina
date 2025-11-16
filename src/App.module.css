@@ -1912,6 +1912,7 @@ html {
   .heroContent {
     text-align: center;
     padding: 0 2rem;
+    flex-direction: column;
   }
 
   .heroText {
@@ -1944,9 +1945,24 @@ html {
     width: 100%;
   }
 
+  .experienceList li {
+    word-break: normal;
+    hyphens: none;
+    padding-left: 2.5rem;
+  }
+
+  .experienceCard {
+    padding-bottom: 6rem;
+  }
+
+  .cardsContainer {
+    align-items: stretch;
+  }
+
   /* Ensure "Sobre Mí" cards stack vertically */
   .cardsContainer {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .navLinks {

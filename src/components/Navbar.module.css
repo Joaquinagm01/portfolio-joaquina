@@ -281,11 +281,11 @@
   width: 70%; /* Ocupa el 70% del ancho */
   max-width: 300px;
   height: 100vh;
-  background: var(--card-bg); /* Reusa tu fondo de tarjeta */
+  background: rgba(0, 0, 0, 0.95); /* Fondo oscuro para móvil */
   z-index: 2000;
   transform: translateX(100%); /* Oculto por defecto a la derecha */
   transition: transform 0.3s ease-in-out;
-  
+
   /* Estilos para los enlaces de adentro */
   display: flex;
   flex-direction: column;
