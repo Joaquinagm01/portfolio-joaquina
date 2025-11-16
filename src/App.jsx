@@ -327,27 +327,27 @@ function App() {
             <div className={styles.techCard} data-category="languages">
               <h3 className={styles.techCardTitle}>{t('skills.languages')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="python">
+                <div className={styles.techItem} data-category="python" data-tooltip="Python">
                   <FaPython className={styles.techItemIcon} />
                   <span>Python</span>
                 </div>
-                <div className={styles.techItem} data-category="javascript">
+                <div className={styles.techItem} data-category="javascript" data-tooltip="JavaScript">
                   <SiJavascript className={styles.techItemIcon} />
                   <span>JavaScript</span>
                 </div>
-                <div className={styles.techItem} data-category="typescript">
+                <div className={styles.techItem} data-category="typescript" data-tooltip="TypeScript">
                   <SiTypescript className={styles.techItemIcon} />
                   <span>TypeScript</span>
                 </div>
-                <div className={styles.techItem} data-category="c">
+                <div className={styles.techItem} data-category="c" data-tooltip="C">
                   <VscCode className={styles.techItemIcon} />
                   <span>C</span>
                 </div>
-                <div className={styles.techItem} data-category="pascal">
+                <div className={styles.techItem} data-category="pascal" data-tooltip="Pascal">
                   <VscCode className={styles.techItemIcon} />
                   <span>Pascal</span>
                 </div>
-                <div className={styles.techItem} data-category="smalltalk">
+                <div className={styles.techItem} data-category="smalltalk" data-tooltip="Smalltalk">
                   <VscCode className={styles.techItemIcon} />
                   <span>Smalltalk</span>
                 </div>
@@ -358,19 +358,19 @@ function App() {
             <div className={styles.techCard} data-category="frameworks">
               <h3 className={styles.techCardTitle}>{t('skills.frameworks')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="react">
+                <div className={styles.techItem} data-category="react" data-tooltip="React">
                   <FaReact className={styles.techItemIcon} />
                   <span>React</span>
                 </div>
-                <div className={styles.techItem} data-category="nodejs">
+                <div className={styles.techItem} data-category="nodejs" data-tooltip="Node.js">
                   <FaNodeJs className={styles.techItemIcon} />
                   <span>Node.js</span>
                 </div>
-                <div className={styles.techItem} data-category="express">
+                <div className={styles.techItem} data-category="express" data-tooltip="Express">
                   <SiExpress className={styles.techItemIcon} />
                   <span>Express</span>
                 </div>
-                <div className={styles.techItem} data-category="dotnet">
+                <div className={styles.techItem} data-category="dotnet" data-tooltip=".NET 9">
                   <SiDotnet className={styles.techItemIcon} />
                   <span>.NET 9</span>
                 </div>
@@ -378,19 +378,19 @@ function App() {
                   <SiAngular className={styles.techItemIcon} />
                   <span>Angular 20</span>
                 </div>
-                <div className={styles.techItem} data-category="prisma">
+                <div className={styles.techItem} data-category="prisma" data-tooltip="Prisma">
                   <SiPrisma className={styles.techItemIcon} />
                   <span>Prisma</span>
                 </div>
-                <div className={styles.techItem} data-category="mikroorm">
+                <div className={styles.techItem} data-category="mikroorm" data-tooltip="MikroORM">
                   <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>M</span>
                   <span>MikroORM</span>
                 </div>
-                <div className={styles.techItem} data-category="tailwind">
+                <div className={styles.techItem} data-category="tailwind" data-tooltip="TailwindCSS">
                   <SiTailwindcss className={styles.techItemIcon} />
                   <span>TailwindCSS</span>
                 </div>
-                <div className={styles.techItem} data-category="nextjs">
+                <div className={styles.techItem} data-category="nextjs" data-tooltip="Next.js">
                   <SiNextdotjs className={styles.techItemIcon} />
                   <span>Next.js</span>
                 </div>
@@ -401,15 +401,15 @@ function App() {
             <div className={styles.techCard} data-category="databases">
               <h3 className={styles.techCardTitle}>{t('skills.databases')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="mysql">
+                <div className={styles.techItem} data-category="mysql" data-tooltip="MySQL">
                   <SiMysql className={styles.techItemIcon} />
                   <span>MySQL</span>
                 </div>
-                <div className={styles.techItem} data-category="postgresql">
+                <div className={styles.techItem} data-category="postgresql" data-tooltip="PostgreSQL">
                   <SiPostgresql className={styles.techItemIcon} />
                   <span>PostgreSQL</span>
                 </div>
-                <div className={styles.techItem} data-category="mongodb">
+                <div className={styles.techItem} data-category="mongodb" data-tooltip="MongoDB">
                   <SiMongodb className={styles.techItemIcon} />
                   <span>MongoDB</span>
                 </div>
@@ -420,27 +420,27 @@ function App() {
             <div className={styles.techCard} data-category="devops">
               <h3 className={styles.techCardTitle}>{t('skills.devops')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="docker">
+                <div className={styles.techItem} data-category="docker" data-tooltip="Docker">
                   <FaDocker className={styles.techItemIcon} />
                   <span>Docker</span>
                 </div>
-                <div className={styles.techItem} data-category="git">
+                <div className={styles.techItem} data-category="git" data-tooltip="Git/GitHub">
                   <FaGitAlt className={styles.techItemIcon} />
                   <span>Git/GitHub</span>
                 </div>
-                <div className={styles.techItem} data-category="aws">
+                <div className={styles.techItem} data-category="aws" data-tooltip="AWS">
                   <FaAws className={styles.techItemIcon} />
                   <span>AWS</span>
                 </div>
-                <div className={styles.techItem} data-category="terraform">
+                <div className={styles.techItem} data-category="terraform" data-tooltip="Terraform">
                   <SiTerraform className={styles.techItemIcon} />
                   <span>Terraform</span>
                 </div>
-                <div className={styles.techItem} data-category="jira">
+                <div className={styles.techItem} data-category="jira" data-tooltip="Jira">
                   <FaJira className={styles.techItemIcon} />
                   <span>Jira</span>
                 </div>
-                <div className={styles.techItem} data-category="postman">
+                <div className={styles.techItem} data-category="postman" data-tooltip="Postman">
                   <SiPostman className={styles.techItemIcon} />
                   <span>Postman</span>
                 </div>
@@ -451,19 +451,19 @@ function App() {
             <div className={styles.techCard} data-category="os">
               <h3 className={styles.techCardTitle}>{t('skills.os')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="windows">
+                <div className={styles.techItem} data-category="windows" data-tooltip="Windows">
                   <FaWindows className={styles.techItemIcon} />
                   <span>Windows</span>
                 </div>
-                <div className={styles.techItem} data-category="linux">
+                <div className={styles.techItem} data-category="linux" data-tooltip="Linux">
                   <FaLinux className={styles.techItemIcon} />
                   <span>Linux</span>
                 </div>
-                <div className={styles.techItem} data-category="ubuntu">
+                <div className={styles.techItem} data-category="ubuntu" data-tooltip="Ubuntu">
                   <FaUbuntu className={styles.techItemIcon} />
                   <span>Ubuntu</span>
                 </div>
-                <div className={styles.techItem} data-category="ios">
+                <div className={styles.techItem} data-category="ios" data-tooltip="iOS">
                   <FaApple className={styles.techItemIcon} />
                   <span>iOS</span>
                 </div>
@@ -474,11 +474,11 @@ function App() {
             <div className={styles.techCard} data-category="office">
               <h3 className={styles.techCardTitle}>{t('skills.office')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="office365">
+                <div className={styles.techItem} data-category="office365" data-tooltip="Microsoft 365">
                   <Si365Datascience className={styles.techItemIcon} />
                   <span>Microsoft 365</span>
                 </div>
-                <div className={styles.techItem} data-category="excel">
+                <div className={styles.techItem} data-category="excel" data-tooltip="Excel">
                   <FaFileExcel className={styles.techItemIcon} />
                   <span>Excel</span>
                 </div>
@@ -489,15 +489,15 @@ function App() {
             <div className={styles.techCard} data-category="design">
               <h3 className={styles.techCardTitle}>{t('skills.design')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="autocad">
+                <div className={styles.techItem} data-category="autocad" data-tooltip="Autocad">
                   <SiAutocad className={styles.techItemIcon} />
                   <span>Autocad</span>
                 </div>
-                <div className={styles.techItem} data-category="axure">
+                <div className={styles.techItem} data-category="axure" data-tooltip="Axure">
                   <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>A</span>
                   <span>Axure</span>
                 </div>
-                <div className={styles.techItem} data-category="anylogic">
+                <div className={styles.techItem} data-category="anylogic" data-tooltip="AnyLogic">
                   <FaChartLine className={styles.techItemIcon} />
                   <span>AnyLogic</span>
                 </div>
@@ -508,11 +508,11 @@ function App() {
             <div className={styles.techCard} data-category="architecture">
               <h3 className={styles.techCardTitle}>{t('skills.architecture')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="design-patterns">
+                <div className={styles.techItem} data-category="design-patterns" data-tooltip="MD, DER, System Design">
                   <FaFigma className={styles.techItemIcon} />
                   <span>MD, DER, Diseño de sistema</span>
                 </div>
-                <div className={styles.techItem} data-category="apis">
+                <div className={styles.techItem} data-category="apis" data-tooltip="APIs">
                   <FaNodeJs className={styles.techItemIcon} />
                   <span>APIs</span>
                 </div>

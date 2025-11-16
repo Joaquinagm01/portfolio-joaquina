@@ -2293,6 +2293,39 @@ html {
   color: inherit;
 }
 
+/* ===== TOOLTIP STYLES ===== */
+.techItem {
+  position: relative; /* Needed for tooltip positioning */
+}
+
+.techItem::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%; /* Position above the item */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Initial position for animation */
+  background: var(--neon-cyan);
+  color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.techItem:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px); /* Final position */
+}
+
 .techItem:hover {
   background: linear-gradient(145deg, #f0f4f8 0%, #e8eef2 100%);
   transform: translateY(-3px);
