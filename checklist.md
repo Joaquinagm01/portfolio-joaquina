@@ -8,8 +8,8 @@ Aquí tienes una lista de sugerencias para mejorar la interactividad, el diseño
 
 - [x] **Scroll-Spy Activo en el Navbar:** Se ha mejorado el enlace activo en la barra de navegación con un fondo, borde y un ícono pulsante para mayor visibilidad.
 - [x] **Animaciones de Entrada por Sección:** Se han implementado animaciones de "fade-in" para el contenido de cada sección a medida que el usuario hace scroll.
-- [ ] **Gamificación del Cursor:** Cambiar el cursor por defecto a un diseño personalizado que se relacione con la temática futurista. Podría cambiar de forma o color al pasar sobre elementos interactivos.
 - [x] **Transiciones de Tema (Light/Dark) más Suaves:** Se ha implementado una transición gradual para los colores al cambiar entre modo claro y oscuro.
+- [ ] **Gamificación del Cursor:** Cambiar el cursor por defecto a un diseño personalizado que se relacione con la temática futurista. Podría cambiar de forma o color al pasar sobre elementos interactivos.
 
 ---
 
@@ -26,9 +26,9 @@ Aquí tienes una lista de sugerencias para mejorar la interactividad, el diseño
 
 - [ ] **Respetar `prefers-reduced-motion`:** Desactivar o reducir las animaciones más intensas si el usuario tiene activada la opción de "movimiento reducido" en su sistema operativo, mejorando la accesibilidad.
 - [ ] **Lazy Loading para Imágenes y Secciones:** Implementar carga perezosa (lazy loading) para las imágenes y componentes que no están en la vista inicial. Esto mejorará drásticamente el tiempo de carga inicial de la página.
-- [ ] **Fondo Animado Sutil:** Hacer que el fondo de estrellas o partículas se mueva lentamente en respuesta al movimiento del mouse (efecto parallax), añadiendo una capa de profundidad sin distraer.
-- [ ] **Sonidos de Interfaz Opcionales:** Añadir sonidos sutiles y futuristas (opcionales y desactivados por defecto) para ciertas acciones como clics en botones o cambios de sección, para una experiencia multisensorial.
 - [x] **Tooltips en Iconos de Habilidades:** Se ha añadido un tooltip que aparece al pasar el mouse sobre los íconos de las tecnologías.
+- [x] **Fondo Animado Sutil:** Se ha implementado un efecto parallax en el fondo que responde al movimiento del mouse.
+- [x] **Sonidos de Interfaz Opcionales:** Se ha añadido un botón para activar/desactivar sonidos de interfaz en acciones clave.
 
 ---
 

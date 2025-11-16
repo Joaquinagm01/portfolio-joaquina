@@ -8,6 +8,7 @@ import AnimatedStat from './components/AnimatedStat.jsx';
 import AnimateOnScroll from '../AnimateOnScroll.jsx';
 import ProjectModal from './components/ProjectModal.jsx';
 import ScrollIndicator from './components/ScrollIndicator.jsx';
+import BackToTopButton from './components/BackToTopButton.jsx';
 import Typewriter from './components/Typewriter.jsx';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
 import SwipeCarousel from './components/SwipeCarousel';
@@ -44,6 +45,7 @@ function App() {
   return (
     <>
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <BackToTopButton />
       <ScrollIndicator />
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
@@ -327,27 +329,27 @@ function App() {
             <div className={styles.techCard} data-category="languages">
               <h3 className={styles.techCardTitle}>{t('skills.languages')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="python" data-tooltip="Python">
+                <div className={styles.techItem} data-category="python">
                   <FaPython className={styles.techItemIcon} />
                   <span>Python</span>
                 </div>
-                <div className={styles.techItem} data-category="javascript" data-tooltip="JavaScript">
+                <div className={styles.techItem} data-category="javascript">
                   <SiJavascript className={styles.techItemIcon} />
                   <span>JavaScript</span>
                 </div>
-                <div className={styles.techItem} data-category="typescript" data-tooltip="TypeScript">
+                <div className={styles.techItem} data-category="typescript">
                   <SiTypescript className={styles.techItemIcon} />
                   <span>TypeScript</span>
                 </div>
-                <div className={styles.techItem} data-category="c" data-tooltip="C">
+                <div className={styles.techItem} data-category="c">
                   <VscCode className={styles.techItemIcon} />
                   <span>C</span>
                 </div>
-                <div className={styles.techItem} data-category="pascal" data-tooltip="Pascal">
+                <div className={styles.techItem} data-category="pascal">
                   <VscCode className={styles.techItemIcon} />
                   <span>Pascal</span>
                 </div>
-                <div className={styles.techItem} data-category="smalltalk" data-tooltip="Smalltalk">
+                <div className={styles.techItem} data-category="smalltalk">
                   <VscCode className={styles.techItemIcon} />
                   <span>Smalltalk</span>
                 </div>
@@ -358,19 +360,19 @@ function App() {
             <div className={styles.techCard} data-category="frameworks">
               <h3 className={styles.techCardTitle}>{t('skills.frameworks')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="react" data-tooltip="React">
+                <div className={styles.techItem} data-category="react">
                   <FaReact className={styles.techItemIcon} />
                   <span>React</span>
                 </div>
-                <div className={styles.techItem} data-category="nodejs" data-tooltip="Node.js">
+                <div className={styles.techItem} data-category="nodejs">
                   <FaNodeJs className={styles.techItemIcon} />
                   <span>Node.js</span>
                 </div>
-                <div className={styles.techItem} data-category="express" data-tooltip="Express">
+                <div className={styles.techItem} data-category="express">
                   <SiExpress className={styles.techItemIcon} />
                   <span>Express</span>
                 </div>
-                <div className={styles.techItem} data-category="dotnet" data-tooltip=".NET 9">
+                <div className={styles.techItem} data-category="dotnet">
                   <SiDotnet className={styles.techItemIcon} />
                   <span>.NET 9</span>
                 </div>
@@ -378,19 +380,19 @@ function App() {
                   <SiAngular className={styles.techItemIcon} />
                   <span>Angular 20</span>
                 </div>
-                <div className={styles.techItem} data-category="prisma" data-tooltip="Prisma">
+                <div className={styles.techItem} data-category="prisma">
                   <SiPrisma className={styles.techItemIcon} />
                   <span>Prisma</span>
                 </div>
-                <div className={styles.techItem} data-category="mikroorm" data-tooltip="MikroORM">
+                <div className={styles.techItem} data-category="mikroorm">
                   <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>M</span>
                   <span>MikroORM</span>
                 </div>
-                <div className={styles.techItem} data-category="tailwind" data-tooltip="TailwindCSS">
+                <div className={styles.techItem} data-category="tailwind">
                   <SiTailwindcss className={styles.techItemIcon} />
                   <span>TailwindCSS</span>
                 </div>
-                <div className={styles.techItem} data-category="nextjs" data-tooltip="Next.js">
+                <div className={styles.techItem} data-category="nextjs">
                   <SiNextdotjs className={styles.techItemIcon} />
                   <span>Next.js</span>
                 </div>
@@ -401,15 +403,15 @@ function App() {
             <div className={styles.techCard} data-category="databases">
               <h3 className={styles.techCardTitle}>{t('skills.databases')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="mysql" data-tooltip="MySQL">
+                <div className={styles.techItem} data-category="mysql">
                   <SiMysql className={styles.techItemIcon} />
                   <span>MySQL</span>
                 </div>
-                <div className={styles.techItem} data-category="postgresql" data-tooltip="PostgreSQL">
+                <div className={styles.techItem} data-category="postgresql">
                   <SiPostgresql className={styles.techItemIcon} />
                   <span>PostgreSQL</span>
                 </div>
-                <div className={styles.techItem} data-category="mongodb" data-tooltip="MongoDB">
+                <div className={styles.techItem} data-category="mongodb">
                   <SiMongodb className={styles.techItemIcon} />
                   <span>MongoDB</span>
                 </div>
@@ -420,27 +422,27 @@ function App() {
             <div className={styles.techCard} data-category="devops">
               <h3 className={styles.techCardTitle}>{t('skills.devops')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="docker" data-tooltip="Docker">
+                <div className={styles.techItem} data-category="docker">
                   <FaDocker className={styles.techItemIcon} />
                   <span>Docker</span>
                 </div>
-                <div className={styles.techItem} data-category="git" data-tooltip="Git/GitHub">
+                <div className={styles.techItem} data-category="git">
                   <FaGitAlt className={styles.techItemIcon} />
                   <span>Git/GitHub</span>
                 </div>
-                <div className={styles.techItem} data-category="aws" data-tooltip="AWS">
+                <div className={styles.techItem} data-category="aws">
                   <FaAws className={styles.techItemIcon} />
                   <span>AWS</span>
                 </div>
-                <div className={styles.techItem} data-category="terraform" data-tooltip="Terraform">
+                <div className={styles.techItem} data-category="terraform">
                   <SiTerraform className={styles.techItemIcon} />
                   <span>Terraform</span>
                 </div>
-                <div className={styles.techItem} data-category="jira" data-tooltip="Jira">
+                <div className={styles.techItem} data-category="jira">
                   <FaJira className={styles.techItemIcon} />
                   <span>Jira</span>
                 </div>
-                <div className={styles.techItem} data-category="postman" data-tooltip="Postman">
+                <div className={styles.techItem} data-category="postman">
                   <SiPostman className={styles.techItemIcon} />
                   <span>Postman</span>
                 </div>
@@ -451,19 +453,19 @@ function App() {
             <div className={styles.techCard} data-category="os">
               <h3 className={styles.techCardTitle}>{t('skills.os')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="windows" data-tooltip="Windows">
+                <div className={styles.techItem} data-category="windows">
                   <FaWindows className={styles.techItemIcon} />
                   <span>Windows</span>
                 </div>
-                <div className={styles.techItem} data-category="linux" data-tooltip="Linux">
+                <div className={styles.techItem} data-category="linux">
                   <FaLinux className={styles.techItemIcon} />
                   <span>Linux</span>
                 </div>
-                <div className={styles.techItem} data-category="ubuntu" data-tooltip="Ubuntu">
+                <div className={styles.techItem} data-category="ubuntu">
                   <FaUbuntu className={styles.techItemIcon} />
                   <span>Ubuntu</span>
                 </div>
-                <div className={styles.techItem} data-category="ios" data-tooltip="iOS">
+                <div className={styles.techItem} data-category="ios">
                   <FaApple className={styles.techItemIcon} />
                   <span>iOS</span>
                 </div>
@@ -474,11 +476,11 @@ function App() {
             <div className={styles.techCard} data-category="office">
               <h3 className={styles.techCardTitle}>{t('skills.office')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="office365" data-tooltip="Microsoft 365">
+                <div className={styles.techItem} data-category="office365">
                   <Si365Datascience className={styles.techItemIcon} />
                   <span>Microsoft 365</span>
                 </div>
-                <div className={styles.techItem} data-category="excel" data-tooltip="Excel">
+                <div className={styles.techItem} data-category="excel">
                   <FaFileExcel className={styles.techItemIcon} />
                   <span>Excel</span>
                 </div>
@@ -489,15 +491,15 @@ function App() {
             <div className={styles.techCard} data-category="design">
               <h3 className={styles.techCardTitle}>{t('skills.design')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="autocad" data-tooltip="Autocad">
+                <div className={styles.techItem} data-category="autocad">
                   <SiAutocad className={styles.techItemIcon} />
                   <span>Autocad</span>
                 </div>
-                <div className={styles.techItem} data-category="axure" data-tooltip="Axure">
+                <div className={styles.techItem} data-category="axure">
                   <span style={{fontSize: '1.2em', fontWeight: 'bold'}}>A</span>
                   <span>Axure</span>
                 </div>
-                <div className={styles.techItem} data-category="anylogic" data-tooltip="AnyLogic">
+                <div className={styles.techItem} data-category="anylogic">
                   <FaChartLine className={styles.techItemIcon} />
                   <span>AnyLogic</span>
                 </div>
@@ -508,11 +510,11 @@ function App() {
             <div className={styles.techCard} data-category="architecture">
               <h3 className={styles.techCardTitle}>{t('skills.architecture')}</h3>
               <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="design-patterns" data-tooltip="MD, DER, System Design">
+                <div className={styles.techItem} data-category="design-patterns">
                   <FaFigma className={styles.techItemIcon} />
                   <span>MD, DER, Diseño de sistema</span>
                 </div>
-                <div className={styles.techItem} data-category="apis" data-tooltip="APIs">
+                <div className={styles.techItem} data-category="apis">
                   <FaNodeJs className={styles.techItemIcon} />
                   <span>APIs</span>
                 </div>

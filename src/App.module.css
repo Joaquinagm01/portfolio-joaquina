@@ -1808,6 +1808,48 @@ html {
   color: var(--text-muted);
 }
 
+/* Sound Toggle Button */
+.soundToggle {
+  background: none;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.soundToggle:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  transform: scale(1.1);
+}
+
+.soundToggle .tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.soundToggle:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1400px) {
   .techStackGrid {
@@ -2798,31 +2840,24 @@ body::before {
   100% { opacity: 0.6; }
 }
 
-/* ===== OPTIMIZACIONES PARA DISPOSITIVOS TÁCTILES ===== */
+/* ===== TACTILE OPTIMIZATIONS ===== */
 @media (hover: none) and (pointer: coarse) {
   /*
-    Desactivamos los efectos :hover que dependen de un cursor
-    y los reemplazamos por una respuesta visual en :active (al tocar).
+    On touch devices, we disable hover effects that rely on a cursor
+    and replace them with visual feedback on the :active state (on tap).
   */
 
   .statCard:hover,
   .card:hover,
   .experienceCard:hover,
   .projectCard:hover,
-  .skillCard:hover,
   .contactCard:hover,
-  .techBadge:hover,
-  .projectBadge:hover,
-  .skillTag:hover,
   .btnPrimary:hover,
   .btnSecondary:hover,
-  .btnGithub:hover,
-  .btnDemo:hover,
   .techItem:hover {
-    transform: none; /* Resetea cualquier transformación en hover */
+    transform: none; /* Reset any hover transformations */
   }
 
-  /* Añadimos un feedback visual al tocar */
   .statCard:active,
   .card:active,
   .experienceCard:active,
@@ -2830,7 +2865,7 @@ body::before {
   .skillCard:active,
   .contactCard:active {
     transform: scale(0.98);
-    transition: transform 0.1s ease-out;
+    transition: transform 0.1s ease;
   }
 }
 
