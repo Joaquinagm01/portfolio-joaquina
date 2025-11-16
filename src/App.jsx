@@ -10,7 +10,7 @@ import ProjectModal from './components/ProjectModal.jsx';
 import ScrollIndicator from './components/ScrollIndicator.jsx';
 import BackToTopButton from './components/BackToTopButton.jsx';
 import Typewriter from './components/Typewriter.jsx';
-import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
+import LanguageSelector from './components/LanguageSelector'; 
 import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
@@ -29,7 +29,7 @@ function App() {
   const { t } = useTranslation();
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved || 'dark'; // Default to dark mode
+    return saved || 'dark'; 
   });
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -622,7 +622,7 @@ function App() {
         <div className={styles.footerBottom}>
           <div className={styles.contentContainer}>
             <p>
-              © 2025 Joaquina Gómez Manna. {t('footer.rights')}
+              © 2025 Joaquina Gomez Manna. {t('footer.rights')}
             </p>
             <p>{t('footer.tech')}</p>
           </div>

@@ -36,7 +36,7 @@
 }
 
 .navbarContent {
-  display: flex; /* <-- ¡ARREGLO CLAVE! */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -55,6 +55,7 @@
   position: relative;
   transition: all 0.3s ease;
   text-decoration: none;
+  margin-left: 0;
 }
 
 .logo::before {

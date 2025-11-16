@@ -28,7 +28,7 @@ const Navbar = ({ toggleTheme, theme }) => {
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false); // Close side menu after navigation
+    setIsMenuOpen(false);
   };
 
   return (

@@ -1696,8 +1696,9 @@ html {
   font-size: 1.75rem;
   font-weight: 900;
   color: var(--neon-cyan);
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  text-align: left;
 }
 
 .footerDescription {
