@@ -31,3 +31,14 @@
 .backToTop:hover {
   transform: scale(1.1);
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .backToTop {
+    right: 1rem;
+    bottom: 5rem; /* Above the language selector */
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
