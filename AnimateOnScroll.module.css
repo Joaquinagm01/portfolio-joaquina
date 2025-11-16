@@ -1,0 +1,21 @@
+.animate {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: none !important; /* Override initial transform when visible */
+}
+
+.fadeInUp {
+  transform: translateY(50px);
+}
+
+.fadeIn {
+  transform: none; /* No movement, just fade */
+}
+
+.zoomIn {
+  transform: scale(0.9);
+}

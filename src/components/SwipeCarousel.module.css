@@ -98,11 +98,11 @@
 }
 
 .navButton.prev {
-  left: 1rem;
+  left: 0.5rem; /* Posiciona la flecha en el espacio de padding */
 }
 
 .navButton.next {
-  right: 1rem;
+  right: 0.5rem; /* Posiciona la flecha en el espacio de padding */
 }
 
 /* Light mode styles */

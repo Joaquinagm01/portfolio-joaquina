@@ -6,21 +6,19 @@ Aquí tienes una lista de sugerencias para mejorar la interactividad, el diseño
 
 ### 🎨 Mejoras Visuales y de Interacción
 
-- [ ] **Scroll-Spy Activo en el Navbar:** Hacer que el enlace de la sección visible actualmente en la pantalla se destaque de forma más evidente en la barra de navegación, no solo con un color, sino quizás con un ícono o un fondo diferente.
-- [ ] **Animaciones de Entrada por Sección:** Implementar animaciones de "fade-in" o "slide-in" para los elementos de cada sección a medida que el usuario hace scroll, en lugar de animar solo el encabezado. Esto crea una experiencia de descubrimiento más fluida.
-- [ ] **Efecto "Tilt" en Tarjetas:** Aplicar un efecto 3D "tilt" (inclinación) a las tarjetas de proyectos y habilidades al pasar el mouse, haciendo que reaccionen a la posición del cursor para una sensación más inmersiva.
+- [x] **Scroll-Spy Activo en el Navbar:** Se ha mejorado el enlace activo en la barra de navegación con un fondo, borde y un ícono pulsante para mayor visibilidad.
+- [x] **Animaciones de Entrada por Sección:** Se han implementado animaciones de "fade-in" para el contenido de cada sección a medida que el usuario hace scroll.
 - [ ] **Gamificación del Cursor:** Cambiar el cursor por defecto a un diseño personalizado que se relacione con la temática futurista. Podría cambiar de forma o color al pasar sobre elementos interactivos.
-- [ ] **Transiciones de Tema (Light/Dark) más Suaves:** En lugar de un cambio instantáneo, hacer que la transición de colores entre modos sea más gradual y animada, afectando primero el fondo y luego los elementos.
+- [x] **Transiciones de Tema (Light/Dark) más Suaves:** Se ha implementado una transición gradual para los colores al cambiar entre modo claro y oscuro.
 
 ---
 
 ### ⚙️ Mejoras Funcionales y de Movimiento
 
 - [x] **Contador Animado para Estadísticas:** Hacer que los números de la sección de estadísticas (+2 años, +5 proyectos) cuenten desde cero hasta el valor final cuando la sección aparece en pantalla.
-- [ ] **Filtrado Interactivo de Habilidades:** Añadir botones de categoría (Ej: "Lenguajes", "Frameworks") en la sección de habilidades que permitan al usuario filtrar y mostrar solo las tarjetas de esa categoría.
-- [ ] **Modal para Detalles del Proyecto:** En lugar de mostrar toda la información en la tarjeta, hacer que al hacer clic en "Ver más" se abra una ventana modal con una descripción más detallada, galería de imágenes o incluso un video demo del proyecto.
-- [ ] **Efecto "Máquina de Escribir" para el Subtítulo:** Animar el subtítulo del "Hero Section" ("Full Stack Developer...") para que aparezca como si se estuviera escribiendo en tiempo real.
-- [ ] **Indicador de Scroll:** Añadir una barra de progreso en la parte superior de la página que indique cuánto ha avanzado el usuario en el scroll total de la web.
+- [x] **Modal para Detalles del Proyecto:** Se ha implementado un modal para mostrar información detallada de los proyectos al hacer clic en "Ver Más".
+- [x] **Efecto "Máquina de Escribir" para el Subtítulo:** Se ha animado el subtítulo del "Hero Section" para que aparezca con un efecto de máquina de escribir.
+- [x] **Indicador de Scroll:** Se ha añadido una barra de progreso en la parte superior de la página que indica el avance del scroll.
 
 ---
 
@@ -92,9 +90,31 @@ El layout general es funcional, pero podemos mejorar la estética para que la ve
     - **Problema:** El footer en móviles se sentía desorganizado y el texto era pequeño.
     - **Solución:** Se ha reorganizado el orden de las columnas para dar prioridad a la marca y se ha aumentado el tamaño de la fuente para mejorar la legibilidad.
 
-- [ ] **Optimizar el Carrusel de Proyectos:**
+- [x] **Optimizar el Carrusel de Proyectos:**
     - **Problema:** El carrusel actual es funcional pero básico.
     - **Solución:** Implementar un carrusel más avanzado con indicadores de puntos (`dots`) para mostrar en qué proyecto se encuentra el usuario y flechas de navegación en pantallas más grandes (tablets). Esto mejora enormemente la usabilidad.
 
 ---
+---
+
+### ✅ Checklist de Refinamiento Visual Final (Móvil)
+
+La estructura es sólida. Ahora nos enfocaremos en los detalles finos que crean una experiencia de usuario excepcional y memorable.
+
+- [ ] **Unificar y Pulir el Diseño de Tarjetas en el Carrusel de Proyectos:**
+    - **Problema:** Las tarjetas dentro del carrusel de proyectos tienen estilos inconsistentes (algunas usan `experienceCard` y otras `projectCard`).
+    - **Solución:** Crear un estilo unificado y específico para las tarjetas del carrusel (`carouselCard`) que combine lo mejor de ambos diseños, asegurando una apariencia coherente y pulida al deslizar.
+
+- [ ] **Mejorar la Jerarquía Visual en la Sección "Habilidades":**
+    - **Problema:** La cuadrícula de tecnologías, aunque funcional, puede sentirse un poco densa y monótona.
+    - **Solución:** Aumentar ligeramente el espacio entre las tarjetas de categorías (`techCard`) y darles un título más prominente. Dentro de cada tarjeta, mejorar el espaciado de los íconos (`techItem`) para que "respiren" mejor.
+
+- [ ] **Añadir Micro-interacciones en los Botones Principales:**
+    - **Problema:** Los botones principales (`Contáctame`, `Descargar CV`) son funcionales pero carecen de un "feedback" satisfactorio al ser presionados.
+    - **Solución:** Implementar una animación sutil en el estado `:active` de los botones. Un ligero encogimiento y un cambio de brillo al momento de tocar darán una respuesta táctil más gratificante.
+
+- [ ] **Refinar la Animación de Entrada de la Sección "Hero":**
+    - **Problema:** Las animaciones de entrada laterales (`slideInLeft`, `slideInRight`) pueden sentirse un poco abruptas en una pantalla vertical.
+    - **Solución:** Cambiar la animación a un `fadeInUp` más sutil y cohesivo para todos los elementos de la sección "Hero", creando una aparición más elegante y unificada.
+
 ---

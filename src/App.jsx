@@ -4,7 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
-import AnimatedStat from '../AnimatedStat.jsx';
+import AnimatedStat from './components/AnimatedStat.jsx';
+import AnimateOnScroll from '../AnimateOnScroll.jsx';
+import ProjectModal from './components/ProjectModal.jsx';
+import ScrollIndicator from './components/ScrollIndicator.jsx';
+import Typewriter from './components/Typewriter.jsx';
 import LanguageSelector from './components/LanguageSelector'; // <-- ¡IMPORTA TU COMP!
 import SwipeCarousel from './components/SwipeCarousel';
 import {
@@ -26,6 +30,7 @@ function App() {
     const saved = localStorage.getItem('theme');
     return saved || 'dark'; // Default to dark mode
   });
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
@@ -38,6 +43,8 @@ function App() {
 
   return (
     <>
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <ScrollIndicator />
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
         {/* HERO SECTION */}
@@ -46,7 +53,12 @@ function App() {
           <div className={styles.heroText}>
             <p className={styles.heroGreeting}>{t('hero.greeting')}</p>
             <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
-            <p className={styles.heroSubtitle}>{t('hero.subtitle')}</p>
+            <Typewriter
+              texts={[t('hero.subtitle'), 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']}
+              speed={100}
+              delay={2500}
+              className={styles.heroSubtitle}
+            />
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
               <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
@@ -97,7 +109,7 @@ function App() {
           <p className={styles.sectionDescription}>{t('about.description')}</p>
         </div>
 
-        <div className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.cardsContainer}>
             {/* EDUCACIÓN */}
             <div className={styles.card}>
@@ -141,7 +153,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* EXPERIENCIA */}
@@ -151,7 +163,7 @@ function App() {
           <p className={styles.sectionDescription}>{t('experience.description')}</p>
         </div>
 
-        <div className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.timelineContainer}>
             <div className={styles.experienceCard}>
               <div className={styles.experienceHeader}>
@@ -204,7 +216,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* PROYECTOS */}
@@ -214,18 +226,13 @@ function App() {
           <p className={styles.sectionDescription}>{t('projects.description')}</p>
         </div>
 
-        <div className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer}>
           <SwipeCarousel>
-            <div className={styles.experienceCard}>
-              <div className={styles.experienceHeader}>
-                <div>
-                  <h3 className={styles.experienceTitle}>{t('projects.alojarg.title')}</h3>
-                  <p className={styles.experienceCompany}>{t('projects.alojarg.subtitle')}</p>
-                </div>
-                <span className={styles.experienceDate}>2025</span>
-              </div>
-              <p className={styles.experienceDescription} dangerouslySetInnerHTML={{ __html: t('projects.alojarg.description') }}></p>
-              <div className={styles.techStack}>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>{t('projects.alojarg.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.alojarg.description') }}></p>
+                <div className={styles.projectTech}>
                 <span className={styles.techBadge}>.NET 9</span>
                 <span className={styles.techBadge}>Angular 20</span>
                 <span className={styles.techBadge}>TypeScript</span>
@@ -233,24 +240,29 @@ function App() {
                 <span className={styles.techBadge}>JWT</span>
                 <span className={styles.techBadge}>Docker</span>
                 <span className={styles.techBadge}>FluentValidation</span>
-              </div>
-              <div className={styles.projectActions}>
-                <a href="https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
-                  <FaGithub /> Ver Código
-                </a>
+                </div>
+                <div className={styles.projectActions}>
+                <button
+                  className={styles.btnDemo}
+                  onClick={() => setSelectedProject({
+                    title: t('projects.alojarg.title'),
+                    subtitle: t('projects.alojarg.subtitle'),
+                    description: t('projects.alojarg.description'),
+                    tech: ['.NET 9', 'Angular 20', 'TypeScript', 'MySQL', 'JWT', 'Docker', 'FluentValidation'],
+                    github: 'https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git'
+                  })}
+                >
+                  Ver Más
+                </button>
+                </div>
               </div>
             </div>
 
-            <div className={styles.experienceCard}>
-              <div className={styles.experienceHeader}>
-                <div>
-                  <h3 className={styles.experienceTitle}>{t('projects.libros.title')}</h3>
-                  <p className={styles.experienceCompany}>{t('projects.libros.subtitle')}</p>
-                </div>
-                <span className={styles.experienceDate}>2025</span>
-              </div>
-              <p className={styles.experienceDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
-              <div className={styles.projectTech}>
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>{t('projects.libros.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.libros.description') }}></p>
+                <div className={styles.projectTech}>
                 <span className={styles.projectBadge}>React</span>
                 <span className={styles.projectBadge}>Node.js</span>
                 <span className={styles.projectBadge}>Express</span>
@@ -258,11 +270,12 @@ function App() {
                 <span className={styles.projectBadge}>MikroORM</span>
                 <span className={styles.projectBadge}>MySQL</span>
                 <span className={styles.projectBadge}>JWT</span>
-              </div>
-              <div className={styles.projectActions}>
+                </div>
+                <div className={styles.projectActions}>
                 <a href="https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                   <FaGithub /> Ver Código
                 </a>
+                </div>
               </div>
             </div>
 
@@ -298,7 +311,7 @@ function App() {
               </div>
             </div>
           </SwipeCarousel>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* HABILIDADES */}
@@ -308,7 +321,7 @@ function App() {
           <p className={styles.sectionDescription}>{t('skills.description')}</p>
         </div>
 
-        <div className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.techStackGrid}>
             {/* Lenguajes de Programación */}
             <div className={styles.techCard} data-category="languages">
@@ -506,7 +519,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* CONTACTO */}
@@ -517,7 +530,7 @@ function App() {
           <p className={styles.sectionDescription} style={{marginTop: '1rem', fontSize: '1.1rem', fontWeight: '500'}}></p>
         </div>
 
-        <div className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.contactGrid}>
             <a href="tel:+543412291597" className={styles.contactCard}>
               <div className={styles.contactIcon}>📞</div>
@@ -563,7 +576,7 @@ function App() {
               <span className={styles.contactAction}>{t('contact.download')} →</span>
             </a>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       </main>

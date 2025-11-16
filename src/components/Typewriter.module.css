@@ -1,0 +1,13 @@
+.typewriter {
+  position: relative;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--neon-cyan);
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}

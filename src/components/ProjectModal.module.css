@@ -1,0 +1,119 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  background: var(--card-bg);
+  border: 2px solid var(--neon-purple);
+  padding: 2.5rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 50px rgba(138, 43, 226, 0.5);
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  color: var(--neon-pink);
+  transform: scale(1.2) rotate(90deg);
+}
+
+.modalTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: var(--neon-purple);
+  text-shadow: 0 0 15px var(--neon-purple);
+  margin: 0 0 0.5rem 0;
+}
+
+.modalSubtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+  border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+  padding-bottom: 1rem;
+}
+
+.modalDescription {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.techBadge {
+  background: rgba(138, 43, 226, 0.1);
+  color: var(--neon-purple);
+  border: 1px solid var(--neon-purple);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.modalActions {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.3);
+  padding-top: 2rem;
+}
+
+.btnGithub {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--neon-purple);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btnGithub:hover {
+  box-shadow: 0 0 20px var(--neon-purple);
+  transform: translateY(-3px);
+}

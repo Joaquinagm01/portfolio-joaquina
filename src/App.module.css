@@ -28,6 +28,13 @@
   --text-muted: #4a4a4a; /* Improved for WCAG AA compliance (4.8:1 contrast) */
 }
 
+/* ===== SMOOTH THEME TRANSITIONS ===== */
+*, *::before, *::after {
+  /* This applies a smooth transition to color-related properties on all elements */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
+}
+
+
 /* ===== LIGHT MODE BODY ===== */
 [data-theme="light"] body {
   background: var(--dark-bg);
@@ -654,7 +661,6 @@ html {
   margin-left: auto;
   margin-right: auto;
   padding: 0 2rem;
-  animation: fadeInUp 1s ease-out;
   box-sizing: border-box;
 }
 
@@ -1290,7 +1296,7 @@ html {
 }
 
 .projectTitle {
-  font-size: 1.875rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--neon-purple);
   margin-bottom: 1.5rem;
@@ -1956,6 +1962,10 @@ html {
     font-size: 1.3rem;
   }
 
+  .projectCard .projectContent {
+    padding: 1.5rem; /* Asegura padding consistente en móvil */
+  }
+
   /* Simplificar tarjetas en móvil para un look más limpio */
   .card {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
@@ -2112,7 +2122,7 @@ html {
 
 .techCard {
   background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-  border: 2px solid rgba(0, 102, 204, 0.4);
+  border: 2px solid var(--card-border);
   border-radius: 16px;
   padding: 1.5rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
