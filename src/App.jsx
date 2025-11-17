@@ -418,36 +418,7 @@ function App() {
               </div>
             </div>
 
-            {/* DevOps & Herramientas */}
-            <div className={styles.techCard} data-category="devops">
-              <h3 className={styles.techCardTitle}>{t('skills.devops')}</h3>
-              <div className={styles.techItems}>
-                <div className={styles.techItem} data-category="docker">
-                  <FaDocker className={styles.techItemIcon} />
-                  <span>Docker</span>
-                </div>
-                <div className={styles.techItem} data-category="git">
-                  <FaGitAlt className={styles.techItemIcon} />
-                  <span>Git/GitHub</span>
-                </div>
-                <div className={styles.techItem} data-category="aws">
-                  <FaAws className={styles.techItemIcon} />
-                  <span>AWS</span>
-                </div>
-                <div className={styles.techItem} data-category="terraform">
-                  <SiTerraform className={styles.techItemIcon} />
-                  <span>Terraform</span>
-                </div>
-                <div className={styles.techItem} data-category="jira">
-                  <FaJira className={styles.techItemIcon} />
-                  <span>Jira</span>
-                </div>
-                <div className={styles.techItem} data-category="postman">
-                  <SiPostman className={styles.techItemIcon} />
-                  <span>Postman</span>
-                </div>
-              </div>
-            </div>
+
 
             {/* Sistemas Operativos */}
             <div className={styles.techCard} data-category="os">
