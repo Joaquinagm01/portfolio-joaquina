@@ -63,7 +63,7 @@ function App() {
             />
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
-              <a href="/CVJoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+              <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
                 {t('navbar.download_cv')}
               </a>
             </div>
