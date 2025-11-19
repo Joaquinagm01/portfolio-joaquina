@@ -274,6 +274,9 @@ function App() {
                 <span className={styles.projectBadge}>JWT</span>
                 </div>
                 <div className={styles.projectActions}>
+                <a href="https://tpdsw-31.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.btnDemo}>
+                  Ver Demo
+                </a>
                 <a href="https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
                   <FaGithub /> Ver Código
                 </a>
