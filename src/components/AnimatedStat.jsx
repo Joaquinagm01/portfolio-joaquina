@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const AnimatedStat = ({ end, duration = 2, prefix = '', suffix = '' }) => {
@@ -12,23 +12,27 @@ const AnimatedStat = ({ end, duration = 2, prefix = '', suffix = '' }) => {
     if (inView) {
       let start = 0;
       const endValue = parseInt(end);
-      // Evitar la división por cero si la duración es 0
       if (start === endValue) return;
 
-      // Calcular el incremento por paso para que la animación dure `duration` segundos.
-      let incrementTime = (duration * 1000) / endValue;
+      const startTime = performance.now();
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / (duration * 1000), 1);
+        const currentCount = Math.floor(progress * endValue);
+        setCount(currentCount);
 
-      let timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === endValue) clearInterval(timer);
-      }, incrementTime);
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          setCount(endValue);
+        }
+      };
 
-      return () => clearInterval(timer);
+      requestAnimationFrame(animate);
     }
   }, [inView, end, duration]);
 
   return <div ref={ref}>{`${prefix}${count}${suffix}`}</div>;
 };
 
-export default AnimatedStat;
+export default memo(AnimatedStat);

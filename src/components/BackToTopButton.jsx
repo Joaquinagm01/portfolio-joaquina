@@ -1,16 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import styles from './BackToTopButton.module.css';
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
+  const toggleVisibility = useCallback(() => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  };
+  }, []);
+
+  const throttledToggleVisibility = useCallback(() => {
+    let ticking = false;
+    return () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          toggleVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+  }, [toggleVisibility]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -20,9 +33,10 @@ const BackToTopButton = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+    const throttled = throttledToggleVisibility();
+    window.addEventListener('scroll', throttled);
+    return () => window.removeEventListener('scroll', throttled);
+  }, [throttledToggleVisibility]);
 
   return (
     <button className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`} onClick={scrollToTop}>
@@ -31,4 +45,4 @@ const BackToTopButton = () => {
   );
 };
 
-export default BackToTopButton;
+export default memo(BackToTopButton);
