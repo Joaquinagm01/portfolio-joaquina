@@ -1,19 +1,21 @@
 import './index.css'
 import './i18n/i18n.js';
+
+import React, { Suspense, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
-import AnimatedStat from './components/AnimatedStat.jsx';
 import AnimateOnScroll from '../AnimateOnScroll.jsx';
-import ProjectModal from './components/ProjectModal.jsx';
-import ScrollIndicator from './components/ScrollIndicator.jsx';
-import BackToTopButton from './components/BackToTopButton.jsx';
-import Typewriter from './components/Typewriter.jsx';
 import LanguageSelector from './components/LanguageSelector'; 
+
+const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
+const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
+const ScrollIndicator = React.lazy(() => import('./components/ScrollIndicator.jsx'));
+const BackToTopButton = React.lazy(() => import('./components/BackToTopButton.jsx'));
+const Typewriter = React.lazy(() => import('./components/Typewriter.jsx'));
 import SwipeCarousel from './components/SwipeCarousel';
 import {
-  FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira,
+  FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel
 } from 'react-icons/fa'
 import {
@@ -44,9 +46,15 @@ function App() {
 
   return (
     <>
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      <BackToTopButton />
-      <ScrollIndicator />
+      <Suspense fallback={null}>
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BackToTopButton />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ScrollIndicator />
+      </Suspense>
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
         {/* HERO SECTION */}
@@ -55,12 +63,14 @@ function App() {
           <div className={styles.heroText}>
             <p className={styles.heroGreeting}>{t('hero.greeting')}</p>
             <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
-            <Typewriter
-              texts={[t('hero.subtitle'), 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']}
-              speed={100}
-              delay={2500}
-              className={styles.heroSubtitle}
-            />
+            <Suspense fallback={null}>
+              <Typewriter
+                texts={[t('hero.subtitle'), 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']}
+                speed={100}
+                delay={2500}
+                className={styles.heroSubtitle}
+              />
+            </Suspense>
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
               <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
@@ -69,7 +79,14 @@ function App() {
             </div>
           </div>
           <div className={styles.heroImageContainer}>
-            <img src="/profile.jpg" alt="Joaquina Gómez Manna - Full Stack Developer" className={styles.heroImage} loading="eager" />
+            <img
+              src="/profile.jpg"
+              alt="Joaquina Gómez Manna - Full Stack Developer"
+              className={styles.heroImage}
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, 300px"
+              srcSet="/profile.jpg 1200w"
+            />
           </div>
         </div>
       </section>
@@ -256,6 +273,43 @@ function App() {
                 >
                   Ver Más
                 </button>
+                </div>
+              </div>
+            </div>
+
+            {/* FISICA-MODELO: simulaciones p5.js (avión, dron) */}
+            <div className={styles.projectCard}>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}><FaRocket className={styles.projectIcon} /> {t('projects.fisica.title')}</h3>
+                <p className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: t('projects.fisica.description') }}></p>
+                <div className={styles.projectTech}>
+                  <span className={styles.projectBadge}>JavaScript</span>
+                  <span className={styles.projectBadge}>p5.js</span>
+                  <span className={styles.projectBadge}>HTML5</span>
+                  <span className={styles.projectBadge}>CSS3</span>
+                  <span className={styles.projectBadge}>Node.js</span>
+                  <span className={styles.projectBadge}>Chart.js</span>
+                </div>
+                <div className={styles.projectActions}>
+                  <a href="https://fisica-modelo.vercel.app" target="_blank" rel="noopener noreferrer" className={styles.btnDemo}>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Joaquinagm01/FISICA-MODELO.git" target="_blank" rel="noopener noreferrer" className={styles.btnGithub}>
+                    <FaGithub /> Ver Código
+                  </a>
+                  <button
+                    className={styles.btnDemo}
+                    onClick={() => setSelectedProject({
+                      title: t('projects.fisica.title'),
+                      subtitle: t('projects.fisica.subtitle'),
+                      description: t('projects.fisica.description'),
+                      tech: ['JavaScript', 'p5.js', 'HTML5', 'CSS3', 'Node.js', 'Chart.js'],
+                      demo: 'https://fisica-modelo.vercel.app',
+                      github: 'https://github.com/Joaquinagm01/FISICA-MODELO.git'
+                    })}
+                  >
+                    {t('projects.view_more') || 'Ver Más'}
+                  </button>
                 </div>
               </div>
             </div>

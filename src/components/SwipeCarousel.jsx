@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback, memo } from 'react';
 import styles from './SwipeCarousel.module.css';
 
 const SwipeCarousel = ({ children, className = '' }) => {
@@ -23,6 +23,20 @@ const SwipeCarousel = ({ children, className = '' }) => {
     setCurrentIndex(index);
   };
 
+  // Throttle function using requestAnimationFrame
+  const throttle = (func) => {
+    let ticking = false;
+    return (...args) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          func(...args);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+  };
+
   // Touch handlers
   const handleTouchStart = (e) => {
     setIsDragging(true);
@@ -30,13 +44,15 @@ const SwipeCarousel = ({ children, className = '' }) => {
     setScrollLeft(carouselRef.current.scrollLeft);
   };
 
-  const handleTouchMove = (e) => {
+  const doTouchMove = (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.touches[0].clientX;
     const walk = (x - startPos) * 2; // Scroll speed multiplier
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
+
+  const handleTouchMove = useCallback(throttle(doTouchMove), [isDragging, startPos, scrollLeft]);
 
   const handleTouchEnd = () => {
     setIsDragging(false);
@@ -59,13 +75,15 @@ const SwipeCarousel = ({ children, className = '' }) => {
     setScrollLeft(carouselRef.current.scrollLeft);
   };
 
-  const handleMouseMove = (e) => {
+  const doMouseMove = (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.clientX;
     const walk = (x - startPos) * 2;
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
+
+  const handleMouseMove = useCallback(throttle(doMouseMove), [isDragging, startPos, scrollLeft]);
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -147,4 +165,4 @@ const SwipeCarousel = ({ children, className = '' }) => {
   );
 };
 
-export default SwipeCarousel;
+export default memo(SwipeCarousel);

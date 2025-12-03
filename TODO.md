@@ -1,27 +1,47 @@
-# Performance Optimization Plan for Portfolio Website
+# Performance and UX Improvement Plan for Portfolio Website
 
-## Information Gathered
-- The website has multiple interactive components: Typewriter, AnimatedStat, AnimateOnScroll, SwipeCarousel, ScrollIndicator, BackToTopButton.
-- Scroll listeners in ScrollIndicator and BackToTopButton trigger on every scroll event without throttling, causing excessive re-renders.
-- AnimatedStat uses setInterval for counting animation, which can block the main thread.
-- Typewriter uses setTimeout for typing effect, potentially causing lag with multiple instances.
-- Many AnimateOnScroll components wrap sections, but they use efficient intersection observer.
-- No unnecessary heavy computations, but animations could be smoother.
+## Instructions
+- Before applying improvements, test each page/component thoroughly on both mobile and web versions.
+- Use browser dev tools and device simulators to analyze performance and responsiveness.
 
-## Plan
-- Optimize AnimatedStat: Replace setInterval with requestAnimationFrame for smoother, non-blocking animation.
-- Optimize Typewriter: Improve setTimeout usage with proper cleanup and memoization.
-- Throttle scroll handlers: Add throttling using requestAnimationFrame to ScrollIndicator's handleScroll and BackToTopButton's toggleVisibility to reduce update frequency.
-- Memoize components: Wrap AnimatedStat, Typewriter, ScrollIndicator, BackToTopButton with React.memo to prevent unnecessary re-renders.
-- Keep all features intact, only optimize execution.
+---
 
-## Dependent Files to Edit
-- [x] src/components/AnimatedStat.jsx - Replaced setInterval with requestAnimationFrame, added memo.
-- [x] src/components/Typewriter.jsx - Improved setTimeout with useRef for cleanup, added memo.
-- [x] src/components/ScrollIndicator.jsx - Added throttling with requestAnimationFrame, added memo.
-- [x] src/components/BackToTopButton.jsx - Added throttling with requestAnimationFrame, added memo.
+## Mobile Version Improvement Checklist
 
-## Followup Steps
-- [ ] Test the website performance after changes (e.g., using browser dev tools performance tab).
-- [ ] Monitor for any visual glitches in animations.
-- [ ] If still lagging, consider reducing animation speeds or adding lazy loading to sections.
+- [x] Optimize scroll event listeners (ScrollIndicator, BackToTopButton) with throttling or requestAnimationFrame to reduce CPU usage.
+- [x] Ensure animations (AnimatedStat, Typewriter) run smoothly without blocking the main thread; replace setInterval/setTimeout with requestAnimationFrame where applicable.
+- [x] Minimize DOM updates by memoizing components to prevent unnecessary re-renders.
+- [x] Verify touch responsiveness and swipe gestures in SwipeCarousel are smooth and intuitive.
+- [x] Optimize image loading for mobile data performance (use appropriate formats, sizes, and lazy loading).
+- [x] Ensure font sizes and tap targets meet mobile accessibility guidelines.
+- [x] Test and optimize page load times by minimizing bundle size and lazy loading heavy components.
+- [ ] Verify that all interactive elements work properly on smaller screens (buttons, links, modals).
+- [ ] Ensure back-to-top button visibility and functionality do not obstruct content.
+- [ ] Verify efficient usage of intersection observer in AnimateOnScroll for mobile performance.
+
+---
+
+## Web Version Improvement Checklist
+
+- [x] Optimize scroll event listeners (ScrollIndicator, BackToTopButton) with throttling or requestAnimationFrame to reduce CPU usage.
+- [x] Improve animations (AnimatedStat, Typewriter) to leverage requestAnimationFrame for smoother, non-blocking performance.
+- [x] Use memoization (React.memo) for AnimatedStat, Typewriter, ScrollIndicator, BackToTopButton to reduce unnecessary renders.
+- [x] Test SwipeCarousel interactions with mouse and keyboard on desktop.
+- [ ] Implement keyboard and mouse accessibility for interactive components.
+- [ ] Optimize image assets for various screen sizes without sacrificing quality.
+- [ ] Ensure layout adapts gracefully to wide and high-resolution screens.
+- [ ] Monitor performance during heavy animations or interactions using browser dev tools.
+- [ ] Verify modals (ProjectModal) open and close smoothly without layout shifts.
+- [ ] Confirm ScrollIndicator accurately reflects scroll progress.
+- [ ] Maintain smooth custom cursor interactions without lag.
+
+---
+
+## Follow-up Steps
+
+- [ ] Perform comprehensive testing on multiple devices and browsers.
+- [ ] Use performance profiling tools to identify bottlenecks.
+- [ ] Adjust animation speeds or consider lazy loading non-critical components.
+- [ ] Monitor for visual glitches or jank, particularly during scroll and animations.
+- [ ] Iterate improvements based on user feedback and metrics.
+

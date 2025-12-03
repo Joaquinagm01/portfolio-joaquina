@@ -5,8 +5,14 @@ export default function CVInfo() {
   return (
     <section className={styles.cvSection}>
       <div className={styles.header}>
-        <img src="/profile.jpg" alt="Foto de Joaquina Gómez Manna" className={styles.profileImage} />
-        <h2 className={styles.mainTitle}>🧾 Currículum Vitae — Joaquina Gómez Manna</h2>
+          <img
+            src="/profile.jpg"
+            alt="Foto de Joaquina Gómez Manna"
+            className={styles.profileImage}
+            loading="lazy"
+            sizes="(max-width: 600px) 90vw, 180px"
+            srcSet="/profile.jpg 720w"
+          />
       </div>
       
       <div className={styles.section}>
