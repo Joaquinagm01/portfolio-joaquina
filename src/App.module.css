@@ -1,3 +1,28 @@
+/* Accesibilidad: estilos de foco visibles en elementos interactivos */
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible,
+.btnDemo:focus-visible,
+.btnGithub:focus-visible,
+.navButton:focus-visible,
+.dot:focus-visible,
+.contactCard:focus-visible,
+.techItem:focus-visible,
+.statCard:focus-visible,
+.sectionTitle:focus-visible,
+.experienceTitle:focus-visible,
+.projectTitle:focus-visible,
+.contactTitle:focus-visible,
+.cardTitle:focus-visible {
+  outline: 3px solid var(--neon-cyan);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--neon-cyan) 30%, transparent);
+}
+
+/* Asegurar contraste en foco para modo claro/oscuro */
+.navButton:focus-visible,
+.dot:focus-visible {
+  background-color: color-mix(in oklab, var(--neon-cyan) 20%, transparent);
+}
 /* ===== VARIABLES FUTURISTAS ===== */
 :root {
   --neon-cyan: #00ffff;
@@ -251,14 +276,24 @@ html {
 }
 
 .statsContainer {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
+/* Ultra‑wide: reducir gap para compactar cards y evitar espacios excesivos */
+@media (min-width: 1600px) {
+  .statsContainer {
+    gap: 1.25rem;
+  }
+}
+
 .statCard {
+  display: block; /* para enlaces */
+  text-decoration: none; /* quitar subrayado de <a> */
+  cursor: pointer;
   background: rgba(0, 20, 40, 0.5);
   border: 2px solid rgba(0, 255, 255, 0.3);
   padding: 2.5rem 1.5rem;
@@ -398,7 +433,8 @@ html {
 
 
 .heroTitle {
-  font-size: 4.5rem;
+  /* Tipografía responsiva con clamp para ultra-wide y móviles */
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 900;
   color: var(--neon-cyan);
   line-height: 1.1;
@@ -432,7 +468,8 @@ html {
 
 
 .heroSubtitle {
-  font-size: 2rem;
+  /* Subtítulo responsivo con clamp */
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
   font-weight: 700;
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink), var(--neon-cyan));
   -webkit-background-clip: text;
@@ -446,7 +483,7 @@ html {
 
 
 .heroDescription {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--text-secondary);
   line-height: 1.9;
   max-width: 600px;
@@ -715,7 +752,8 @@ html {
 }
 
 .sectionTitle {
-  font-size: 3.5rem;
+  /* Título de sección responsivo */
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 900;
   color: var(--neon-cyan);
   margin-bottom: 2rem;
@@ -738,7 +776,7 @@ html {
 }
 
 .sectionDescription {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
   color: var(--text-secondary);
   line-height: 1.9;
   margin: 0 auto;
@@ -771,9 +809,15 @@ html {
 /* ===== GRID MEJORADO ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   max-width: 100%;
+}
+
+@media (min-width: 1600px) {
+  .grid {
+    gap: 1.5rem;
+  }
 }
 
 /* ===== CARDS CONTAINER ===== */
@@ -782,6 +826,12 @@ html {
   gap: 2rem;
   align-items: stretch;
   flex-wrap: wrap;
+}
+
+@media (min-width: 1600px) {
+  .cardsContainer {
+    gap: 1.5rem;
+  }
 }
 
 /* ===== CARDS MEJORADAS ===== */
@@ -848,7 +898,8 @@ html {
 }
 
 .cardTitle {
-  font-size: 1.75rem;
+  /* Título de tarjeta responsivo */
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
   color: var(--neon-cyan);
   margin-bottom: 1.5rem;
@@ -878,7 +929,7 @@ html {
 .cardContent {
   color: var(--text-secondary);
   line-height: 1.9;
-  font-size: 1.0625rem;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1122,7 +1173,7 @@ html {
 }
 
 .experienceTitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
   font-weight: 700;
   color: var(--neon-cyan);
   margin-bottom: 0.75rem;
@@ -1296,7 +1347,7 @@ html {
 }
 
 .projectTitle {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
   color: var(--neon-purple);
   margin-bottom: 1.5rem;
@@ -1503,7 +1554,7 @@ html {
 }
 
 .skillTitle {
-  font-size: 1.25rem;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
   font-weight: 700;
   color: var(--neon-cyan);
   margin-bottom: 1.25rem;
@@ -1623,7 +1674,7 @@ html {
 }
 
 .contactTitle {
-  font-size: 1.375rem;
+  font-size: clamp(1.125rem, 2.4vw, 1.375rem);
   font-weight: 700;
   color: var(--neon-cyan);
   margin: 0;
@@ -2623,8 +2674,6 @@ html {
 }
 
 @media (max-width: 768px) {
-  .techStackGrid {
-  }
 }
 
 /* ===== NUEVO CÓDIGO PARA SELECTOR DE IDIOMA ===== */
@@ -2673,7 +2722,7 @@ html {
 /* ===== PAGE WRAPPER ===== */
 .pageWrapper {
   width: 95%; /* <-- CAMBIO CLAVE: Más espacio */
-  max-width: 1200px;
+  max-width: 1320px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;

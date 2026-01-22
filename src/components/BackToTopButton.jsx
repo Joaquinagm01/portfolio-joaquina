@@ -5,7 +5,7 @@ const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = useCallback(() => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 250) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -32,6 +32,13 @@ const BackToTopButton = () => {
     });
   };
 
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  };
+
   useEffect(() => {
     const throttled = throttledToggleVisibility();
     window.addEventListener('scroll', throttled);
@@ -39,7 +46,14 @@ const BackToTopButton = () => {
   }, [throttledToggleVisibility]);
 
   return (
-    <button className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`} onClick={scrollToTop}>
+    <button
+      className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`}
+      onClick={scrollToTop}
+      onKeyDown={onKeyDown}
+      aria-label="Volver arriba"
+  aria-hidden={!isVisible}
+      title="Volver arriba"
+    >
       ↑
     </button>
   );

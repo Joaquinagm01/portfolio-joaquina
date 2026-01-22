@@ -29,6 +29,23 @@
   transition: transform 0.3s ease;
 }
 
+/* Ultra‑wide: mostrar 2 items por vista */
+@media (min-width: 1600px) {
+  .carouselItem {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+  .dots {
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .navButton {
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+}
+
 /* Navigation dots */
 .dots {
   display: flex;

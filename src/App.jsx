@@ -44,6 +44,18 @@ function App() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
+  // Desplaza suavemente y enfoca el encabezado de la sección para accesibilidad
+  const scrollAndFocus = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const heading = section.querySelector('h2, h1');
+    if (heading) {
+      if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      setTimeout(() => heading.focus({ preventScroll: true }), 400);
+    }
+  };
+
   return (
     <>
       <Suspense fallback={null}>
@@ -65,7 +77,7 @@ function App() {
             <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
             <Suspense fallback={null}>
               <Typewriter
-                texts={[t('hero.subtitle'), 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']}
+                texts={['Ingeniera en Sistemas', 'Software Engineering']}
                 speed={100}
                 delay={2500}
                 className={styles.heroSubtitle}
@@ -79,14 +91,27 @@ function App() {
             </div>
           </div>
           <div className={styles.heroImageContainer}>
-            <img
-              src="/profile.jpg"
-              alt="Joaquina Gómez Manna - Full Stack Developer"
-              className={styles.heroImage}
-              loading="lazy"
-              sizes="(max-width: 600px) 90vw, 300px"
-              srcSet="/profile.jpg 1200w"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/profile-300.avif 300w, /profile-600.avif 600w, /profile-1200.avif 1200w"
+                sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 300px"
+              />
+              <source
+                type="image/webp"
+                srcSet="/profile-300.webp 300w, /profile-600.webp 600w, /profile-1200.webp 1200w"
+                sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 300px"
+              />
+              <img
+                src="/profile.jpg"
+                alt="Joaquina Gómez Manna - Full Stack Developer"
+                className={styles.heroImage}
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 300px"
+                srcSet="/profile-300.jpg 300w, /profile-600.jpg 600w, /profile-1200.jpg 1200w"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -94,30 +119,54 @@ function App() {
       {/* ESTADÍSTICAS */}
       <section className={styles.statsSection}>
         <div className={styles.statsContainer}>
-          <div className={styles.statCard}>
+          <a
+            href="#experiencia"
+            className={styles.statCard}
+            aria-label={t('stats.experience')}
+            title={t('navbar.experience')}
+            onClick={(e) => { e.preventDefault(); scrollAndFocus('experiencia'); }}
+          >
             <div className={styles.statNumber}>
               <AnimatedStat end={2} prefix="+" />
             </div>
             <div className={styles.statLabel}>{t('stats.experience')}</div>
-          </div>
-          <div className={styles.statCard}>
+          </a>
+          <a
+            href="#proyectos"
+            className={styles.statCard}
+            aria-label={t('stats.projects')}
+            title={t('navbar.projects')}
+            onClick={(e) => { e.preventDefault(); scrollAndFocus('proyectos'); }}
+          >
             <div className={styles.statNumber}>
               <AnimatedStat end={5} prefix="+" />
             </div>
             <div className={styles.statLabel}>{t('stats.projects')}</div>
-          </div>
-          <div className={styles.statCard}>
+          </a>
+          <a
+            href="#habilidades"
+            className={styles.statCard}
+            aria-label={t('stats.tech')}
+            title={t('navbar.skills')}
+            onClick={(e) => { e.preventDefault(); scrollAndFocus('habilidades'); }}
+          >
             <div className={styles.statNumber}>
               <AnimatedStat end={10} prefix="+" />
             </div>
             <div className={styles.statLabel}>{t('stats.tech')}</div>
-          </div>
-          <div className={styles.statCard}>
+          </a>
+          <a
+            href="#contacto"
+            className={styles.statCard}
+            aria-label={t('stats.commitment')}
+            title={t('navbar.contact')}
+            onClick={(e) => { e.preventDefault(); scrollAndFocus('contacto'); }}
+          >
             <div className={styles.statNumber}>
               <AnimatedStat end={100} suffix="%" />
             </div>
             <div className={styles.statLabel}>{t('stats.commitment')}</div>
-          </div>
+          </a>
         </div>
       </section>
 

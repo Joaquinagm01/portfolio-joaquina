@@ -18,7 +18,7 @@
   visibility: hidden;
   transform: translateY(20px);
   transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-  z-index: 1000;
+  z-index: 1500; /* Sobre cards/modals secundarias */
   box-shadow: 0 0 20px var(--neon-cyan);
 }
 
@@ -35,8 +35,8 @@
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .backToTop {
-    right: 1rem;
-    bottom: 5rem; /* Above the language selector */
+  right: 1rem;
+  bottom: 6.5rem; /* Mayor offset para no tapar CTAs */
     width: 40px;
     height: 40px;
     font-size: 1rem;

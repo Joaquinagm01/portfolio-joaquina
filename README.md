@@ -14,3 +14,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Assets de imágenes del héroe
+
+El héroe usa `<picture>` con variantes a 300/600/1200 px en JPG/WEBP/AVIF servidas desde `public/`.
+
+1. Coloca `public/profile.jpg` (alta resolución).
+2. Instala dependencias de desarrollo (incluye `sharp`).
+3. Genera variantes: `npm run images`.
+
+Esto producirá: `profile-{300,600,1200}.{jpg,webp,avif}` en `public/`.

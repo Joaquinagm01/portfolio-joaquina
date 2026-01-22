@@ -5,14 +5,19 @@ export default function CVInfo() {
   return (
     <section className={styles.cvSection}>
       <div className={styles.header}>
-          <img
-            src="/profile.jpg"
-            alt="Foto de Joaquina Gómez Manna"
-            className={styles.profileImage}
-            loading="lazy"
-            sizes="(max-width: 600px) 90vw, 180px"
-            srcSet="/profile.jpg 720w"
-          />
+          <picture>
+            <source type="image/avif" srcSet="/profile-180.avif 180w, /profile-360.avif 360w, /profile-720.avif 720w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 180px" />
+            <source type="image/webp" srcSet="/profile-180.webp 180w, /profile-360.webp 360w, /profile-720.webp 720w" sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 180px" />
+            <img
+              src="/profile.jpg"
+              alt="Foto de Joaquina Gómez Manna"
+              className={styles.profileImage}
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 180px"
+              srcSet="/profile-180.jpg 180w, /profile-360.jpg 360w, /profile-720.jpg 720w"
+            />
+          </picture>
       </div>
       
       <div className={styles.section}>

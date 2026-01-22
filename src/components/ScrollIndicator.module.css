@@ -13,6 +13,7 @@
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
   box-shadow: 0 0 10px var(--neon-cyan);
   transition: width 0.1s ease-out;
+  will-change: width;
 }
 
 [data-theme="light"] .scrollProgress {
