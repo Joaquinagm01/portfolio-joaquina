@@ -1,16 +1,74 @@
 import { useState, useRef, useEffect, useCallback, useMemo, memo } from 'react';
 import styles from './SwipeCarousel.module.css';
 
-const SwipeCarousel = ({ children, className = '' }) => {
+const SwipeCarousel = ({ children, className = '', autoPlay = true, autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState(0);
   const [startY, setStartY] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [progress, setProgress] = useState(0);
   const carouselRef = useRef(null);
+  const autoPlayTimerRef = useRef(null);
 
   const items = Array.isArray(children) ? children : [children];
   const totalItems = items.length;
+
+  // Detect touch device and disable mouse handlers on touch devices
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      setIsTouchDevice(isTouch);
+    };
+    
+    checkTouchDevice();
+    
+    // Performance measurement: measure carousel interaction
+    try {
+      performance.mark('SwipeCarousel:mount');
+    } catch { /* perf API no disponible */ }
+    
+    return () => {
+      try {
+        performance.mark('SwipeCarousel:unmount');
+        performance.measure('SwipeCarousel:lifecycle', 'SwipeCarousel:mount', 'SwipeCarousel:unmount');
+      } catch { /* perf API no disponible */ }
+    };
+  }, []);
+
+  // AutoPlay functionality with progress indicator
+  const startAutoPlay = useCallback(() => {
+    if (!autoPlay || totalItems <= 1) return;
+    
+    setProgress(0);
+    autoPlayTimerRef.current = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
+          return 0;
+        }
+        return prev + (100 / (autoPlayInterval / 100));
+      });
+    }, 100);
+  }, [autoPlay, totalItems, autoPlayInterval]);
+
+  const stopAutoPlay = useCallback(() => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+      autoPlayTimerRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isDragging) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+
+    return () => stopAutoPlay();
+  }, [isDragging, startAutoPlay, stopAutoPlay]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalItems);
@@ -44,6 +102,8 @@ const SwipeCarousel = ({ children, className = '' }) => {
     setStartPos(e.touches[0].clientX);
     setStartY(e.touches[0].clientY);
     setScrollLeft(carouselRef.current.scrollLeft);
+    stopAutoPlay();
+    setProgress(0);
   };
 
   const doTouchMove = useCallback((e) => {
@@ -77,6 +137,7 @@ const SwipeCarousel = ({ children, className = '' }) => {
       left: clampedIndex * itemWidth,
       behavior: 'smooth'
     });
+    startAutoPlay();
   };
 
   // Mouse handlers for desktop testing
@@ -84,6 +145,7 @@ const SwipeCarousel = ({ children, className = '' }) => {
     setIsDragging(true);
     setStartPos(e.clientX);
     setScrollLeft(carouselRef.current.scrollLeft);
+    stopAutoPlay();
   };
 
   const doMouseMove = useCallback((e) => {
@@ -108,6 +170,7 @@ const SwipeCarousel = ({ children, className = '' }) => {
       left: clampedIndex * itemWidth,
       behavior: 'smooth'
     });
+    startAutoPlay();
   };
 
   // Auto-scroll to current index
@@ -128,6 +191,24 @@ const SwipeCarousel = ({ children, className = '' }) => {
 
   return (
     <div className={`${styles.carouselContainer} ${className}`} role="region" aria-label="Carrusel de proyectos">
+      {/* Progress Indicator */}
+      {autoPlay && totalItems > 1 && (
+        <div className={styles.progressContainer} aria-hidden="true">
+          <div 
+            className={styles.progressBar} 
+            style={{ width: `${((currentIndex + 1) / totalItems) * 100}%` }}
+          />
+          <div className={styles.progressDots}>
+            {items.map((_, index) => (
+              <div
+                key={index}
+                className={`${styles.progressDot} ${index === currentIndex ? styles.activeDot : ''}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      
       <div
         ref={carouselRef}
         className={styles.carousel}
@@ -139,10 +220,10 @@ const SwipeCarousel = ({ children, className = '' }) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseDown={isTouchDevice ? undefined : handleMouseDown}
+        onMouseMove={isTouchDevice ? undefined : handleMouseMove}
+        onMouseUp={isTouchDevice ? undefined : handleMouseUp}
+        onMouseLeave={isTouchDevice ? undefined : handleMouseUp}
       >
         {items.map((item, index) => (
           <div

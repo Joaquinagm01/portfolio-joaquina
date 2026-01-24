@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './App.module.css'
 import Navbar from './components/Navbar';
 import AnimateOnScroll from '../AnimateOnScroll.jsx';
-import LanguageSelector from './components/LanguageSelector'; 
+import LanguageSelector from './components/LanguageSelector';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -31,7 +31,7 @@ function App() {
   const { t } = useTranslation();
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved || 'dark'; 
+    return saved || 'dark';
   });
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -67,8 +67,8 @@ function App() {
       <Suspense fallback={null}>
         <ScrollIndicator />
       </Suspense>
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
-      <main className={`${styles.pageWrapper} ${styles.contentArea}`}>
+<Navbar toggleTheme={toggleTheme} theme={theme} />
+      <main id="main-content" className={`${styles.pageWrapper} ${styles.contentArea}`} tabIndex="-1">
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
@@ -611,14 +611,44 @@ function App() {
 
         <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.contactGrid}>
-            <a href="tel:+543412291597" className={styles.contactCard}>
+            {/* Particles Background */}
+            <div className={styles.contactParticles} aria-hidden="true">
+              <div className={styles.contactParticle} style={{ left: '10%', top: '20%', animationDelay: '0s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '25%', top: '60%', animationDelay: '2s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '40%', top: '30%', animationDelay: '4s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '55%', top: '70%', animationDelay: '1s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '70%', top: '15%', animationDelay: '3s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '85%', top: '50%', animationDelay: '5s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '15%', top: '80%', animationDelay: '2.5s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '35%', top: '10%', animationDelay: '1.5s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '60%', top: '85%', animationDelay: '4.5s' }}></div>
+              <div className={styles.contactParticle} style={{ left: '80%', top: '35%', animationDelay: '0.5s' }}></div>
+            </div>
+            
+            {/* WhatsApp Card */}
+            <a 
+              href="https://wa.me/543412291597?text=Hola%20Joaquina,%20vi%20tu%20portfolio%20y%20me%20interesaría%20contactarte" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`${styles.contactCard} ${styles.contactCardWhatsapp}`}
+              aria-label={`${t('contact.whatsapp')}: (+54) 341 229 1597`}
+            >
+              <div className={styles.contactIcon}>💬</div>
+              <h3 className={styles.contactTitle}>{t('contact.whatsapp')}</h3>
+              <p className={styles.contactDetail}>(+54) 341 229 1597</p>
+              <span className={styles.contactAction}>{t('contact.whatsapp_action')} →</span>
+            </a>
+            
+            {/* Phone Card - Blue */}
+            <a href="tel:+543412291597" className={`${styles.contactCard} ${styles.contactCardPhone}`} aria-label={`${t('contact.phone')}: (+54) 341 229 1597`}>
               <div className={styles.contactIcon}>📞</div>
               <h3 className={styles.contactTitle}>{t('contact.phone')}</h3>
               <p className={styles.contactDetail}>(+54) 341 229 1597</p>
               <span className={styles.contactAction}>{t('contact.call')} →</span>
             </a>
 
-            <a href="mailto:gomezmannajoaquina@gmail.com" className={styles.contactCard}>
+            {/* Email Card - Purple */}
+            <a href="mailto:gomezmannajoaquina@gmail.com" className={`${styles.contactCard} ${styles.contactCardEmail}`} aria-label={`${t('contact.email')}: gomezmannajoaquina@gmail.com`}>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>{t('contact.email')}</h3>
               <p className={styles.contactDetail} style={{wordBreak: 'break-all', textDecoration: 'underline'}}>
@@ -627,34 +657,53 @@ function App() {
               <span className={styles.contactAction}>{t('contact.send')} →</span>
             </a>
 
-            <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+            {/* LinkedIn Card - Blue */}
+            <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardLinkedin}`} aria-label="LinkedIn: Joaquin Gomez Manna">
               <div className={styles.contactIcon}>💼</div>
               <h3 className={styles.contactTitle}>LinkedIn</h3>
               <p className={styles.contactDetail}>Joaquina Gomez Manna</p>
               <span className={styles.contactAction}>{t('contact.view')} →</span>
             </a>
 
-            <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+            {/* GitHub Card - Gray */}
+            <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardGithub}`} aria-label="GitHub: @Joaquinagm01">
               <div className={styles.contactIcon}>💻</div>
               <h3 className={styles.contactTitle}>GitHub</h3>
               <p className={styles.contactDetail}>@Joaquinagm01</p>
               <span className={styles.contactAction}>{t('contact.repos')} →</span>
             </a>
 
-            <div className={styles.contactCard} style={{cursor: 'default'}}>
+            {/* Location Card - Orange */}
+            <div className={`${styles.contactCard} ${styles.contactCardLocation}`} style={{cursor: 'default'}} aria-label={`${t('contact.location')}: Rosario, Argentina`}>
               <div className={styles.contactIcon}>📍</div>
               <h3 className={styles.contactTitle}>{t('contact.location')}</h3>
               <p className={styles.contactDetail}>Rosario, Argentina</p>
               <span className={styles.contactAction} style={{opacity: 0.5}}>Santa Fe, ARG</span>
             </div>
 
-            <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+            {/* CV Card - Green */}
+            <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardCV}`} aria-label={`${t('contact.cv')}: PDF en Español`}>
               <div className={styles.contactIcon}>📄</div>
               <h3 className={styles.contactTitle}>{t('contact.cv')}</h3>
               <p className={styles.contactDetail}>PDF - Español</p>
               <span className={styles.contactAction}>{t('contact.download')} →</span>
             </a>
           </div>
+
+          {/* Map Section */}
+          <div className={styles.contactMapContainer}>
+            <h3 className={styles.contactMapTitle}>{t('contact.map_title')}</h3>
+            <div className={styles.contactMapWrapper}>
+              <div className={styles.contactMapPin}>Rosario, Santa Fe, Argentina</div>
+              <iframe 
+                className={styles.contactMapIframe}
+                title="Rosario, Argentina Location"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-60.75%2C-33.05%2C-60.65%2C-32.95&amp;layer=mapnik&amp;marker=-32.95%2C-60.70"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
         </AnimateOnScroll>
       </section>
 

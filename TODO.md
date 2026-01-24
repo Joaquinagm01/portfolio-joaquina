@@ -1,89 +1,75 @@
-# Performance and UX Improvement Plan for Portfolio Website
+# TODO - Mejoras en la Sección de Contacto ("Conectemos")
 
-## Instructions
-- Before applying improvements, test each page/component thoroughly on both mobile and web versions.
-- Use browser dev tools and device simulators to analyze performance and responsiveness.
+## Estado Actual
+La sección de contacto usa amarillos/oro como color de acento (`--accent-contact: #eab308`).
 
----
+## Checklist de Mejoras Visuales
 
-## Mobile Version Improvement Checklist
+### 🎨 Diseño y Layout
+- [x] **Mejorar grid layout**: Usar grid con `minmax(200px, 1fr)` para más consistencia
+- [x] **Unificar tamaños de tarjetas**: Todas las tarjetas con mismo padding y dimensiones
+- [x] **Mejorar spacing**: Aumentar gap entre tarjetas a `1.5rem` o `2rem`
+- [x] **Agregar efectos de fondo**: Radial gradient sutil detrás de las tarjetas
 
-- [x] Optimize scroll event listeners (ScrollIndicator, BackToTopButton) with throttling or requestAnimationFrame to reduce CPU usage.
-- [x] Ensure animations (AnimatedStat, Typewriter) run smoothly without blocking the main thread; replace setInterval/setTimeout with requestAnimationFrame where applicable.
-- [x] Minimize DOM updates by memoizing components to prevent unnecessary re-renders.
-- [x] Verify touch responsiveness and swipe gestures in SwipeCarousel are smooth and intuitive.
-- [x] Optimize image loading for mobile data performance (use appropriate formats, sizes, and lazy loading).
-- [x] Ensure font sizes and tap targets meet mobile accessibility guidelines.
-- [x] Test and optimize page load times by minimizing bundle size and lazy loading heavy components.
-- [ ] Verify that all interactive elements work properly on smaller screens (buttons, links, modals).
-	- [ ] Test tap targets (>=44px) en Header, Navbar, Cards, Project actions.
-	- [x] Validar modals en pantallas < 360px (apertura/cierre, scroll locking, foco inicial).
-	- [ ] Comprobar enlaces externos con `rel="noopener noreferrer"` y comportamiento en iOS/Android.
-	- [x] Revisar swipe en `SwipeCarousel` y evitar conflictos con scroll vertical.
+### ✨ Animaciones y Hover
+- [x] **Efecto ripple en hover**: Onda de expansión al hacer hover
+- [x] **Sombra dinámica**: Sombra que sigue el mouse en cada tarjeta
+- [x] **Icono animado**: Los iconos pueden escalar + rotar suavemente
+- [x] **Botones con glow**: Efecto neon glow en hover más pronunciado
 
-- [ ] Ensure back-to-top button visibility and functionality do not obstruct content.
-	- [ ] Verificar z-index y opacidad en distintas secciones (cards, modals, footer).
-	- [x] Añadir margen/offset dinámico para evitar solapado con CTA flotantes.
-	- [ ] Probar aparición/desaparición con umbral de scroll (200–300px) sin jank.
+### 📱 Responsive
+- [x] **Mobile spacing**: Reducir padding en móviles (`1rem` en vez de `2.5rem`)
+- [x] **Grid adaptativo**: 1 columna en móvil, 2 en tablet, 3-4 en desktop
+- [x] **Tamaños de fuente**: Ajustar `clamp()` para mejor legibilidad en móvil
 
-- [ ] Verify efficient usage of intersection observer in AnimateOnScroll for mobile performance.
-	- [x] Usar `rootMargin: '0px 0px -20% 0px'` para anticipar entrada sin disparos excesivos.
-	- [ ] Desconectar el observer al montar/desmontar (cleanup) y cuando el elemento ya fue animado.
-	- [ ] Limitar el número de observaciones simultáneas y reutilizar un único observer por sección.
-	- [x] Medir `performance.mark` en entrada/salida para confirmar bajo costo.
+### 🔆 Efectos Visuales
+- [x] **Fondo con partículas**: Pequeñas partículas flotando en la sección
+- [x] **Gradient border**: Borde con gradiente animado en las tarjetas
+- [x] **Glassmorphism**: Efecto vidrio esmerilado más pronunciado
+- [x] **Glow pulse**: Ligera pulsación en los iconos
 
----
+### 📋 Contenido
+- [x] **Mejorar copy**: Texto más atractivo y claro
+- [x] **CTA más claro**: Botones de acción más prominentes
 
-## Web Version Improvement Checklist
+### 🎯 Accesibilidad
+- [x] **Mejorar contraste**: Asegurar WCAG AA/AAA
+- [x] **Focus states**: Estados de foco claros para navegación por teclado
+- [x] **Aria labels**: Labels descriptivos para lectores de pantalla
 
-- [x] Optimize scroll event listeners (ScrollIndicator, BackToTopButton) with throttling or requestAnimationFrame to reduce CPU usage.
-- [x] Improve animations (AnimatedStat, Typewriter) to leverage requestAnimationFrame for smoother, non-blocking performance.
-- [x] Use memoization (React.memo) for AnimatedStat, Typewriter, ScrollIndicator, BackToTopButton to reduce unnecessary renders.
-- [x] Test SwipeCarousel interactions with mouse and keyboard on desktop.
-- [ ] Implement keyboard and mouse accessibility for interactive components.
-	- [x] Añadir `tabIndex` y `aria-label`/`role=button` en elementos clicables no nativos.
-	- [x] Soportar `Enter` y `Space` para activar botones y tarjetas.
-	- [x] Gestionar foco al abrir `ProjectModal` (focus trap, retorno de foco al cerrar).
-	- [x] Asegurar contraste AA en estados `:focus-visible`.
-	- [x] Los atajos de estadísticas redirigen y hacen foco en la sección.
-
-- [ ] Optimize image assets for various screen sizes without sacrificing quality.
-	- [x] Generar variantes responsive (`srcset`/`sizes`) para `profile.jpg` y assets de proyectos.
-		- [x] Evaluar formatos WebP/AVIF en `public/` manteniendo fallback.
-		- [x] Lazy-load con `loading="lazy"` y `decoding="async"` donde aplique.
-
-	- [x] Revisar `max-width` y `grid` para ultra-wide (>=1440px) y 4K.
-	- [x] Ajustar `clamp()` en tipografías de títulos y descripciones.
-	- [x] Ajustar gaps en stats y cards/grid para >=1600px.
-	- [ ] Validar que carousels y grids no queden con espacios excesivos.
-	- [x] Carrusel muestra 2 ítems por vista en ultra‑wide.
-- [ ] Monitor performance during heavy animations or interactions using browser dev tools.
-		- [x] Navbar y botones del modal cumplen 44px mínimos.
-	- [ ] Perfilado con Performance panel (marcas de frame, long tasks).
-	- [ ] Medir FPS durante SwipeCarousel y AnimatedStat.
-	- [ ] Detectar memory leaks en observers/listeners.
-
-- [ ] Verify modals (ProjectModal) open and close smoothly without layout shifts.
-	- [x] Comprobar que `body` se bloquea (`overflow: hidden`) y no hay CLS.
-		- [x] Animaciones con `transform/opacity` en lugar de layout properties.
-	- [x] Testear cierre con `Esc` y clic fuera accesible.
-
-	- [x] Validar cálculo con `documentElement.scrollHeight` y altura de viewport.
-	- [ ] Probar en rutas cortas/largas y con contenido dinámico.
-	- [x] Evitar repaints costosos usando `requestAnimationFrame` y `will-change`.
-
-		- [ ] Evaluar formatos WebP/AVIF en `public/` manteniendo fallback.
-	- [ ] Reducir listeners a uno por documento y usar RAF/throttle.
-	- [ ] Desactivar en móviles para evitar conflictos táctiles.
-	- [ ] Medir coste en DevTools (Event Listeners, JS profiling).
+### 🚀 Ideas Avanzadas
+- [x] **Integración con WhatsApp**: Botón de chat directo
+- [x] **Mapa integrado**: Mostrar ubicación en mapa
+- [x] **Animación de entrada**: Las tarjetas entran una por una
 
 ---
 
-## Follow-up Steps
+## Cambios Realizados (Fixes - Fecha: 2025)
 
-- [ ] Perform comprehensive testing on multiple devices and browsers.
-- [ ] Use performance profiling tools to identify bottlenecks.
-- [ ] Adjust animation speeds or consider lazy loading non-critical components.
-- [ ] Monitor for visual glitches or jank, particularly during scroll and animations.
-- [ ] Iterate improvements based on user feedback and metrics.
+### CSS Fixes:
+1. **contactGrid**: Ajustado grid-template-columns a `minmax(220px, 1fr)` para mejor distribución
+2. **contactCard**: Agregados estilos base (display flex, padding, min-height) para resolver conflictos
+3. **contactIcon/Title/Detail/Action**: Estilos específicos para cada elemento
+4. **Gradient Border**: Simplificado clip-path, eliminado para mejor compatibilidad
+5. **Glassmorphism**: Optimizado backdrop-filter a `blur(8px)` base y `12px` en hover
+6. **Icon Glow**: Simplificada animación `iconGlowPulse` para mejor rendimiento
+7. **Hover Effects**: Agregados efectos de transformación en hover
+
+### JSX Fixes:
+1. **Particles Container**: Agregado div con 10 partículas animadas en el contactGrid
+
+### Light Mode Improvements:
+1. **contactGrid**: Fondo gradiente claro (`rgba(249, 250, 251, 0.95)`)
+2. **contactCard::after**: Fondo blanco con gradiente sutil y sombras suaves
+3. **contactParticles**: Color ámbar/naranja para mejor visibilidad
+4. **Gradient Border**: Colores más vibrantes para modo claro
+5. **contactMapContainer**: Fondo blanco con gradiente y sombra
+6. **contactMapIframe**: Sin filtro en light mode, filtro oscuro en dark mode
+7. **#contacto section**: Fondo degradado suave para transición
+
+### Advanced Features:
+1. **WhatsApp Card**: Botón verde con gradiente y mensaje prellenado
+2. **Map Section**: OpenStreetMap embedido con marca de posición
+3. **Entry Animations**: Animación escalonada `slideInUp` para cards (0.1s - 0.6s delay)
+
 

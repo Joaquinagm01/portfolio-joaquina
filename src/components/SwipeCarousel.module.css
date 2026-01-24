@@ -192,3 +192,64 @@
     background: transparent;
   }
 }
+
+/* Progress Indicator */
+.progressContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(0, 255, 255, 0.1);
+  z-index: 20;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.progressDots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.progressDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.progressDot.activeDot {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  transform: scale(1.2);
+}
+
+/* Light mode progress */
+[data-theme="light"] .progressContainer {
+  background: rgba(0, 102, 204, 0.1);
+}
+
+[data-theme="light"] .progressBar {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+[data-theme="light"] .progressDot {
+  background: rgba(0, 102, 204, 0.3);
+}
+
+[data-theme="light"] .progressDot.activeDot {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}

@@ -1,9 +1,4 @@
-/* eslint-env node */
-/* global process */
-/*
-  Genera variantes JPG/WEBP/AVIF a 300/600/1200 px a partir de public/profile.jpg
-  Requisitos: npm i -D sharp
-*/
+
 import fs from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';

@@ -26,6 +26,27 @@ body {
   color: var(--text);
 }
 
+/* Fluid typography - scales smoothly between breakpoints */
+:root {
+  --font-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --font-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --font-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+}
+
+/* Font loading optimization */
+@font-face {
+  font-family: 'System';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
+}
+
 /* Grid futurista animado */
 body::before {
   content: '';
@@ -90,4 +111,81 @@ body::after {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+/* Smooth hover transitions on all interactive elements */
+a, button, .interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Micro-interactions on button clicks */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Staggered entrance animation classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Text shadow for better readability on gradient backgrounds */
+.text-shadow {
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Focus indicator for accessibility */
+:focus-visible {
+  outline: 3px solid var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neon-cyan);
+  color: #000;
+  padding: 1rem 2rem;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

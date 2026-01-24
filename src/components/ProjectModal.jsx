@@ -7,9 +7,15 @@ const ProjectModal = ({ project, onClose }) => {
 
   useEffect(() => {
     if (!project) return;
-  // Lock body scroll to prevent background scrolling and CLS
-  const prevOverflow = document.body.style.overflow;
-  document.body.style.overflow = 'hidden';
+
+    // Performance measurement
+    try {
+      performance.mark('ProjectModal:open');
+    } catch { /* perf API no disponible */ }
+
+    // Lock body scroll to prevent background scrolling and CLS
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     // Record the element that opened the modal to restore focus on close
     openerRef.current = document.activeElement;
@@ -38,10 +44,15 @@ const ProjectModal = ({ project, onClose }) => {
 
     firstElement?.focus();
     window.addEventListener('keydown', handleEsc);
-  const modalNode = modalRef.current;
-  modalNode.addEventListener('keydown', handleTabKey);
+    const modalNode = modalRef.current;
+    modalNode.addEventListener('keydown', handleTabKey);
 
     return () => {
+      try {
+        performance.mark('ProjectModal:close');
+        performance.measure('ProjectModal:lifecycle', 'ProjectModal:open', 'ProjectModal:close');
+      } catch { /* perf API no disponible */ }
+
       window.removeEventListener('keydown', handleEsc);
       modalNode?.removeEventListener('keydown', handleTabKey);
       document.body.style.overflow = prevOverflow;
