@@ -7,6 +7,7 @@ import styles from './App.module.css'
 import Navbar from './components/Navbar';
 import AnimateOnScroll from '../AnimateOnScroll.jsx';
 import LanguageSelector from './components/LanguageSelector';
+import Courses from './components/Courses';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -284,6 +285,18 @@ function App() {
               </div>
             </div>
           </div>
+        </AnimateOnScroll>
+      </section>
+
+      {/* CURSOS Y CERTIFICACIONES */}
+      <section id="cursos" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>{t('courses.title')}</h2>
+          <p className={styles.sectionDescription}>{t('courses.description')}</p>
+        </div>
+
+        <AnimateOnScroll className={styles.contentContainer}>
+          <Courses />
         </AnimateOnScroll>
       </section>
 
@@ -726,6 +739,7 @@ function App() {
                 <li><a href="#inicio">{t('navbar.home')}</a></li>
                 <li><a href="#sobre-mi">{t('navbar.about')}</a></li>
                 <li><a href="#experiencia">{t('navbar.experience')}</a></li>
+                <li><a href="#cursos">{t('navbar.courses')}</a></li>
                 <li><a href="#proyectos">{t('navbar.projects')}</a></li>
                 <li><a href="#habilidades">{t('navbar.skills')}</a></li>
                 <li><a href="#contacto">{t('navbar.contact')}</a></li>

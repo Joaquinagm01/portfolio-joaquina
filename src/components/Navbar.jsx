@@ -9,7 +9,7 @@ const Navbar = ({ toggleTheme, theme }) => {
   const { t } = useTranslation();
 
   const handleScroll = () => {
-    const sections = ['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'habilidades', 'contacto'];
+    const sections = ['inicio', 'sobre-mi', 'experiencia', 'cursos', 'proyectos', 'habilidades', 'contacto'];
     const scrollPosition = window.scrollY + 100;
 
     for (const sectionId of sections) {
@@ -46,6 +46,7 @@ const Navbar = ({ toggleTheme, theme }) => {
               <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
               <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
               <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+              <li><a onClick={() => scrollToSection('cursos')} className={activeSection === 'cursos' ? styles.active : ''}>{t('navbar.courses')}</a></li>
               <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
               <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
               <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
@@ -60,6 +61,7 @@ const Navbar = ({ toggleTheme, theme }) => {
               <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
               <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
               <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+              <li><a onClick={() => scrollToSection('cursos')} className={activeSection === 'cursos' ? styles.active : ''}>{t('navbar.courses')}</a></li>
               <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
               <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>
               <li><a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? styles.active : ''}>{t('navbar.contact')}</a></li>
