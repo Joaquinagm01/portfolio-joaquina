@@ -6,7 +6,7 @@
 }
 
 .courseCard {
-  background: var(--card-background);
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 2rem;
@@ -25,7 +25,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -34,7 +34,7 @@
 .courseCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-color);
+  border-color: var(--neon-cyan);
 }
 
 .courseCard:hover::before {
@@ -54,7 +54,7 @@
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: var(--card-background);
+  background: var(--card-bg);
   border: 2px solid rgba(128, 128, 128, 0.2);
   transition: all 0.3s ease;
 }
@@ -72,7 +72,7 @@
 
 .certificateIcon {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--neon-cyan);
   opacity: 0.3;
   transition: all 0.3s ease;
 }
@@ -92,7 +92,7 @@
 .courseTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text);
   line-height: 1.3;
   margin: 0;
 }
@@ -100,7 +100,7 @@
 .courseInstitution {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--neon-cyan);
   margin: 0;
 }
 
@@ -124,7 +124,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 1.5rem;
-  background: var(--primary-color);
+  background: var(--neon-cyan);
   color: white;
   border: none;
   border-radius: 8px;
@@ -137,7 +137,7 @@
 }
 
 .courseButton:hover {
-  background: var(--accent-color);
+  background: var(--neon-purple);
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -183,7 +183,19 @@
 
 [data-theme='dark'] .courseCard:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: var(--primary-color);
+  border-color: var(--neon-cyan);
+}
+
+[data-theme='dark'] .courseButton {
+  background: var(--neon-cyan);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+[data-theme='dark'] .courseButton:hover {
+  background: var(--neon-purple);
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
 }
 
 /* Light Mode Support */
@@ -195,4 +207,16 @@
 [data-theme='light'] .courseCard:hover {
   background: #f9fafb;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .courseButton {
+  background: var(--neon-cyan);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 82, 163, 0.3);
+}
+
+[data-theme='light'] .courseButton:hover {
+  background: var(--neon-purple);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(90, 15, 200, 0.4);
 }
