@@ -31,11 +31,11 @@
 
 ### Sección Experiencia
 - [ ] Mejorar el diseño del timeline con mejor línea conectora
-- [ ] Agregar logos de las empresas
-- [ ] Implementar acordeón para expandir/colapsar detalles
+- [x] Agregar logos de las empresas
+- [x] Implementar acordeón para expandir/colapsar detalles
 - [ ] Agregar animación de deslizamiento al aparecer
 - [ ] Mejorar las badges de tecnologías con iconos
-- [ ] Implementar modo de vista compacta/expandida
+- [x] Implementar modo de vista compacta/expandida
 - [ ] Agregar testimoniales o logros destacados
 
 ### Sección Cursos

@@ -18,12 +18,12 @@ import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
-  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage
+  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage, FaServer, FaBook, FaChevronDown, FaChevronUp
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
   SiJavascript, SiTypescript, SiNextdotjs,
-  SiTailwindcss, SiPostman, SiOdoo, SiCloudflare, SiAngular, SiDotnet, SiPrisma, SiExpress, SiAutocad, Si365Datascience
+  SiTailwindcss, SiPostman, SiOdoo, SiCloudflare, SiAngular, SiDotnet, SiPrisma, SiExpress, SiAutocad
 } from 'react-icons/si'
 import { DiDatabase } from 'react-icons/di'
 import { VscCode } from 'react-icons/vsc'
@@ -36,6 +36,14 @@ function App() {
     return saved || 'dark';
   });
   const [selectedProject, setSelectedProject] = useState(null);
+  const [expandedCards, setExpandedCards] = useState({ job1: false, job2: false });
+
+  const toggleCard = (cardId) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
@@ -275,54 +283,88 @@ function App() {
 
         <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.timelineContainer}>
-            <div className={styles.experienceCard}>
+            <div className={`${styles.experienceCard} ${styles.slideInLeft}`}>
               <div className={styles.experienceHeader}>
+                <div className={styles.companyLogoContainer}>
+                  <img 
+                    src="/ACA.webp" 
+                    alt="Asociación de Cooperativas Argentinas" 
+                    className={styles.companyLogo}
+                  />
+                </div>
                 <div>
                   <h3 className={styles.experienceTitle}>{t('experience.job1.title')}</h3>
                   <p className={styles.experienceCompany}>{t('experience.job1.company')}</p>
                 </div>
                 <span className={styles.experienceDate}>{t('experience.job1.period')}</span>
               </div>
-              <p className={styles.experienceDescription}>{t('experience.job1.role')}</p>
-              <ul className={styles.experienceList}>
-                <li>{t('experience.job1.desc1')}</li>
-                <li>{t('experience.job1.desc2')}</li>
-                <li>{t('experience.job1.desc3')}</li>
-                <li>{t('experience.job1.desc4')}</li>
-              </ul>
-              <div className={styles.techStack}>
-                <span className={styles.techBadge}>{t('experience.job1.tech1')}</span>
-                <span className={styles.techBadge}>{t('experience.job1.tech2')}</span>
-                <span className={styles.techBadge}>{t('experience.job1.tech3')}</span>
-                <span className={styles.techBadge}>{t('experience.job1.tech4')}</span>
-                <span className={styles.techBadge}>{t('experience.job1.tech5')}</span>
-                <span className={styles.techBadge}>{t('experience.job1.tech6')}</span>
+              <button 
+                onClick={() => toggleCard('job1')} 
+                className={styles.accordionToggle}
+                aria-expanded={expandedCards.job1}
+                aria-label={expandedCards.job1 ? t('experience.hideDetails') : t('experience.showDetails')}
+              >
+                {expandedCards.job1 ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+              <div className={`${styles.experienceDetails} ${expandedCards.job1 ? styles.expanded : styles.collapsed}`}>
+                <p className={styles.experienceDescription}>{t('experience.job1.role')}</p>
+                <ul className={styles.experienceList}>
+                  <li>{t('experience.job1.desc1')}</li>
+                  <li>{t('experience.job1.desc2')}</li>
+                  <li>{t('experience.job1.desc3')}</li>
+                  <li>{t('experience.job1.desc4')}</li>
+                </ul>
+                <div className={styles.techStack}>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job1.tech1')}</span>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job1.tech2')}</span>
+                  <span className={styles.techBadge}><FaServer />{t('experience.job1.tech3')}</span>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job1.tech4')}</span>
+                  <span className={styles.techBadge}><FaServer />{t('experience.job1.tech5')}</span>
+                  <span className={styles.techBadge}><FaJira />{t('experience.job1.tech6')}</span>
+                </div>
               </div>
             </div>
 
-            <div className={styles.experienceCard}>
+            <div className={`${styles.experienceCard} ${styles.slideInRight}`}>
               <div className={styles.experienceHeader}>
+                <div className={styles.companyLogoContainer}>
+                  <img 
+                    src="/Municipalidad.webp" 
+                    alt="Municipalidad de Rosario" 
+                    className={styles.companyLogo}
+                  />
+                </div>
                 <div>
                   <h3 className={styles.experienceTitle}>{t('experience.job2.title')}</h3>
                   <p className={styles.experienceCompany}>{t('experience.job2.company')}</p>
                 </div>
                 <span className={styles.experienceDate}>{t('experience.job2.period')}</span>
               </div>
-              <p className={styles.experienceDescription}>
-                {t('experience.job2.desc1')}
-              </p>
-              <ul className={styles.experienceList}>
-                <li>{t('experience.job2.desc2')}</li>
-                <li>{t('experience.job2.desc3')}</li>
-                <li>{t('experience.job2.desc4')}</li>
-                <li>{t('experience.job2.desc5')}</li>
-              </ul>
-              <div className={styles.techStack}>
-                <span className={styles.techBadge}>{t('experience.job2.tech1')}</span>
-                <span className={styles.techBadge}>{t('experience.job2.tech2')}</span>
-                <span className={styles.techBadge}>{t('experience.job2.tech3')}</span>
-                <span className={styles.techBadge}>{t('experience.job2.tech4')}</span>
-                <span className={styles.techBadge}>{t('experience.job2.tech5')}</span>
+              <button 
+                onClick={() => toggleCard('job2')} 
+                className={styles.accordionToggle}
+                aria-expanded={expandedCards.job2}
+                aria-label={expandedCards.job2 ? t('experience.hideDetails') : t('experience.showDetails')}
+              >
+                {expandedCards.job2 ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+              <div className={`${styles.experienceDetails} ${expandedCards.job2 ? styles.expanded : styles.collapsed}`}>
+                <p className={styles.experienceDescription}>
+                  {t('experience.job2.desc1')}
+                </p>
+                <ul className={styles.experienceList}>
+                  <li>{t('experience.job2.desc2')}</li>
+                  <li>{t('experience.job2.desc3')}</li>
+                  <li>{t('experience.job2.desc4')}</li>
+                  <li>{t('experience.job2.desc5')}</li>
+                </ul>
+                <div className={styles.techStack}>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job2.tech1')}</span>
+                  <span className={styles.techBadge}><FaLinux />{t('experience.job2.tech2')}</span>
+                  <span className={styles.techBadge}><FaServer />{t('experience.job2.tech3')}</span>
+                  <span className={styles.techBadge}><FaCode />{t('experience.job2.tech4')}</span>
+                  <span className={styles.techBadge}><FaBook />{t('experience.job2.tech5')}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -608,7 +650,7 @@ function App() {
               <h3 className={styles.techCardTitle}>{t('skills.office')}</h3>
               <div className={styles.techItems}>
                 <div className={styles.techItem} data-category="office365">
-                  <Si365Datascience className={styles.techItemIcon} />
+                  <FaWindows className={styles.techItemIcon} />
                   <span>Microsoft 365</span>
                 </div>
                 <div className={styles.techItem} data-category="excel">

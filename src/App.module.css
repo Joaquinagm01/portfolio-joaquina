@@ -1443,12 +1443,113 @@ html {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
   background: linear-gradient(180deg, 
-    var(--accent-experience) 0%, 
+    transparent 0%, 
+    var(--accent-experience) 10%, 
     var(--accent-experience) 50%, 
-    var(--accent-experience) 100%);
-  box-shadow: 0 0 15px var(--accent-experience);
+    var(--accent-experience) 90%,  
+    transparent 100%);
+  box-shadow: 0 0 20px var(--accent-experience), 0 0 40px rgba(34, 197, 94, 0.3);
+  animation: timelineGlow 3s ease-in-out infinite;
+}
+
+@keyframes timelineGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-experience), 0 0 40px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--accent-experience), 0 0 60px rgba(34, 197, 94, 0.5);
+  }
+}
+
+.timelineContainer::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--accent-experience);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--accent-experience);
+  animation: timelineDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes timelineDotPulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+/* Botón de toggle de vista */
+.viewToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--accent-experience);
+  border: 2px solid var(--accent-experience);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.viewToggleBtn:hover {
+  background: rgba(34, 197, 94, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
+}
+
+.viewToggleBtn svg {
+  font-size: 1.125rem;
+}
+
+/* Animaciones de slide-in */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slideInLeft {
+  animation: slideInLeft 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.slideInRight {
+  animation: slideInRight 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 
 .experienceCard {
@@ -1488,6 +1589,100 @@ html {
   transform: translateX(15px);
   border-color: var(--accent-experience);
   box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+}
+
+.experienceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+.experienceHeader > div {
+  flex-grow: 1; /* Permite que el contenedor del título crezca y empuje la fecha */
+}
+
+/* Logo de empresa */
+.companyLogoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 2px solid var(--accent-experience);
+  border-radius: 8px;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+.companyLogo {
+  font-size: 1.5rem;
+  color: var(--accent-experience);
+  transition: all 0.3s ease;
+}
+
+.companyLogo[src] {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.experienceCard:hover .companyLogoContainer {
+  background: rgba(34, 197, 94, 0.2);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.experienceCard:hover .companyLogo {
+  transform: rotate(-5deg);
+}
+
+/* Botón de acordeón */
+.accordionToggle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--accent-experience);
+  border: 2px solid var(--accent-experience);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.accordionToggle:hover {
+  background: rgba(34, 197, 94, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.accordionToggle svg {
+  transition: transform 0.3s ease;
+}
+
+/* Detalles expandibles */
+.experienceDetails {
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.experienceDetails.expanded {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.experienceDetails.collapsed {
+  max-height: 0;
+  opacity: 0;
 }
 
 .experienceHeader {
@@ -1599,6 +1794,9 @@ html {
 }
 
 .techBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.8rem 1.25rem;
   background: rgba(34, 197, 94, 0.1);
   color: var(--accent-experience);
@@ -1611,6 +1809,15 @@ html {
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
+}
+
+.techBadge svg {
+  font-size: 1.125rem;
+  transition: transform 0.3s ease;
+}
+
+.techBadge:hover svg {
+  transform: scale(1.2) rotate(5deg);
 }
 
 .techBadge::before {
@@ -2956,6 +3163,10 @@ html {
     display: none; /* Oculta la línea de tiempo vertical */
   }
 
+  .timelineContainer::after {
+    display: none; /* Oculta el punto central animado */
+  }
+
   .experienceCard {
     margin-left: 0;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
@@ -2986,6 +3197,38 @@ html {
 
   .experienceDate {
     align-self: flex-start;
+  }
+
+  .companyLogoContainer {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .companyLogo {
+    font-size: 1.25rem;
+  }
+
+  .accordionToggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+  }
+
+  .viewToggleBtn {
+    font-size: 0.8125rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  .viewToggleBtn svg {
+    font-size: 1rem;
+  }
+
+  .slideInLeft,
+  .slideInRight {
+    animation: slideInLeft 0.6s ease-out forwards;
   }
 
   .grid,
