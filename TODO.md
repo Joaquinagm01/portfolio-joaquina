@@ -3,13 +3,12 @@
 ## 🎨 MEJORAS VISUALES Y ESTÉTICAS
 
 ### Hero Section
-- [ ] Agregar animación parallax al background del hero
-- [ ] Implementar efecto de partículas interactivas que reaccionen al mouse
-- [ ] Mejorar la imagen de perfil con un efecto de resplandor pulsante más sutil
-- [ ] Agregar efecto de glassmorphism a los botones principales
-- [ ] Implementar animación de escritura más fluida en el Typewriter
-- [ ] Agregar micro-interacciones en los botones (ripple effect)
-- [ ] Optimizar las sombras neón para que no sean demasiado intensas
+- [x] Agregar animación parallax al background del hero
+- [x] Mejorar la imagen de perfil con un efecto de resplandor pulsante más sutil
+- [x] Agregar efecto de glassmorphism a los botones principales
+- [x] Implementar animación de escritura más fluida en el Typewriter
+- [x] Agregar micro-interacciones en los botones (ripple effect)
+- [x] Optimizar las sombras neón para que no sean demasiado intensas
 
 ### Navbar
 - [ ] Agregar indicador visual de scroll progress en el navbar

@@ -3,11 +3,14 @@
 }
 
 .cursor {
-  animation: blink 1s step-end infinite;
+  animation: smoothBlink 1.2s ease-in-out infinite;
   color: var(--neon-cyan);
+  display: inline-block;
+  margin-left: 2px;
 }
 
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes smoothBlink {
+  0%, 35% { opacity: 1; }
+  40%, 60% { opacity: 0.3; }
+  65%, 100% { opacity: 1; }
 }

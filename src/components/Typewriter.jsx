@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, memo } from 'react';
 import styles from './Typewriter.module.css';
 
-const Typewriter = ({ texts, speed = 150, delay = 2000, className = '' }) => {
+const Typewriter = ({ texts, speed = 100, delay = 2000, className = '' }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -25,7 +25,11 @@ const Typewriter = ({ texts, speed = 150, delay = 2000, className = '' }) => {
       }
     };
 
-    const typingSpeed = isDeleting ? speed / 2 : speed;
+    // Variación natural en velocidad de escritura
+    const randomVariation = Math.random() * 30 - 15; // -15 a +15 ms
+    const baseSpeed = isDeleting ? speed / 2.5 : speed;
+    const typingSpeed = baseSpeed + randomVariation;
+
     timerRef.current = setTimeout(handleTyping, typingSpeed);
 
     return () => {
