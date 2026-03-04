@@ -318,8 +318,11 @@ html {
 }
 
 .statCard {
-  display: block; /* para enlaces */
-  text-decoration: none; /* quitar subrayado de <a> */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
   cursor: pointer;
   background: rgba(0, 20, 40, 0.5);
   border: 2px solid rgba(0, 255, 255, 0.3);
@@ -342,15 +345,45 @@ html {
   transition: transform 0.4s ease;
 }
 
+/* Efecto de brillo mejorado */
+.statCard::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
+
 .statCard:hover::before {
   transform: scaleX(1);
 }
 
+.statCard:hover::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
 .statCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
   border-color: var(--accent-stats);
-  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4),
+              0 0 60px rgba(168, 85, 247, 0.3),
+              inset 0 0 30px rgba(168, 85, 247, 0.1);
   background: rgba(0, 20, 40, 0.8);
+}
+
+.statCard:hover .statIcon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--accent-stats);
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8));
 }
 
 /* ===== LIGHT MODE STATS ===== */
@@ -360,11 +393,26 @@ html {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+[data-theme="light"] .statCard::after {
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.3) 0%, transparent 70%);
+}
+
 [data-theme="light"] .statCard:hover {
   background: rgba(255, 255, 255, 0.95);
   border-color: var(--neon-cyan);
-  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.2);
-  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.3),
+              0 0 40px rgba(0, 102, 204, 0.2),
+              inset 0 0 20px rgba(0, 102, 204, 0.05);
+  transform: translateY(-10px) scale(1.02);
+}
+
+[data-theme="light"] .statCard:hover .statIcon {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 15px rgba(0, 102, 204, 0.6));
+}
+
+[data-theme="light"] .statIcon {
+  color: rgba(0, 102, 204, 0.7);
 }
 
 [data-theme="light"] .statNumber {
@@ -374,6 +422,11 @@ html {
 
 [data-theme="light"] .statLabel {
   color: var(--text-secondary);
+}
+
+[data-theme="light"] .progressRingProgress {
+  stroke: var(--neon-cyan);
+  filter: drop-shadow(0 0 8px rgba(0, 102, 204, 0.5));
 }
 
 .statNumber {
@@ -393,6 +446,63 @@ html {
   font-family: 'Rajdhani', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+/* Icono animado de estadística */
+.statIcon {
+  font-size: 2.5rem;
+  color: rgba(168, 85, 247, 0.7);
+  transition: all 0.4s ease;
+  animation: iconFloat 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Círculo de progreso para porcentaje */
+.statCircle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.progressRingCircle {
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.progressRingProgress {
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+  animation: progressDraw 2s ease-out forwards;
+}
+
+@keyframes progressDraw {
+  from {
+    stroke-dashoffset: 326.73;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.statCircle .statNumber {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .heroContent {
@@ -3201,11 +3311,17 @@ html {
 
   .statsContainer {
     grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
+    gap: 1.5rem !important;
+    max-width: 400px;
   }
 
   .statCard {
     padding: 2rem 1.5rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .statIcon {
+    font-size: 2rem !important;
   }
 
   .statNumber {
@@ -3214,6 +3330,26 @@ html {
 
   .statLabel {
     font-size: 0.9rem !important;
+  }
+
+  .statCircle {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .progressRing {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .progressRingCircle,
+  .progressRingProgress {
+    r: 42 !important;
+    stroke-dasharray: 263.89 !important;
+  }
+
+  .statCircle .statNumber {
+    font-size: 1.75rem !important;
   }
   
   .navContainer {

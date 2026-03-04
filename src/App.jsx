@@ -17,7 +17,8 @@ const Typewriter = React.lazy(() => import('./components/Typewriter.jsx'));
 import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
-  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel
+  FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
+  FaBriefcase, FaCode, FaTools, FaHeart
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
@@ -127,6 +128,9 @@ function App() {
             title={t('navbar.experience')}
             onClick={(e) => { e.preventDefault(); scrollAndFocus('experiencia'); }}
           >
+            <div className={styles.statIcon}>
+              <FaBriefcase />
+            </div>
             <div className={styles.statNumber}>
               <AnimatedStat end={2} prefix="+" />
             </div>
@@ -139,6 +143,9 @@ function App() {
             title={t('navbar.projects')}
             onClick={(e) => { e.preventDefault(); scrollAndFocus('proyectos'); }}
           >
+            <div className={styles.statIcon}>
+              <FaCode />
+            </div>
             <div className={styles.statNumber}>
               <AnimatedStat end={5} prefix="+" />
             </div>
@@ -151,6 +158,9 @@ function App() {
             title={t('navbar.skills')}
             onClick={(e) => { e.preventDefault(); scrollAndFocus('habilidades'); }}
           >
+            <div className={styles.statIcon}>
+              <FaTools />
+            </div>
             <div className={styles.statNumber}>
               <AnimatedStat end={10} prefix="+" />
             </div>
@@ -163,8 +173,35 @@ function App() {
             title={t('navbar.contact')}
             onClick={(e) => { e.preventDefault(); scrollAndFocus('contacto'); }}
           >
-            <div className={styles.statNumber}>
-              <AnimatedStat end={100} suffix="%" />
+            <div className={styles.statIcon}>
+              <FaHeart />
+            </div>
+            <div className={styles.statCircle}>
+              <svg className={styles.progressRing} width="120" height="120">
+                <circle
+                  className={styles.progressRingCircle}
+                  stroke="rgba(168, 85, 247, 0.2)"
+                  strokeWidth="8"
+                  fill="transparent"
+                  r="52"
+                  cx="60"
+                  cy="60"
+                />
+                <circle
+                  className={styles.progressRingProgress}
+                  stroke="var(--accent-stats)"
+                  strokeWidth="8"
+                  fill="transparent"
+                  r="52"
+                  cx="60"
+                  cy="60"
+                  strokeDasharray="326.73"
+                  strokeDashoffset="0"
+                />
+              </svg>
+              <div className={styles.statNumber}>
+                <AnimatedStat end={100} suffix="%" />
+              </div>
             </div>
             <div className={styles.statLabel}>{t('stats.commitment')}</div>
           </a>

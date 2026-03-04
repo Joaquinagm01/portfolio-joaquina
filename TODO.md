@@ -17,11 +17,11 @@
 - [x] Agregar backdrop blur más pronunciado para mejor legibilidad
 
 ### Sección Estadísticas
-- [ ] Animar los números con efecto de conteo al hacer scroll
-- [ ] Agregar iconos animados para cada estadística
-- [ ] Implementar efecto de brillo al hacer hover
-- [ ] Mejorar el spacing entre cards en mobile
-- [ ] Agregar gráfico circular visual para porcentajes
+- [x] Animar los números con efecto de conteo al hacer scroll
+- [x] Agregar iconos animados para cada estadística
+- [x] Implementar efecto de brillo al hacer hover
+- [x] Mejorar el spacing entre cards en mobile
+- [x] Agregar gráfico circular visual para porcentajes
 
 ### Sección Sobre Mí
 - [ ] Agregar iconos personalizados para cada card (Educación, Idiomas)
