@@ -6,11 +6,25 @@ import appStyles from '../App.module.css';
 const Navbar = ({ toggleTheme, theme }) => {
   const [activeSection, setActiveSection] = useState('inicio');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
+
+  // Animación de entrada al cargar
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100);
+  }, []);
 
   const handleScroll = () => {
     const sections = ['inicio', 'sobre-mi', 'experiencia', 'cursos', 'proyectos', 'habilidades', 'contacto'];
     const scrollPosition = window.scrollY + 100;
+
+    // Calcular progreso de scroll
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / (documentHeight - windowHeight)) * 100;
+    setScrollProgress(Math.min(progress, 100));
 
     for (const sectionId of sections) {
       const section = document.getElementById(sectionId);
@@ -32,7 +46,10 @@ const Navbar = ({ toggleTheme, theme }) => {
   };
 
   return (
-    <header className={styles.navbarBackground}>
+    <header className={`${styles.navbarBackground} ${isVisible ? styles.navbarVisible : ''}`}>
+      {/* Barra de progreso de scroll */}
+      <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} />
+      
       <div className={`${appStyles.pageWrapper} ${styles.navbarContent}`}>
 
         {/* PARTE 1: IZQUIERDA */}
@@ -60,7 +77,7 @@ const Navbar = ({ toggleTheme, theme }) => {
             <ul className={styles.sideMenuLinks}>
               <li><a onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? styles.active : ''}>{t('navbar.home')}</a></li>
               <li><a onClick={() => scrollToSection('sobre-mi')} className={activeSection === 'sobre-mi' ? styles.active : ''}>{t('navbar.about')}</a></li>
-              <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experience')}</a></li>
+              <li><a onClick={() => scrollToSection('experiencia')} className={activeSection === 'experiencia' ? styles.active : ''}>{t('navbar.experiencia')}</a></li>
               <li><a onClick={() => scrollToSection('cursos')} className={activeSection === 'cursos' ? styles.active : ''}>{t('navbar.courses')}</a></li>
               <li><a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? styles.active : ''}>{t('navbar.projects')}</a></li>
               <li><a onClick={() => scrollToSection('habilidades')} className={activeSection === 'habilidades' ? styles.active : ''}>{t('navbar.skills')}</a></li>

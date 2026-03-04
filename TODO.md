@@ -11,12 +11,10 @@
 - [x] Optimizar las sombras neón para que no sean demasiado intensas
 
 ### Navbar
-- [ ] Agregar indicador visual de scroll progress en el navbar
-- [ ] Implementar animación smooth de entrada al cargar la página
-- [ ] Mejorar el efecto hover de los enlaces con underline animado
-- [ ] Agregar backdrop blur más pronunciado para mejor legibilidad
-- [ ] Implementar menú hamburguesa animado (transformación en X)
-- [ ] Agregar badge de notificación para nuevos proyectos/certificados
+- [x] Agregar indicador visual de scroll progress en el navbar
+- [x] Implementar animación smooth de entrada al cargar la página
+- [x] Mejorar el efecto hover de los enlaces con underline animado
+- [x] Agregar backdrop blur más pronunciado para mejor legibilidad
 
 ### Sección Estadísticas
 - [ ] Animar los números con efecto de conteo al hacer scroll

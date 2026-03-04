@@ -6,11 +6,35 @@
   right: 0;
   z-index: 1000;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 20, 40, 0.95) 100%);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-bottom: 2px solid var(--neon-cyan);
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.4),
               0 5px 50px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Animación de entrada smooth */
+.navbarVisible {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.6s ease;
+}
+
+/* Barra de progreso de scroll */
+.scrollProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px var(--neon-cyan),
+              0 0 20px rgba(0, 255, 255, 0.5);
+  z-index: 10;
 }
 
 /* --- ELIMINADO --- */
@@ -116,17 +140,18 @@
   transition: all 0.3s ease;
 }
 
+/* Underline animado mejorado */
 .navLinks li a::after {
   content: '';
   position: absolute;
   bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px var(--neon-cyan);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px var(--neon-cyan),
+              0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .navLinks li a:hover {
@@ -401,6 +426,8 @@
 /* ===== LIGHT MODE STYLES ===== */
 :global([data-theme="light"]) .navbarBackground {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-bottom: 2px solid rgba(0, 61, 130, 0.8);
   box-shadow: 0 0 25px rgba(0, 61, 130, 0.4),
               0 5px 50px rgba(0, 0, 0, 0.1);
