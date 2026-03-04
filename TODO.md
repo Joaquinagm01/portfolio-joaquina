@@ -24,12 +24,10 @@
 - [x] Agregar gráfico circular visual para porcentajes
 
 ### Sección Sobre Mí
-- [ ] Agregar iconos personalizados para cada card (Educación, Idiomas)
-- [ ] Implementar timeline horizontal para la educación
-- [ ] Agregar barras de progreso visuales para los idiomas
-- [ ] Mejorar las divisiones entre items con gradientes
-- [ ] Agregar animación de entrada escalonada para cada card
-- [ ] Implementar tooltips con más información al hover
+- [x] Agregar iconos personalizados para cada card (Educación, Idiomas)
+- [x] Mejorar las divisiones entre items con gradientes
+- [x] Agregar animación de entrada escalonada para cada card
+- [x] Implementar tooltips con más información al hover
 
 ### Sección Experiencia
 - [ ] Mejorar el diseño del timeline con mejor línea conectora

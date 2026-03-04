@@ -18,7 +18,7 @@ import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
-  FaBriefcase, FaCode, FaTools, FaHeart
+  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
@@ -218,20 +218,22 @@ function App() {
         <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.cardsContainer}>
             {/* EDUCACIÓN */}
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.cardStagger1}`} title={t('education.title')}>
               <div className={styles.cardHeader}>
-                <div className={styles.cardIcon}>🎓</div>
+                <div className={styles.cardIcon}>
+                  <FaGraduationCap />
+                </div>
                 <h3 className={styles.cardTitle}>{t('education.title')}</h3>
               </div>
               <div className={styles.cardContent}>
-              <div className={styles.educationItem}>
+              <div className={styles.educationItem} data-tooltip="Universidad Tecnológica Nacional">
                 <h4 className={styles.educationInstitution}>{t('education.utn')}</h4>
                 <p className={styles.educationYear}>{t('education.utn_year')}</p>
                 <p className={styles.educationDegree}>{t('education.utn_degree')}</p>
                 <p className={styles.educationStatus}>{t('education.utn_status')}</p>
               </div>
               <div className={styles.educationDivider}></div>
-              <div className={styles.educationItem}>
+              <div className={styles.educationItem} data-tooltip="Escuela Secundaria">
                 <h4 className={styles.educationInstitution}>{t('education.escuela')}</h4>
                 <p className={styles.educationYear}>{t('education.escuela_year')}</p>
                 <p className={styles.educationDegree}>{t('education.escuela_degree')}</p>
@@ -240,18 +242,20 @@ function App() {
             </div>
 
             {/* IDIOMAS */}
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.cardStagger2}`} title={t('languages.title')}>
               <div className={styles.cardHeader}>
-                <div className={styles.cardIcon}>🌐</div>
+                <div className={styles.cardIcon}>
+                  <FaLanguage />
+                </div>
                 <h3 className={styles.cardTitle}>{t('languages.title')}</h3>
               </div>
               <div className={styles.cardContent}>
-                <div className={styles.educationItem}>
+                <div className={styles.educationItem} data-tooltip="Idioma materno">
                   <h4 className={styles.educationInstitution}>{t('languages.spanish')}</h4>
                   <p className={styles.educationDegree}>{t('languages.spanish_level')}</p>
                 </div>
                 <div className={styles.educationDivider}></div>
-                <div className={styles.educationItem}>
+                <div className={styles.educationItem} data-tooltip="Certificación internacional">
                   <h4 className={styles.educationInstitution}>{t('languages.english')}</h4>
                   <p className={styles.educationYear}>{t('languages.english_year')}</p>
                   <p className={styles.educationDegree}>{t('languages.english_level')}</p>
