@@ -565,45 +565,159 @@ function App() {
       <footer className={styles.footer}>
         <div className={styles.contentContainer}>
           <div className={styles.footerGrid}>
-            {/* Columna 1: Descripción */}
+            {/* Columna 1: Sobre mí */}
             <div className={styles.footerColumn}>
-              <h3 className={styles.footerTitle}>JGM.DEV</h3>
-              <p className={styles.footerDescription}>{t('footer.description')}</p>
+              <h3 className={styles.footerBrand}>
+                <span className={styles.footerBrandAccent}>JGM</span>
+                <span>.DEV</span>
+              </h3>
+              <p className={styles.footerDescription}>
+                {t('footer.description')}
+              </p>
+              <p className={styles.footerLocation}>
+                📍 Rosario, Santa Fe, Argentina
+              </p>
+              <div className={styles.footerTechStack}>
+                <span title="React">⚛️</span>
+                <span title="Vite">⚡</span>
+                <span title="CSS Modules">🎨</span>
+                <span title="EmailJS">📧</span>
+              </div>
             </div>
 
-            {/* Columna 2: Navegación */}
+            {/* Columna 2: Enlaces Rápidos */}
             <div className={styles.footerColumn}>
-              <h4 className={styles.footerSubtitle}>{t('footer.navigation')}</h4>
+              <h4 className={styles.footerTitle}>{t('footer.navigation')}</h4>
               <ul className={styles.footerLinks}>
-                <li><a href="#inicio">{t('navbar.home')}</a></li>
-                <li><a href="#sobre-mi">{t('navbar.about')}</a></li>
-                <li><a href="#experiencia">{t('navbar.experience')}</a></li>
-                <li><a href="#cursos">{t('navbar.courses')}</a></li>
-                <li><a href="#proyectos">{t('navbar.projects')}</a></li>
-                <li><a href="#habilidades">{t('navbar.skills')}</a></li>
-                <li><a href="#contacto">{t('navbar.contact')}</a></li>
+                <li>
+                  <a href="#inicio" onClick={(e) => scrollAndFocus('inicio', e)}>
+                    <span className={styles.footerLinkIcon}>🏠</span>
+                    {t('navbar.home')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#sobre-mi" onClick={(e) => scrollAndFocus('sobre-mi', e)}>
+                    <span className={styles.footerLinkIcon}>👤</span>
+                    {t('navbar.about')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#experiencia" onClick={(e) => scrollAndFocus('experiencia', e)}>
+                    <span className={styles.footerLinkIcon}>💼</span>
+                    {t('navbar.experience')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#proyectos" onClick={(e) => scrollAndFocus('proyectos', e)}>
+                    <span className={styles.footerLinkIcon}>🚀</span>
+                    {t('navbar.projects')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#habilidades" onClick={(e) => scrollAndFocus('habilidades', e)}>
+                    <span className={styles.footerLinkIcon}>⚡</span>
+                    {t('navbar.skills')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#contacto" onClick={(e) => scrollAndFocus('contacto', e)}>
+                    <span className={styles.footerLinkIcon}>📬</span>
+                    {t('navbar.contact')}
+                  </a>
+                </li>
               </ul>
             </div>
 
-            {/* Columna 3: Redes Sociales */}
+            {/* Columna 3: Contacto Rápido */}
             <div className={styles.footerColumn}>
-              <h4 className={styles.footerSubtitle}>{t('footer.social')}</h4>
-              <div className={styles.footerSocial}>
-                <a href="https://github.com/Joaquinagm01" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
-                <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-                <a href="mailto:gomezmannajoaquina@gmail.com" aria-label="Email"><FaEnvelope /></a>
-                <a href="tel:+543412291597" aria-label="Teléfono"><FaPhone /></a>
+              <h4 className={styles.footerTitle}>{t('footer.quick_contact')}</h4>
+              <ul className={styles.footerContactList}>
+                <li>
+                  <a href="mailto:gomezmannajoaquina@gmail.com">
+                    <FaEnvelope className={styles.footerContactIcon} />
+                    <span>gomezmannajoaquina@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+543412291597">
+                    <FaPhone className={styles.footerContactIcon} />
+                    <span>(+54) 341 229 1597</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer">
+                    <FaBriefcase className={styles.footerContactIcon} />
+                    <span>{t('navbar.download_cv')}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Columna 4: Redes Sociales */}
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerTitle}>{t('footer.social')}</h4>
+              <div className={styles.footerSocialGrid}>
+                <a 
+                  href="https://github.com/Joaquinagm01" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="GitHub"
+                  className={styles.footerSocialLink}
+                >
+                  <FaGithub />
+                  <span>GitHub</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="LinkedIn"
+                  className={styles.footerSocialLink}
+                >
+                  <FaLinkedin />
+                  <span>LinkedIn</span>
+                </a>
+                <a 
+                  href="mailto:gomezmannajoaquina@gmail.com" 
+                  aria-label="Email"
+                  className={styles.footerSocialLink}
+                >
+                  <FaEnvelope />
+                  <span>Email</span>
+                </a>
+                <a 
+                  href="https://wa.me/543412291597" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="WhatsApp"
+                  className={styles.footerSocialLink}
+                >
+                  <FaPhone />
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.footerBottom}>
-          <div className={styles.contentContainer}>
-            <p>
-              © 2025 Joaquina Gomez Manna. {t('footer.rights')}
-            </p>
-            <p>{t('footer.tech')}</p>
+          {/* Divider */}
+          <div className={styles.footerDivider}></div>
+
+          {/* Footer Bottom */}
+          <div className={styles.footerBottom}>
+            <div className={styles.footerBottomLeft}>
+              <p className={styles.footerCopyright}>
+                © 2025 Joaquina Gomez Manna. {t('footer.rights')}
+              </p>
+              <p className={styles.footerMadeWith}>
+                {t('footer.made_with')} <span className={styles.footerHeart}>❤️</span> {t('footer.in_argentina')}
+              </p>
+            </div>
+            <div className={styles.footerBottomRight}>
+              <p className={styles.footerVersion}>v1.4.1</p>
+              <p className={styles.footerUpdate}>
+                {t('footer.last_update')}: <span>Marzo 2026</span>
+              </p>
+            </div>
           </div>
         </div>
       </footer>

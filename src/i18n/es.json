@@ -163,10 +163,14 @@
   "contact.form.error_subject_required": "El asunto es requerido",
   "contact.form.error_message_required": "El mensaje es requerido",
   "contact.form.error_message_short": "Mínimo 10 caracteres",
-  "footer.description": "Ingeniera en Sistemas",
+  "footer.description": "Ingeniera en Sistemas apasionada por crear experiencias digitales innovadoras y soluciones tecnológicas de alto impacto.",
   "footer.navigation": "Navegación",
+  "footer.quick_contact": "Contacto Rápido",
   "footer.social": "Redes Sociales",
   "footer.rights": "Todos los derechos reservados.",
   "footer.tech": "Desarrollado con React + Vite",
+  "footer.made_with": "Hecho con",
+  "footer.in_argentina": "en Argentina",
+  "footer.last_update": "Última actualización",
   "language.label": "Idioma:"
 }

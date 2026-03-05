@@ -68,12 +68,10 @@
 - [x] Agregar botón de copiar email/teléfono al clipboard
 
 ### Footer
-- [ ] Rediseñar el footer con mejor estructura
-- [ ] Agregar enlaces rápidos a secciones
-- [ ] Implementar newsletter subscription
-- [ ] Agregar créditos y tecnologías utilizadas
-- [ ] Mejorar los enlaces sociales con animaciones
-- [ ] Agregar indicador de última actualización
+- [x] Rediseñar el footer con mejor estructura
+- [x] Agregar enlaces rápidos a secciones
+- [x] Mejorar los enlaces sociales con animaciones
+- [x] Agregar indicador de última actualización
 
 ## 🎯 MEJORAS DE UX/UI
 
@@ -301,6 +299,25 @@
 **Versión:** 1.3.1
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.5.0
+**Rediseño Completo del Footer:**
+- ✅ Reestructurado footer con diseño de 4 columnas (empresa, navegación, contacto, redes)
+- ✅ Agregados enlaces rápidos con smooth scroll usando scrollAndFocus
+- ✅ Implementadas animaciones hover avanzadas en redes sociales (scale, rotate, glow)
+- ✅ Añadido indicador de última actualización con fecha y versión
+- ✅ Creada sección de contacto rápido con email, teléfono y CV
+- ✅ Agregados iconos de tecnologías usadas con tooltips (React, Vite, CSS, EmailJS)
+- ✅ Implementado diseño responsive: 4 cols → 2 cols → 1 col
+- ✅ Añadida ubicación "Rosario, Santa Fe, Argentina"
+- ✅ Mejorado footer bottom con versión (v1.4.1) y fecha de actualización
+- ✅ Agregado mensaje "Hecho con ❤️ en Argentina" con animación heartbeat
+- ✅ Implementado divider con gradiente animado entre secciones
+- ✅ Links de navegación con iconos emoji para mejor UX
+- ✅ Grid de redes sociales con tarjetas individuales animadas
+- ✅ Compatibilidad completa con modo claro y oscuro
+- ✅ Agregadas 4 nuevas claves de traducción (ES/EN) para footer
+- ✅ Efectos de brillo y sombra en cyan/purple consistentes con la paleta
 
 ### 5 de Marzo, 2026 - v1.4.1
 **Rediseño Visual de Sección de Contacto:**
