@@ -10,6 +10,7 @@ import LanguageSelector from './components/LanguageSelector';
 import Courses from './components/Courses';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import AboutPortfolio from './components/AboutPortfolio';
 import ContactForm from './components/ContactForm';
 import Breadcrumbs from './components/Breadcrumbs';
 import InteractionFeedback from './components/InteractionFeedback';
@@ -26,7 +27,6 @@ const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
 const ScrollIndicator = React.lazy(() => import('./components/ScrollIndicator.jsx'));
 const BackToTopButton = React.lazy(() => import('./components/BackToTopButton.jsx'));
 const Typewriter = React.lazy(() => import('./components/Typewriter.jsx'));
-import SwipeCarousel from './components/SwipeCarousel';
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
@@ -44,14 +44,10 @@ import { TbDatabase } from 'react-icons/tb'
 function App() {
   const { t } = useTranslation();
   
-  // Advanced theme management with system preference and auto mode
+  // Theme management with simple toggle
   const {
     theme,
-    themeMode,
-    toggleTheme,
-    enableSystemTheme,
-    enableAutoTheme,
-    enableManualTheme
+    toggleTheme
   } = useTheme();
   
   const [selectedProject, setSelectedProject] = useState(null);
@@ -144,11 +140,7 @@ function App() {
       <Breadcrumbs />
       <Navbar 
         theme={theme}
-        themeMode={themeMode}
         toggleTheme={toggleTheme}
-        enableSystemTheme={enableSystemTheme}
-        enableAutoTheme={enableAutoTheme}
-        enableManualTheme={enableManualTheme}
         scrollToSection={scrollAndFocus} 
       />
       <ScrollSnap enabled={false}>
@@ -161,7 +153,13 @@ function App() {
             <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
             <Suspense fallback={<SkeletonLoader type="text" count={1} />}>
               <Typewriter
-                texts={['Ingeniera en Sistemas', 'Software Engineering']}
+                texts={[
+                  'Ingeniera en Sistemas',
+                  'Full Stack Developer',
+                  'Software Engineering',
+                  'Cybersecurity Enthusiast',
+                  'Problem Solver'
+                ]}
                 speed={100}
                 delay={2500}
                 className={styles.heroSubtitle}
@@ -472,6 +470,18 @@ function App() {
 
         <AnimateOnScroll className={styles.contentContainer}>
           <Skills />
+        </AnimateOnScroll>
+      </section>
+
+      {/* SOBRE ESTE PORTFOLIO */}
+      <section id="about-portfolio" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>{t('aboutPortfolio.title')}</h2>
+          <p className={styles.sectionDescription}>{t('aboutPortfolio.description')}</p>
+        </div>
+
+        <AnimateOnScroll className={styles.contentContainer}>
+          <AboutPortfolio />
         </AnimateOnScroll>
       </section>
 

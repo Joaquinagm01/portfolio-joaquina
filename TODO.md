@@ -261,7 +261,7 @@
 
 ### Por Agregar
 - [ ] Agregar sección de recursos útiles
-- [ ] Crear una página "Sobre este portfolio" explicando las tecnologías
+- [x] Crear una página "Sobre este portfolio" explicando las tecnologías
 - [ ] Agregar changelog visible de actualizaciones
 - [ ] Implementar easter eggs o detalles ocultos
 - [ ] Agregar modo "desarrollador" con info técnica
@@ -294,9 +294,62 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.11.0
+**Versión:** 1.11.3
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.11.3
+**Mejoras en Hero Typewriter:**
+- ✅ Ampliado efecto de máquina de escribir con 5 frases rotativas
+- ✅ Frases: "Ingeniera en Sistemas", "Full Stack Developer", "Software Engineering"
+- ✅ Inclusión de "Cybersecurity Enthusiast" reflejando interés en seguridad
+- ✅ "Problem Solver" enfatizando habilidades de resolución de problemas
+- ✅ Rotación dinámica cada 2.5 segundos con efecto de escritura natural
+- ✅ Mejor representación del perfil profesional
+
+### 5 de Marzo, 2026 - v1.11.2
+**Eliminación del Carrusel y Mejoras en Projects:**
+- ✅ Eliminado componente SwipeCarousel completamente del proyecto
+- ✅ Projects.jsx ahora muestra solo vista de grid (3 columnas en desktop, 2 en tablet, 1 en móvil)
+- ✅ Removidos botones de toggle entre vista carrusel/grid
+- ✅ Grid optimizado con mejor spacing: 3rem (desktop), 2.5rem (tablet), 1.5rem (móvil)
+- ✅ Cards con min-height 400px y padding 2.5rem para mejor presentación
+- ✅ Filtros centralizados: solo tech filters y "Destacados"
+- ✅ Agregado mensaje "Enlaces no disponibles" para proyectos sin links
+- ✅ Traducciones agregadas: projects.no_links (ES/EN)
+- ✅ Todos los 5 proyectos visibles sin restricciones
+- ✅ Archivos eliminados: SwipeCarousel.jsx, SwipeCarousel.module.css (3 archivos)
+- ✅ Import removido de App.jsx
+- ✅ Service Worker cache actualizado a v1.9.1 para limpieza de cache viejo
+- ✅ Mejor UX: vista única y directa sin complejidad de navegación
+- ✅ Hover effects mejorados: translateY -5px en cards
+
+### 5 de Marzo, 2026 - v1.11.1
+**Nueva Sección: Sobre este Portfolio:**
+- ✅ Creado componente AboutPortfolio.jsx con información detallada del stack tecnológico
+- ✅ Sección dividida en 4 categorías: Frontend, Bibliotecas, Rendimiento, Despliegue
+- ✅ Tecnologías explicadas: React 18, Vite, CSS Modules, react-i18next, EmailJS
+- ✅ Información sobre optimizaciones: Code Splitting, Lazy Loading, Service Worker, Image Optimization
+- ✅ Detalles de deployment: Vercel, GitHub, CI/CD automático
+- ✅ Grid de características destacadas: Alto Rendimiento, Accesibilidad, Diseño Moderno, Código Limpio
+- ✅ Estadísticas de rendimiento: Bundle <500KB, Lighthouse >95, LCP <2.5s, 100% Responsive
+- ✅ Botón de enlace directo al repositorio de GitHub
+- ✅ Estilos completos con glassmorphism, efectos hover, animaciones
+- ✅ Soporte completo para modo claro/oscuro
+- ✅ Traducciones completas en Español e Inglés (38 claves nuevas)
+- ✅ Cards de tecnología con iconos coloridos y links externos
+- ✅ Diseño responsive optimizado para mobile/tablet/desktop
+- ✅ Soporte prefers-reduced-motion para accesibilidad
+- ✅ Integración completa en App.jsx entre habilidades y contacto
+- ✅ 3 archivos nuevos: AboutPortfolio.jsx, AboutPortfolio.module.css
+
+**Actualización de Descripción Profesional:**
+- ✅ Descripción actualizada en es.json y en.json
+- ✅ Incluye experiencia en desarrollo full stack (React, Node.js, .NET, Angular)
+- ✅ Mención de arquitecturas REST y bases de datos relacionales
+- ✅ Detalles de trabajo actual en soporte IT (Active Directory, Office 365, Jira)
+- ✅ Formación en ciberseguridad (Kali Linux, Nmap, entornos virtualizados)
+- ✅ Áreas de interés: Software Engineering, Backend Development, Cybersecurity
 
 ### 5 de Marzo, 2026 - v1.11.0
 **Optimización de Assets y React Performance:**

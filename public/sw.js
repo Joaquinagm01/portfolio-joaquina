@@ -2,7 +2,7 @@
  * Advanced Service Worker with Multiple Caching Strategies
  * Cache version and configuration
  */
-const CACHE_VERSION = 'v1.9.0';
+const CACHE_VERSION = 'v1.9.1';
 const CACHE_PREFIX = 'portfolio-joaquina';
 const CACHE_NAME = `${CACHE_PREFIX}-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-${CACHE_VERSION}`;

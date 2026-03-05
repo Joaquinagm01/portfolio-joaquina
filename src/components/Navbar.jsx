@@ -7,11 +7,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar = memo(({ 
   theme, 
-  themeMode, 
   toggleTheme, 
-  enableSystemTheme, 
-  enableAutoTheme, 
-  enableManualTheme, 
   scrollToSection 
 }) => {
   const [activeSection, setActiveSection] = useState('inicio');
@@ -111,11 +107,7 @@ const Navbar = memo(({
             </button>
             <ThemeToggle
               theme={theme}
-              themeMode={themeMode}
               onToggle={toggleTheme}
-              onSystemMode={enableSystemTheme}
-              onAutoMode={enableAutoTheme}
-              onManualMode={enableManualTheme}
             />
           </div>
         </nav>

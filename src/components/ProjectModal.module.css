@@ -171,3 +171,58 @@
   box-shadow: 0 0 20px var(--neon-purple);
   transform: translateY(-3px);
 }
+
+/* Light mode - Mejoras de contraste y visibilidad */
+[data-theme='light'] .modalBackdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='light'] .modalContent {
+  background: #ffffff;
+  border: 2px solid #6b21a8;
+  box-shadow: 0 0 50px rgba(107, 33, 168, 0.3);
+}
+
+[data-theme='light'] .modalTitle {
+  color: #6b21a8;
+  text-shadow: none;
+}
+
+[data-theme='light'] .modalSubtitle {
+  border-bottom-color: rgba(107, 33, 168, 0.2);
+}
+
+[data-theme='light'] .techBadge {
+  background: rgba(107, 33, 168, 0.1);
+  color: #6b21a8;
+  border-color: #6b21a8;
+}
+
+[data-theme='light'] .modalActions {
+  border-top-color: rgba(107, 33, 168, 0.2);
+}
+
+[data-theme='light'] .btnDemo {
+  background: #0066cc;
+  color: #ffffff;
+}
+
+[data-theme='light'] .btnDemo:hover {
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+}
+
+[data-theme='light'] .btnGithub {
+  background: #6b21a8;
+}
+
+[data-theme='light'] .btnGithub:hover {
+  box-shadow: 0 0 20px rgba(107, 33, 168, 0.5);
+}
+
+[data-theme='light'] .closeButton {
+  color: #6b5563;
+}
+
+[data-theme='light'] .closeButton:hover {
+  color: #be185d;
+}

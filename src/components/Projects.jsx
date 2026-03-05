@@ -1,12 +1,10 @@
 import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaRocket, FaThLarge, FaStream, FaStar, FaYoutube } from 'react-icons/fa';
-import SwipeCarousel from './SwipeCarousel';
+import { FaGithub, FaRocket, FaStar, FaYoutube } from 'react-icons/fa';
 import styles from './Projects.module.css';
 
 const Projects = memo(() => {
   const { t } = useTranslation();
-  const [viewMode, setViewMode] = useState('carousel'); // 'carousel' o 'grid'
   const [selectedTech, setSelectedTech] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
 
@@ -87,10 +85,6 @@ const Projects = memo(() => {
   }, [projects, selectedTech, showFeatured]);
 
   // Memoize event handlers with useCallback
-  const handleViewModeChange = useCallback((mode) => {
-    setViewMode(mode);
-  }, []);
-
   const handleTechFilter = useCallback((tech) => {
     setSelectedTech(tech);
   }, []);
@@ -159,6 +153,11 @@ const Projects = memo(() => {
                 <FaGithub /> {t('projects.view_code')}
               </a>
             )}
+            {!project.demo && !project.github && !project.video && (
+              <p className={styles.noLinks}>
+                {t('projects.no_links')}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -169,24 +168,6 @@ const Projects = memo(() => {
     <div className={styles.projectsContainer}>
       {/* Controles */}
       <div className={styles.controls}>
-        {/* Toggle Vista */}
-        <div className={styles.viewToggle}>
-          <button
-            className={`${styles.toggleButton} ${viewMode === 'carousel' ? styles.active : ''}`}
-            onClick={() => handleViewModeChange('carousel')}
-            aria-label={t('projects.carousel_view')}
-          >
-            <FaStream />
-          </button>
-          <button
-            className={`${styles.toggleButton} ${viewMode === 'grid' ? styles.active : ''}`}
-            onClick={() => handleViewModeChange('grid')}
-            aria-label={t('projects.grid_view')}
-          >
-            <FaThLarge />
-          </button>
-        </div>
-
         {/* Filtro de Destacados */}
         <button
           className={`${styles.featuredFilter} ${showFeatured ? styles.active : ''}`}
@@ -222,12 +203,6 @@ const Projects = memo(() => {
         <div className={styles.noProjects}>
           <p>{t('projects.no_results')}</p>
         </div>
-      ) : viewMode === 'carousel' ? (
-        <SwipeCarousel autoPlay={false}>
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </SwipeCarousel>
       ) : (
         <div className={styles.projectsGrid}>
           {filteredProjects.map((project) => (
