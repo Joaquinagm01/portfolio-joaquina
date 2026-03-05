@@ -294,9 +294,19 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.11.5
+**Versión:** 1.11.6
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.11.6
+**Solución Completa de React Icons - Pre-bundling:**
+- ✅ Agregado react-icons al pre-bundling de dependencias en optimizeDeps
+- ✅ Incluidas todas las familias de iconos: fa, si, md, bi, di, vsc, tb
+- ✅ Eliminado code splitting manual de react-icons (ahora en vendor general)
+- ✅ Permite que Vite maneje la optimización internamente
+- ✅ Resuelve definitivamente "Cannot set properties of undefined"
+- ✅ Service Worker actualizado a v1.9.4
+- ✅ Pre-bundling garantiza carga correcta de módulos complejos
 
 ### 5 de Marzo, 2026 - v1.11.5
 **Fix Definitivo de React Icons en Producción:**

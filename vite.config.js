@@ -56,10 +56,6 @@ export default defineConfig({
             if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
               return 'react-vendor';
             }
-            // React Icons - keep all together to avoid initialization issues
-            if (id.includes('react-icons')) {
-              return 'icons-vendor';
-            }
             // i18next bundle
             if (id.includes('i18next') || id.includes('react-i18next')) {
               return 'i18n-vendor';
@@ -133,6 +129,13 @@ export default defineConfig({
       'react-dom',
       'react-i18next',
       'i18next',
+      'react-icons/fa',
+      'react-icons/si',
+      'react-icons/md',
+      'react-icons/bi',
+      'react-icons/di',
+      'react-icons/vsc',
+      'react-icons/tb',
     ],
     exclude: ['@emailjs/browser'],
   },
