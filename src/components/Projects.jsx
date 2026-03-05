@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaRocket, FaThLarge, FaStream, FaStar } from 'react-icons/fa';
+import { FaGithub, FaRocket, FaThLarge, FaStream, FaStar, FaYoutube } from 'react-icons/fa';
 import SwipeCarousel from './SwipeCarousel';
 import styles from './Projects.module.css';
 
@@ -44,6 +44,7 @@ const Projects = memo(() => {
       categories: ['Backend', 'Frontend', 'Full Stack'],
       demo: 'https://tpdsw-31.vercel.app/',
       github: 'https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git',
+      video: 'https://youtu.be/FO6B1pzP6KY?si=F0xMksfuTxg8GRTA',
       featured: true
     },
     {
@@ -136,6 +137,16 @@ const Projects = memo(() => {
                 className={styles.btnDemo}
               >
                 {t('projects.view_demo')}
+              </a>
+            )}
+            {project.video && (
+              <a 
+                href={project.video} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.btnVideo}
+              >
+                <FaYoutube /> Video
               </a>
             )}
             {project.github && (

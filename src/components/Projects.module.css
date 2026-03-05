@@ -375,7 +375,8 @@
 }
 
 .btnDemo,
-.btnGithub {
+.btnGithub,
+.btnVideo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -417,6 +418,33 @@
 .btnDemo:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+}
+
+.btnVideo {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  flex: 1;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btnVideo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btnVideo:hover::before {
+  left: 100%;
+}
+
+.btnVideo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
 }
 
 .btnGithub {
@@ -479,6 +507,7 @@
   }
 
   .btnDemo,
+  .btnVideo,
   .btnGithub {
     width: 100%;
   }
