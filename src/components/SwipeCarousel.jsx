@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo, memo } from 'react';
 import styles from './SwipeCarousel.module.css';
 
-const SwipeCarousel = ({ children, className = '', autoPlay = true, autoPlayInterval = 5000 }) => {
+const SwipeCarousel = ({ children, className = '', autoPlay = true, autoPlayInterval = 10000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState(0);

@@ -223,7 +223,7 @@ const Projects = memo(() => {
           <p>{t('projects.no_results')}</p>
         </div>
       ) : viewMode === 'carousel' ? (
-        <SwipeCarousel>
+        <SwipeCarousel autoPlayInterval={10000}>
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
