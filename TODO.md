@@ -294,9 +294,26 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.11.6
+**Versión:** 1.12.0
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.12.0
+**Simplificación de Build Strategy - Automatic Code Splitting:**
+- ✅ Eliminado completamente manualChunks de vite.config.js
+- ✅ Vite ahora maneja code splitting automáticamente
+- ✅ Bundle principal unificado: index.js (397KB, 127KB gzipped)
+- ✅ Solo lazy loading de componentes específicos (AnimatedStat, Typewriter, etc)
+- ✅ Resuelve problemas de inicialización de módulos de react-icons
+- ✅ Orden de carga garantizado sin fragmentación compleja
+- ✅ Service Worker actualizado a v1.10.0
+- ✅ Build más simple y confiable
+
+**Por qué esto funciona:**
+- El code splitting manual causaba problemas de orden de inicialización
+- Vite's automatic splitting es más confiable para dependencias complejas
+- react-icons ahora se carga correctamente dentro del bundle principal
+- Sin conflictos entre chunks separados
 
 ### 5 de Marzo, 2026 - v1.11.6
 **Solución Completa de React Icons - Pre-bundling:**

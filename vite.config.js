@@ -48,54 +48,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        // Aggressive code splitting for better caching
-        manualChunks: (id) => {
-          // Vendor chunks for large libraries
-          if (id.includes('node_modules')) {
-            // React and related libraries
-            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
-              return 'react-vendor';
-            }
-            // i18next bundle
-            if (id.includes('i18next') || id.includes('react-i18next')) {
-              return 'i18n-vendor';
-            }
-            // EmailJS
-            if (id.includes('@emailjs')) {
-              return 'emailjs-vendor';
-            }
-            // Other vendor dependencies
-            return 'vendor';
-          }
-          
-          // Application chunks
-          // Separate components by feature
-          if (id.includes('/components/')) {
-            if (id.includes('Modal') || id.includes('Carousel')) {
-              return 'components-interactive';
-            }
-            if (id.includes('AnimatedStat') || id.includes('Typewriter') || id.includes('ScrollIndicator')) {
-              return 'components-animated';
-            }
-            if (id.includes('Courses') || id.includes('Projects') || id.includes('Skills')) {
-              return 'components-sections';
-            }
-            if (id.includes('ContactForm') || id.includes('Navbar') || id.includes('Footer')) {
-              return 'components-core';
-            }
-            return 'components';
-          }
-          
-          // Hooks separation
-          if (id.includes('/hooks/')) {
-            return 'hooks';
-          }
-          
-          // i18n translations
-          if (id.includes('/i18n/')) {
-            return 'translations';
-          }
-        },
+        // Let Vite handle automatic code splitting - simplified approach
+        manualChunks: undefined,
         // Optimize asset file names
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
