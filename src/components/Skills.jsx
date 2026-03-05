@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaGitAlt, FaGithub,
@@ -15,11 +15,11 @@ import { BiServer } from 'react-icons/bi';
 import { MdSecurity, MdComputer } from 'react-icons/md';
 import styles from './Skills.module.css';
 
-const Skills = () => {
+const Skills = memo(() => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const skillsData = [
+  const skillsData = useMemo(() => [
     {
       id: 'frontend',
       title: t('skills.frontend'),
@@ -134,16 +134,23 @@ const Skills = () => {
         { name: 'Excel', icon: FaFileExcel, color: '#217346' }
       ]
     }
-  ];
+  ], [t]);
 
-  const categories = [
+  const categories = useMemo(() => [
     { id: 'all', label: t('skills.all') },
     ...skillsData.map(cat => ({ id: cat.id, label: cat.title }))
-  ];
+  ], [skillsData, t]);
 
-  const filteredSkills = selectedCategory === 'all'
-    ? skillsData
-    : skillsData.filter(cat => cat.id === selectedCategory);
+  const filteredSkills = useMemo(() => 
+    selectedCategory === 'all'
+      ? skillsData
+      : skillsData.filter(cat => cat.id === selectedCategory),
+    [skillsData, selectedCategory]
+  );
+
+  const handleCategoryChange = useCallback((categoryId) => {
+    setSelectedCategory(categoryId);
+  }, []);
 
   return (
     <div className={styles.skillsContainer}>
@@ -153,7 +160,7 @@ const Skills = () => {
           <button
             key={category.id}
             className={`${styles.filterButton} ${selectedCategory === category.id ? styles.active : ''}`}
-            onClick={() => setSelectedCategory(category.id)}
+            onClick={() => handleCategoryChange(category.id)}
             aria-pressed={selectedCategory === category.id}
           >
             {category.label}
@@ -207,6 +214,6 @@ const Skills = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Skills;

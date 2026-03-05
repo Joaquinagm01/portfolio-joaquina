@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Courses.module.css';
 import { FaCertificate, FaFileDownload, FaFileExcel } from 'react-icons/fa';
 import { SiCisco } from 'react-icons/si';
 import { MdSecurity } from 'react-icons/md';
 
-const Courses = () => {
+const Courses = memo(() => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Función para verificar si un curso es nuevo (menos de 3 meses)
-  const isNewCourse = (dateString) => {
+  const isNewCourse = useCallback((dateString) => {
     const courseYear = parseInt(dateString);
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1;
     
     // Si el curso es del año actual y estamos dentro de los primeros 6 meses
     return courseYear === currentYear && currentMonth <= 6;
-  };
+  }, []);
 
-  const courses = [
+  const courses = useMemo(() => [
     {
       id: 1,
       title: t('courses.course1.title'),
@@ -53,17 +53,24 @@ const Courses = () => {
       iconColor: '#049fd9',
       category: 'programming'
     }
-  ];
+  ], [t]);
 
-  const categories = [
+  const categories = useMemo(() => [
     { id: 'all', label: t('courses.filter.all') },
     { id: 'programming', label: t('courses.filter.programming') },
     { id: 'ai', label: t('courses.filter.ai') }
-  ];
+  ], [t]);
 
-  const filteredCourses = selectedCategory === 'all' 
-    ? courses 
-    : courses.filter(course => course.category === selectedCategory);
+  const filteredCourses = useMemo(() => 
+    selectedCategory === 'all' 
+      ? courses 
+      : courses.filter(course => course.category === selectedCategory),
+    [courses, selectedCategory]
+  );
+
+  const handleCategoryChange = useCallback((categoryId) => {
+    setSelectedCategory(categoryId);
+  }, []);
 
   return (
     <>
@@ -73,7 +80,7 @@ const Courses = () => {
           <button
             key={category.id}
             className={`${styles.filterButton} ${selectedCategory === category.id ? styles.active : ''}`}
-            onClick={() => setSelectedCategory(category.id)}
+            onClick={() => handleCategoryChange(category.id)}
             aria-pressed={selectedCategory === category.id}
           >
             {category.label}
@@ -120,6 +127,6 @@ const Courses = () => {
       </div>
     </>
   );
-};
+});
 
 export default Courses;

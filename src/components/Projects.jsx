@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGithub, FaRocket, FaThLarge, FaStream, FaStar } from 'react-icons/fa';
 import SwipeCarousel from './SwipeCarousel';
 import styles from './Projects.module.css';
 
-const Projects = () => {
+const Projects = memo(() => {
   const { t } = useTranslation();
   const [viewMode, setViewMode] = useState('carousel'); // 'carousel' o 'grid'
   const [selectedTech, setSelectedTech] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
 
-  const projects = [
+  // Memoize projects data to avoid recreation on every render
+  const projects = useMemo(() => [
     {
       id: 1,
       title: t('projects.alojarg.title'),
@@ -67,18 +68,35 @@ const Projects = () => {
       github: null,
       featured: false
     }
-  ];
+  ], [t]);
 
-  // Obtener todas las tecnologías únicas
-  const allTechs = [...new Set(projects.flatMap(p => p.tech))].sort();
-  const techFilters = ['all', ...allTechs];
+  // Memoize tech filters computation
+  const techFilters = useMemo(() => {
+    const allTechs = [...new Set(projects.flatMap(p => p.tech))].sort();
+    return ['all', ...allTechs];
+  }, [projects]);
 
-  // Filtrar proyectos
-  const filteredProjects = projects.filter(project => {
-    const matchesTech = selectedTech === 'all' || project.tech.includes(selectedTech);
-    const matchesFeatured = !showFeatured || project.featured;
-    return matchesTech && matchesFeatured;
-  });
+  // Memoize filtered projects
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesTech = selectedTech === 'all' || project.tech.includes(selectedTech);
+      const matchesFeatured = !showFeatured || project.featured;
+      return matchesTech && matchesFeatured;
+    });
+  }, [projects, selectedTech, showFeatured]);
+
+  // Memoize event handlers with useCallback
+  const handleViewModeChange = useCallback((mode) => {
+    setViewMode(mode);
+  }, []);
+
+  const handleTechFilter = useCallback((tech) => {
+    setSelectedTech(tech);
+  }, []);
+
+  const handleFeaturedToggle = useCallback(() => {
+    setShowFeatured(prev => !prev);
+  }, []);
 
   // Componente de tarjeta de proyecto
   const ProjectCard = ({ project }) => {
@@ -144,14 +162,14 @@ const Projects = () => {
         <div className={styles.viewToggle}>
           <button
             className={`${styles.toggleButton} ${viewMode === 'carousel' ? styles.active : ''}`}
-            onClick={() => setViewMode('carousel')}
+            onClick={() => handleViewModeChange('carousel')}
             aria-label={t('projects.carousel_view')}
           >
             <FaStream />
           </button>
           <button
             className={`${styles.toggleButton} ${viewMode === 'grid' ? styles.active : ''}`}
-            onClick={() => setViewMode('grid')}
+            onClick={() => handleViewModeChange('grid')}
             aria-label={t('projects.grid_view')}
           >
             <FaThLarge />
@@ -161,7 +179,7 @@ const Projects = () => {
         {/* Filtro de Destacados */}
         <button
           className={`${styles.featuredFilter} ${showFeatured ? styles.active : ''}`}
-          onClick={() => setShowFeatured(!showFeatured)}
+          onClick={handleFeaturedToggle}
         >
           <FaStar />
           {t('projects.show_featured')}
@@ -174,7 +192,7 @@ const Projects = () => {
           <button
             key={tech}
             className={`${styles.filterButton} ${selectedTech === tech ? styles.active : ''}`}
-            onClick={() => setSelectedTech(tech)}
+            onClick={() => handleTechFilter(tech)}
           >
             {tech === 'all' ? t('projects.filter.all') : tech}
           </button>
@@ -208,6 +226,6 @@ const Projects = () => {
       )}
     </div>
   );
-};
+});
 
 export default Projects;

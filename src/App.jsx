@@ -190,8 +190,10 @@ function App() {
                 src="/profile.jpg"
                 alt="Joaquina Gómez Manna - Full Stack Developer"
                 className={styles.heroImage}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                width="300"
+                height="300"
                 sizes="(max-width: 480px) 90vw, (max-width: 768px) 60vw, 300px"
                 srcSet="/profile-300.jpg 300w, /profile-600.jpg 600w, /profile-1200.jpg 1200w"
               />

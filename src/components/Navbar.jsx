@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { throttle } from '../utils/performance';
 import styles from './Navbar.module.css';
 import appStyles from '../App.module.css';
 import ThemeToggle from './ThemeToggle';
 
-const Navbar = ({ 
+const Navbar = memo(({ 
   theme, 
   themeMode, 
   toggleTheme, 
@@ -24,7 +25,7 @@ const Navbar = ({
     setTimeout(() => setIsVisible(true), 100);
   }, []);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const sections = ['inicio', 'sobre-mi', 'experiencia', 'cursos', 'proyectos', 'habilidades', 'contacto'];
     const scrollPosition = window.scrollY + 150; // Offset para mejor detección
 
@@ -42,18 +43,24 @@ const Navbar = ({
         break;
       }
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Llamar inmediatamente para establecer sección inicial
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (id) => {
+  // Throttled scroll handler for better performance
+  const throttledHandleScroll = useMemo(
+    () => throttle(handleScroll, 100),
+    [handleScroll]
+  );
+
+  useEffect(() => {
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    handleScroll(); // Llamar inmediatamente para establecer sección inicial
+    return () => window.removeEventListener('scroll', throttledHandleScroll);
+  }, [handleScroll, throttledHandleScroll]);
+
+  const handleNavClick = useCallback((id) => {
     scrollToSection(id);
     setIsMenuOpen(false);
-  };
+  }, [scrollToSection]);
 
   return (
     <header className={`${styles.navbarBackground} ${isVisible ? styles.navbarVisible : ''}`}>
@@ -115,6 +122,6 @@ const Navbar = ({
       </div>
     </header>
   );
-};
+});
 
 export default Navbar;

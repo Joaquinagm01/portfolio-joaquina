@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import styles from './ContactForm.module.css';
 
-const ContactForm = () => {
+const ContactForm = memo(() => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
@@ -15,7 +15,7 @@ const ContactForm = () => {
   const [status, setStatus] = useState(''); // 'sending', 'success', 'error'
   const [touched, setTouched] = useState({});
 
-  const validateField = (name, value) => {
+  const validateField = useCallback((name, value) => {
     switch (name) {
       case 'name':
         if (!value.trim()) return t('contact.form.error_name_required');
@@ -36,36 +36,39 @@ const ContactForm = () => {
       default:
         return '';
     }
-  };
+  }, [t]);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // Validate on change if field was touched
-    if (touched[name]) {
-      const error = validateField(name, value);
-      setErrors(prev => ({ ...prev, [name]: error }));
-    }
-  };
+    setTouched(prevTouched => {
+      if (prevTouched[name]) {
+        const error = validateField(name, value);
+        setErrors(prev => ({ ...prev, [name]: error }));
+      }
+      return prevTouched;
+    });
+  }, [validateField]);
 
-  const handleBlur = (e) => {
+  const handleBlur = useCallback((e) => {
     const { name, value } = e.target;
     setTouched(prev => ({ ...prev, [name]: true }));
     const error = validateField(name, value);
     setErrors(prev => ({ ...prev, [name]: error }));
-  };
+  }, [validateField]);
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     const newErrors = {};
     Object.keys(formData).forEach(key => {
       const error = validateField(key, formData[key]);
       if (error) newErrors[key] = error;
     });
     return newErrors;
-  };
+  }, [formData, validateField]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     
     // Validate all fields
@@ -125,7 +128,7 @@ const ContactForm = () => {
       setStatus('error');
       setTimeout(() => setStatus(''), 5000);
     }
-  };
+  }, [validateForm, formData]);
 
   return (
     <div className={styles.formContainer}>
@@ -256,6 +259,6 @@ const ContactForm = () => {
       </form>
     </div>
   );
-};
+});
 
 export default ContactForm;
