@@ -9,6 +9,7 @@ import LanguageSelector from './components/LanguageSelector';
 import Courses from './components/Courses';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import ContactForm from './components/ContactForm';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -38,6 +39,17 @@ function App() {
   });
   const [selectedProject, setSelectedProject] = useState(null);
   const [expandedCards, setExpandedCards] = useState({ job1: false, job2: false });
+  const [copiedText, setCopiedText] = useState('');
+
+  const copyToClipboard = async (text, label) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedText(label);
+      setTimeout(() => setCopiedText(''), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   const toggleCard = (cardId) => {
     setExpandedCards(prev => ({
@@ -447,22 +459,50 @@ function App() {
             </a>
             
             {/* Phone Card - Blue */}
-            <a href="tel:+543412291597" className={`${styles.contactCard} ${styles.contactCardPhone}`} aria-label={`${t('contact.phone')}: (+54) 341 229 1597`}>
+            <div className={`${styles.contactCard} ${styles.contactCardPhone}`} style={{position: 'relative', cursor: 'pointer'}} onClick={() => window.location.href = 'tel:+543412291597'} aria-label={`${t('contact.phone')}: (+54) 341 229 1597`}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  copyToClipboard('+543412291597', 'phone');
+                }}
+                className={styles.copyButton}
+                aria-label="Copiar número de teléfono"
+                title={t('contact.copied')}
+              >
+                📋
+              </button>
               <div className={styles.contactIcon}>📞</div>
               <h3 className={styles.contactTitle}>{t('contact.phone')}</h3>
               <p className={styles.contactDetail}>(+54) 341 229 1597</p>
               <span className={styles.contactAction}>{t('contact.call')} →</span>
-            </a>
+              {copiedText === 'phone' && (
+                <div className={styles.copiedToast}>{t('contact.copied')}</div>
+              )}
+            </div>
 
             {/* Email Card - Purple */}
-            <a href="mailto:gomezmannajoaquina@gmail.com" className={`${styles.contactCard} ${styles.contactCardEmail}`} aria-label={`${t('contact.email')}: gomezmannajoaquina@gmail.com`}>
+            <div className={`${styles.contactCard} ${styles.contactCardEmail}`} style={{position: 'relative', cursor: 'pointer'}} onClick={() => window.location.href = 'mailto:gomezmannajoaquina@gmail.com'} aria-label={`${t('contact.email')}: gomezmannajoaquina@gmail.com`}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  copyToClipboard('gomezmannajoaquina@gmail.com', 'email');
+                }}
+                className={styles.copyButton}
+                aria-label="Copiar email"
+                title={t('contact.copied')}
+              >
+                📋
+              </button>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>{t('contact.email')}</h3>
               <p className={styles.contactDetail} style={{wordBreak: 'break-all', textDecoration: 'underline'}}>
                 gomezmannajoaquina@gmail.com
               </p>
               <span className={styles.contactAction}>{t('contact.send')} →</span>
-            </a>
+              {copiedText === 'email' && (
+                <div className={styles.copiedToast}>{t('contact.copied')}</div>
+              )}
+            </div>
 
             {/* LinkedIn Card - Blue */}
             <a href="https://www.linkedin.com/in/joaquina-gomez-manna-491950264" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardLinkedin}`} aria-label="LinkedIn: Joaquin Gomez Manna">
@@ -496,6 +536,11 @@ function App() {
               <span className={styles.contactAction}>{t('contact.download')} →</span>
             </a>
           </div>
+
+          {/* Contact Form */}
+          <AnimateOnScroll>
+            <ContactForm />
+          </AnimateOnScroll>
 
           {/* Map Section */}
           <div className={styles.contactMapContainer}>
