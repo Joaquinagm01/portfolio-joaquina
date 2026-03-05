@@ -1,4 +1,5 @@
 import './index.css'
+import './styles/animations.css'
 
 import React, { Suspense, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +13,12 @@ import Skills from './components/Skills';
 import ContactForm from './components/ContactForm';
 import Breadcrumbs from './components/Breadcrumbs';
 import InteractionFeedback from './components/InteractionFeedback';
+import SkeletonLoader from './components/SkeletonLoader';
+import LazyAnimation from './components/LazyAnimation';
+import ScrollSnap from './components/ScrollSnap';
 import useTouchGestures from './hooks/useTouchGestures';
+import useReducedMotion from './hooks/useReducedMotion';
+import useOptimizedParallax from './hooks/useOptimizedParallax';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -121,6 +127,9 @@ function App() {
   // Hook para gestos táctiles en móviles
   useTouchGestures(scrollAndFocus);
 
+  // Hook para parallax optimizado en hero section
+  const parallaxRef = useOptimizedParallax(0.3, true);
+
   return (
     <>
       <InteractionFeedback />
@@ -135,14 +144,15 @@ function App() {
       </Suspense>
       <Breadcrumbs />
       <Navbar toggleTheme={toggleTheme} theme={theme} scrollToSection={scrollAndFocus} />
-      <main id="main-content" className={`${styles.pageWrapper} ${styles.contentArea}`} tabIndex="-1">
+      <ScrollSnap enabled={false}>
+        <main id="main-content" className={`${styles.pageWrapper} ${styles.contentArea}`} tabIndex="-1">
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <p className={styles.heroGreeting}>{t('hero.greeting')}</p>
             <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
-            <Suspense fallback={null}>
+            <Suspense fallback={<SkeletonLoader type="text" count={1} />}>
               <Typewriter
                 texts={['Ingeniera en Sistemas', 'Software Engineering']}
                 speed={100}
@@ -157,7 +167,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div className={styles.heroImageContainer}>
+          <div ref={parallaxRef} className={styles.heroImageContainer}>
             <picture>
               <source
                 type="image/avif"
@@ -197,7 +207,9 @@ function App() {
               <FaBriefcase />
             </div>
             <div className={styles.statNumber}>
-              <AnimatedStat end={2} prefix="+" />
+              <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
+                <AnimatedStat end={2} prefix="+" />
+              </Suspense>
             </div>
             <div className={styles.statLabel}>{t('stats.experience')}</div>
           </a>
@@ -212,7 +224,9 @@ function App() {
               <FaCode />
             </div>
             <div className={styles.statNumber}>
-              <AnimatedStat end={5} prefix="+" />
+              <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
+                <AnimatedStat end={5} prefix="+" />
+              </Suspense>
             </div>
             <div className={styles.statLabel}>{t('stats.projects')}</div>
           </a>
@@ -227,7 +241,9 @@ function App() {
               <FaTools />
             </div>
             <div className={styles.statNumber}>
-              <AnimatedStat end={10} prefix="+" />
+              <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
+                <AnimatedStat end={10} prefix="+" />
+              </Suspense>
             </div>
             <div className={styles.statLabel}>{t('stats.tech')}</div>
           </a>
@@ -265,7 +281,9 @@ function App() {
                 />
               </svg>
               <div className={styles.statNumber}>
-                <AnimatedStat end={100} suffix="%" />
+                <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
+                  <AnimatedStat end={100} suffix="%" />
+                </Suspense>
               </div>
             </div>
             <div className={styles.statLabel}>{t('stats.commitment')}</div>
@@ -604,6 +622,7 @@ function App() {
       </section>
 
       </main>
+      </ScrollSnap>
 
       {/* FOOTER */}
       <footer className={styles.footer}>
