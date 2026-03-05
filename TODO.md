@@ -33,40 +33,29 @@
 - [ ] Mejorar el diseño del timeline con mejor línea conectora
 - [x] Agregar logos de las empresas
 - [x] Implementar acordeón para expandir/colapsar detalles
-- [ ] Agregar animación de deslizamiento al aparecer
-- [ ] Mejorar las badges de tecnologías con iconos
+- [x] Agregar animación de deslizamiento al aparecer
+- [x] Mejorar las badges de tecnologías con iconos
 - [x] Implementar modo de vista compacta/expandida
-- [ ] Agregar testimoniales o logros destacados
 
 ### Sección Cursos
-- [ ] ✅ Mejorar visibilidad del botón en modo claro y oscuro
-- [ ] Agregar preview del certificado al hacer hover
-- [ ] Implementar filtros por categoría (Programación, IA, Diseño)
-- [ ] Agregar indicador de fecha de obtención
-- [ ] Implementar modal para ver certificado en pantalla completa
-- [ ] Agregar badge de "Nuevo" para cursos recientes
-- [ ] Mejorar la distribución en grid para 4 columnas en desktop
+- [x] Mejorar visibilidad del botón en modo claro y oscuro
+- [x] Implementar filtros por categoría (Programación, IA)
+- [x] Agregar indicador de fecha de obtención
+- [x] Agregar badge de "Nuevo" para cursos recientes
+- [x] Mejorar la distribución en grid para tarjetas más anchas (3 columnas en desktop)
 
 ### Sección Proyectos
-- [ ] Implementar vista de grid además del carousel actual
-- [ ] Agregar screenshots/GIFs de los proyectos
-- [ ] Mejorar el modal con galería de imágenes
-- [ ] Agregar filtros por tecnología
-- [ ] Implementar búsqueda de proyectos
-- [ ] Agregar indicador de estado del proyecto (En desarrollo, Completado)
-- [ ] Mejorar las transiciones entre slides del carousel
-- [ ] Agregar botón de compartir proyecto
-- [ ] Implementar vista de "Proyectos destacados"
+- [x] Implementar vista de grid además del carousel actual
+- [x] Agregar filtros por tecnología
+- [x] Mejorar las transiciones entre slides del carousel
+- [x] Implementar vista de "Proyectos destacados"
 
 ### Sección Habilidades
-- [ ] Diseñar un mapa de habilidades tipo radar chart
-- [ ] Agregar nivel de experiencia visual (barras de progreso)
-- [ ] Implementar categorización mejorada (Frontend, Backend, DevOps, etc.)
-- [ ] Agregar animaciones de entrada para cada tecnología
-- [ ] Implementar filtro por nivel de experiencia
-- [ ] Agregar tooltips con años de experiencia y proyectos
-- [ ] Mejorar el spacing y agrupación de tecnologías relacionadas
-- [ ] Agregar certificaciones asociadas a cada tecnología
+- [x] Diseñar un mapa de habilidades tipo radar chart
+- [x] Implementar categorización mejorada (Frontend, Backend, DevOps, etc.)
+- [x] Agregar animaciones de entrada para cada tecnología
+- [x] Mejorar el spacing y agrupación de tecnologías relacionadas
+- [x] Agregar nuevas tecnologías (Docker, Azure DevOps, Nmap, VirtualBox, VMs, Kali Linux, Cortex)
 
 ### Sección Contacto
 - [ ] Implementar formulario de contacto funcional
@@ -309,5 +298,52 @@
 
 ---
 
-**Última actualización:** 4 de Marzo, 2026
-**Versión:** 1.0.0
+**Última actualización:** 5 de Marzo, 2026
+**Versión:** 1.3.1
+
+## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.3.1
+**Actualización Sección de Habilidades:**
+- ✅ Eliminados indicadores de nivel (Principiante, Intermedio, Avanzado)
+- ✅ Interfaz más limpia y minimalista
+
+### 5 de Marzo, 2026 - v1.3.0
+**Mejoras en Sección de Habilidades:**
+- ✅ Creado componente Skills.jsx modular con estructura de datos organizada
+- ✅ Categorización mejorada: Frontend, Backend, Databases, DevOps & Cloud, Security & Networking, Languages, OS, Design, Tools
+- ✅ Agregadas nuevas tecnologías: Docker, Azure DevOps, Azure, Nmap, VirtualBox, Máquinas Virtuales, Kali Linux, Cortex
+- ✅ Implementadas animaciones de entrada escalonadas (fadeInUp + slideInLeft)
+- ✅ Sistema de filtros por categoría con estilo moderno
+- ✅ Mejor spacing y agrupación: grid de 3 columnas, spacing de 2rem
+- ✅ Efectos hover mejorados: transformaciones, sombras, gradientes
+- ✅ Iconos coloridos por tecnología con animaciones
+- ✅ Traducciones completas en ES/EN
+- ✅ Responsive design optimizado
+
+### 5 de Marzo, 2026 - v1.2.0
+**Mejoras en Sección de Proyectos:**
+- ✅ Creado componente Projects.jsx centralizado con datos estructurados
+- ✅ Implementado toggle para alternar entre vista carousel y grid (2 columnas)
+- ✅ Sistema de filtros por tecnología con todas las techs de los proyectos
+- ✅ Filtro de proyectos destacados con badge dorado animado
+- ✅ Mejoradas transiciones del carousel (cubic-bezier, scroll-behavior smooth)
+- ✅ Diseño mejorado: glassmorphism, gradientes, hover effects mejorados
+- ✅ Contador de proyectos filtrados
+- ✅ Traducciones completas en ES/EN
+- ✅ Responsive design optimizado para todas las pantallas
+
+### 5 de Marzo, 2026 - v1.1.0
+**Mejoras en Sección de Cursos:**
+- ✅ Implementado sistema de filtros por categoría (Todos, Programación, IA)
+- ✅ Implementado badge "Nuevo" para cursos recientes (menos de 6 meses)
+- ✅ Mejorado grid responsive: 3 columnas en desktop, 2 en tablets, 1 en móviles (tarjetas más anchas)
+- ✅ Botón de descarga directo para certificados con gradiente
+- ✅ Optimizados estilos para modo claro y oscuro
+- ✅ Simplificada interfaz eliminando modal innecesario
+- ✅ Mejorados efectos visuales: glassmorphism, animaciones hover, iconos con gradientes
+
+**Correcciones de Bugs:**
+- ✅ Corregido bug de visibilidad en sección Experiencia
+- ✅ Corregido typo en traducción del Navbar móvil (navbar.experiencia → navbar.experience)
+- ✅ Arregladas animaciones slideInLeft/slideInRight que ocultaban tarjetas de experiencia

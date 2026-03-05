@@ -12,6 +12,8 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   cursor: grab;
+  scroll-behavior: smooth;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel::-webkit-scrollbar {
@@ -26,7 +28,8 @@
   flex: 0 0 100%;
   scroll-snap-align: start;
   width: 100%;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Ultra‑wide: mostrar 2 items por vista */
