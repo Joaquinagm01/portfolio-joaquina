@@ -341,6 +341,10 @@ function App() {
                     src="/ACA.webp" 
                     alt="Asociación de Cooperativas Argentinas" 
                     className={styles.companyLogo}
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
                   />
                 </div>
                 <div>
@@ -383,6 +387,10 @@ function App() {
                     src="/Municipalidad.webp" 
                     alt="Municipalidad de Rosario" 
                     className={styles.companyLogo}
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
                   />
                 </div>
                 <div>

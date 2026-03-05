@@ -153,6 +153,8 @@
     width: 44px;
     height: 44px;
     font-size: 1.2rem;
+    /* Better tap target for mobile */
+    touch-action: manipulation;
   }
 
   .navButton.prev {
@@ -172,16 +174,64 @@
     height: 10px;
     min-width: 40px;
     min-height: 40px;
+    /* Better tap target */
+    touch-action: manipulation;
+  }
+  
+  /* Improved swipe animation on mobile */
+  .carousel {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Better item sizing on mobile */
+  .carouselItem {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 }
 
 @media (max-width: 480px) {
   .navButton {
-    display: none; /* Hide arrows on very small screens to avoid clutter */
+    /* Hide arrows on very small screens but keep accessible */
+    opacity: 0.3;
+    pointer-events: auto;
+  }
+  
+  .navButton:active {
+    opacity: 1;
   }
 
   .dots {
     gap: 0.3rem;
+  }
+  
+  /* Progress indicator more visible on small screens */
+  .progressBar {
+    height: 5px;
+  }
+}
+
+/* Tablet optimization for carousel */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  
+  .navButton.prev {
+    left: 1rem;
+  }
+  
+  .navButton.next {
+    right: 1rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
   }
 }
 
@@ -193,6 +243,42 @@
 
   .dot:hover {
     background: transparent;
+  }
+  
+  /* Better feedback for touch interactions */
+  .navButton:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  .dot:active {
+    transform: scale(1.3);
+  }
+  
+  /* Prevent text selection during swipe */
+  .carousel {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 900px) and (orientation: landscape) {
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .dots {
+    margin-top: 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    min-width: 36px;
+    min-height: 36px;
   }
 }
 

@@ -4984,3 +4984,345 @@ html {
 [data-theme="light"] .formSubmit:hover {
   color: #fff;
 }
+/* ===== RESPONSIVE DESIGN ENHANCEMENTS ===== */
+
+/* TABLETS (768px - 1024px) - Improved Layout */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Hero Section optimization for tablets */
+  .hero {
+    padding: 8rem 2.5rem 4rem;
+    min-height: calc(100vh - 80px);
+  }
+  
+  .heroContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    align-items: center;
+  }
+  
+  .heroTitle {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.2;
+  }
+  
+  .heroSubtitle {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+  }
+  
+  .heroImage {
+    max-width: 320px;
+  }
+  
+  /* Stats Section for tablets */
+  .statsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 700px;
+  }
+  
+  .statCard {
+    padding: 2rem;
+  }
+  
+  /* About Section - 2 columns for tablets */
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  /* Experience cards optimized */
+  .timelineContainer {
+    gap: 2rem;
+  }
+  
+  .experienceCard {
+    padding: 2rem;
+  }
+  
+  /* Section padding adjustment */
+  .section {
+    padding: 4rem 2.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+  }
+  
+  .sectionDescription {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    max-width: 700px;
+  }
+  
+  /* Footer grid for tablets */
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* TYPOGRAPHY OPTIMIZATION - Small Screens */
+@media (max-width: 767px) {
+  /* Fluid typography using clamp for better readability */
+  .heroTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  
+  .heroSubtitle {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    line-height: 1.4;
+  }
+  
+  .heroGreeting {
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  }
+  
+  .sectionTitle {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  .sectionDescription {
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+    line-height: 1.6;
+  }
+  
+  .cardTitle {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+  
+  .experienceTitle {
+    font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+  }
+  
+  .experienceDescription,
+  .experienceList li {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.65;
+  }
+  
+  /* Better paragraph spacing on mobile */
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+/* SPACING & PADDING - Breakpoint Adjustments */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .contentContainer {
+    max-width: 1100px;
+    padding: 0 3rem;
+  }
+  
+  .section {
+    padding: 5rem 3rem;
+  }
+  
+  .statsSection {
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .contentContainer {
+    max-width: 1300px;
+    padding: 0 4rem;
+  }
+  
+  .section {
+    padding: 6rem 4rem;
+  }
+}
+
+/* RESPONSIVE SPACING UTILITIES */
+.section {
+  --section-padding-y: clamp(3rem, 5vw, 6rem);
+  --section-padding-x: clamp(1.5rem, 3vw, 4rem);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.contentContainer {
+  --container-padding: clamp(1rem, 2vw, 3rem);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* NAVBAR LANDSCAPE MOBILE OPTIMIZATION */
+@media (max-width: 900px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.5rem 1rem;
+    height: 60px;
+  }
+  
+  .navbarBrand {
+    font-size: 1.1rem;
+  }
+  
+  .navLinks {
+    gap: 1rem;
+  }
+  
+  .navLink {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .hero {
+    padding-top: 5rem !important;
+    min-height: auto !important;
+  }
+  
+  .heroContent {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+  }
+  
+  .heroImage {
+    max-width: 220px !important;
+    margin: 0 auto;
+  }
+  
+  .heroButtons {
+    flex-direction: row !important;
+    gap: 1rem !important;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+  
+  .section {
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .statsSection {
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .statsContainer {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .statCard {
+    padding: 1rem !important;
+  }
+  
+  .statIcon {
+    font-size: 1.5rem !important;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem !important;
+  }
+  
+  .statLabel {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* LARGE SCREENS (>2560px) - Improved Legibility */
+@media (min-width: 2561px) {
+  :root {
+    --base-font-size: 18px;
+  }
+  
+  body {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  
+  .contentContainer {
+    max-width: 1800px;
+    padding: 0 5rem;
+  }
+  
+  .heroTitle {
+    font-size: 5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 20ch;
+  }
+  
+  .heroSubtitle {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+  
+  .heroDescription {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+  
+  .sectionTitle {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+  
+  .cardTitle {
+    font-size: 1.75rem;
+  }
+  
+  .cardContent {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .experienceTitle {
+    font-size: 1.8rem;
+  }
+  
+  .experienceDescription,
+  .experienceList li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  /* Better button sizing */
+  .btnPrimary,
+  .btnSecondary {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+  }
+  
+  /* Improved stat cards */
+  .statCard {
+    padding: 3rem 2rem;
+    gap: 1.5rem;
+  }
+  
+  .statIcon {
+    font-size: 4rem;
+  }
+  
+  .statNumber {
+    font-size: 3.5rem;
+  }
+  
+  .statLabel {
+    font-size: 1.2rem;
+  }
+  
+  /* Footer text sizing */
+  .footerTitle {
+    font-size: 1.4rem;
+  }
+  
+  .footerText,
+  .footerLink {
+    font-size: 1.1rem;
+  }
+}
