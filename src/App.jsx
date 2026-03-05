@@ -19,6 +19,7 @@ import ScrollSnap from './components/ScrollSnap';
 import useTouchGestures from './hooks/useTouchGestures';
 import useReducedMotion from './hooks/useReducedMotion';
 import useOptimizedParallax from './hooks/useOptimizedParallax';
+import useTheme from './hooks/useTheme';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -42,10 +43,17 @@ import { TbDatabase } from 'react-icons/tb'
 
 function App() {
   const { t } = useTranslation();
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved || 'dark';
-  });
+  
+  // Advanced theme management with system preference and auto mode
+  const {
+    theme,
+    themeMode,
+    toggleTheme,
+    enableSystemTheme,
+    enableAutoTheme,
+    enableManualTheme
+  } = useTheme();
+  
   const [selectedProject, setSelectedProject] = useState(null);
   const [expandedCards, setExpandedCards] = useState({ job1: false, job2: false });
   const [copiedText, setCopiedText] = useState('');
@@ -66,11 +74,6 @@ function App() {
       [cardId]: !prev[cardId]
     }));
   };
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   // Detect keyboard navigation for better accessibility
   useEffect(() => {
@@ -94,10 +97,6 @@ function App() {
       window.removeEventListener('mousedown', handleMouseDownOnce);
     };
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   // Desplaza suavemente con offset correcto para el navbar fijo y enfoca para accesibilidad
   const scrollAndFocus = (sectionId, event) => {
@@ -143,7 +142,15 @@ function App() {
         <ScrollIndicator />
       </Suspense>
       <Breadcrumbs />
-      <Navbar toggleTheme={toggleTheme} theme={theme} scrollToSection={scrollAndFocus} />
+      <Navbar 
+        theme={theme}
+        themeMode={themeMode}
+        toggleTheme={toggleTheme}
+        enableSystemTheme={enableSystemTheme}
+        enableAutoTheme={enableAutoTheme}
+        enableManualTheme={enableManualTheme}
+        scrollToSection={scrollAndFocus} 
+      />
       <ScrollSnap enabled={false}>
         <main id="main-content" className={`${styles.pageWrapper} ${styles.contentArea}`} tabIndex="-1">
         {/* HERO SECTION */}

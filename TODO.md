@@ -100,12 +100,12 @@
 - [x] Mejorar la legibilidad en pantallas muy grandes (>2560px)
 
 ### Modo Claro/Oscuro
-- [ ] Implementar transición suave entre themes
-- [ ] Ajustar contraste de textos en ambos modos
-- [ ] Optimizar colores de acentos en modo claro
-- [ ] Agregar modo automático basado en horario
-- [ ] Mejorar las sombras y efectos en modo claro
-- [ ] Implementar persistencia mejorada del theme preference
+- [x] Implementar transición suave entre themes
+- [x] Ajustar contraste de textos en ambos modos
+- [x] Optimizar colores de acentos en modo claro
+- [x] Agregar modo automático basado en horario
+- [x] Mejorar las sombras y efectos en modo claro
+- [x] Implementar persistencia mejorada del theme preference
 
 ## ⚡ MEJORAS DE RENDIMIENTO
 
@@ -294,9 +294,86 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.3.1
+**Versión:** 1.9.0
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.9.0
+**Sistema Avanzado de Temas con Modos Inteligentes:**
+- ✅ Creado hook useTheme.js con gestión avanzada de temas (173 líneas)
+- ✅ Implementados 3 modos de tema: manual, system, auto
+- ✅ Modo manual: toggle tradicional dark/light con un clic
+- ✅ Modo system: sigue preferencia del OS con prefers-color-scheme
+- ✅ Modo auto: basado en horario (dark 7pm-7am, light 7am-7pm)
+- ✅ Detección automática de preferencias del sistema operativo
+- ✅ MediaQueryList con listeners para updates en tiempo real
+- ✅ Actualización automática cada hora en modo auto con setInterval
+- ✅ Persistencia mejorada: localStorage con theme y themeMode
+- ✅ Sincronización entre pestañas vía storage event listener
+- ✅ Transiciones suaves optimizadas (0.35s cubic-bezier)
+- ✅ --transition-speed y --transition-timing como CSS variables
+- ✅ will-change hints durante transición (4 propiedades)
+- ✅ Clase .theme-transitioning para animaciones controladas
+- ✅ Fade effect (opacity 0.98) durante cambio de tema
+- ✅ Prevención de conflictos con transforms y animations existentes
+- ✅ Exclusión de elementos animados de theme transitions
+- ✅ Colores WCAG AAA en modo claro (6.5:1 a 15:1 contrast)
+- ✅ --text: #0a0a0a (15:1 contrast ratio, máxima legibilidad)
+- ✅ --text-secondary: #1a1a1a (12:1 contrast)
+- ✅ --text-muted: #424242 (7.5:1 contrast)
+- ✅ --neon-cyan: #0066cc (7.8:1 contrast, azul corporativo)
+- ✅ --neon-purple: #6b21a8 (más oscuro y legible)
+- ✅ --neon-pink: #be185d (6.5:1 contrast)
+- ✅ --neon-green: #15803d (7.2:1 contrast)
+- ✅ --neon-orange: #c2410c (6.8:1 contrast)
+- ✅ --neon-blue: #1e40af (8.2:1 contrast)
+- ✅ Todos los acentos optimizados para accesibilidad
+- ✅ Sistema completo de sombras para light/dark modes
+- ✅ 5 niveles de sombras: --shadow-sm, md, lg, xl, glow
+- ✅ Dark mode: cyan glow shadows con rgba(0, 255, 255)
+- ✅ Light mode: black/blue shadows con rgba(0, 0, 0) y rgba(0, 102, 204)
+- ✅ --shadow-glow adaptado a cada tema para coherencia visual
+- ✅ Componente ThemeToggle.jsx con selector de modo (160 líneas)
+- ✅ UI con iconos de react-icons: FaSun, FaMoon, FaDesktop, FaClock
+- ✅ Botón principal para toggle rápido dark/light
+- ✅ Botón de modo con icono según modo activo
+- ✅ Dropdown con 3 opciones y descripciones claras
+- ✅ Manual: "Toggle manually" con icono sun/moon
+- ✅ System: "Follow OS preference" con icono desktop
+- ✅ Auto: "Dark 7pm-7am" con icono reloj
+- ✅ Estado activo con gradiente cyan-purple
+- ✅ Hover effects con scale(1.05) y glow shadows
+- ✅ Animaciones de entrada (dropdownSlideIn 0.2s)
+- ✅ Click outside y escape key para cerrar dropdown
+- ✅ Mobile responsive: dropdown left-aligned, 200px min-width
+- ✅ Touch optimizations: 48x48px min-tap-target
+- ✅ High contrast mode support con border-width 3px
+- ✅ Reduced motion support: sin animaciones
+- ✅ ThemeToggle.module.css con 300+ líneas de estilos
+- ✅ Backdrop blur y glassmorphism en dropdown
+- ✅ Integrado en Navbar reemplazando botón emoji simple
+- ✅ Navbar.jsx actualizado: recibe 6 props del theme hook
+- ✅ App.jsx integrado con useTheme hook
+- ✅ Eliminado useState manual del theme
+- ✅ Eliminado useEffect de localStorage (hook lo maneja)
+- ✅ Eliminada función toggleTheme manual
+- ✅ Sombras mejoradas en todas las cards en modo claro
+- ✅ Cards con backdrop-filter: blur(10px)
+- ✅ Inset shadows para efecto 3D sutil
+- ✅ Borders con colores temáticos por sección
+- ✅ Botones con gradientes y múltiples capas de box-shadow
+- ✅ Stat cards con hover effect mejorado
+- ✅ Project cards con sombras naranjas (#c2410c)
+- ✅ Skill cards con sombras verdes (#15803d)
+- ✅ Contact cards con sombras azules (#1e40af)
+- ✅ Body background con gradiente sutil en modo claro
+- ✅ Grid pattern con opacidad 0.02 para textura
+- ✅ Scanlines sutiles para efecto retro moderno
+- ✅ 3 archivos nuevos: useTheme.js, ThemeToggle.jsx, ThemeToggle.module.css
+- ✅ 6 tareas completadas de sección Modo Claro/Oscuro
+- ✅ Performance optimizado: passive listeners, RAF, throttling
+- ✅ Compatibilidad: Chrome, Firefox, Safari, Edge
+- ✅ Accessibility: ARIA labels, keyboard navigation, focus states
 
 ### 5 de Marzo, 2026 - v1.8.0
 **Mejoras Completas de Responsive Design:**

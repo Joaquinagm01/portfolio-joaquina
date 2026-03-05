@@ -2,8 +2,17 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.css';
 import appStyles from '../App.module.css';
+import ThemeToggle from './ThemeToggle';
 
-const Navbar = ({ toggleTheme, theme, scrollToSection }) => {
+const Navbar = ({ 
+  theme, 
+  themeMode, 
+  toggleTheme, 
+  enableSystemTheme, 
+  enableAutoTheme, 
+  enableManualTheme, 
+  scrollToSection 
+}) => {
   const [activeSection, setActiveSection] = useState('inicio');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -93,9 +102,14 @@ const Navbar = ({ toggleTheme, theme, scrollToSection }) => {
               <span className={styles.hamburgerLine}></span>
               <span className={styles.hamburgerLine}></span>
             </button>
-            <button onClick={toggleTheme} className={styles.themeToggle} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
+            <ThemeToggle
+              theme={theme}
+              themeMode={themeMode}
+              onToggle={toggleTheme}
+              onSystemMode={enableSystemTheme}
+              onAutoMode={enableAutoTheme}
+              onManualMode={enableManualTheme}
+            />
           </div>
         </nav>
       </div>
