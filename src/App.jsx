@@ -257,34 +257,10 @@ function App() {
             <div className={styles.statIcon}>
               <FaHeart />
             </div>
-            <div className={styles.statCircle}>
-              <svg className={styles.progressRing} width="120" height="120">
-                <circle
-                  className={styles.progressRingCircle}
-                  stroke="rgba(168, 85, 247, 0.2)"
-                  strokeWidth="8"
-                  fill="transparent"
-                  r="52"
-                  cx="60"
-                  cy="60"
-                />
-                <circle
-                  className={styles.progressRingProgress}
-                  stroke="var(--accent-stats)"
-                  strokeWidth="8"
-                  fill="transparent"
-                  r="52"
-                  cx="60"
-                  cy="60"
-                  strokeDasharray="326.73"
-                  strokeDashoffset="0"
-                />
-              </svg>
-              <div className={styles.statNumber}>
-                <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
-                  <AnimatedStat end={100} suffix="%" />
-                </Suspense>
-              </div>
+            <div className={styles.statNumber}>
+              <Suspense fallback={<SkeletonLoader type="stat" count={1} />}>
+                <AnimatedStat end={100} suffix="%" />
+              </Suspense>
             </div>
             <div className={styles.statLabel}>{t('stats.commitment')}</div>
           </a>
