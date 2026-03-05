@@ -10,6 +10,9 @@ import Courses from './components/Courses';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import ContactForm from './components/ContactForm';
+import Breadcrumbs from './components/Breadcrumbs';
+import InteractionFeedback from './components/InteractionFeedback';
+import useTouchGestures from './hooks/useTouchGestures';
 
 const AnimatedStat = React.lazy(() => import('./components/AnimatedStat.jsx'));
 const ProjectModal = React.lazy(() => import('./components/ProjectModal.jsx'));
@@ -63,15 +66,51 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  // Detect keyboard navigation for better accessibility
+  useEffect(() => {
+    const handleFirstTab = (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+        window.addEventListener('mousedown', handleMouseDownOnce);
+      }
+    };
+
+    const handleMouseDownOnce = () => {
+      document.body.classList.remove('user-is-tabbing');
+      window.removeEventListener('mousedown', handleMouseDownOnce);
+      window.addEventListener('keydown', handleFirstTab);
+    };
+
+    window.addEventListener('keydown', handleFirstTab);
+    return () => {
+      window.removeEventListener('keydown', handleFirstTab);
+      window.removeEventListener('mousedown', handleMouseDownOnce);
+    };
+  }, []);
+
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  // Desplaza suavemente y enfoca el encabezado de la sección para accesibilidad
-  const scrollAndFocus = (sectionId) => {
+  // Desplaza suavemente con offset correcto para el navbar fijo y enfoca para accesibilidad
+  const scrollAndFocus = (sectionId, event) => {
+    if (event) event.preventDefault();
+    
     const section = document.getElementById(sectionId);
     if (!section) return;
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Offset para compensar el navbar fijo (80px altura del navbar + 20px margen)
+    const navbarOffset = 100;
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+    
+    // Enfoque para accesibilidad
     const heading = section.querySelector('h2, h1');
     if (heading) {
       if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
@@ -79,8 +118,12 @@ function App() {
     }
   };
 
+  // Hook para gestos táctiles en móviles
+  useTouchGestures(scrollAndFocus);
+
   return (
     <>
+      <InteractionFeedback />
       <Suspense fallback={null}>
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       </Suspense>
@@ -90,7 +133,8 @@ function App() {
       <Suspense fallback={null}>
         <ScrollIndicator />
       </Suspense>
-<Navbar toggleTheme={toggleTheme} theme={theme} />
+      <Breadcrumbs />
+      <Navbar toggleTheme={toggleTheme} theme={theme} scrollToSection={scrollAndFocus} />
       <main id="main-content" className={`${styles.pageWrapper} ${styles.contentArea}`} tabIndex="-1">
         {/* HERO SECTION */}
         <section id="inicio" className={styles.hero}>

@@ -1,0 +1,167 @@
+/* ========================================
+   INTERACTION FEEDBACK EFFECTS
+   ======================================== */
+
+/* Ripple effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.6) 0%, transparent 70%);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Hover glow effect */
+.hover-glow {
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4) !important;
+}
+
+/* Active scale effect */
+.active-scale {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* Ensure buttons and links can have relative positioning for ripple */
+button, a, [role="button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Focus visible for accessibility */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+  animation: focusPulse 1s ease-in-out infinite;
+}
+
+@keyframes focusPulse {
+  0%, 100% {
+    outline-color: var(--neon-cyan);
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    outline-color: var(--neon-purple);
+    box-shadow: 0 0 0 4px rgba(0, 255, 255, 0.1);
+  }
+}
+
+/* Cursor pointer for interactive elements */
+button, a, [role="button"], .interactive {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Loading state feedback */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top-color: var(--neon-cyan);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success feedback animation */
+.success-feedback {
+  animation: successPulse 0.5s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Error feedback animation */
+.error-feedback {
+  animation: errorShake 0.5s ease-out;
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea, select, .interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .ripple-effect {
+  background: radial-gradient(circle, rgba(0, 61, 130, 0.4) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hover-glow {
+  box-shadow: 0 0 15px rgba(0, 61, 130, 0.3) !important;
+}
+
+[data-theme="light"] button:focus-visible,
+[data-theme="light"] a:focus-visible,
+[data-theme="light"] [role="button"]:focus-visible {
+  outline-color: #003d82;
+}
+
+[data-theme="light"] .loading::after {
+  border-top-color: #003d82;
+}
+
+/* Keyboard navigation emphasis */
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) a:focus,
+body:not(.user-is-tabbing) [role="button"]:focus {
+  outline: none;
+}
+
+/* Detect keyboard navigation */
+body.user-is-tabbing *:focus {
+  outline: 2px solid var(--neon-cyan) !important;
+  outline-offset: 2px !important;
+}

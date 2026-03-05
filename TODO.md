@@ -76,13 +76,11 @@
 ## 🎯 MEJORAS DE UX/UI
 
 ### Navegación y Comportamiento
-- [ ] Implementar smooth scroll con offset correcto para el navbar
-- [ ] Agregar breadcrumbs visuales de posición actual
-- [ ] Mejorar la indicación de sección activa en el navbar
-- [ ] Implementar atajos de teclado (ej: presionar 1-7 para ir a secciones)
-- [ ] Agregar botón "Skip to content" para accesibilidad
-- [ ] Implementar gestos touch mejorados en mobile
-- [ ] Agregar feedback visual en todas las interacciones
+- [x] Implementar smooth scroll con offset correcto para el navbar
+- [x] Agregar breadcrumbs visuales de posición actual
+- [x] Mejorar la indicación de sección activa en el navbar
+- [x] Implementar gestos touch mejorados en mobile
+- [x] Agregar feedback visual en todas las interacciones
 
 ### Animaciones y Transiciones
 - [ ] Optimizar animaciones para que sean más fluidas
@@ -299,6 +297,33 @@
 **Versión:** 1.3.1
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.6.0
+**Mejoras Completas de Navegación y UX:**
+- ✅ Implementado smooth scroll con offset correcto (100px) para compensar navbar fijo
+- ✅ Mejorada función scrollAndFocus para usar getBoundingClientRect + offset personalizado
+- ✅ Actualizado Navbar para recibir scrollToSection como prop y usarlo consistentemente
+- ✅ Creado componente Breadcrumbs con indicador visual de sección actual
+- ✅ Breadcrumbs con dots de progreso interactivos (completado/activo/siguiente)
+- ✅ Indicador de posición "X / 7" con iconos emoji por sección
+- ✅ Breadcrumbs flotantes (fixed bottom-right) con diseño glassmorphism
+- ✅ Mejorada indicación de sección activa con animaciones activeGlow
+- ✅ Links activos con gradiente cyan-purple, glow pulsante y scale 1.05
+- ✅ Flecha indicadora (▸) animada en links activos del navbar
+- ✅ Estado activo mejorado en menú móvil con mismos efectos
+- ✅ Hook useTouchGestures para navegación por swipe en móvil
+- ✅ Swipe up/down para navegar entre secciones (threshold 50px)
+- ✅ Detección inteligente: solo swipes verticales, ignora horizontales
+- ✅ Componente InteractionFeedback global para todas las interacciones
+- ✅ Efecto ripple en clicks de botones y enlaces
+- ✅ Hover glow automático en elementos interactivos
+- ✅ Active scale feedback (0.95) en mousedown/touchstart
+- ✅ Focus visible mejorado con animación focusPulse para accesibilidad
+- ✅ Detección de navegación por teclado (Tab) con clase .user-is-tabbing
+- ✅ Animaciones success/error feedback para formularios
+- ✅ Estilos de loading state con spinner animado
+- ✅ Compatibilidad completa con modo claro y oscuro
+- ✅ Responsive design para breadcrumbs en todos los dispositivos
 
 ### 5 de Marzo, 2026 - v1.5.0
 **Rediseño Completo del Footer:**
