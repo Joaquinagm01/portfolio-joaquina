@@ -294,9 +294,18 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.11.4
+**Versión:** 1.11.5
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.11.5
+**Fix Definitivo de React Icons en Producción:**
+- ✅ Simplificada estrategia de code splitting para react-icons
+- ✅ Todos los iconos ahora en un solo chunk 'icons-vendor'
+- ✅ Evita problemas de inicialización con splitting granular por familia
+- ✅ Resuelve error "Cannot set properties of undefined (setting 'Activity')"
+- ✅ Service Worker actualizado a v1.9.3
+- ✅ Build verificado exitosamente sin fragmentación de módulos de iconos
 
 ### 5 de Marzo, 2026 - v1.11.4
 **Fix de Build y Optimización de Icons:**

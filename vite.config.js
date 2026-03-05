@@ -56,16 +56,9 @@ export default defineConfig({
             if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
               return 'react-vendor';
             }
-            // React Icons - split by icon family
+            // React Icons - keep all together to avoid initialization issues
             if (id.includes('react-icons')) {
-              if (id.includes('react-icons/fa')) return 'icons-fa';
-              if (id.includes('react-icons/si')) return 'icons-si';
-              if (id.includes('react-icons/md')) return 'icons-md';
-              if (id.includes('react-icons/bi')) return 'icons-bi';
-              if (id.includes('react-icons/di') || id.includes('react-icons/vsc') || id.includes('react-icons/tb')) {
-                return 'icons-misc';
-              }
-              return 'icons';
+              return 'icons-vendor';
             }
             // i18next bundle
             if (id.includes('i18next') || id.includes('react-i18next')) {
