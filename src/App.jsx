@@ -17,7 +17,7 @@ import InteractionFeedback from './components/InteractionFeedback';
 import SkeletonLoader from './components/SkeletonLoader';
 import LazyAnimation from './components/LazyAnimation';
 import ScrollSnap from './components/ScrollSnap';
-import useTouchGestures from './hooks/useTouchGestures';
+// import useTouchGestures from './hooks/useTouchGestures'; // Desactivado - interfiere con scroll natural
 import useReducedMotion from './hooks/useReducedMotion';
 import useOptimizedParallax from './hooks/useOptimizedParallax';
 import useTheme from './hooks/useTheme';
@@ -119,8 +119,8 @@ function App() {
     }
   };
 
-  // Hook para gestos táctiles en móviles
-  useTouchGestures(scrollAndFocus);
+  // Hook para gestos táctiles en móviles - DESACTIVADO para mejor UX en scroll
+  // useTouchGestures(scrollAndFocus);
 
   // Hook para parallax optimizado en hero section
   const parallaxRef = useOptimizedParallax(0.3, true);

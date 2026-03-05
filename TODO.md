@@ -294,9 +294,22 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.12.0
+**Versión:** 1.12.1
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.12.1
+**Desactivar Gestos Táctiles de Navegación Automática:**
+- ✅ Desactivado useTouchGestures hook en móviles
+- ✅ Elimina navegación automática por swipe vertical
+- ✅ Permite scroll natural sin saltos entre secciones
+- ✅ Mejor experiencia de usuario en dispositivos móviles
+- ✅ Usuario puede ver el contenido completo de cada sección sin interrupciones
+
+**Problema resuelto:**
+- Los usuarios podían deslizar pero el sitio saltaba automáticamente a otra sección
+- Impedía ver el contenido completo de cada sección
+- Comportamiento intrusivo que interrumpía la navegación natural
 
 ### 5 de Marzo, 2026 - v1.12.0
 **Simplificación de Build Strategy - Automatic Code Splitting:**
