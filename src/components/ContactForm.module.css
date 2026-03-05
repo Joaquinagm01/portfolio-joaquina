@@ -5,7 +5,7 @@
   background: rgba(0, 20, 40, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 2px solid rgba(234, 179, 8, 0.3);
+  border: 2px solid rgba(6, 182, 212, 0.3);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -20,7 +20,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
   transition: left 0.5s;
 }
 
@@ -42,7 +42,7 @@
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #eab308, #f59e0b);
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,9 +100,9 @@
 }
 
 .formInput:focus {
-  border-color: #eab308;
+  border-color: #06b6d4;
   background: rgba(0, 15, 30, 0.9);
-  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
 .formInput:disabled {
@@ -149,7 +149,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: #0a0e27;
-  background: linear-gradient(135deg, #eab308, #f59e0b);
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -158,7 +158,7 @@
   justify-content: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -180,7 +180,7 @@
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(234, 179, 8, 0.5);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
 }
 
 .submitButton:active {
@@ -288,12 +288,12 @@
 /* Light Mode */
 [data-theme="light"] .formContainer {
   background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(146, 64, 14, 0.3);
+  border-color: rgba(8, 145, 178, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .formTitle {
-  background: linear-gradient(135deg, #92400e, #b45309);
+  background: linear-gradient(135deg, #0891b2, #0369a1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -318,19 +318,19 @@
 }
 
 [data-theme="light"] .formInput:focus {
-  border-color: #92400e;
+  border-color: #0891b2;
   background: white;
-  box-shadow: 0 0 0 3px rgba(146, 64, 14, 0.1);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
 }
 
 [data-theme="light"] .submitButton {
-  background: linear-gradient(135deg, #92400e, #b45309);
+  background: linear-gradient(135deg, #0891b2, #0369a1);
   color: white;
-  box-shadow: 0 4px 15px rgba(146, 64, 14, 0.3);
+  box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
 }
 
 [data-theme="light"] .submitButton:hover {
-  box-shadow: 0 6px 20px rgba(146, 64, 14, 0.4);
+  box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
 }
 
 [data-theme="light"] .loadingSpinner {

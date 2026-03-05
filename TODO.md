@@ -302,6 +302,20 @@
 
 ## 🔧 CORRECCIONES RECIENTES
 
+### 5 de Marzo, 2026 - v1.4.1
+**Rediseño Visual de Sección de Contacto:**
+- ✅ Cambiado esquema de colores de amarillo (#eab308) a cyan profesional (#06b6d4)
+- ✅ Actualizados todos los gradientes y efectos de brillo a tonos azul/cyan
+- ✅ Mejorado contraste en modo claro con cyan más oscuro (#0891b2)
+- ✅ Cards de contacto con bordes animados en cyan
+- ✅ Partículas de fondo actualizadas a colores cyan
+- ✅ Formulario ContactForm con gradientes cyan modernos
+- ✅ Botón submit con gradiente cyan (#06b6d4 → #0891b2)
+- ✅ Focus states de inputs con glow cyan
+- ✅ Mapa de ubicación con pin y bordes cyan
+- ✅ Botones de copiar con efectos hover cyan
+- ✅ Compatibilidad completa en modo oscuro y claro
+
 ### 5 de Marzo, 2026 - v1.4.0
 **Mejoras en Sección de Contacto:**
 - ✅ Creado componente ContactForm.jsx con validación en tiempo real
