@@ -294,9 +294,19 @@
 ---
 
 **Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.11.3
+**Versión:** 1.11.4
 
 ## 🔧 CORRECCIONES RECIENTES
+
+### 5 de Marzo, 2026 - v1.11.4
+**Fix de Build y Optimización de Icons:**
+- ✅ Corregido code splitting de react-icons en vite.config.js
+- ✅ Agregado soporte explícito para react-icons/md y react-icons/bi
+- ✅ Eliminados preloads de imágenes profile-*.avif que causaban warnings
+- ✅ Service Worker actualizado a v1.9.2 para limpiar caches antiguas
+- ✅ Corregido error "Cannot set properties of undefined (setting 'Activity')" en producción
+- ✅ Optimizado manualChunks para evitar conflictos entre familias de iconos
+- ✅ Build verificado exitosamente sin errores
 
 ### 5 de Marzo, 2026 - v1.11.3
 **Mejoras en Hero Typewriter:**
