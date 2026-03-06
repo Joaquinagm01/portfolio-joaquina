@@ -293,12 +293,27 @@
 
 ---
 
-**Última actualización:** 5 de Marzo, 2026
-**Versión:** 1.12.1
+**Última actualización:** 6 de Marzo, 2026
+**Versión:** 1.12.2
 
 ## 🔧 CORRECCIONES RECIENTES
 
-### 5 de Marzo, 2026 - v1.12.1
+### 6 de Marzo, 2026 - v1.12.2
+**Simplificación de Contenido - Sección "Sobre este Portfolio":**
+- ✅ Resumidas todas las descripciones de tecnologías y características
+- ✅ Reducción de ~50% en longitud de textos sin perder información clave
+- ✅ Descripciones más concisas y directas al punto
+- ✅ Mantenidas todas las interacciones y animaciones de cards
+- ✅ Actualizado tanto en Español como en Inglés
+
+**Ejemplos de cambios:**
+- Antes: "Biblioteca JavaScript para construir interfaces de usuario con componentes reutilizables y estado reactivo."
+- Ahora: "Componentes reutilizables y estado reactivo."
+
+- Antes: "Optimizado para Core Web Vitals con LCP <2.5s, FID <100ms y bundle <500KB gzipped."
+- Ahora: "LCP <2.5s, FID <100ms, bundle <500KB."
+
+### 6 de Marzo, 2026 - v1.12.1
 **Desactivar Gestos Táctiles de Navegación Automática:**
 - ✅ Desactivado useTouchGestures hook en móviles
 - ✅ Elimina navegación automática por swipe vertical
