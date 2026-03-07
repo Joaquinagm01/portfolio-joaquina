@@ -167,7 +167,7 @@ function App() {
             </Suspense>
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
-              <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+              <a href="/CV_JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
                 {t('navbar.download_cv')}
               </a>
             </div>
@@ -594,7 +594,7 @@ function App() {
             </div>
 
             {/* CV Card - Green */}
-            <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardCV}`} aria-label={`${t('contact.cv')}: PDF en Español`}>
+            <a href="/CV_JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.contactCard} ${styles.contactCardCV}`} aria-label={`${t('contact.cv')}: PDF en Español`}>
               <div className={styles.contactIcon}>📄</div>
               <h3 className={styles.contactTitle}>{t('contact.cv')}</h3>
               <p className={styles.contactDetail}>PDF - Español</p>
@@ -711,7 +711,7 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="/CV-JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/CV_JoaquinaGomezManna.pdf" target="_blank" rel="noopener noreferrer">
                     <FaBriefcase className={styles.footerContactIcon} />
                     <span>{t('navbar.download_cv')}</span>
                   </a>
