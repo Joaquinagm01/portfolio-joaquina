@@ -40,9 +40,9 @@ const Projects = memo(() => {
       description: t('projects.libros.description'),
       tech: ['React', 'Node.js', 'Express', 'TypeScript', 'MikroORM', 'MySQL', 'JWT'],
       categories: ['Backend', 'Frontend', 'Full Stack'],
-      demo: 'https://tpdsw-31.vercel.app/',
+      demo: 'https://tpdsww.vercel.app/',
       github: 'https://github.com/JoaquinM999/TPDSW-COM304--Carloni-GomezManna-Chacon-Mierez-2025.git',
-      video: 'https://youtu.be/FO6B1pzP6KY?si=F0xMksfuTxg8GRTA',
+      video: 'https://youtu.be/OV2I2X6kp80',
       featured: true
     },
     {
