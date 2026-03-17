@@ -10,7 +10,6 @@ import LanguageSelector from './components/LanguageSelector';
 import Courses from './components/Courses';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import AboutPortfolio from './components/AboutPortfolio';
 import ContactForm from './components/ContactForm';
 import Breadcrumbs from './components/Breadcrumbs';
 import InteractionFeedback from './components/InteractionFeedback';
@@ -470,18 +469,6 @@ function App() {
 
         <AnimateOnScroll className={styles.contentContainer}>
           <Skills />
-        </AnimateOnScroll>
-      </section>
-
-      {/* SOBRE ESTE PORTFOLIO */}
-      <section id="about-portfolio" className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>{t('aboutPortfolio.title')}</h2>
-          <p className={styles.sectionDescription}>{t('aboutPortfolio.description')}</p>
-        </div>
-
-        <AnimateOnScroll className={styles.contentContainer}>
-          <AboutPortfolio />
         </AnimateOnScroll>
       </section>
 
