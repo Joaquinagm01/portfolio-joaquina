@@ -125,7 +125,7 @@
   "courses.course4.title": "Cybersecurity Basics",
   "courses.course4.institution": "Ekoparty Hackademy",
   "courses.course4.date": "2026",
-  "courses.course4.description": "Core cybersecurity concepts, attack surface awareness, common risks, and practical defensive habits for real environments.",
+  "courses.course4.description": "Comprehensive cybersecurity training covering networking fundamentals and the OSI model, traffic analysis with Wireshark, WiFi security, secure protocols, Windows/Active Directory and Linux hardening, virtualization (VMs and Docker), cryptography (hashing, MFA, certificates, Zero Trust), and a risk-based, least-privilege mindset.",
   "courses.course5.title": "Network Basics",
   "courses.course5.institution": "Cisco Networking Academy",
   "courses.course5.date": "2026",
