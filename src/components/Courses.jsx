@@ -52,6 +52,28 @@ const Courses = memo(() => {
       icon: SiCisco,
       iconColor: '#049fd9',
       category: 'programming'
+    },
+    {
+      id: 4,
+      title: t('courses.course4.title'),
+      institution: t('courses.course4.institution'),
+      date: t('courses.course4.date'),
+      description: t('courses.course4.description'),
+      pdfUrl: '/ekoparty-hackademy-cybersecurity-basics.pdf',
+      icon: MdSecurity,
+      iconColor: '#ef6c00',
+      category: 'programming'
+    },
+    {
+      id: 5,
+      title: t('courses.course5.title'),
+      institution: t('courses.course5.institution'),
+      date: t('courses.course5.date'),
+      description: t('courses.course5.description'),
+      pdfUrl: '/NetworkingBasicsUpdate20260327-32-gdjz4o.pdf',
+      icon: SiCisco,
+      iconColor: '#049fd9',
+      category: 'programming'
     }
   ], [t]);
 
