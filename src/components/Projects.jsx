@@ -17,8 +17,7 @@ const Projects = memo(() => {
       description: t('projects.alojarg.description'),
       tech: ['.NET 9', 'Angular 20', 'TypeScript', 'MySQL', 'JWT', 'Docker', 'FluentValidation'],
       categories: ['Backend', 'Frontend', 'Full Stack'],
-      github: 'https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git',
-      demo: null,
+      github: 'https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git',\n      demo: 'https://alojarg.vercel.app',
       featured: true
     },
     {
