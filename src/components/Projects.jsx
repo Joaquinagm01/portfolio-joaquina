@@ -5,7 +5,7 @@ import styles from './Projects.module.css';
 
 const Projects = memo(() => {
   const { t } = useTranslation();
-  const [selectedTech, setSelectedTech] = useState('all');
+  const [selectedTech, setSelectedTech ] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
 
   // Memoize projects data to avoid recreation on every render
@@ -17,7 +17,8 @@ const Projects = memo(() => {
       description: t('projects.alojarg.description'),
       tech: ['.NET 9', 'Angular 20', 'TypeScript', 'MySQL', 'JWT', 'Docker', 'FluentValidation'],
       categories: ['Backend', 'Frontend', 'Full Stack'],
-      github: 'https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git',\n      demo: 'https://alojarg.vercel.app',
+      github: 'https://github.com/Joaquinagm01/Seminario301-GomezManna.Tabini.Ariati.Romagnoli.Rindello.git',
+      demo: 'https://alojarg.vercel.app',
       featured: true
     },
     {
@@ -214,3 +215,4 @@ const Projects = memo(() => {
 });
 
 export default Projects;
+

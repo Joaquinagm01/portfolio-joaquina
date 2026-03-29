@@ -1,8 +1,8 @@
 # TODO: Add Alojarg demo to Projects
 
 ## Plan Breakdown
-- [x] Step 1: Edit src/components/Projects.jsx to add demo URL to Alojarg project (id:1)
-- [ ] Step 2: Test locally (npm run dev)
+- [x] Step 1: Edit src/components/Projects.jsx to add demo URL to Alojarg project (id:1)\n- [x] Step 3: Fixed syntax error (\n removed), recreated clean Projects.jsx
+- [x] Step 2: Test locally (npm run dev)
 - [ ] Step 3: Update TODO.md with completion status
 - [ ] Step 4: Suggest deploy/test live demo button
 
