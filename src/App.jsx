@@ -277,7 +277,24 @@ function App() {
       <section id="sobre-mi" className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>{t('about.title')}</h2>
-          <p className={styles.sectionDescription}>{t('about.description')}</p>
+          <div className={styles.aboutDescriptionGroup}>
+            <p className={styles.sectionDescription}>{t('about.paragraph1')}</p>
+            <p className={styles.sectionDescription}>{t('about.paragraph2')}</p>
+            <p className={styles.sectionDescription}>{t('about.paragraph3')}</p>
+
+            <div className={styles.aboutHighlights}>
+              <h3 className={styles.aboutHighlightsTitle}>{t('about.highlights.title')}</h3>
+              <ul className={styles.aboutHighlightsList}>
+                <li>{t('about.highlights.item1')}</li>
+                <li>{t('about.highlights.item2')}</li>
+                <li>{t('about.highlights.item3')}</li>
+                <li>{t('about.highlights.item4')}</li>
+                <li>{t('about.highlights.item5')}</li>
+                <li>{t('about.highlights.item6')}</li>
+                <li>{t('about.highlights.item7')}</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <AnimateOnScroll className={styles.contentContainer}>
@@ -382,6 +399,7 @@ function App() {
                   <span className={styles.techBadge}><FaWindows />{t('experience.job1.tech4')}</span>
                   <span className={styles.techBadge}><FaServer />{t('experience.job1.tech5')}</span>
                   <span className={styles.techBadge}><FaJira />{t('experience.job1.tech6')}</span>
+                  <span className={styles.techBadge}><FaTools />{t('experience.job1.tech7')}</span>
                 </div>
               </div>
             </div>
@@ -426,6 +444,7 @@ function App() {
                 <div className={styles.techStack}>
                   <span className={styles.techBadge}><FaWindows />{t('experience.job2.tech1')}</span>
                   <span className={styles.techBadge}><FaLinux />{t('experience.job2.tech2')}</span>
+                  <span className={styles.techBadge}><FaUbuntu />{t('experience.job2.tech6')}</span>
                   <span className={styles.techBadge}><FaServer />{t('experience.job2.tech3')}</span>
                   <span className={styles.techBadge}><FaCode />{t('experience.job2.tech4')}</span>
                   <span className={styles.techBadge}><FaBook />{t('experience.job2.tech5')}</span>
@@ -598,11 +617,10 @@ function App() {
           <div className={styles.contactMapContainer}>
             <h3 className={styles.contactMapTitle}>{t('contact.map_title')}</h3>
             <div className={styles.contactMapWrapper}>
-              <div className={styles.contactMapPin}>Rosario, Santa Fe, Argentina</div>
               <iframe 
                 className={styles.contactMapIframe}
-                title="Rosario, Argentina Location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-60.75%2C-33.05%2C-60.65%2C-32.95&amp;layer=mapnik&amp;marker=-32.95%2C-60.70"
+                title="Ubicacion en mapa"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-60.6698%2C-32.9602%2C-60.6598%2C-32.9522&amp;layer=mapnik&amp;marker=-32.95621822050568%2C-60.664822486379485"
                 loading="lazy"
               ></iframe>
             </div>
@@ -644,37 +662,37 @@ function App() {
               <ul className={styles.footerLinks}>
                 <li>
                   <a href="#inicio" onClick={(e) => scrollAndFocus('inicio', e)}>
-                    <span className={styles.footerLinkIcon}>🏠</span>
+                    <span className={styles.footerLinkIcon}>↑</span>
                     {t('navbar.home')}
                   </a>
                 </li>
                 <li>
                   <a href="#sobre-mi" onClick={(e) => scrollAndFocus('sobre-mi', e)}>
-                    <span className={styles.footerLinkIcon}>👤</span>
+                    <span className={styles.footerLinkIcon}>◉</span>
                     {t('navbar.about')}
                   </a>
                 </li>
                 <li>
                   <a href="#experiencia" onClick={(e) => scrollAndFocus('experiencia', e)}>
-                    <span className={styles.footerLinkIcon}>💼</span>
+                    <span className={styles.footerLinkIcon}>◆</span>
                     {t('navbar.experience')}
                   </a>
                 </li>
                 <li>
                   <a href="#proyectos" onClick={(e) => scrollAndFocus('proyectos', e)}>
-                    <span className={styles.footerLinkIcon}>🚀</span>
+                    <span className={styles.footerLinkIcon}>★</span>
                     {t('navbar.projects')}
                   </a>
                 </li>
                 <li>
                   <a href="#habilidades" onClick={(e) => scrollAndFocus('habilidades', e)}>
-                    <span className={styles.footerLinkIcon}>⚡</span>
+                    <span className={styles.footerLinkIcon}>◈</span>
                     {t('navbar.skills')}
                   </a>
                 </li>
                 <li>
                   <a href="#contacto" onClick={(e) => scrollAndFocus('contacto', e)}>
-                    <span className={styles.footerLinkIcon}>📬</span>
+                    <span className={styles.footerLinkIcon}>✉</span>
                     {t('navbar.contact')}
                   </a>
                 </li>

@@ -66,6 +66,17 @@ const Projects = memo(() => {
       demo: null,
       github: null,
       featured: false
+    },
+    {
+      id: 6,
+      title: t('projects.vuelos.title'),
+      subtitle: t('projects.vuelos.subtitle'),
+      description: t('projects.vuelos.description'),
+      tech: ['Node.js', 'Express', 'MySQL', 'JWT', 'PHP', 'MVC', 'XAMPP', 'Bootstrap 5'],
+      categories: ['Backend', 'Frontend', 'Full Stack'],
+      demo: null,
+      github: 'https://github.com/goncarrizo/TP-entornos-graficos.git',
+      featured: true
     }
   ], [t]);
 

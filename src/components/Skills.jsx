@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import {
   FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaGitAlt, FaGithub,
   FaLinux, FaWindows, FaApple, FaUbuntu, FaFileExcel, FaChartLine,
-  FaFigma, FaServer, FaNetworkWired, FaShieldAlt, FaCloud, FaTools
+  FaFigma, FaServer, FaNetworkWired, FaShieldAlt, FaCloud, FaTools, FaVial
 } from 'react-icons/fa';
 import {
   SiMysql, SiPostgresql, SiMongodb, SiJavascript, SiTypescript,
   SiTailwindcss, SiNextdotjs, SiAngular, SiDotnet, SiPrisma, SiExpress,
-  SiAutocad, SiTerraform
+  SiAutocad, SiTerraform, SiPhp, SiBootstrap
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 import { BiServer } from 'react-icons/bi';
@@ -30,6 +30,7 @@ const Skills = memo(() => {
         { name: 'Angular 20', icon: SiAngular, color: '#dd0031' },
         { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
         { name: 'TailwindCSS', icon: SiTailwindcss, color: '#06b6d4' },
+        { name: 'Bootstrap 5', icon: SiBootstrap, color: '#7952b3' },
         { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
         { name: 'TypeScript', icon: SiTypescript, color: '#3178c6' }
       ]
@@ -45,7 +46,8 @@ const Skills = memo(() => {
         { name: '.NET 9', icon: SiDotnet, color: '#512bd4' },
         { name: 'Python', icon: FaPython, color: '#3776ab' },
         { name: 'Prisma', icon: SiPrisma, color: '#2d3748' },
-        { name: 'MikroORM', icon: BiServer, color: '#ff4438' }
+        { name: 'MikroORM', icon: BiServer, color: '#ff4438' },
+        { name: 'JWT', icon: FaServer, color: '#d63031', fullName: 'JSON Web Tokens' }
       ]
     },
     {
@@ -70,7 +72,8 @@ const Skills = memo(() => {
         { name: 'Azure', icon: FaCloud, color: '#0078d4' },
         { name: 'Git', icon: FaGitAlt, color: '#f05032' },
         { name: 'GitHub', icon: FaGithub, color: '#181717' },
-        { name: 'Terraform', icon: SiTerraform, color: '#7b42bc' }
+        { name: 'Terraform', icon: SiTerraform, color: '#7b42bc' },
+        { name: 'XAMPP', icon: FaTools, color: '#fb7185', fullName: 'Apache, MySQL, PHP, Perl' }
       ]
     },
     {
@@ -95,6 +98,7 @@ const Skills = memo(() => {
         { name: 'Python', icon: FaPython, color: '#3776ab' },
         { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
         { name: 'TypeScript', icon: SiTypescript, color: '#3178c6' },
+        { name: 'PHP', icon: SiPhp, color: '#777bb4' },
         { name: 'C', icon: VscCode, color: '#a8b9cc' },
         { name: 'Pascal', icon: VscCode, color: '#6b9bd1' },
         { name: 'Smalltalk', icon: VscCode, color: '#596677' }
@@ -108,6 +112,7 @@ const Skills = memo(() => {
       skills: [
         { name: 'Windows', icon: FaWindows, color: '#0078d6' },
         { name: 'Linux', icon: FaLinux, color: '#fcc624' },
+        { name: 'Kali Linux', icon: FaLinux, color: '#557c94' },
         { name: 'Ubuntu', icon: FaUbuntu, color: '#e95420' },
         { name: 'iOS', icon: FaApple, color: '#000000' }
       ]
@@ -122,6 +127,15 @@ const Skills = memo(() => {
         { name: 'Axure', icon: FaFigma, color: '#00b0ff' },
         { name: 'AnyLogic', icon: FaChartLine, color: '#ff6b35' },
         { name: 'MD, DER', icon: FaFigma, color: '#a259ff', fullName: 'Modelo de Datos, Diseño de Sistema' }
+      ]
+    },
+    {
+      id: 'qa',
+      title: t('skills.qa') || 'QA & Testing',
+      icon: FaVial,
+      color: '#2ecd71',
+      skills: [
+        { name: 'Playwright', icon: FaVial, color: '#2ecd71', fullName: 'E2E Testing Framework' }
       ]
     },
     {

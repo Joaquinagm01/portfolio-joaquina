@@ -3,9 +3,15 @@ import './InteractionFeedback.css';
 
 const InteractionFeedback = () => {
   useEffect(() => {
+    const getInteractiveTarget = (event, selector) => {
+      const node = event?.target;
+      if (!(node instanceof Element)) return null;
+      return node.closest(selector);
+    };
+
     // Ripple effect on click
     const createRipple = (event) => {
-      const target = event.target.closest('button, a, [role="button"]');
+      const target = getInteractiveTarget(event, 'button, a, [role="button"]');
       if (!target) return;
 
       const ripple = document.createElement('span');
@@ -30,26 +36,26 @@ const InteractionFeedback = () => {
 
     // Hover glow effect
     const addHoverGlow = (event) => {
-      const target = event.target.closest('button, a, .interactive');
+      const target = getInteractiveTarget(event, 'button, a, .interactive');
       if (!target) return;
       target.classList.add('hover-glow');
     };
 
     const removeHoverGlow = (event) => {
-      const target = event.target.closest('button, a, .interactive');
+      const target = getInteractiveTarget(event, 'button, a, .interactive');
       if (!target) return;
       target.classList.remove('hover-glow');
     };
 
     // Scale feedback on active
     const addActiveScale = (event) => {
-      const target = event.target.closest('button, a, .interactive');
+      const target = getInteractiveTarget(event, 'button, a, .interactive');
       if (!target) return;
       target.classList.add('active-scale');
     };
 
     const removeActiveScale = (event) => {
-      const target = event.target.closest('button, a, .interactive');
+      const target = getInteractiveTarget(event, 'button, a, .interactive');
       if (!target) return;
       setTimeout(() => target.classList.remove('active-scale'), 150);
     };

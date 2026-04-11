@@ -70,7 +70,62 @@ const Courses = memo(() => {
       institution: t('courses.course5.institution'),
       date: t('courses.course5.date'),
       description: t('courses.course5.description'),
-      pdfUrl: '/NetworkingBasicsUpdate20260327-32-gdjz4o.pdf',
+      pdfUrl: '/Networking_Basics_certificate_gomezmannajoaquina-gmail-com_4fe9a501-72dd-45f3-bcbe-37b812a531c9.pdf',
+      icon: SiCisco,
+      iconColor: '#049fd9',
+      category: 'programming'
+    },
+    {
+      id: 6,
+      title: t('courses.course6.title'),
+      institution: t('courses.course6.institution'),
+      date: t('courses.course6.date'),
+      description: t('courses.course6.description'),
+      pdfUrl: '/Network_Defense_certificate_gomezmannajoaquina-gmail-com_4567c14a-aa36-41e9-a516-78e229c75eb1.pdf',
+      icon: MdSecurity,
+      iconColor: '#00bcd4',
+      category: 'programming'
+    },
+    {
+      id: 7,
+      title: t('courses.course7.title'),
+      institution: t('courses.course7.institution'),
+      date: t('courses.course7.date'),
+      description: t('courses.course7.description'),
+      pdfUrl: '/Endpoint_Security_certificate_gomezmannajoaquina-gmail-com_83b46410-23a8-448c-bc1e-adb4ae2dcf99.pdf',
+      icon: MdSecurity,
+      iconColor: '#26a69a',
+      category: 'programming'
+    },
+    {
+      id: 8,
+      title: t('courses.course8.title'),
+      institution: t('courses.course8.institution'),
+      date: t('courses.course8.date'),
+      description: t('courses.course8.description'),
+      pdfUrl: '/Cyber_Threat_Management_certificate_gomezmannajoaquina-gmail-com_b34201a5-dd14-41ed-873e-459d0247807e.pdf',
+      icon: MdSecurity,
+      iconColor: '#ef5350',
+      category: 'programming'
+    },
+    {
+      id: 9,
+      title: t('courses.course9.title'),
+      institution: t('courses.course9.institution'),
+      date: t('courses.course9.date'),
+      description: t('courses.course9.description'),
+      pdfUrl: '/Junior_Cybersecurity_Analyst_Career_Path_certificate_gomezmannajoaquina-gmail-com_fa2c1438-72e7-4ca0-b0e1-5580229ec2a3.pdf',
+      icon: SiCisco,
+      iconColor: '#049fd9',
+      category: 'programming'
+    },
+    {
+      id: 10,
+      title: t('courses.course10.title'),
+      institution: t('courses.course10.institution'),
+      date: t('courses.course10.date'),
+      description: t('courses.course10.description'),
+      pdfUrl: '/Networking_Devices_and_Initial_Configuration_certificate_gomezmannajoaquina-gmail-com_4745328e-6965-440f-a9f1-52a2396de4ca.pdf',
       icon: SiCisco,
       iconColor: '#049fd9',
       category: 'programming'
