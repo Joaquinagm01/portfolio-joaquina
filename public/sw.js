@@ -2,7 +2,7 @@
  * Advanced Service Worker with Multiple Caching Strategies
  * Cache version and configuration
  */
-const CACHE_VERSION = 'v1.10.0';
+const CACHE_VERSION = 'v1.10.1';
 const CACHE_PREFIX = 'portfolio-joaquina';
 const CACHE_NAME = `${CACHE_PREFIX}-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-${CACHE_VERSION}`;
@@ -22,7 +22,8 @@ const CACHE_DURATION = {
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/CV-JoaquinaGomezManna.pdf',
+  '/CVJoaquinaGomezManna.pdf',
+  '/CVJoaquinaGomezManna.English.pdf',
   '/manifest.json',
   '/vite.svg',
   // Profile images
