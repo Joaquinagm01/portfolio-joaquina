@@ -1,0 +1,70 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="104" y1="52" x2="1178" y2="668" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111f"/>
+      <stop offset="0.45" stop-color="#0b1f3a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="58" x2="1038" y2="668" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00FFFF"/>
+      <stop offset="0.5" stop-color="#8A2BE2"/>
+      <stop offset="1" stop-color="#FF6B35"/>
+    </linearGradient>
+    <filter id="blur" x="0" y="0" width="1280" height="720" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" rx="36" fill="#050816"/>
+  <rect x="28" y="28" width="1224" height="664" rx="28" fill="url(#bg)" stroke="rgba(0,255,255,0.22)"/>
+  <rect x="58" y="58" width="1164" height="604" rx="24" fill="rgba(5,8,22,0.85)" stroke="rgba(255,255,255,0.06)"/>
+
+  <circle cx="228" cy="140" r="92" fill="#00ffff" opacity="0.12" filter="url(#blur)"/>
+  <circle cx="1050" cy="188" r="140" fill="#8a2be2" opacity="0.14" filter="url(#blur)"/>
+  <circle cx="898" cy="558" r="160" fill="#ff6b35" opacity="0.10" filter="url(#blur)"/>
+
+  <rect x="92" y="96" width="1096" height="54" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,255,0.16)"/>
+  <rect x="118" y="113" width="120" height="18" rx="9" fill="#00ffff"/>
+  <rect x="262" y="113" width="88" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+  <rect x="368" y="113" width="110" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+  <rect x="986" y="108" width="162" height="28" rx="14" fill="rgba(0,255,255,0.12)" stroke="rgba(0,255,255,0.35)"/>
+  <text x="1008" y="127" fill="#9befff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Portfolio</text>
+
+  <rect x="92" y="184" width="468" height="416" rx="28" fill="rgba(255,255,255,0.03)" stroke="rgba(0,255,255,0.2)"/>
+  <text x="126" y="246" fill="#9befff" font-family="Orbitron, Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">Joaquina Gomez Manna</text>
+  <text x="126" y="322" fill="#ffffff" font-family="Orbitron, Inter, Arial, sans-serif" font-size="54" font-weight="900">Portfolio</text>
+  <text x="126" y="374" fill="#bfefff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Ciberseguridad · Analisis · Desarrollo</text>
+  <rect x="126" y="410" width="284" height="14" rx="7" fill="rgba(255,255,255,0.18)"/>
+  <rect x="126" y="438" width="342" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+  <rect x="126" y="466" width="312" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+
+  <rect x="126" y="520" width="152" height="48" rx="14" fill="#00ffff" opacity="0.14" stroke="#00ffff"/>
+  <text x="154" y="550" fill="#9befff" font-family="Orbitron, Arial, sans-serif" font-size="16" font-weight="700">Contacto</text>
+  <rect x="292" y="520" width="132" height="48" rx="14" fill="#8a2be2" opacity="0.14" stroke="#8a2be2"/>
+  <text x="327" y="550" fill="#e2c9ff" font-family="Orbitron, Arial, sans-serif" font-size="16" font-weight="700">CV</text>
+
+  <rect x="600" y="184" width="596" height="416" rx="28" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="632" y="216" width="532" height="64" rx="18" fill="rgba(0,255,255,0.08)" stroke="rgba(0,255,255,0.2)"/>
+  <rect x="664" y="236" width="170" height="14" rx="7" fill="#00ffff"/>
+  <rect x="664" y="258" width="268" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="1098" cy="248" r="18" fill="rgba(0,255,255,0.18)" stroke="#00ffff"/>
+
+  <rect x="632" y="304" width="248" height="120" rx="22" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="896" y="304" width="268" height="120" rx="22" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="632" y="444" width="532" height="124" rx="22" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+
+  <circle cx="706" cy="366" r="30" fill="#00ffff" opacity="0.18"/>
+  <rect x="756" y="344" width="98" height="14" rx="7" fill="#ffffff" opacity="0.82"/>
+  <rect x="756" y="368" width="126" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
+
+  <circle cx="970" cy="366" r="30" fill="#8a2be2" opacity="0.18"/>
+  <rect x="1020" y="344" width="98" height="14" rx="7" fill="#ffffff" opacity="0.82"/>
+  <rect x="1020" y="368" width="126" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
+
+  <rect x="666" y="472" width="122" height="14" rx="7" fill="#00ffff"/>
+  <rect x="666" y="498" width="420" height="10" rx="5" fill="rgba(255,255,255,0.16)"/>
+  <rect x="666" y="520" width="358" height="10" rx="5" fill="rgba(255,255,255,0.16)"/>
+  <rect x="666" y="542" width="282" height="10" rx="5" fill="rgba(255,255,255,0.16)"/>
+
+  <rect x="92" y="626" width="1096" height="8" rx="4" fill="url(#accent)" opacity="0.85"/>
+</svg>

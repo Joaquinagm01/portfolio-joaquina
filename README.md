@@ -2,6 +2,10 @@
 
 > Portfolio web personal desarrollado con React + Vite para mostrar mi perfil, experiencia, proyectos, habilidades y contacto en una experiencia bilingue, rapida y moderna.
 
+![Vista previa del portfolio](public/portfolio-preview.svg)
+
+*Mockup visual del portfolio para dar contexto inmediato de la experiencia apenas se abre el repositorio.*
+
 ## Vista Rapida
 
 | Tema | Detalle |
