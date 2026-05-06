@@ -29,7 +29,7 @@ const Typewriter = React.lazy(() => import('./components/Typewriter.jsx'));
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
-  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage, FaServer, FaBook, FaChevronDown, FaChevronUp
+  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage, FaServer, FaBook, FaChevronDown, FaChevronUp, FaShieldAlt, FaNetworkWired
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
@@ -53,7 +53,7 @@ function App() {
   } = useTheme();
   
   const [selectedProject, setSelectedProject] = useState(null);
-  const [expandedCards, setExpandedCards] = useState({ job1: false, job2: false });
+  const [expandedCards, setExpandedCards] = useState({ job0: false, job1: false, job2: false });
   const [copiedText, setCopiedText] = useState('');
 
   const copyToClipboard = async (text, label) => {
@@ -360,6 +360,57 @@ function App() {
 
         <AnimateOnScroll className={styles.contentContainer}>
           <div className={styles.timelineContainer}>
+            <div className={`${styles.experienceCard} ${styles.slideInLeft}`}>
+              <div className={styles.experienceHeader}>
+                <div className={styles.companyLogoContainer}>
+                  <img 
+                    src="/TecpointLogo.jpeg" 
+                    alt="Tecpoint S.A." 
+                    className={styles.companyLogo}
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
+                  />
+                </div>
+                <div>
+                  <h3 className={styles.experienceTitle}>{t('experience.job0.title')}</h3>
+                  <p className={styles.experienceCompany}>{t('experience.job0.company')}</p>
+                </div>
+                <span className={styles.experienceDate}>{t('experience.job0.period')}</span>
+              </div>
+              <button 
+                onClick={() => toggleCard('job0')} 
+                className={styles.accordionToggle}
+                aria-expanded={expandedCards.job0}
+                aria-label={expandedCards.job0 ? t('experience.hideDetails') : t('experience.showDetails')}
+              >
+                {expandedCards.job0 ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+              <div className={`${styles.experienceDetails} ${expandedCards.job0 ? styles.expanded : styles.collapsed}`}>
+                <p className={styles.experienceDescription}>{t('experience.job0.role')}</p>
+                <ul className={styles.experienceList}>
+                  <li>{t('experience.job0.desc1')}</li>
+                  <li>{t('experience.job0.desc2')}</li>
+                  <li>{t('experience.job0.desc3')}</li>
+                  <li>{t('experience.job0.desc4')}</li>
+                  <li>{t('experience.job0.desc5')}</li>
+                  <li>{t('experience.job0.desc6')}</li>
+                  <li>{t('experience.job0.desc7')}</li>
+                  <li>{t('experience.job0.desc8')}</li>
+                  <li>{t('experience.job0.desc9')}</li>
+                </ul>
+                <div className={styles.techStack}>
+                  <span className={styles.techBadge}><FaShieldAlt />{t('experience.job0.tech1')}</span>
+                  <span className={styles.techBadge}><FaShieldAlt />{t('experience.job0.tech2')}</span>
+                  <span className={styles.techBadge}><FaNetworkWired />{t('experience.job0.tech3')}</span>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job0.tech4')}</span>
+                  <span className={styles.techBadge}><FaWindows />{t('experience.job0.tech5')}</span>
+                  <span className={styles.techBadge}><FaServer />{t('experience.job0.tech6')}</span>
+                </div>
+              </div>
+            </div>
+
             <div className={`${styles.experienceCard} ${styles.slideInLeft}`}>
               <div className={styles.experienceHeader}>
                 <div className={styles.companyLogoContainer}>

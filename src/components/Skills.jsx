@@ -85,6 +85,8 @@ const Skills = memo(() => {
         { name: 'Kali Linux', icon: FaLinux, color: '#557c94' },
         { name: 'Nmap', icon: FaNetworkWired, color: '#4caf50' },
         { name: 'Cortex', icon: FaShieldAlt, color: '#ff6b6b' },
+        { name: 'Lumu', icon: FaShieldAlt, color: '#ff6b6b', fullName: 'Threat Detection & Response' },
+        { name: 'Sophos', icon: FaShieldAlt, color: '#00b4d8', fullName: 'Endpoint Protection' },
         { name: 'VirtualBox', icon: MdComputer, color: '#183a61' },
         { name: 'VMs', icon: FaCloud, color: '#00adef', fullName: 'Máquinas Virtuales' }
       ]
@@ -145,7 +147,8 @@ const Skills = memo(() => {
       color: '#217346',
       skills: [
         { name: 'Microsoft 365', icon: FaWindows, color: '#d83b01' },
-        { name: 'Excel', icon: FaFileExcel, color: '#217346' }
+        { name: 'Excel', icon: FaFileExcel, color: '#217346' },
+        { name: 'SAP', icon: FaTools, color: '#0080c7' }
       ]
     }
   ], [t]);

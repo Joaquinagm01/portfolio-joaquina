@@ -54,7 +54,23 @@ export default function CVInfo() {
         <h3 className={styles.sectionTitle}><span role="img" aria-label="Experiencia">💼</span> Experiencia profesional</h3>
         <div>
           <div className={styles.experienceSection}>
-            <span className={styles.bold}>Soporte Informático — Asociación de Cooperativas Argentinas</span> <span className={styles.gray}>(10/03/2025 – Actualidad)</span><br/>
+             <span className={styles.bold}>Analista de Ciberseguridad — Tecpoint S.A.</span> <span className={styles.gray}>(27/04/2026 – Actualidad)</span><br/>
+             <span className={styles.medium}>Rol:</span> Análisis de ciberseguridad, monitoreo de infraestructura y gestión de incidentes
+             <ul className={styles.bulletList}>
+               <li>Diseño de políticas y procedimientos de seguridad.</li>
+               <li>Soporte a proyectos vinculados a ciberseguridad.</li>
+               <li>Participación en auditorías internas y externas.</li>
+               <li>Gestión de usuarios, cuentas de correo y perfiles.</li>
+               <li>Generación de informes y reportes de incidentes.</li>
+               <li>Análisis de vulnerabilidades y riesgos tecnológicos.</li>
+               <li>Realización de test de intrusión.</li>
+               <li>Monitoreo de consolas de seguridad e infraestructura.</li>
+               <li>Correlación de logs y detección de incidentes.</li>
+             </ul>
+            <span className={styles.techNote}>Tecnologías: Lumu, Sophos, Nmap, Active Directory, Kali Linux, VirtualBox.</span>
+           </div>
+           <div className={styles.experienceSection}>
+             <span className={styles.bold}>Soporte Informático — Asociación de Cooperativas Argentinas</span> <span className={styles.gray}>(10/03/2025 – 24/04/2026)</span><br/>
             <span className={styles.medium}>Rol:</span> Soporte Informático de Nivel 1
             <ul className={styles.bulletList}>
               <li>Soporte técnico de primer nivel y resolución de incidencias en mesa de ayuda (Help Desk).</li>
