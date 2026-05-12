@@ -10,6 +10,7 @@ import {
   SiReactrouter, SiI18Next
 } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
+import { FaNetworkWired } from 'react-icons/fa';
 
 const AboutPortfolio = React.memo(() => {
   const { t } = useTranslation();
@@ -62,6 +63,19 @@ const AboutPortfolio = React.memo(() => {
           description: t('aboutPortfolio.libraries.emailjs'),
           icon: <MdEmail />,
           link: 'https://www.emailjs.com/'
+        }
+      ]
+    },
+    {
+      category: t('aboutPortfolio.networking.title'),
+      icon: <FaNetworkWired />,
+      color: '#049fd9',
+      technologies: [
+        {
+          name: 'Cisco',
+          description: t('aboutPortfolio.networking.cisco'),
+          logoUrl: '/Cisco.png',
+          link: 'https://www.cisco.com/'
         }
       ]
     },
@@ -190,7 +204,17 @@ const AboutPortfolio = React.memo(() => {
               {category.technologies.map((tech, techIdx) => (
                 <div key={techIdx} className={styles.techCard}>
                   <div className={styles.techIcon}>
-                    {tech.icon}
+                    {tech.logoUrl ? (
+                      <img
+                        src={tech.logoUrl}
+                        alt={tech.name}
+                        className={styles.techLogo}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      tech.icon
+                    )}
                   </div>
                   <div className={styles.techInfo}>
                     <h4 className={styles.techName}>

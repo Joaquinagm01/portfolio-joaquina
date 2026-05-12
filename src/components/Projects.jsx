@@ -58,14 +58,14 @@ const Projects = memo(() => {
     },
     {
       id: 5,
-      title: t('projects.hospital.title'),
-      subtitle: t('projects.hospital.subtitle') || 'Gestión Hospitalaria',
-      description: t('projects.hospital.description'),
-      tech: ['Python', 'Pascal', 'Algoritmos'],
-      categories: ['Backend', 'Python'],
+      title: t('projects.entornos.title'),
+      subtitle: t('projects.entornos.subtitle'),
+      description: t('projects.entornos.description'),
+      tech: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript', 'jQuery', 'PHP', 'MySQL', 'XAMPP'],
+      categories: ['Backend', 'Frontend', 'Full Stack'],
+      github: 'https://github.com/goncarrizo/TP-entornos-graficos.git',
       demo: null,
-      github: null,
-      featured: false
+      featured: true
     },
     {
       id: 6,

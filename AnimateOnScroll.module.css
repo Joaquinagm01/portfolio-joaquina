@@ -19,3 +19,13 @@
 .zoomIn {
   transform: scale(0.9);
 }
+
+.slideInScale {
+  transform: translateY(64px) scale(0.92) rotateX(8deg);
+  transform-origin: top center;
+  filter: blur(6px);
+}
+
+.animate.visible.slideInScale {
+  filter: blur(0);
+}

@@ -29,7 +29,7 @@ const Typewriter = React.lazy(() => import('./components/Typewriter.jsx'));
 import {
   FaAws, FaDocker, FaGithub, FaGitAlt, FaLinux, FaFigma, FaJira, FaRocket,
   FaReact, FaNodeJs, FaPython, FaJava, FaChartLine, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWindows, FaApple, FaUbuntu, FaFileExcel,
-  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage, FaServer, FaBook, FaChevronDown, FaChevronUp, FaShieldAlt, FaNetworkWired
+  FaBriefcase, FaCode, FaTools, FaHeart, FaGraduationCap, FaLanguage, FaServer, FaBook, FaChevronDown, FaChevronUp, FaShieldAlt, FaNetworkWired, FaDownload
 } from 'react-icons/fa'
 import {
   SiMysql, SiPostgresql, SiMongodb, SiTerraform,
@@ -455,6 +455,14 @@ function App() {
                   <span className={styles.techBadge}><FaJira />{t('experience.job1.tech6')}</span>
                   <span className={styles.techBadge}><FaTools />{t('experience.job1.tech7')}</span>
                 </div>
+                <a 
+                  href="/CartaRecomendacionACA.pdf" 
+                  download
+                  className={styles.recommendationButton}
+                  aria-label={t('experience.job1.recommendation')}
+                >
+                  <FaDownload /> {t('experience.job1.recommendation')}
+                </a>
               </div>
             </div>
 
@@ -540,7 +548,7 @@ function App() {
           <p className={styles.sectionDescription}>{t('skills.description')}</p>
         </div>
 
-        <AnimateOnScroll className={styles.contentContainer}>
+        <AnimateOnScroll className={styles.contentContainer} animation="slideInScale">
           <Skills />
         </AnimateOnScroll>
       </section>

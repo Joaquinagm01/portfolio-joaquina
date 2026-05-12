@@ -40,6 +40,7 @@ const Courses = memo(() => {
       pdfUrl: '/Curso de IA para ciberseguridad.pdf',
       icon: MdSecurity,
       iconColor: '#e91e63',
+      logoUrl: '/EdutinAcademy.png',
       category: 'ai'
     },
     {
@@ -62,6 +63,7 @@ const Courses = memo(() => {
       pdfUrl: '/ekoparty-hackademy-cybersecurity-basics.pdf',
       icon: MdSecurity,
       iconColor: '#ef6c00',
+      logoUrl: '/Ekoparty.png',
       category: 'cybersecurity'
     },
     {
@@ -82,8 +84,8 @@ const Courses = memo(() => {
       date: t('courses.course6.date'),
       description: t('courses.course6.description'),
       pdfUrl: '/Network_Defense_certificate_gomezmannajoaquina-gmail-com_4567c14a-aa36-41e9-a516-78e229c75eb1.pdf',
-      icon: MdSecurity,
-      iconColor: '#00bcd4',
+      icon: SiCisco,
+      iconColor: '#049fd9',
       category: 'cybersecurity'
     },
     {
@@ -93,8 +95,8 @@ const Courses = memo(() => {
       date: t('courses.course7.date'),
       description: t('courses.course7.description'),
       pdfUrl: '/Endpoint_Security_certificate_gomezmannajoaquina-gmail-com_83b46410-23a8-448c-bc1e-adb4ae2dcf99.pdf',
-      icon: MdSecurity,
-      iconColor: '#26a69a',
+      icon: SiCisco,
+      iconColor: '#049fd9',
       category: 'cybersecurity'
     },
     {
@@ -104,8 +106,8 @@ const Courses = memo(() => {
       date: t('courses.course8.date'),
       description: t('courses.course8.description'),
       pdfUrl: '/Cyber_Threat_Management_certificate_gomezmannajoaquina-gmail-com_b34201a5-dd14-41ed-873e-459d0247807e.pdf',
-      icon: MdSecurity,
-      iconColor: '#ef5350',
+      icon: SiCisco,
+      iconColor: '#049fd9',
       category: 'cybersecurity'
     },
     {
@@ -139,6 +141,31 @@ const Courses = memo(() => {
       pdfUrl: '/certificate-get-started-with-lumu-free-69555487c474f12a2a07b3b2.pdf',
       icon: MdSecurity,
       iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 12,
+      title: t('courses.course12.title'),
+      institution: t('courses.course12.institution'),
+      date: t('courses.course12.date'),
+      description: t('courses.course12.description'),
+      pdfUrl: '/certificate-introduction-to-the-lumu-portal-695fdd87312410b1e5044d6c.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 13,
+      title: t('courses.course13.title'),
+      institution: t('courses.course13.institution'),
+      date: t('courses.course13.date'),
+      description: t('courses.course13.description'),
+      pdfUrl: '/certificate-how-lumu-works-69554903a9258a263700a546.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
       category: 'cybersecurity'
     }
   ], [t]);
@@ -196,7 +223,17 @@ const Courses = memo(() => {
                       )}
                       <div className={styles.courseItemHeader}>
                         <div className={styles.courseItemIcon}>
-                          <IconComponent style={{ color: course.iconColor }} />
+                          {course.logoUrl ? (
+                            <img 
+                              src={course.logoUrl} 
+                              alt={course.institution}
+                              className={styles.courseLogo}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          ) : (
+                            <IconComponent style={{ color: course.iconColor }} />
+                          )}
                         </div>
                         <div className={styles.courseItemInfo}>
                           <h4 className={styles.courseItemTitle}>{course.title}</h4>

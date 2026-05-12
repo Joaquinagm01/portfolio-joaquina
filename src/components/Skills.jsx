@@ -8,7 +8,7 @@ import {
 import {
   SiMysql, SiPostgresql, SiMongodb, SiJavascript, SiTypescript,
   SiTailwindcss, SiNextdotjs, SiAngular, SiDotnet, SiPrisma, SiExpress,
-  SiAutocad, SiTerraform, SiPhp, SiBootstrap
+  SiAutocad, SiTerraform, SiPhp, SiBootstrap, SiCisco
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 import { BiServer } from 'react-icons/bi';
@@ -84,9 +84,10 @@ const Skills = memo(() => {
       skills: [
         { name: 'Kali Linux', icon: FaLinux, color: '#557c94' },
         { name: 'Nmap', icon: FaNetworkWired, color: '#4caf50' },
-        { name: 'Cortex', icon: FaShieldAlt, color: '#ff6b6b' },
-        { name: 'Lumu', icon: FaShieldAlt, color: '#ff6b6b', fullName: 'Threat Detection & Response' },
-        { name: 'Sophos', icon: FaShieldAlt, color: '#00b4d8', fullName: 'Endpoint Protection' },
+        { name: 'Cisco', icon: SiCisco, color: '#049fd9', fullName: 'Cisco Networking Academy' },
+        { name: 'Cortex', logoUrl: '/Cortex.ico', color: '#ff6b6b' },
+        { name: 'Lumu', logoUrl: '/Lumu.png', color: '#ff6b6b', fullName: 'Threat Detection & Response' },
+        { name: 'Sophos', logoUrl: '/Sophos.png', color: '#00b4d8', fullName: 'Endpoint Protection' },
         { name: 'VirtualBox', icon: MdComputer, color: '#183a61' },
         { name: 'VMs', icon: FaCloud, color: '#00adef', fullName: 'Máquinas Virtuales' }
       ]
@@ -216,10 +217,20 @@ const Skills = memo(() => {
                       }}
                       title={skill.fullName || skill.name}
                     >
-                      <SkillIcon 
-                        className={styles.skillIcon} 
-                        style={{ color: skill.color }}
-                      />
+                      {skill.logoUrl ? (
+                        <img
+                          src={skill.logoUrl}
+                          alt={skill.name}
+                          className={styles.skillLogo}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : (
+                        <SkillIcon 
+                          className={styles.skillIcon} 
+                          style={{ color: skill.color }}
+                        />
+                      )}
                       <span className={styles.skillName}>{skill.name}</span>
                     </div>
                   );

@@ -2219,6 +2219,44 @@ html {
   transform: translateY(-3px) scale(1.05);
 }
 
+.recommendationButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+  color: var(--accent-experience);
+  border: 1.5px solid var(--accent-experience);
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendationButton svg {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.recommendationButton:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.15));
+  color: #000;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+  transform: translateY(-2px);
+}
+
+.recommendationButton:hover svg {
+  transform: translateY(-3px);
+}
+
 /* ===== PROJECTS MEJORADO ===== */
 .projectCard {
   background: var(--card-bg);
