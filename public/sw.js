@@ -22,8 +22,8 @@ const CACHE_DURATION = {
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/CVJoaquinaGomezManna.pdf',
-  '/CVJoaquinaGomezManna.English.pdf',
+  '/CV-JoaquinaGomezManna.pdf',
+  '/CV-JoaquinaGomezManna-English.pdf',
   '/manifest.json',
   '/vite.svg',
   // Profile images
@@ -33,6 +33,13 @@ const STATIC_ASSETS = [
   '/profile-180.avif',
   '/profile-360.avif',
   '/profile-720.avif',
+  '/Junior_Cybersecurity_Analyst_Career_Path_certificate_gomezmannajoaquina-gmail-com_fa2c1438-72e7-4ca0-b0e1-5580229ec2a3.pdf',
+  '/Cybersecurity_Defense_Analyst_Career_Path_certificate_gomezmannajoaquina-gmail-com_dc4d6cf0-7f2e-4c28-a240-90decb8f830d.pdf',
+  '/certificate-lumu-roaming-deployment-69a75af2650c47953a0e7567.pdf',
+  '/certificate-lumu-email-intelligence-699ce46db85e6e5d8607ee30.pdf',
+  '/certificate-lumu-deployment-overview-69977c76df0737b3ba07852d.pdf',
+  '/certificate-the-lumu-secops-platform-695ee117ecd421b8bc09b780.pdf',
+  '/certificate-lumu-virtual-appliance-deployment-69b08b75c1eae82f1f00b716.pdf',
 ];
 
 /**

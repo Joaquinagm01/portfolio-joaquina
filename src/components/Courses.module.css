@@ -152,36 +152,6 @@
   transform: scaleX(1);
 }
 
-/* Badge de "Nuevo" */
-.newBadge {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
-  animation: pulse 2s ease-in-out infinite;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.5);
-  }
-}
-
 /* Encabezado del elemento de curso */
 .courseItemHeader {
   display: flex;
@@ -218,6 +188,13 @@
   padding: 4px;
   filter: brightness(1) saturate(1);
   transition: all 0.3s ease;
+}
+
+.ekopartyLogo {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 10px;
+  object-fit: contain;
 }
 
 .courseItem:hover .courseLogo {

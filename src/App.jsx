@@ -43,7 +43,7 @@ import { TbDatabase } from 'react-icons/tb'
 function App() {
   const { t, i18n } = useTranslation();
   const isEnglish = (i18n.resolvedLanguage || i18n.language || '').toLowerCase().startsWith('en');
-  const cvFileUrl = isEnglish ? '/CVJoaquinaGomezManna.English.pdf' : '/CVJoaquinaGomezManna.pdf';
+  const cvFileUrl = isEnglish ? '/CV-JoaquinaGomezManna-English.pdf' : '/CV-JoaquinaGomezManna.pdf';
   const cvFormatLabel = isEnglish ? 'PDF - English' : 'PDF - Español';
   
   // Theme management with simple toggle

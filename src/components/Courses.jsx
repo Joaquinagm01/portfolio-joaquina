@@ -9,16 +9,6 @@ const Courses = memo(() => {
   const { t } = useTranslation();
   const [expandedCategories, setExpandedCategories] = useState({ cybersecurity: false, ai: false, tools: false });
 
-  // Función para verificar si un curso es nuevo (menos de 3 meses)
-  const isNewCourse = useCallback((dateString) => {
-    const courseYear = parseInt(dateString);
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth() + 1;
-    
-    // Si el curso es del año actual y estamos dentro de los primeros 6 meses
-    return courseYear === currentYear && currentMonth <= 6;
-  }, []);
-
   const courses = useMemo(() => [
     {
       id: 1,
@@ -30,6 +20,66 @@ const Courses = memo(() => {
       icon: FaFileExcel,
       iconColor: '#217346',
       category: 'tools'
+    },
+    {
+      id: 14,
+      title: t('courses.course14.title'),
+      institution: t('courses.course14.institution'),
+      date: t('courses.course14.date'),
+      description: t('courses.course14.description'),
+      pdfUrl: '/certificate-lumu-roaming-deployment-69a75af2650c47953a0e7567.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 15,
+      title: t('courses.course15.title'),
+      institution: t('courses.course15.institution'),
+      date: t('courses.course15.date'),
+      description: t('courses.course15.description'),
+      pdfUrl: '/certificate-lumu-email-intelligence-699ce46db85e6e5d8607ee30.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 16,
+      title: t('courses.course16.title'),
+      institution: t('courses.course16.institution'),
+      date: t('courses.course16.date'),
+      description: t('courses.course16.description'),
+      pdfUrl: '/certificate-lumu-deployment-overview-69977c76df0737b3ba07852d.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 17,
+      title: t('courses.course17.title'),
+      institution: t('courses.course17.institution'),
+      date: t('courses.course17.date'),
+      description: t('courses.course17.description'),
+      pdfUrl: '/certificate-the-lumu-secops-platform-695ee117ecd421b8bc09b780.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
+    },
+    {
+      id: 18,
+      title: t('courses.course18.title'),
+      institution: t('courses.course18.institution'),
+      date: t('courses.course18.date'),
+      description: t('courses.course18.description'),
+      pdfUrl: '/certificate-lumu-virtual-appliance-deployment-69b08b75c1eae82f1f00b716.pdf',
+      icon: MdSecurity,
+      iconColor: '#ff6b6b',
+      logoUrl: '/Lumu.png',
+      category: 'cybersecurity'
     },
     {
       id: 2,
@@ -64,6 +114,7 @@ const Courses = memo(() => {
       icon: MdSecurity,
       iconColor: '#ef6c00',
       logoUrl: '/Ekoparty.png',
+      logoClassName: styles.ekopartyLogo,
       category: 'cybersecurity'
     },
     {
@@ -117,6 +168,17 @@ const Courses = memo(() => {
       date: t('courses.course9.date'),
       description: t('courses.course9.description'),
       pdfUrl: '/Junior_Cybersecurity_Analyst_Career_Path_certificate_gomezmannajoaquina-gmail-com_fa2c1438-72e7-4ca0-b0e1-5580229ec2a3.pdf',
+      icon: SiCisco,
+      iconColor: '#049fd9',
+      category: 'cybersecurity'
+    },
+    {
+      id: 19,
+      title: t('courses.course19.title'),
+      institution: t('courses.course19.institution'),
+      date: t('courses.course19.date'),
+      description: t('courses.course19.description'),
+      pdfUrl: '/Cybersecurity_Defense_Analyst_Career_Path_certificate_gomezmannajoaquina-gmail-com_dc4d6cf0-7f2e-4c28-a240-90decb8f830d.pdf',
       icon: SiCisco,
       iconColor: '#049fd9',
       category: 'cybersecurity'
@@ -214,20 +276,16 @@ const Courses = memo(() => {
               <div className={styles.coursesContainer}>
                 {coursesByCategory[category.id].map((course) => {
                   const IconComponent = course.icon;
-                  const isNew = isNewCourse(course.date);
                   
                   return (
                     <div key={course.id} className={styles.courseItem}>
-                      {isNew && (
-                        <span className={styles.newBadge}>{t('courses.new_badge')}</span>
-                      )}
                       <div className={styles.courseItemHeader}>
                         <div className={styles.courseItemIcon}>
                           {course.logoUrl ? (
                             <img 
                               src={course.logoUrl} 
                               alt={course.institution}
-                              className={styles.courseLogo}
+                              className={`${styles.courseLogo} ${course.logoClassName || ''}`}
                               loading="lazy"
                               decoding="async"
                             />
