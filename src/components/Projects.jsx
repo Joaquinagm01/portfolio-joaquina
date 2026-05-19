@@ -77,6 +77,17 @@ const Projects = memo(() => {
       demo: null,
       github: 'https://github.com/goncarrizo/TP-entornos-graficos.git',
       featured: true
+    },
+    {
+      id: 7,
+      title: t('projects.bunker.title'),
+      subtitle: t('projects.bunker.subtitle'),
+      description: t('projects.bunker.description'),
+      tech: ['Ubuntu Server', 'Docker Compose', 'WireGuard', 'DuckDNS', 'Nextcloud', 'UFW', 'Ollama', 'Open WebUI', 'Gemma 2 (2B)', 'Wazuh (SIEM/XDR)', 'FIM en tiempo real', 'Networking', 'DevOps & Security'],
+      categories: ['Cybersecurity', 'DevOps', 'AI'],
+      github: null,
+      demo: null,
+      featured: true
     }
   ], [t]);
 
