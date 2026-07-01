@@ -88,6 +88,8 @@ const Skills = memo(() => {
         { name: 'Cortex', logoUrl: '/Cortex.ico', color: '#ff6b6b' },
         { name: 'Lumu', logoUrl: '/Lumu.png', color: '#ff6b6b', fullName: 'Threat Detection & Response' },
         { name: 'Sophos', logoUrl: '/Sophos.png', color: '#00b4d8', fullName: 'Endpoint Protection' },
+        { name: 'Trend Micro Vision One', icon: FaChartLine, color: '#ff6b00', fullName: 'Cloud Workload Security & XDR' },
+        { name: 'TrendAI Worry', icon: MdSecurity, color: '#7c3aed', fullName: 'AI-driven Security Analytics (Worry)' },
         { name: 'VirtualBox', icon: MdComputer, color: '#183a61' },
         { name: 'VMs', icon: FaCloud, color: '#00adef', fullName: 'Máquinas Virtuales' }
       ]

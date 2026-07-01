@@ -43,7 +43,7 @@ import { TbDatabase } from 'react-icons/tb'
 function App() {
   const { t, i18n } = useTranslation();
   const isEnglish = (i18n.resolvedLanguage || i18n.language || '').toLowerCase().startsWith('en');
-  const cvFileUrl = isEnglish ? '/CV-JoaquinaGomezManna-English.pdf' : '/CV-JoaquinaGomezManna.pdf';
+  const cvFileUrl = isEnglish ? '/CV.JoaquinaGomezManna-English.pdf' : '/CV.JoaquinaGomezManna.pdf';
   const cvFormatLabel = isEnglish ? 'PDF - English' : 'PDF - Español';
   
   // Theme management with simple toggle
@@ -169,7 +169,7 @@ function App() {
             </Suspense>
             <div className={styles.heroButtons}>
               <a href="#contacto" className={styles.btnPrimary}>{t('hero.cta')}</a>
-              <a href={cvFileUrl} target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+              <a href={cvFileUrl} download className={styles.btnSecondary}>
                 {t('navbar.download_cv')}
               </a>
             </div>
